@@ -3,7 +3,7 @@ layout: scientist
 name: ابن باصو الغرناطي
 dates: القرن 13 الميلادي (القرن 7 الهجري)
 location: غرناطة، الأندلس
-image: https://media.craiyon.com/2025-09-15/o6WJP8TYRACEBCvTeIWhCQ.webp
+image: /dist/images/scientists/ibn-baso.webp
 category: engineering
 tags:
   - الهندسة المائية
