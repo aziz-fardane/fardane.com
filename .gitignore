@@ -13,3 +13,6 @@
 
 # Ignore Node.js dependencies
 /node_modules/
+
+# Hidden/unpublished articles must never be committed or published
+/_hidden/

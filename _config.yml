@@ -78,6 +78,7 @@ exclude:
     - assets
     - _data/manifest.json
     - node_modules
+    - _hidden
     - CNAME
     - "Gemfile*"
     - ".idea"
