@@ -92,6 +92,37 @@ permalink: /publications/
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="publications-grid">
 
+            <div class="publication-card flex flex-col bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-lg hover:-translate-y-1 border border-stone-100" data-category="article">
+                <div class="relative h-64">
+                    <img src="{{ site.data.manifest['dist/images/publications/kan-journal-cover.jpg'] | default: '/dist/images/publications/kan-journal-cover.jpg' }}" alt="غلاف دورية كان التاريخية" class="w-full h-full object-cover">
+                    <div class="absolute top-3 right-3 bg-teal-600/90 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm">مقال</div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-xl font-bold text-amber-800 mb-3">اسهام الطوبونيميا في التعريف بأعلام المقاومة المغربية: المقاوم عمرو وسعدون واستهداف القبطان بورنازيل ما بين 1932 – 1933م</h3>
+                    <p class="text-stone-600 text-sm mb-2">عزيز فردان، أمجهادي عبد الله، نور الدين أيت وشن</p>
+                    <p class="text-stone-600 text-sm mb-4 flex-grow">دراسة توظّف الطوبونيميا لتوثيق هوية أعلام المقاومة المغربية مطلع ثلاثينيات القرن العشرين، من خلال تتبّع أسماء المواقع المرتبطة بالمقاوم عمرو وسعدون وحادثة استهداف القبطان بورنازيل (1932–1933م).</p>
+                    <div class="mt-auto pt-4 border-t border-stone-200">
+                        <div class="flex justify-between items-center text-sm text-stone-500 mb-2">
+                            <span><i class="far fa-calendar-alt ml-2 text-amber-600"></i>يونيو 2026</span>
+                            <span><i class="fas fa-book-open ml-2 text-amber-600"></i>دورية كان التاريخية</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-stone-500 mb-4">
+                            <span><i class="fas fa-layer-group ml-2 text-amber-600"></i>المجلد 19، العدد 80</span>
+                            <span><i class="fas fa-file-alt ml-2 text-amber-600"></i>ص 140–155</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="https://kan.journals.ekb.eg/article_530391.html" target="_blank" rel="noopener" class="inline-flex items-center text-amber-700 hover:text-amber-600 font-medium group">
+                                <span class="ml-2">رابط المقال</span>
+                                <i class="fas fa-arrow-left text-xs group-hover:-translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="https://doi.org/10.21608/kan.2026.480441.1369" target="_blank" rel="noopener" class="inline-flex items-center text-amber-700 hover:text-amber-600 text-sm">
+                                <i class="fas fa-fingerprint ml-1"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="publication-card flex flex-col bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-lg hover:-translate-y-1 border border-stone-100" data-category="book">
                 <div class="relative h-64">
                     <img src="{{ site.data.manifest['dist/images/publications/book-cover-1.jpg'] | default: '/dist/images/publications/book-cover-1.jpg' }}" alt="غلاف كتاب الماء والتعمير" class="w-full h-full object-cover">

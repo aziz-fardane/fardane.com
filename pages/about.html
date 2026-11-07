@@ -556,11 +556,8 @@ permalink: /about
                     <div class="group bg-stone-50 rounded-xl p-6 hover:shadow-md transition-all duration-300 border border-stone-200 hover:border-amber-200">
                         <div class="flex flex-col md:flex-row gap-4">
                             <div class="md:w-1/4">
-                                <div class="bg-gradient-to-b from-amber-700 via-amber-800 to-stone-900 rounded-lg shadow-sm h-full aspect-[3/4] flex flex-col items-center justify-center p-4 text-center group-hover:shadow-md transition-all duration-300">
-                                    <i class="fas fa-scroll text-amber-200 text-2xl mb-3"></i>
-                                    <span class="text-amber-50 font-bold text-sm leading-relaxed">دورية كان التاريخية</span>
-                                    <span class="text-amber-200/70 text-[11px] mt-1 leading-relaxed">المستقبل الرقمي للدراسات التاريخية</span>
-                                    <span class="mt-3 inline-block bg-white/10 text-amber-100 text-xs px-2 py-1 rounded">العدد 80 — 2026</span>
+                                <div class="bg-white rounded-lg overflow-hidden shadow-sm h-full aspect-[3/4] group-hover:shadow-md transition-all duration-300">
+                                    <img src="{{ site.data.manifest['dist/images/publications/kan-journal-cover.jpg'] | default: '/dist/images/publications/kan-journal-cover.jpg' }}" alt="غلاف دورية كان التاريخية" class="w-full h-full object-cover">
                                 </div>
                             </div>
                             <div class="md:w-3/4">
