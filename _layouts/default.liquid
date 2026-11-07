@@ -29,7 +29,11 @@
         <!-- Arabic fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        {% if page.layout == "post-feature" %}
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+        {% else %}
         <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+        {% endif %}
 
         <!-- Font Awesome icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -41,7 +45,7 @@
         {% if site.facebook_app_id %}
         <meta property="fb:app_id" content="{{ site.facebook_app_id }}">
         {% endif %}
-        <meta property="og:type" content="{% if page.layout == 'post' or page.layout == 'news' or page.layout == 'news-article' or page.layout == 'scientist' %}article{% else %}website{% endif %}">
+        <meta property="og:type" content="{% if page.layout == 'post' or page.layout == 'post-feature' or page.layout == 'news' or page.layout == 'news-article' or page.layout == 'scientist' %}article{% else %}website{% endif %}">
         <meta property="og:url" content="{{ page.url | absolute_url }}">
         <meta property="og:title" content="{{ page.title | default: site.title }}">
         <meta property="og:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
@@ -218,7 +222,7 @@
           <meta http-equiv="Expires" content="0" />
         {% else %}
           <!-- Different cache times for different content types -->
-          {% if page.layout == "post" or page.layout == "page" %}
+          {% if page.layout == "post" or page.layout == "post-feature" or page.layout == "page" %}
             <!-- Content pages get shorter cache times -->
             <meta http-equiv="Cache-Control" content="public, max-age=1800" /> <!-- 30 minutes -->
           {% elsif page.url == "/index.html" or page.url == "/" %}

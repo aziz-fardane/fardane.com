@@ -1,0 +1,208 @@
+---
+layout: default
+---
+{% assign pf_words = content | strip_html | number_of_words %}
+{% assign pf_minutes = pf_words | plus: 179 | divided_by: 180 | at_least: 1 %}
+{% assign pf_thumb_key = page.thumbnail | remove_first: '/' %}
+{% assign pf_cover = site.data.manifest[pf_thumb_key] | default: page.thumbnail | default: '/dist/images/articles/default.jpg' %}
+{% assign pf_author_img = site.data.manifest['dist/images/author.png'] | default: '/dist/images/author.png' %}
+{% assign pf_category = page.categories | first | default: page.category %}
+{% assign pf_category_label = pf_category | replace: '-', ' ' %}
+{% assign pf_share_url = page.url | absolute_url | url_encode %}
+{% assign pf_share_title = page.title | url_encode %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "الرئيسية",
+      "item": "{{ site.url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "أبحاث ومقالات",
+      "item": "{{ site.url }}/articles/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ page.title | escape }}",
+      "item": "{{ page.url | absolute_url }}"
+    }
+  ]
+}
+</script>
+
+<div class="ed-root design-a">
+
+    <header class="ed-hero">
+        <div class="ed-container ed-hero-inner">
+            <nav class="ed-crumbs" aria-label="مسار التصفح">
+                <a href="{{ '/' | relative_url }}">الرئيسية</a>
+                <span class="sep" aria-hidden="true">/</span>
+                <a href="{{ '/articles/' | relative_url }}">أبحاث ومقالات</a>
+                {% if pf_category %}
+                <span class="sep" aria-hidden="true">/</span>
+                <a href="/articles/category/{{ pf_category | slugify }}/">{{ pf_category_label }}</a>
+                {% endif %}
+            </nav>
+
+            <p class="ed-kicker">دراسة أكاديمية</p>
+            <h1 class="ed-title">{{ page.title }}</h1>
+            <p class="ed-lede">{{ page.description }}</p>
+
+            <div class="ed-meta">
+                <span class="ed-meta-item">
+                    <i class="far fa-calendar" aria-hidden="true"></i>
+                    {% include arabic-date.html date=page.date %}
+                </span>
+                <span class="ed-meta-item">
+                    <i class="far fa-clock" aria-hidden="true"></i>
+                    {{ pf_minutes }} دقيقة قراءة
+                </span>
+                {% if pf_category %}
+                <span class="ed-meta-item">
+                    <i class="far fa-folder" aria-hidden="true"></i>
+                    {{ pf_category_label }}
+                </span>
+                {% endif %}
+                <span class="ed-meta-item">
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                    د. عزيز فردان
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <div class="ed-cover">
+        <div class="ed-container">
+            <img class="ed-cover-img" src="{{ pf_cover }}" alt="{{ page.title | escape }}" loading="eager" fetchpriority="high">
+        </div>
+    </div>
+
+    <div class="ed-main">
+        <div class="ed-container">
+            <div class="ed-layout">
+                <div class="ed-main-col">
+
+                    {% if page.toc %}
+                    <nav class="ed-toc-inline" aria-label="محتويات المقال">
+                        <p class="ed-toc-title">
+                            <i class="fas fa-list-ul" aria-hidden="true"></i>
+                            محتويات المقال
+                        </p>
+                        <ol class="ed-toc-list">
+                            {% for item in page.toc %}
+                            <li class="toc-{{ item.level }}"><a href="#{{ item.id }}">{{ item.title }}</a></li>
+                            {% endfor %}
+                        </ol>
+                    </nav>
+                    {% endif %}
+
+                    <article class="ed-body">
+                        {{ content }}
+                    </article>
+
+                    <div class="ed-after">
+                        <div class="ed-share">
+                            <span class="ed-share-label">
+                                <i class="fas fa-share-alt" aria-hidden="true"></i>
+                                شارك المقال
+                            </span>
+                            <a href="https://twitter.com/intent/tweet?url={{ pf_share_url }}&amp;text={{ pf_share_title }}" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر إكس"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ pf_share_url }}" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر فيسبوك"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ pf_share_url }}" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر لينكدإن"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                            <a href="https://wa.me/?text={{ pf_share_title }}%20{{ pf_share_url }}" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر واتساب"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                            <a href="mailto:?subject={{ pf_share_title }}&amp;body={{ pf_share_url }}" aria-label="مشاركة عبر البريد"><i class="far fa-envelope" aria-hidden="true"></i></a>
+                        </div>
+
+                        {% if page.tags.size > 0 %}
+                        <ul class="ed-tags">
+                            {% for tag in page.tags %}
+                            <li><a href="/articles/tag/{{ tag | slugify }}/">{{ tag | replace: '-', ' ' }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                        <div class="ed-author">
+                            <img src="{{ pf_author_img }}" alt="د. عزيز فردان" loading="lazy">
+                            <div>
+                                <div class="ed-author-name">د. عزيز فردان</div>
+                                <div class="ed-author-role">حاصل على شهادة الدكتوراه تخصص التاريخ الوسيط</div>
+                                <a class="ed-author-link" href="{{ '/about' | relative_url }}">
+                                    عن المؤلف
+                                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        {% if page.comments %}
+                        <section class="ed-comments" dir="rtl">
+                            <h2 class="ed-comments-title">
+                                <i class="fas fa-comments" aria-hidden="true"></i>
+                                التعليقات
+                            </h2>
+
+                            <div class="fb-comments"
+                                 data-href="{{ site.url }}{{ page.url }}"
+                                 data-width="100%"
+                                 data-numposts="10"
+                                 data-order-by="reverse_time">
+                            </div>
+
+                            <div id="disqus_thread"></div>
+                            <script>
+                            var disqus_config = function () {
+                                this.page.url = '{{ site.url }}{{ page.url }}';
+                                this.page.identifier = '{{ page.url }}';
+                            };
+                            (function() {
+                                var d = document, s = d.createElement('script');
+                                s.src = 'https://fardane.disqus.com/embed.js';
+                                s.setAttribute('data-timestamp', +new Date());
+                                (d.head || d.body).appendChild(s);
+                            })();
+                            </script>
+                            <noscript>الرجاء تفعيل JavaScript لعرض التعليقات.</noscript>
+                        </section>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "{{ page.title | escape }}",
+      "description": "{{ page.description | default: site.description | strip_html | truncate: 200 | escape }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "د. عزيز فردان",
+        "url": "{{ site.url }}/about",
+        "sameAs": [
+          "{{ site.social.links[0] }}"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}"
+      },
+      "image": "{{ pf_cover | absolute_url }}",
+      "url": "{{ page.url | absolute_url }}",
+      "inLanguage": "ar",
+      "genre": "{{ pf_category_label }}",
+      "keywords": "{{ page.tags | join: ', ' | replace: '-', ' ' }}"
+    }
+    </script>
+
+</div>
