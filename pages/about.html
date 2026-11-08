@@ -6,959 +6,829 @@ keywords: "دكتور عزيز فردان, سيرة ذاتية, تاريخ ال�
 permalink: /about
 ---
 
-<!-- Modern Academic Header - Common Component for All Pages -->
-<header class="relative dir-rtl overflow-hidden">
-    <!-- Clean, dramatic background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-amber-950 via-amber-900 to-stone-950">
-        <!-- Subtle light beams effect -->
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-1/4 w-1/3 h-full bg-amber-400 blur-[100px] rotate-12 transform -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-1/4 w-1/3 h-full bg-amber-600 blur-[100px] -rotate-12 transform translate-y-1/2"></div>
-        </div>
-    </div>
+<style>
+    .cv-page{
+        --paper:#f6f2e8;
+        --paper-2:#fbf8f1;
+        --ink:#152720;
+        --forest:#1d3b31;
+        --forest-2:#12281f;
+        --brass:#a67a2e;
+        --brass-2:#c9a35f;
+        --brass-soft:#e9dcc2;
+        --line:#e2d8c4;
+        --body:#38352e;
+        background:var(--paper);
+        color:var(--body);
+        font-family:"Noto Naskh Arabic",Georgia,serif;
+    }
+    .cv-page h1,.cv-page h2,.cv-page h3,.cv-page h4,.cv-kufi{font-family:"Noto Kufi Arabic",system-ui,sans-serif;}
+    .cv-kicker{font-family:"Noto Kufi Arabic",sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--brass);}
+    .cv-hero{
+        background:
+            radial-gradient(1200px 500px at 85% -10%, rgba(166,122,46,.13), transparent 60%),
+            radial-gradient(900px 420px at 10% 110%, rgba(29,59,49,.10), transparent 60%),
+            var(--paper-2);
+        border-bottom:1px solid var(--line);
+    }
+    .cv-btn{display:inline-flex;align-items:center;gap:.55rem;background:var(--forest);color:#fbf7ee;padding:.8rem 1.5rem;border-radius:3px;font-family:"Noto Kufi Arabic",sans-serif;font-size:.85rem;font-weight:600;transition:.25s;}
+    .cv-btn:hover{background:var(--forest-2);color:#fff;}
+    .cv-btn-ghost{display:inline-flex;align-items:center;gap:.55rem;border:1px solid var(--brass);color:var(--brass);padding:.8rem 1.5rem;border-radius:3px;font-family:"Noto Kufi Arabic",sans-serif;font-size:.85rem;font-weight:600;transition:.25s;}
+    .cv-btn-ghost:hover{background:rgba(166,122,46,.08);color:var(--forest);}
+    .cv-lead{font-size:21px;line-height:2.05;color:var(--forest);}
+    .cv-mark{background:linear-gradient(transparent 60%, #eedcb6 60%);padding:0 .1em;}
+    .cv-quote{background:linear-gradient(135deg,var(--forest) 0%,var(--forest-2) 100%);color:#f2ecdd;}
+    .cv-quote-mark{color:var(--brass-2);opacity:.55;}
+    .cv-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:4rem;}
+    .cv-fact{border-top:1px solid var(--line);padding:1.5rem 0;}
+    .cv-fact + .cv-fact{border-right:1px solid var(--line);padding-right:2rem;}
+    .cv-fact:not(:last-child){padding-left:2rem;}
+    .cv-year{font-family:"Noto Kufi Arabic",sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--brass);}
+    .cv-card{background:#fff;border:1px solid var(--line);border-radius:2px;transition:.25s;}
+    .cv-card:hover{border-color:var(--brass-2);box-shadow:0 10px 30px -18px rgba(21,39,32,.35);}
+    .cv-chip{display:inline-block;background:#f3ecdd;color:#6b5326;border:1px solid var(--brass-soft);border-radius:9999px;padding:.375rem .75rem;font-size:.75rem;}
+    .cv-sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:2.5rem;}
+    .cv-timeline{position:relative;padding-right:2.5rem;}
+    .cv-timeline::before{content:"";position:absolute;top:.5rem;bottom:.5rem;right:.45rem;width:1px;background:var(--line);}
+    .cv-dot{position:absolute;right:-2.1rem;top:2.25rem;width:15px;height:15px;border-radius:9999px;background:var(--brass);border:3px solid var(--paper-2);box-shadow:0 0 0 1px var(--brass-soft);}
+    .cv-table{width:100%;min-width:800px;border-collapse:collapse;}
+    .cv-table thead th{background:#f3ecdd;color:#5c4a28;font-family:"Noto Kufi Arabic",sans-serif;font-size:.78rem;text-align:right;padding:1rem;font-weight:700;}
+    .cv-table td{padding:1rem;border-bottom:1px solid var(--line);vertical-align:top;font-size:.95rem;}
+    .cv-table tbody tr:hover{background:#fbf8f1;}
+    .cv-module{background:#fff;border:1px solid var(--line);padding:1.5rem;display:flex;flex-direction:column;transition:.25s;}
+    .cv-module:hover{border-color:var(--brass-2);box-shadow:0 10px 30px -18px rgba(21,39,32,.3);}
+    .cv-tag{display:inline-block;background:#f3ecdd;color:#6b5326;border:1px solid var(--brass-soft);border-radius:9999px;padding:.2rem .7rem;font-size:.72rem;}
+    .cv-cta{background:linear-gradient(135deg,var(--forest) 0%,var(--forest-2) 100%);color:#f7f1e3;}
+    .cv-link{color:var(--brass);transition:.2s;}
+    .cv-link:hover{color:var(--forest);}
+    /* ---- أغلفة المنشورات: الكتاب المعروض على ورق ---- */
+    .cv-pub{transition:background .3s ease;}
+    .cv-pub:hover{background:linear-gradient(to left,rgba(166,122,46,.06),transparent 72%);}
+    .cv-cover{
+        position:relative;width:128px;flex:0 0 128px;aspect-ratio:3/4;
+        display:flex;align-items:center;justify-content:center;padding:11px;
+        background:radial-gradient(120% 90% at 74% 2%,#fdfaf2 0%,#eee2c9 55%,#e2d3b6 100%);
+        border:1px solid var(--line);border-radius:2px;
+        box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),inset 0 -14px 20px -18px rgba(90,70,35,.4);
+        transition:border-color .3s ease;
+    }
+    .cv-cover img{
+        width:100%;height:100%;object-fit:contain;display:block;border-radius:1px;
+        filter:drop-shadow(0 0 .6px rgba(21,39,32,.5)) drop-shadow(-2px 4px 5px rgba(21,39,32,.30));
+        transition:transform .45s cubic-bezier(.2,.7,.3,1),filter .45s ease;
+    }
+    .cv-pub:hover .cv-cover{border-color:var(--brass-soft);}
+    .cv-pub:hover .cv-cover img{transform:translateY(-1px) scale(1.045);filter:drop-shadow(0 0 .6px rgba(21,39,32,.5)) drop-shadow(-3px 8px 12px rgba(21,39,32,.38));}
+    @media (max-width:767px){
+        .cv-cover{width:108px;flex-basis:108px;padding:8px;}
+    }
+    @media (max-width:1023px){
+        .cv-facts{grid-template-columns:repeat(2,minmax(0,1fr));}
+        .cv-fact:nth-child(2){border-right:none;padding-right:0;}
+        .cv-fact:nth-child(3){padding-right:0;}
+        .cv-timeline{padding-right:0;}
+        .cv-timeline::before,.cv-dot{display:none;}
+    }
+    @media (max-width:639px){
+        .cv-facts{grid-template-columns:1fr;}
+        .cv-fact + .cv-fact{border-right:none;padding-right:0;padding-left:0;}
+        .cv-fact{padding:1.25rem 0;}
+        .cv-lead{font-size:19px;}
+    }
+</style>
 
-    <!-- Content Container -->
-    <div class="relative z-10">
-        <!-- Page Title Section - Adaptable for Different Pages -->
-        <div class="container mx-auto px-6 py-16 md:py-20">
-            <div class="max-w-3xl mx-auto text-center" data-controller="reveal-animation" data-reveal-animation-classes="opacity-0 translate-y-8" data-reveal-animation-visible-class="opacity-100 translate-y-0" data-reveal-animation-threshold="0.1">
-                <!-- Academic credential badge -->
-                <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-amber-500/30 bg-gradient-to-r from-amber-800/40 to-amber-900/40 backdrop-blur-sm">
-                    <span class="text-amber-200 text-sm font-medium tracking-wide">باحث في التاريخ والحضارة الإسلامية</span>
-                </div>
-                
-                <!-- Page Title - Customizable per page -->
-                <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-maghrebi leading-tight">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-amber-100">المسار الأكاديمي</span>
+<div class="cv-page">
+
+    <!-- ================= HERO ================= -->
+    <header class="cv-hero">
+        <div class="max-w-6xl mx-auto px-6 py-16 lg:py-24">
+            <div class="max-w-4xl">
+
+                <p class="cv-kicker mb-6">السيرة الذاتية · جامعة القاضي عياض · مراكش</p>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.25] mb-6" style="color:var(--ink)">
+                    <span class="block" style="color:var(--brass)">المسار الأكاديمي</span>
                     <span class="block mt-2">للباحث عزيز فردان</span>
                 </h1>
-                
-                <!-- Page Description - Customizable per page -->
-                <p class="text-amber-100/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-                 متخصص في تاريخ النظم المائية والتفاعل بين الإنسان والبيئة في الحضارة الإسلامية، مع اهتمام بالتراث المعماري والثقافي المغربي.
+
+                <div class="h-px w-24 mb-8" style="background:var(--brass);opacity:.55"></div>
+
+                <p class="cv-kufi text-lg md:text-xl font-medium mb-6" style="color:var(--brass)">
+                    باحث في التاريخ والحضارة الإسلامية
                 </p>
-                
-                <!-- Action Buttons - Customizable per page -->
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#qualifications" class="group lg:px-6 py-3 bg-amber-700 text-white rounded-lg transition-all hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-amber-900">
-                        <span class="flex items-center">
-                            <span class="inline-block transform group-hover:scale-110 transition-transform duration-300 ml-2">
-                                <i class="fas fa-graduation-cap"></i>
-                            </span>
-                            المؤهلات العلمية
-                        </span>
+
+                <p class="text-lg md:text-xl leading-relaxed max-w-2xl mb-8" style="color:#4a463d">
+                    متخصص في تاريخ النظم المائية والتفاعل بين الإنسان والبيئة في الحضارة الإسلامية،
+                    مع اهتمام بالتراث المعماري والثقافي المغربي.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-x-7 gap-y-3 text-sm mb-9" style="color:#6b6558">
+                    <span class="flex items-center gap-2"><i class="fas fa-graduation-cap" style="color:var(--brass)"></i> دكتوراه 2025</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-location-dot" style="color:var(--brass)"></i> مراكش، المغرب</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-language" style="color:var(--brass)"></i> العربية · الأمازيغية · الفرنسية · الإنجليزية</span>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                    <a href="#qualifications" class="cv-btn">
+                        <i class="fas fa-graduation-cap"></i>
+                        المؤهلات العلمية
                     </a>
-                    <a href="#publications" class="group px-6 py-3 border border-amber-600 text-amber-200 rounded-lg hover:border-amber-500 hover:bg-amber-900/30 transition-all focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-amber-900">
-                        <span class="flex items-center">
-                            <span class="inline-block transform group-hover:translate-x-1 transition-transform duration-300 ml-2">
-                                <i class="fas fa-book-open"></i>
-                            </span>
-                            المنشورات العلمية
-                        </span>
+                    <a href="#publications" class="cv-btn-ghost">
+                        <i class="fas fa-book-open"></i>
+                        المنشورات العلمية
                     </a>
                 </div>
+
             </div>
         </div>
-    </div>
-    
-    <!-- Improved Header-to-Content Transition -->
-    <div class="relative">
-        <!-- Elegant diagonal cut with subtle shadow -->
-        <div class="absolute -bottom-10 left-0 right-0 h-20 bg-white transform -skew-y-1.5 shadow-sm"></div>
-    </div>
-</header>
+    </header>
 
-<section class="py-20 relative z-10 bg-white dir-rtl" id="profile">
-    <div class="container mx-auto lg:px-8 -mt-16 md:-mt-20 lg:-mt-24">
-        <div class="bg-white rounded-2xl p-8 md:p-10 shadow-xl" data-controller="reveal-animation" data-reveal-animation-classes="opacity-0" data-reveal-animation-visible-class="opacity-100" data-reveal-animation-threshold="0.1">
-            <div class="flex flex-col md:flex-row gap-10 items-start">
-                <div class="md:w-1/3 text-center">
-                    <div class="relative mx-auto mb-6">
-                        <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-amber-100 shadow-lg mx-auto">
-                            <img src="{{ site.data.manifest['dist/images/profile.png'] | default: '/dist/images/profile.png' }}" alt="الدكتور عزيز فردان" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white px-4 py-1 rounded-full text-sm shadow-md">
-                            <i class="fas fa-check-circle ml-1"></i>
-                            باحث أكاديمي
-                        </div>
-                    </div>
-                    
-                    <h2 class="text-2xl font-bold text-amber-900 mb-2 font-maghrebi">د. عزيز فردان</h2>
-                    <p class="text-stone-600 mb-6">باحث في التاريخ والحضارة الإسلامية</p>
-                    
-                    <div class="flex justify-center gap-4 mb-8">
-                        <a href="#" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center text-amber-700 hover:bg-amber-100 transition-colors">
+    <!-- ================= BIO ================= -->
+    <section id="profile" style="background:var(--paper-2);border-bottom:1px solid var(--line)">
+        <div class="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+            <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-12 lg:gap-20">
+
+                <aside class="lg:pt-2">
+                    <p class="cv-kicker mb-4">نبذة</p>
+                    <h2 class="text-3xl md:text-4xl font-bold leading-snug mb-6" style="color:var(--ink)">
+                        عن المسار<br>الأكاديمي
+                    </h2>
+                    <p class="leading-relaxed text-[15px] mb-7" style="color:#6b6558">
+                        دكتوراه في التاريخ الوسيط (2025)، وأعمال منشورة في تاريخ الماء والواحات والمخطوطات العربية.
+                    </p>
+
+                    <div class="flex gap-3 mb-8">
+                        <a href="https://www.linkedin.com/in/aziz-fardane-gis1948/" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background:#f3ecdd;color:var(--brass)">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center text-amber-700 hover:bg-amber-100 transition-colors">
-                            <i class="fab fa-researchgate"></i>
+                        <a href="https://orcid.org/0009-0007-1033-7415" target="_blank" rel="noopener" aria-label="ORCID" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fab fa-orcid"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center text-amber-700 hover:bg-amber-100 transition-colors">
-                            <i class="fab fa-academia"></i>
+                        <a href="https://independent.academia.edu/azizfardane" target="_blank" rel="noopener" aria-label="Academia.edu" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-graduation-cap"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-stone-100 rounded-full flex items-center justify-center text-amber-700 hover:bg-amber-100 transition-colors">
+                        <a href="{{ '/contact' | relative_url }}" aria-label="البريد الإلكتروني" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background:#f3ecdd;color:var(--brass)">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
-                    
-                    <div class="bg-amber-50 rounded-xl p-5 border border-amber-100">
-                        <h3 class="text-lg font-bold text-amber-800 mb-4">مجالات التخصص</h3>
-                        <div class="flex flex-wrap gap-2 justify-center">
-                            <span class="bg-white px-3 py-1.5 rounded-full text-sm text-amber-800 border border-amber-200">تاريخ النظم المائية</span>
-                            <span class="bg-white px-3 py-1.5 rounded-full text-sm text-amber-800 border border-amber-200">العمران الإسلامي</span>
-                            <span class="bg-white px-3 py-1.5 rounded-full text-sm text-amber-800 border border-amber-200">الواحات المغربية</span>
-                            <span class="bg-white px-3 py-1.5 rounded-full text-sm text-amber-800 border border-amber-200">التراث الثقافي</span>
-                            <span class="bg-white px-3 py-1.5 rounded-full text-sm text-amber-800 border border-amber-200">المخطوطات</span>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="cv-chip">تاريخ النظم المائية</span>
+                        <span class="cv-chip">العمران الإسلامي</span>
+                        <span class="cv-chip">الواحات المغربية</span>
+                        <span class="cv-chip">التراث الثقافي</span>
+                        <span class="cv-chip">المخطوطات</span>
+                    </div>
+                </aside>
+
+                <div>
+                    <p class="cv-lead mb-6">
+                        بصفتي باحث في التاريخ الوسيط من جامعة القاضي عياض بمراكش، أمتلك رؤية أكاديمية متكاملة
+                        ومنهجية بحثية رصينة في مجال <span class="cv-mark font-semibold">تاريخ النظم المائية</span>
+                        وتأثيرها على النسيج العمراني والاجتماعي بالمغرب الوسيط.
+                    </p>
+
+                    <p class="text-[17px] leading-loose mb-10" style="color:#4a463d">
+                        يتركز اهتمامي البحثي حول دراسة العلاقة بين الإنسان والموارد المائية، وكيف شكلت هذه العلاقة
+                        العمران والمجتمع في سياق الثقافة الإسلامية بمنطقة الواحات والجنوب الشرقي المغربي.
+                    </p>
+
+                    <figure class="cv-quote relative rounded-sm p-8 md:p-10 overflow-hidden">
+                        <div class="cv-quote-mark absolute -top-3 left-4 text-6xl">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <blockquote class="relative z-10">
+                            <p class="text-lg md:text-xl leading-loose mb-6" style="color:#f2ecdd">
+                                <span class="font-semibold" style="color:#e2c68d">من المحتمل أن المغاربة القدماء</span>
+                                قد استعملوا عدة تقنيات حسية ومادية للوصول إلى مواطن المياه الجوفية،
+                                خصوصا إذا ما علمنا بأن حانون وسترابون وغيرهم أشاروا إلى جفاف مناطق سكنى الجيتوليين.
+                            </p>
+                            <figcaption class="flex flex-wrap items-center gap-x-2 gap-y-1 pt-4 border-t text-xs" style="border-color:rgba(233,220,194,.22);color:#cdbfa4">
+                                <span style="color:var(--brass-2)">&mdash;</span>
+                                <span class="font-semibold" style="color:#f2ecdd">الدكتور توفيق محمد لقبايبي</span>
+                                <span style="color:#8d7f68">•</span>
+                                <span>حرف الماء في تاريخ المغرب</span>
+                                <span style="color:#8d7f68">•</span>
+                                <span>مؤسسة آفاق، 2020</span>
+                                <span class="px-1.5 py-0.5 rounded-sm" style="background:rgba(201,163,95,.16);color:#e2c68d">ص 54</span>
+                            </figcaption>
+                        </blockquote>
+                    </figure>
+                </div>
+
+            </div>
+
+            <!-- Facts strip -->
+            <div class="cv-facts">
+                <div class="cv-fact">
+                    <p class="cv-year mb-2">الانتماء الأكاديمي</p>
+                    <p class="cv-kufi text-sm font-semibold mb-1" style="color:var(--ink)">جامعة القاضي عياض</p>
+                    <p class="text-xs" style="color:#7b7364">كلية الآداب والعلوم الإنسانية — مراكش</p>
+                    <a href="{{ '/uca/' | relative_url }}" class="cv-link text-xs inline-flex items-center gap-1 mt-2">
+                        <i class="fas fa-university"></i>
+                        تاريخ الجامعة
+                    </a>
+                </div>
+                <div class="cv-fact">
+                    <p class="cv-year mb-2">أعلى شهادة</p>
+                    <p class="cv-kufi text-sm font-semibold mb-1" style="color:var(--ink)">دكتوراه في التاريخ الوسيط</p>
+                    <p class="text-xs" style="color:#7b7364">2020 — 2025</p>
+                </div>
+                <div class="cv-fact">
+                    <p class="cv-year mb-2">اللغات</p>
+                    <p class="cv-kufi text-sm font-semibold mb-1" style="color:var(--ink)">العربية · الأمازيغية</p>
+                    <p class="text-xs" style="color:#7b7364">الفرنسية · الإنجليزية</p>
+                </div>
+                <div class="cv-fact">
+                    <p class="cv-year mb-2">العضوية المهنية</p>
+                    <p class="cv-kufi text-sm font-semibold mb-1" style="color:var(--ink)">الاتحاد الدولي للغة العربية</p>
+                    <p class="text-xs" style="color:#7b7364">رقم العضوية 28-26/01107</p>
+                    <a href="{{ '/dist/pdf/membership-certificate-01107.pdf' | relative_url }}" target="_blank" class="cv-link text-xs inline-flex items-center gap-1 mt-2">
+                        <i class="fas fa-file-pdf"></i>
+                        عرض الشهادة
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= QUALIFICATIONS ================= -->
+    <section id="qualifications" style="background:var(--paper)">
+        <div class="max-w-6xl mx-auto px-6 pb-16 lg:pb-20">
+            <div class="cv-sec-head">
+                <div>
+                    <p class="cv-kicker mb-2">01 — المسار</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" style="color:var(--ink)">المؤهلات الأكاديمية</h2>
+                </div>
+                <p class="hidden md:block text-sm" style="color:#7b7364">جامعة القاضي عياض · مراكش</p>
+            </div>
+
+            <div class="cv-timeline space-y-6">
+                <article class="cv-card relative p-6 md:p-8">
+                    <span class="cv-dot"></span>
+                    <div class="grid md:grid-cols-[150px_1fr] gap-6">
+                        <div>
+                            <p class="cv-year mb-3">2020 — 2025</p>
+                            <img src="{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}" alt="شعار جامعة القاضي عياض" class="h-14 w-auto opacity-90">
+                        </div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-2" style="color:var(--ink)">دكتوراه في التاريخ الوسيط</h3>
+                            <p class="text-sm mb-3" style="color:#6b6558">جامعة القاضي عياض، كلية الآداب والعلوم الإنسانية "مراكش"</p>
+                            <p class="text-[15px] leading-relaxed" style="color:#4a463d">
+                                أطروحة حول: <span class="font-semibold" style="color:var(--brass)">الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة</span>
+                            </p>
                         </div>
                     </div>
+                </article>
+
+                <article class="cv-card relative p-6 md:p-8">
+                    <span class="cv-dot"></span>
+                    <div class="grid md:grid-cols-[150px_1fr] gap-6">
+                        <div>
+                            <p class="cv-year mb-3">2017 — 2019</p>
+                            <img src="{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}" alt="شعار جامعة القاضي عياض" class="h-14 w-auto opacity-90">
+                        </div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-2" style="color:var(--ink)">ماجستير في دراسات تاريخ المغرب</h3>
+                            <p class="text-sm mb-3" style="color:#6b6558">تخصص: الماء في تاريخ المغرب — جامعة القاضي عياض، كلية الآداب والعلوم الإنسانية</p>
+                            <p class="text-[15px] leading-relaxed mb-2" style="color:#4a463d">
+                                أطروحة حول: <span class="font-semibold" style="color:var(--brass)">الساعات المائية بالمغرب الوسيط</span>
+                            </p>
+                            <p class="text-sm" style="color:#7b7364">حاصل على تقدير امتياز مع مرتبة الشرف الأولى</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cv-card relative p-6 md:p-8">
+                    <span class="cv-dot"></span>
+                    <div class="grid md:grid-cols-[150px_1fr] gap-6">
+                        <div>
+                            <p class="cv-year mb-3">2007 — 2010</p>
+                            <img src="{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}" alt="شعار جامعة القاضي عياض" class="h-14 w-auto opacity-90">
+                        </div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-2" style="color:var(--ink)">بكالوريوس في التاريخ والحضارة</h3>
+                            <p class="text-sm mb-3" style="color:#6b6558">جامعة القاضي عياض، كلية الآداب والعلوم الإنسانية "مراكش"</p>
+                            <p class="text-[15px] leading-relaxed" style="color:#4a463d">
+                                بحث التخرج حول قراءة في كتاب: <span class="font-semibold" style="color:var(--brass)">المعرفة والسلطة في المغرب: صورة من حياة مثقف من البادية في القرن العشرين</span>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Related articles -->
+            <div class="cv-card mt-12 p-6 md:p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center ml-4 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                        <i class="fas fa-file-lines text-lg"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold" style="color:var(--ink)">مقالات من المسيرة الأكاديمية</h3>
                 </div>
-                
-                <div class="md:w-2/3">
+                <p class="mb-6 text-sm" style="color:#6b6558">دراسات ومداخلات علمية تعكس اهتمامات بحثية متنوعة خارج نطاق تاريخ الماء:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <a href="{{ '/articles/استراتيجيات-التكيف-مع-الأزمات-المناخية/' | relative_url }}" class="cv-card p-5 block group">
+                        <div class="flex items-center mb-3">
+                            <span class="w-10 h-10 rounded-full flex items-center justify-center ml-3" style="background:#f3ecdd;color:var(--brass)">
+                                <i class="fas fa-cloud-sun"></i>
+                            </span>
+                            <h4 class="font-bold" style="color:var(--ink)">استراتيجيات التكيف: ردود فعل ساكنة إحاحان على الأزمات المناخية</h4>
+                        </div>
+                        <p class="text-sm" style="color:#6b6558">تحليل سوسيو-تاريخي لآليات التكيف التي طورتها ساكنة إحاحان لمواجهة التقلبات والأزمات المناخية، ودراسة ممارساتها المجتمعية في تدبير الموارد المائية والزراعية.</p>
+                    </a>
+                    <a href="{{ '/articles/قراءة-في-المنهج-الخلدوني/' | relative_url }}" class="cv-card p-5 block group">
+                        <div class="flex items-center mb-3">
+                            <span class="w-10 h-10 rounded-full flex items-center justify-center ml-3" style="background:#f3ecdd;color:var(--brass)">
+                                <i class="fas fa-book-reader"></i>
+                            </span>
+                            <h4 class="font-bold" style="color:var(--ink)">المنهج الخلدوني</h4>
+                        </div>
+                        <p class="text-sm" style="color:#6b6558">قراءة نقدية في منهج ابن خلدون في كتابة التاريخ وتفسير الظواهر العمرانية</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= METHODOLOGY ================= -->
+    <section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+        <div class="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+            <div class="cv-sec-head">
+                <div>
+                    <p class="cv-kicker mb-2">02 — المنهج</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" style="color:var(--ink)">المنهجية ومجالات الخبرة</h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="cv-card p-6 md:p-8">
                     <div class="flex items-center mb-6">
-                        <div class="h-8 md:h-10 w-1.5 bg-amber-500 ml-3 md:ml-4"></div>
-
-                        <h2 class="text-2xl md:text-3xl font-bold text-amber-900 font-maghrebi">نبذة عن المسار الأكاديمي</h2>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-4 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-lightbulb text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color:var(--ink)">المنهجية التعليمية والفلسفة الأكاديمية</h3>
                     </div>
 
-                    <p class="text-lg leading-relaxed text-stone-800 mb-6">
-                        بصفتي باحث في التاريخ الوسيط من جامعة القاضي عياض بمراكش، أمتلك رؤية أكاديمية متكاملة ومنهجية بحثية رصينة في مجال تاريخ النظم المائية وتأثيرها على النسيج العمراني والاجتماعي بالمغرب الوسيط.
-                    </p>
-                    
-                    <p class="text-lg leading-relaxed text-stone-800 mb-6">
-                        يتركز اهتمامي البحثي حول دراسة العلاقة بين الإنسان والموارد المائية، وكيف شكلت هذه العلاقة العمران والمجتمع في سياق الثقافة الإسلامية بمنطقة الواحات والجنوب الشرقي المغربي.
-                    </p>
-                    
-                    <!-- Elegant Academic Quote -->
-                    <div class="mb-8 relative">
-                        <!-- Decorative quote border with soft shadow -->
-                        <div class="absolute top-0 right-0 bottom-0 w-1.5 bg-gradient-to-b from-amber-400 via-amber-500 to-amber-400 rounded-full shadow-md"></div>
-                        
-                        <!-- Quote container with subtle background and layered design -->
-                        <div class="bg-gradient-to-br from-amber-50/80 to-stone-50 pr-6 py-6 pl-5 rounded-lg shadow-sm border border-amber-100">
-                            <div class="relative">
-                                <!-- Decorative large quotation mark -->
-                                <div class="absolute -top-3 right-0 text-4xl text-amber-300/30 pointer-events-none">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                                
-                                <!-- The quote text with proper spacing -->
-                                <blockquote class="relative z-10">
-                                    <p class="text-stone-800 leading-relaxed mb-4 text-lg">
-                                        <span class="font-semibold">من المحتمل أن المغاربة القدماء</span> قد استعملوا عدة تقنيات حسية ومادية للوصول إلى مواطن المياه الجوفية خصوصا إذا ما علمنا بأن حانون وسترابون وغيرهم أشاروا إلى جفاف مناطق سكنى الجيتوليين.
-                                    </p>
-                                    
-                                    <!-- Improved single-line academic citation -->
-                                    <footer class="flex items-center justify-between border-t border-amber-200/50 pt-3 mt-3">
-                                        <cite class="text-amber-900 text-sm font-medium not-italic flex items-center flex-wrap">
-                                            <span class="inline-block ml-2 text-stone-500">&mdash;</span>
-                                            <span class="text-amber-900"> الدكتور توفيق محمد لقبايبي </span>
-                                            <span class="mx-1.5 text-stone-400 opacity-70">•</span>
-                                            <span class="font-semibold text-amber-800">حرف الماء في تاريخ المغرب</span>
-                                            <span class="mx-1.5 text-stone-400 opacity-70">•</span>
-                                            <span class="text-stone-500 whitespace-nowrap">مؤسسة آفاق، 2020</span>
-                                            <span class="mr-1.5 ml-1 bg-amber-100 px-1.5 py-0.5 rounded text-amber-800 font-medium text-xs">ص 54</span>
-                                        </cite>
-                                    </footer>
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-white rounded-xl border border-stone-200 p-5 shadow-sm hover:border-amber-300 hover:shadow-md transition-all duration-300">
-                            <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 ml-4">
-                                    <i class="fas fa-landmark text-xl"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-amber-900">الانتماء الأكاديمي</h3>
-                                    <p class="text-stone-600 text-sm">جامعة القاضي عياض، مراكش</p>
-                                </div>
-                            </div>
-                            <a href="/uca/" class="text-amber-700 hover:text-amber-600 text-sm inline-flex items-center mt-2">
-                                <i class="fas fa-university ml-1"></i>
-                                اقرأ المزيد عن تاريخ جامعة القاضي عياض
-                            </a>
-                        </div>
+                    <p class="mb-5 text-sm" style="color:#6b6558">أتبنى منهجية تعليمية تجمع بين:</p>
 
-                        <div class="bg-white rounded-xl border border-stone-200 p-5 shadow-sm hover:border-amber-300 hover:shadow-md transition-all duration-300">
-                            <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 ml-4">
-                                    <i class="fas fa-language text-xl"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-amber-900">اللغات</h3>
-                                    <p class="text-stone-600 text-sm">العربية، الأمازيغية، الفرنسية، الإنجليزية</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl border border-stone-200 p-5 shadow-sm hover:border-amber-300 hover:shadow-md transition-all duration-300 md:col-span-2">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 ml-4">
-                                        <i class="fas fa-id-card text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="font-bold text-amber-900">العضوية المهنية</h3>
-                                        <p class="text-stone-600 text-sm">الاتحاد الدولي للغة العربية - رقم العضوية: 28-26/01107</p>
-                                    </div>
-                                </div>
-                                <a href="/dist/pdf/membership-certificate-01107.pdf" target="_blank" class="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition-colors text-sm font-medium">
-                                    <i class="fas fa-file-pdf ml-2"></i>
-                                    عرض الشهادة
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Academic Qualifications Section -->
-<section id="qualifications" class="lg:py-16 bg-stone-50 dir-rtl">
-    <div class="container mx-auto lg:px-8">
-        <div class="text-center mb-12" data-controller="reveal-animation" data-reveal-animation-classes="opacity-0" data-reveal-animation-visible-class="opacity-100" data-reveal-animation-threshold="0.1">
-            <div class="inline-block p-3 rounded-full bg-amber-100 text-amber-800 mb-4">
-                <i class="fas fa-graduation-cap text-2xl"></i>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-3 font-maghrebi">المؤهلات الأكاديمية</h2>
-            <p class="text-lg text-stone-600 max-w-3xl mx-auto">المسار التعليمي والشهادات العلمية الحاصل عليها على مدار المسيرة الأكاديمية</p>
-            <div class="h-1 w-24 bg-gradient-to-r from-amber-300 to-amber-500 mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        <!-- Academic card with border and subtle hover effect -->
-        <div class="max-w-5xl mx-auto bg-white rounded-2xl p-8 md:p-10 shadow-lg" data-controller="reveal-animation" data-reveal-animation-classes="opacity-0 translate-y-8" data-reveal-animation-visible-class="opacity-100 translate-y-0" data-reveal-animation-threshold="0.1">
-            <div class="relative overflow-hidden">
-                <!-- Decorative Elements -->
-                <div class="absolute top-0 left-0 w-40 h-40 bg-amber-100 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
-                
-                <div class="relative">
-                    <!-- Timeline with educational background -->
-                    <div class="space-y-16">
-                        <!-- PhD -->
-                        <div class="relative lg:border-r-4 border-amber-200 lg:pr-8 pb-2 hover:border-amber-500 transition-colors duration-300 group">
-                            <div class="hidden lg:absolute right-0 w-6 h-6 bg-amber-600 rounded-full -mr-[13px] mt-2 border-2 border-white"></div>
-                            <div class="bg-gradient-to-r from-amber-50 to-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                                <div class="flex flex-col md:flex-row gap-6">
-                                    <div class="md:w-1/4 text-center md:text-right">
-                                        <div class="inline-block bg-amber-100 px-4 py-2 rounded-lg text-amber-800 font-bold text-lg mb-2">2020 - 2025</div>
-                                        <div class="flex items-center justify-center md:justify-end">
-                                            <img src="{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}" alt="شعار جامعة القاضي عياض" class="h-16 w-auto">
-                                        </div>
-                                    </div>
-                                    <div class="flex-1 min-w-0 md:w-3/4">
-                                        <h4 class="text-2xl font-bold text-amber-900 mb-3">دكتوراه في التاريخ الوسيط</h4>
-                                        <p class="text-stone-600 mb-2">جامعة القاضي عياض، كلية الآداب والعلوم الإنسانية "مراكش"</p>
-                                        <p class="text-stone-800 font-semibold mb-4">أطروحة حول: <span class="text-amber-700">الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Master's -->
-                        <div class="relative lg:border-r-4 border-amber-200 lg:pr-8 pb-2 hover:border-amber-500 transition-colors duration-300 group">
-                            <div class="hidden lg:absolute right-0 w-6 h-6 bg-amber-600 rounded-full -mr-[13px] mt-2 border-2 border-white"></div>
-                            <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-stone-100 group-hover:border-amber-100">
-                                <div class="flex flex-col md:flex-row gap-6">
-                                    <div class="md:w-1/4 text-center md:text-right">
-                                        <div class="inline-block bg-amber-100 px-4 py-2 rounded-lg text-amber-800 font-bold text-lg mb-2">2017 - 2019</div>
-                                        <div class="flex items-center justify-center md:justify-end">
-                                            <img src="{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}" alt="شعار جامعة القاضي عياض" class="h-16 w-auto">
-                                        </div>
-                                    </div>
-                                    <div class="flex-1 min-w-0 md:w-3/4">
-                                        <h4 class="text-2xl font-bold text-amber-900 mb-3">ماجستير في دراسات تاريخ المغرب</h4>
-                                        <p class="text-stone-600 mb-2">تخصص: الماء في تاريخ المغرب</p>
-                                        <p class="text-stone-600 mb-3">جامعة القاضي عياض، كلية الآداب والعلوم الإنسانية</p>
-                                        <p class="text-stone-800 font-semibold">أطروحة حول: <span class="text-amber-700">الساعات المائية بالمغرب الوسيط</span></p>
-                                        <p class="mt-4 text-stone-700">حاصل على تقدير امتياز مع مرتبة الشرف الأولى</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bachelor's -->
-                        <div class="relative lg:border-r-4 border-amber-200 lg:pr-8 pb-2 hover:border-amber-500 transition-colors duration-300 group">
-                            <div class="hidden lg:absolute right-0 w-6 h-6 bg-amber-600 rounded-full -mr-[13px] mt-2 border-2 border-white"></div>
-                            <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-stone-100 group-hover:border-amber-100">
-                                <div class="flex flex-col md:flex-row gap-6">
-                                    <div class="md:w-1/4 text-center md:text-right">
-                                        <div class="inline-block bg-amber-100 px-4 py-2 rounded-lg text-amber-800 font-bold text-lg mb-2">2007 - 2010</div>
-                                        <div class="flex items-center justify-center md:justify-end">
-                                            <img src="{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}" alt="شعار جامعة القاضي عياض" class="h-16 w-auto">
-                                        </div>
-                                    </div>
-                                    <div class="flex-1 min-w-0 md:w-3/4">
-                                        <h4 class="text-2xl font-bold text-amber-900 mb-3">بكالوريوس في التاريخ والحضارة</h4>
-                                        <p class="text-stone-600 mb-3">جامعة القاضي عياض، كلية الآداب والعلوم الإنسانية "مراكش"</p>
-                                        <p class="text-stone-800 font-semibold">بحث التخرج حول قراءة في كتاب: <span class="text-amber-700">المعرفة والسلطة في المغرب: صورة من حياة مثقف من البادية في القرن العشرين</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bloc des articles académiques connexes -->
-        <div class="max-w-5xl mx-auto mt-12 bg-white rounded-2xl p-8 shadow-lg">
-            <div class="flex items-center mb-6">
-                <div class="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 ml-4">
-                    <i class="fas fa-file-alt text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-amber-900">مقالات من المسيرة الأكاديمية</h3>
-            </div>
-            <p class="text-stone-700 mb-6">دراسات ومداخلات علمية تعكس اهتمامات بحثية متنوعة خارج نطاق تاريخ الماء:</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="/articles/التصوف-والطرق-الدينية-بالمغرب/" class="group bg-stone-50 rounded-xl p-5 border border-stone-200 hover:border-amber-300 hover:shadow-md transition-all duration-300">
-                    <div class="flex items-center mb-3">
-                        <span class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 ml-3">
-                            <i class="fas fa-mosque"></i>
-                        </span>
-                        <h4 class="font-bold text-amber-900 group-hover:text-amber-700">التصوف والطرق الدينية</h4>
-                    </div>
-                    <p class="text-stone-600 text-sm">دراسة شاملة للتصوف والطرق الدينية في المغرب ودورها في تشكيل النسيج الاجتماعي والثقافي</p>
-                </a>
-                <a href="/articles/قراءة-في-المنهج-الخلدوني/" class="group bg-stone-50 rounded-xl p-5 border border-stone-200 hover:border-amber-300 hover:shadow-md transition-all duration-300">
-                    <div class="flex items-center mb-3">
-                        <span class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 ml-3">
-                            <i class="fas fa-book-reader"></i>
-                        </span>
-                        <h4 class="font-bold text-amber-900 group-hover:text-amber-700">المنهج الخلدوني</h4>
-                    </div>
-                    <p class="text-stone-600 text-sm">قراءة نقدية في منهج ابن خلدون في كتابة التاريخ وتفسير الظواهر العمرانية</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Research Methodology & Philosophy -->
-<section class="py-16">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="flex flex-col md:flex-row gap-8">
-            <!-- Left column -->
-            <div class="w-full md:w-1/2">
-                <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
-                    <div class="flex items-center mb-8">
-                        <div class="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 ml-4">
-                            <i class="fas fa-lightbulb text-2xl"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-amber-900">المنهجية التعليمية والفلسفة الأكاديمية</h2>
-                    </div>
-
-                    <p class="text-stone-700 mb-6">أتبنى منهجية تعليمية تجمع بين:</p>
-
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors duration-200">
-                            <span class="text-amber-600 ml-4 flex-shrink-0">
-                                <i class="fas fa-check-circle text-xl"></i>
-                            </span>
-                            <span class="text-stone-800 font-medium">التحليل النقدي للمصادر التاريخية</span>
+                    <ul class="space-y-3 mb-7">
+                        <li class="flex items-center gap-3">
+                            <span style="color:var(--brass)"><i class="fas fa-check-circle"></i></span>
+                            <span class="font-medium" style="color:#38352e">التحليل النقدي للمصادر التاريخية</span>
                         </li>
-                        <li class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors duration-200">
-                            <span class="text-amber-600 ml-4 flex-shrink-0">
-                                <i class="fas fa-check-circle text-xl"></i>
-                            </span>
-                            <span class="text-stone-800 font-medium">التفكير المنهجي والتحليل العميق</span>
+                        <li class="flex items-center gap-3">
+                            <span style="color:var(--brass)"><i class="fas fa-check-circle"></i></span>
+                            <span class="font-medium" style="color:#38352e">التفكير المنهجي والتحليل العميق</span>
                         </li>
-                        <li class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors duration-200">
-                            <span class="text-amber-600 ml-4 flex-shrink-0">
-                                <i class="fas fa-check-circle text-xl"></i>
-                            </span>
-                            <span class="text-stone-800 font-medium">ربط النظريات الأكاديمية بالواقع المعاصر</span>
+                        <li class="flex items-center gap-3">
+                            <span style="color:var(--brass)"><i class="fas fa-check-circle"></i></span>
+                            <span class="font-medium" style="color:#38352e">ربط النظريات الأكاديمية بالواقع المعاصر</span>
                         </li>
-                        <li class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors duration-200">
-                            <span class="text-amber-600 ml-4 flex-shrink-0">
-                                <i class="fas fa-check-circle text-xl"></i>
-                            </span>
-                            <span class="text-stone-800 font-medium">تشجيع البحث المستقل والتفكير الإبداعي</span>
+                        <li class="flex items-center gap-3">
+                            <span style="color:var(--brass)"><i class="fas fa-check-circle"></i></span>
+                            <span class="font-medium" style="color:#38352e">تشجيع البحث المستقل والتفكير الإبداعي</span>
                         </li>
                     </ul>
 
-                    <blockquote class="border-r-4 border-amber-500 pr-6 py-4 bg-amber-50 rounded-l-lg italic text-xl text-stone-700">
+                    <blockquote class="border-r-2 pr-5 py-3 text-lg" style="border-color:var(--brass);background:#f3ecdd;color:#4a463d">
                         <p>"العلم ما نفع، لا ما حُفظ" - الإمام الشافعي رحمه الله.</p>
                     </blockquote>
                 </div>
-            </div>
 
-            <!-- Right column -->
-            <div class="w-full md:w-1/2">
-                <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
-                    <div class="flex items-center mb-8">
-                        <div class="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 ml-4">
-                            <i class="fas fa-microscope text-2xl"></i>
+                <div class="cv-card p-6 md:p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-4 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-microscope text-lg"></i>
                         </div>
-                        <h2 class="text-2xl font-bold text-amber-900">مجالات الخبرة والاهتمام البحثي</h2>
+                        <h3 class="text-xl font-bold" style="color:var(--ink)">مجالات الخبرة والاهتمام البحثي</h3>
                     </div>
 
-                    <ul class="space-y-4">
-                        <li class="p-4 rounded-lg bg-gradient-to-r from-amber-50 to-stone-50 shadow-sm border border-amber-100 hover:shadow-md transition-all duration-300 hover:border-amber-200 hover:bg-gradient-to-r hover:from-amber-100/50 hover:to-stone-50">
-                            <div class="flex items-center">
-                                <span class="text-amber-700 ml-5 flex-shrink-0 w-8 flex justify-center">
-                                    <i class="fas fa-history text-xl"></i>
-                                </span>
-                                <span class="text-stone-800 font-medium">التاريخ الوسيط للمغرب والأندلس</span>
-                            </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-4 p-3 border-b" style="border-color:var(--line)">
+                            <span style="color:var(--brass)"><i class="fas fa-history"></i></span>
+                            <span class="font-medium" style="color:#38352e">التاريخ الوسيط للمغرب والأندلس</span>
                         </li>
-                        <li class="p-4 rounded-lg bg-gradient-to-r from-amber-50 to-stone-50 shadow-sm border border-amber-100 hover:shadow-md transition-all duration-300 hover:border-amber-200 hover:bg-gradient-to-r hover:from-amber-100/50 hover:to-stone-50">
-                            <div class="flex items-center">
-                                <span class="text-amber-700 ml-5 flex-shrink-0 w-8 flex justify-center">
-                                    <i class="fas fa-mosque text-xl"></i>
-                                </span>
-                                <span class="text-stone-800 font-medium">تاريخ الحضارة الإسلامية</span>
-                            </div>
+                        <li class="flex items-center gap-4 p-3 border-b" style="border-color:var(--line)">
+                            <span style="color:var(--brass)"><i class="fas fa-mosque"></i></span>
+                            <span class="font-medium" style="color:#38352e">تاريخ الحضارة الإسلامية</span>
                         </li>
-                        <li class="p-4 rounded-lg bg-gradient-to-r from-amber-50 to-stone-50 shadow-sm border border-amber-100 hover:shadow-md transition-all duration-300 hover:border-amber-200 hover:bg-gradient-to-r hover:from-amber-100/50 hover:to-stone-50">
-                            <div class="flex items-center">
-                                <span class="text-amber-700 ml-5 flex-shrink-0 w-8 flex justify-center">
-                                    <i class="fas fa-scroll text-xl"></i>
-                                </span>
-                                <span class="text-stone-800 font-medium">دراسات المخطوطات والوثائق التاريخية</span>
-                            </div>
+                        <li class="flex items-center gap-4 p-3 border-b" style="border-color:var(--line)">
+                            <span style="color:var(--brass)"><i class="fas fa-scroll"></i></span>
+                            <span class="font-medium" style="color:#38352e">دراسات المخطوطات والوثائق التاريخية</span>
                         </li>
-                        <li class="p-4 rounded-lg bg-gradient-to-r from-amber-50 to-stone-50 shadow-sm border border-amber-100 hover:shadow-md transition-all duration-300 hover:border-amber-200 hover:bg-gradient-to-r hover:from-amber-100/50 hover:to-stone-50">
-                            <div class="flex items-center">
-                                <span class="text-amber-700 ml-5 flex-shrink-0 w-8 flex justify-center">
-                                    <i class="fas fa-users text-xl"></i>
-                                </span>
-                                <span class="text-stone-800 font-medium">تاريخ النظم الاجتماعية والاقتصادية</span>
-                            </div>
+                        <li class="flex items-center gap-4 p-3 border-b" style="border-color:var(--line)">
+                            <span style="color:var(--brass)"><i class="fas fa-users"></i></span>
+                            <span class="font-medium" style="color:#38352e">تاريخ النظم الاجتماعية والاقتصادية</span>
                         </li>
-                        <li class="p-4 rounded-lg bg-gradient-to-r from-amber-50 to-stone-50 shadow-sm border border-amber-100 hover:shadow-md transition-all duration-300 hover:border-amber-200 hover:bg-gradient-to-r hover:from-amber-100/50 hover:to-stone-50">
-                            <div class="flex items-center">
-                                <span class="text-amber-700 ml-5 flex-shrink-0 w-8 flex justify-center">
-                                    <i class="fas fa-book-open text-xl"></i>
-                                </span>
-                                <span class="text-stone-800 font-medium">المنهجية التاريخية والبحث الأكاديمي</span>
-                            </div>
+                        <li class="flex items-center gap-4 p-3">
+                            <span style="color:var(--brass)"><i class="fas fa-book-open"></i></span>
+                            <span class="font-medium" style="color:#38352e">المنهجية التاريخية والبحث الأكاديمي</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Scientific Research -->
-<section class="py-16 bg-stone-50">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="text-center mb-12">
-            <div class="inline-block p-3 rounded-full bg-amber-100 text-amber-800 mb-4">
-                <i class="fas fa-flask text-2xl"></i>
-            </div>
-            <h2 class="text-3xl font-bold text-amber-900">الإنتاجات العلمية</h2>
-            <div class="h-1 w-24 bg-gradient-to-r from-amber-300 to-amber-500 mx-auto mt-4 rounded-full"></div>
-        </div>
-
-        <div class="max-w-5xl mx-auto">
-            <!-- Publications Section -->
-            <div class="bg-white rounded-2xl p-8 shadow-lg mb-12">
-                <h3 class="text-2xl font-bold text-amber-800 mb-6 flex items-center">
-                    <span class="text-amber-600 ml-3"><i class="fas fa-book"></i></span>
-                    الأبحاث المنشورة
-                </h3>
-
-                <div class="space-y-8">
-                    <!-- Publication 1 -->
-                    <div class="group bg-stone-50 rounded-xl p-6 hover:shadow-md transition-all duration-300 border border-stone-200 hover:border-amber-200">
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
-                            <div class="w-36 shrink-0 sm:w-44 md:w-1/5">
-                                <div class="bg-white rounded-lg overflow-hidden shadow-sm w-full aspect-[3/4] group-hover:shadow-md transition-all duration-300">
-                                    <img src="{{ site.data.manifest['dist/images/publications/journal-wadi-draa-cover.jpg'] | default: '/dist/images/publications/journal-wadi-draa-cover.jpg' }}" alt="غلاف مجلة وادي درعة العدد 40" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="flex-1 min-w-0 md:w-4/5">
-                                <h4 class="text-xl font-bold text-amber-900 mb-2">جوانب من تدبير الموارد المائية بالواحات المغربية خلال العصر الوسيط الساعات المائية نموذجا</h4>
-                                <p class="text-stone-600 mb-2">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
-                                <div class="flex flex-wrap gap-3 mb-4">
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">مجلة وادي درعة</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">العدد 40</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">2022</span>
-                                </div>
-                                <div class="flex items-center flex-wrap gap-y-2">
-                                    <a href="http://catalog.fondation.org.ma:81/cgi-bin/koha/opac-detail.pl?biblionumber=774260&query_desc=an%3A179219" target="_blank" class="inline-flex items-center text-amber-700 hover:text-amber-600">
-                                        <i class="fas fa-external-link-alt ml-1"></i> رابط المنشور
-                                    </a>
-                                    <span class="mx-3 text-stone-300">|</span>
-                                    <a href="/dist/pdf/water-resources-oases-summary.pdf" class="inline-flex items-center text-amber-700 hover:text-amber-600">
-                                        <i class="fas fa-file-pdf ml-1"></i> تحميل ملخص البحث
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Publication 2 -->
-                    <div class="group bg-stone-50 rounded-xl p-6 hover:shadow-md transition-all duration-300 border border-stone-200 hover:border-amber-200">
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
-                            <div class="w-36 shrink-0 sm:w-44 md:w-1/5">
-                                <div class="bg-white rounded-lg overflow-hidden shadow-sm w-full aspect-[3/4] group-hover:shadow-md transition-all duration-300">
-                                    <img src="{{ site.data.manifest['dist/images/publications/al-waha-magazine-cover.jpeg'] | default: '/dist/images/publications/al-waha-magazine-cover.jpeg' }}" alt="غلاف مجلة الواحة للفكر والثقافة العدد السابع" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="flex-1 min-w-0 md:w-4/5">
-                                <h4 class="text-xl font-bold text-amber-900 mb-2">صورة المرأة في المجتمع الواحي - نظام الأمومة نموذجا</h4>
-                                <p class="text-stone-600 mb-2">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
-                                <div class="flex flex-wrap gap-3 mb-4">
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">مجلة الواحة للفكر والثقافة</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">العدد السابع</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">2023</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <a href="/dist/pdf/women-oasis-society-summary.pdf" class="inline-flex items-center text-amber-700 hover:text-amber-600">
-                                        <i class="fas fa-file-pdf ml-1"></i> تحميل ملخص البحث
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Publication 3 -->
-                    <div class="group bg-stone-50 rounded-xl p-6 hover:shadow-md transition-all duration-300 border border-stone-200 hover:border-amber-200">
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
-                            <div class="w-36 shrink-0 sm:w-44 md:w-1/5">
-                                <div class="bg-white rounded-lg overflow-hidden shadow-sm w-full aspect-[3/4] group-hover:shadow-md transition-all duration-300">
-                                    <img src="{{ site.data.manifest['dist/images/publications/mohamed-v-university-book-cover.webp'] | default: '/dist/images/publications/mohamed-v-university-book-cover.webp' }}" alt="غلاف منشورات جامعة محمد الخامس" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="flex-1 min-w-0 md:w-4/5">
-                                <h4 class="text-xl font-bold text-amber-900 mb-2">أغرب الأطعمة في الواحات المغاربية خلال القرنين الثاني والثالث الهجري</h4>
-                                <p class="text-stone-600 mb-2">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
-                                <div class="flex flex-wrap gap-3 mb-4">
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">منشورات فكر وجامعة محمد الخامس</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">2023</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <a href="/dist/pdf/unusual-foods-maghreb-oases-summary.pdf" class="inline-flex items-center text-amber-700 hover:text-amber-600">
-                                        <i class="fas fa-file-pdf ml-1"></i> تحميل ملخص البحث
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ================= PUBLICATIONS ================= -->
+    <section id="publications" style="background:var(--paper)">
+        <div class="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+            <div class="cv-sec-head">
+                <div>
+                    <p class="cv-kicker mb-2">03 — الإنتاج العلمي</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" style="color:var(--ink)">الإنتاجات العلمية</h2>
                 </div>
             </div>
 
-            <!-- Academic Articles Section -->
-            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 class="text-2xl font-bold text-amber-800 mb-6 flex items-center">
-                    <span class="text-amber-600 ml-3"><i class="fas fa-newspaper"></i></span>
-                    المساهمات العلمية المنشورة في الشق الطوبونيمي
-                </h3>
+            <h3 class="text-xl font-bold mb-6" style="color:var(--ink)">الأبحاث المنشورة</h3>
 
-                <div class="space-y-6">
-                    <!-- Article 1 (2026) -->
-                    <div class="group bg-stone-50 rounded-xl p-6 hover:shadow-md transition-all duration-300 border border-stone-200 hover:border-amber-200">
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
-                            <div class="w-36 shrink-0 sm:w-44 md:w-1/4">
-                                <div class="bg-white rounded-lg overflow-hidden shadow-sm w-full aspect-[27/43] group-hover:shadow-md transition-all duration-300" style="aspect-ratio: 27 / 43;">
-                                    <img src="{{ site.data.manifest['dist/images/publications/kan-journal-cover.jpg'] | default: '/dist/images/publications/kan-journal-cover.jpg' }}" alt="غلاف دورية كان التاريخية" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="flex-1 min-w-0 md:w-3/4">
-                                <h4 class="text-base sm:text-lg font-bold text-amber-900 mb-2">اسهام الطوبونيميا في التعريف بأعلام المقاومة المغربية: المقاوم عمرو وسعدون واستهداف القبطان بورنازيل ما بين 1932 – 1933م</h4>
-                                <p class="text-stone-600 text-sm mb-2">مقال مشترك: عزيز فردان، أمجهادي عبد الله، نور الدين أيت وشن</p>
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">دورية كان التاريخية</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">المجلد 19، العدد 80</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">يونيو 2026</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">ص 140–155</span>
-                                </div>
-                                <p class="text-stone-700 text-sm mb-3">دراسة توظّف الطوبونيميا لتوثيق هوية أعلام المقاومة المغربية مطلع ثلاثينيات القرن العشرين، من خلال تتبّع أسماء المواقع المرتبطة بالمقاوم عمرو وسعدون وحادثة استهداف القبطان بورنازيل (1932–1933م).</p>
-                                <div class="flex items-center flex-wrap gap-y-2">
-                                    <a href="https://kan.journals.ekb.eg/article_530391.html" target="_blank" rel="noopener" class="inline-flex items-center text-amber-700 hover:text-amber-600">
-                                        <i class="fas fa-external-link-alt ml-1"></i> رابط المقال
-                                    </a>
-                                    <span class="mx-3 text-stone-300">|</span>
-                                    <a href="https://doi.org/10.21608/kan.2026.480441.1369" target="_blank" rel="noopener" class="inline-flex items-center text-amber-700 hover:text-amber-600">
-                                        <i class="fas fa-fingerprint ml-1"></i> DOI
-                                    </a>
-                                </div>
-                            </div>
+            <div class="divide-y" style="border-color:var(--line)">
+                <article class="cv-pub grid md:grid-cols-[128px_1fr_auto] gap-6 py-7">
+                    <div class="cv-cover">
+                        <img src="{{ site.data.manifest['dist/images/publications/journal-wadi-draa-cover.jpg'] | default: '/dist/images/publications/journal-wadi-draa-cover.jpg' }}" alt="غلاف مجلة وادي درعة العدد 40" class="w-full h-full">
+                    </div>
+                    <div>
+                        <p class="cv-year mb-2">2022 · مجلة وادي درعة — العدد 40</p>
+                        <h4 class="text-lg font-bold leading-relaxed mb-2" style="color:var(--ink)">جوانب من تدبير الموارد المائية بالواحات المغربية خلال العصر الوسيط الساعات المائية نموذجا</h4>
+                        <p class="text-sm" style="color:#6b6558">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
+                    </div>
+                    <div class="flex md:flex-col items-start gap-3 md:pt-7">
+                        <a href="http://catalog.fondation.org.ma:81/cgi-bin/koha/opac-detail.pl?biblionumber=774260&query_desc=an%3A179219" target="_blank" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-external-link-alt"></i> رابط المنشور</a>
+                        <a href="{{ '/dist/pdf/water-resources-oases-summary.pdf' | relative_url }}" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-file-pdf"></i> تحميل ملخص البحث</a>
+                    </div>
+                </article>
+
+                <article class="cv-pub grid md:grid-cols-[128px_1fr_auto] gap-6 py-7">
+                    <div class="cv-cover">
+                        <img src="{{ site.data.manifest['dist/images/publications/al-waha-magazine-cover.jpeg'] | default: '/dist/images/publications/al-waha-magazine-cover.jpeg' }}" alt="غلاف مجلة الواحة للفكر والثقافة العدد السابع" class="w-full h-full">
+                    </div>
+                    <div>
+                        <p class="cv-year mb-2">2023 · مجلة الواحة للفكر والثقافة — العدد السابع</p>
+                        <h4 class="text-lg font-bold leading-relaxed mb-2" style="color:var(--ink)">صورة المرأة في المجتمع الواحي - نظام الأمومة نموذجا</h4>
+                        <p class="text-sm" style="color:#6b6558">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
+                    </div>
+                    <div class="flex md:flex-col items-start gap-3 md:pt-7">
+                        <a href="{{ '/dist/pdf/women-oasis-society-summary.pdf' | relative_url }}" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-file-pdf"></i> تحميل ملخص البحث</a>
+                    </div>
+                </article>
+
+                <article class="cv-pub grid md:grid-cols-[128px_1fr_auto] gap-6 py-7">
+                    <div class="cv-cover">
+                        <img src="{{ site.data.manifest['dist/images/publications/mohamed-v-university-book-cover.webp'] | default: '/dist/images/publications/mohamed-v-university-book-cover.webp' }}" alt="غلاف منشورات جامعة محمد الخامس" class="w-full h-full">
+                    </div>
+                    <div>
+                        <p class="cv-year mb-2">2023 · منشورات فكر وجامعة محمد الخامس</p>
+                        <h4 class="text-lg font-bold leading-relaxed mb-2" style="color:var(--ink)">أغرب الأطعمة في الواحات المغاربية خلال القرنين الثاني والثالث الهجري</h4>
+                        <p class="text-sm" style="color:#6b6558">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
+                    </div>
+                    <div class="flex md:flex-col items-start gap-3 md:pt-7">
+                        <a href="{{ '/dist/pdf/unusual-foods-maghreb-oases-summary.pdf' | relative_url }}" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-file-pdf"></i> تحميل ملخص البحث</a>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="text-xl font-bold mt-14 mb-6" style="color:var(--ink)">المساهمات العلمية المنشورة في الشق الطوبونيمي</h3>
+
+            <div class="divide-y" style="border-color:var(--line)">
+                <article class="cv-pub grid md:grid-cols-[128px_1fr_auto] gap-6 py-7">
+                    <div class="cv-cover">
+                        <img src="{{ site.data.manifest['dist/images/publications/kan-journal-cover.jpg'] | default: '/dist/images/publications/kan-journal-cover.jpg' }}" alt="غلاف دورية كان التاريخية" class="w-full h-full">
+                    </div>
+                    <div>
+                        <p class="cv-year mb-2">يونيو 2026 · دورية كان التاريخية — المجلد 19، العدد 80، ص 140–155</p>
+                        <h4 class="text-lg font-bold leading-relaxed mb-2" style="color:var(--ink)">اسهام الطوبونيميا في التعريف بأعلام المقاومة المغربية: المقاوم عمرو وسعدون واستهداف القبطان بورنازيل ما بين 1932 – 1933م</h4>
+                        <p class="text-sm mb-2" style="color:#6b6558">مقال مشترك: عزيز فردان، أمجهادي عبد الله، نور الدين أيت وشن</p>
+                        <p class="text-sm leading-relaxed" style="color:#4a463d">دراسة توظّف الطوبونيميا لتوثيق هوية أعلام المقاومة المغربية مطلع ثلاثينيات القرن العشرين، من خلال تتبّع أسماء المواقع المرتبطة بالمقاوم عمرو وسعدون وحادثة استهداف القبطان بورنازيل (1932–1933م).</p>
+                    </div>
+                    <div class="flex md:flex-col items-start gap-3 md:pt-7">
+                        <a href="https://kan.journals.ekb.eg/article_530391.html" target="_blank" rel="noopener" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-external-link-alt"></i> رابط المقال</a>
+                        <a href="https://doi.org/10.21608/kan.2026.480441.1369" target="_blank" rel="noopener" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-fingerprint"></i> DOI</a>
+                    </div>
+                </article>
+
+                <article class="cv-pub grid md:grid-cols-[128px_1fr_auto] gap-6 py-7">
+                    <div class="cv-cover">
+                        <img src="{{ site.data.manifest['dist/images/about/ait-skoukou-new-interpretation-naming-cover.jpg'] | default: '/dist/images/about/ait-skoukou-new-interpretation-naming-cover.jpg' }}" alt="غلاف أيت سكوكو" class="w-full h-full">
+                    </div>
+                    <div>
+                        <p class="cv-year mb-2">2024 · منشورات دار بصمة</p>
+                        <h4 class="text-lg font-bold leading-relaxed mb-2" style="color:var(--ink)">أيت سكوكو رؤية جديدة في دلالات التسمية</h4>
+                        <p class="text-sm mb-2" style="color:#6b6558">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
+                        <p class="text-sm" style="color:#4a463d">ضمن كتاب "قبيلة أيت سكوكو المجال، التاريخ، التراث"</p>
+                    </div>
+                    <div class="flex md:flex-col items-start gap-3 md:pt-7">
+                        <a href="{{ '/dist/pdf/ait-skoukou-new-interpretation-naming.pdf' | relative_url }}" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-file-pdf"></i> تحميل البحث</a>
+                    </div>
+                </article>
+
+                <article class="cv-pub grid md:grid-cols-[128px_1fr_auto] gap-6 py-7">
+                    <div class="cv-cover">
+                        <img src="{{ site.data.manifest['dist/images/about/telouat-linguistic-strata-historical-facts-cover.jpg'] | default: '/dist/images/about/telouat-linguistic-strata-historical-facts-cover.jpg' }}" alt="غلاف تلوات" class="w-full h-full">
+                    </div>
+                    <div>
+                        <p class="cv-year mb-2">2023 · المطبعة والوراقة الوطنية، مراكش</p>
+                        <h4 class="text-lg font-bold leading-relaxed mb-2" style="color:var(--ink)">تلوات بين الرواسب اللسانية والوقائع التاريخية: ملاحظات أولية</h4>
+                        <p class="text-sm mb-2" style="color:#6b6558">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
+                        <p class="text-sm" style="color:#4a463d">ضمن أشغال ندوة "تلوات المجال واللغة والمجتمع"</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONFERENCES ================= -->
+    <section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+        <div class="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+            <div class="cv-sec-head">
+                <div>
+                    <p class="cv-kicker mb-2">04 — المشاركات</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" style="color:var(--ink)">المشاركات العلمية والتنظيمية</h2>
+                </div>
+            </div>
+
+            <div class="cv-card overflow-x-auto">
+                <table class="cv-table">
+                    <thead>
+                        <tr>
+                            <th>الفعالية</th>
+                            <th>نوع المشاركة</th>
+                            <th>عنوان المساهمة</th>
+                            <th>الجهة المنظمة / الإطار</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-medium" style="color:var(--ink)">مؤتمر الأطراف COP22 – مراكش</td>
+                            <td><span class="flex items-center gap-2" style="color:var(--brass)"><i class="fas fa-tasks text-sm"></i><span>تنظيم وتأطير</span></span></td>
+                            <td style="color:#4a463d">الدورة التكوينية لوحدة التواصل السياحي (الديني، الحضاري، والتاريخي) على هامش COP22</td>
+                            <td style="color:#6b6558">كلية اللغة العربية، جامعة القاضي عياض، تحت إشراف د. بشرى عبد المجيد تاكفراست</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium" style="color:var(--ink)">ندوة "الواحة والتحولات المجتمعية: الإنسان والمجال والمجتمع"</td>
+                            <td><span class="flex items-center gap-2" style="color:var(--forest)"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
+                            <td style="color:#4a463d">أغرب الأطعمة في الواحات المغاربية</td>
+                            <td style="color:#6b6558">ندوة علمية حول التحولات المجتمعية بالمجال الواحي</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium" style="color:var(--ink)">أمسية ثقافية – الريصاني</td>
+                            <td><span class="flex items-center gap-2" style="color:#5b6b8a"><i class="fas fa-pen text-sm"></i><span>مقرر</span></span></td>
+                            <td style="color:#4a463d">الماء والعمران بواحات تافيلالت في العصر الوسيط</td>
+                            <td style="color:#6b6558">المركز الثقافي بالريصاني، بتنظيم نادي البحث التاريخي بالريصاني</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium" style="color:var(--ink)">ندوة "تلوات: المجال واللغة والمجتمع"</td>
+                            <td><span class="flex items-center gap-2" style="color:var(--forest)"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
+                            <td style="color:#4a463d">تلوات بين الرواسب اللسانية والأحداث التاريخية</td>
+                            <td style="color:#6b6558">جمعية تلوات للتنمية البشرية وحماية القصبة، بشراكة مع جماعة تلوات ووزارة الشباب والثقافة والتواصل</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium" style="color:var(--ink)">المؤتمر الدولي للتراث المائي في الحضارة الإسلامية</td>
+                            <td><span class="flex items-center gap-2" style="color:#6b5b8a"><i class="fas fa-file-alt text-sm"></i><span>ورقة بحثية</span></span></td>
+                            <td style="color:#4a463d">النظم المائية التقليدية بواحات المغرب وإسهاماتها في التنمية المستدامة</td>
+                            <td style="color:#6b6558">مؤتمر دولي حول التراث المائي في الحضارة الإسلامية</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium" style="color:var(--ink)">ندوة الهوية الثقافية والمجال الواحي</td>
+                            <td><span class="flex items-center gap-2" style="color:var(--forest)"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
+                            <td style="color:#4a463d">الاحتفاء بالموروث اللساني في واحات المغرب</td>
+                            <td style="color:#6b6558">جمعية الأمل وحماية الطفولة، مراكش</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium" style="color:var(--ink)">مؤتمر "التاريخ المحلي والتنمية المستدامة" – ورزازات</td>
+                            <td><span class="flex items-center gap-2" style="color:var(--forest)"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
+                            <td style="color:#4a463d">إعادة قراءة نظم الري التقليدية وأثرها على المجتمعات الواحية</td>
+                            <td style="color:#6b6558">منظمة التعاون الثقافي والتنمية المحلية بواحات الجنوب</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium" style="color:var(--ink)">ندوة الفن الشعبي والموسيقى التقليدية بالواحات</td>
+                            <td><span class="flex items-center gap-2" style="color:var(--forest)"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
+                            <td style="color:#4a463d">الأغنية الفلاحية بين التعبير الثقافي والتوثيق التاريخي</td>
+                            <td style="color:#6b6558">جمعية حماية التراث الثقافي والهوية الموسيقية</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ACADEMIC PATH ================= -->
+    <section style="background:var(--paper)">
+        <div class="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+            <div class="cv-sec-head">
+                <div>
+                    <p class="cv-kicker mb-2">05 — التدريس</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" style="color:var(--ink)">المسار الدراسي بجامعة القاضي عياض</h2>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-6" style="color:var(--ink)">مقررات وتأطير علمي متميز</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">تاريخ المغرب القديم والوسيط</h4>
+                            <span class="cv-tag mt-1 inline-block">إجازة</span>
                         </div>
                     </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">مقرر أساسي يغطي التحولات الكبرى في تاريخ المغرب، من الفترات القديمة إلى نهاية العصر الوسيط، مع التركيز البنيات السياسية والاجتماعية للمغاربة. ويشمل تكوين نظري في وحدات تاريخ أفريقيا الشمالية وتاريخ الإسلام وحضارته.</p>
+                </div>
 
-                    <!-- Article 2 (2024) -->
-                    <div class="group bg-stone-50 rounded-xl p-6 hover:shadow-md transition-all duration-300 border border-stone-200 hover:border-amber-200">
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
-                            <div class="w-36 shrink-0 sm:w-44 md:w-1/4">
-                                <div class="bg-white rounded-lg overflow-hidden shadow-sm w-full aspect-[3/4] group-hover:shadow-md transition-all duration-300">
-                                    <img src="{{ site.data.manifest['dist/images/about/ait-skoukou-new-interpretation-naming-cover.jpg'] | default: '/dist/images/about/ait-skoukou-new-interpretation-naming-cover.jpg' }}" alt="غلاف أيت سكوكو" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="flex-1 min-w-0 md:w-3/4">
-                                <h4 class="text-lg font-bold text-amber-900 mb-2">أيت سكوكو رؤية جديدة في دلالات التسمية</h4>
-                                <p class="text-stone-600 text-sm mb-2">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
-                                <p class="text-stone-700 text-sm mb-3">ضمن كتاب "قبيلة أيت سكوكو المجال، التاريخ، التراث"</p>
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">منشورات دار بصمة</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">2024</span>
-                                </div>
-                                <a href="/dist/pdf/ait-skoukou-new-interpretation-naming.pdf" class="inline-flex items-center text-amber-700 hover:text-amber-600">
-                                    <i class="fas fa-file-pdf ml-1"></i> تحميل البحث
-                                </a>
-                            </div>
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-atlas"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">التاريخ الإسلامي</h4>
+                            <span class="cv-tag mt-1 inline-block">إجازة</span>
                         </div>
                     </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">مقرر أساسي يشمل دراسة تفاعل الإنسان مع مجاله الجغرافي في الحضارة الإسلامية إبان المرحلة الأموية والعباسية، وتحليل أثر العوامل البشرية على التطور التاريخي للمدن والطرق التجارية.</p>
+                </div>
 
-                    <!-- Article 3 (2023) -->
-                    <div class="group bg-stone-50 rounded-xl p-6 hover:shadow-md transition-all duration-300 border border-stone-200 hover:border-amber-200">
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
-                            <div class="w-36 shrink-0 sm:w-44 md:w-1/4">
-                                <div class="bg-white rounded-lg overflow-hidden shadow-sm w-full aspect-[3/4] group-hover:shadow-md transition-all duration-300">
-                                    <img src="{{ site.data.manifest['dist/images/about/telouat-linguistic-strata-historical-facts-cover.jpg'] | default: '/dist/images/about/telouat-linguistic-strata-historical-facts-cover.jpg' }}" alt="غلاف تلوات" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="flex-1 min-w-0 md:w-3/4">
-                                <h4 class="text-lg font-bold text-amber-900 mb-2">تلوات بين الرواسب اللسانية والوقائع التاريخية: ملاحظات أولية</h4>
-                                <p class="text-stone-600 text-sm mb-2">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
-                                <p class="text-stone-700 text-sm mb-3">ضمن أشغال ندوة "تلوات المجال واللغة والمجتمع"</p>
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">المطبعة والوراقة الوطنية، مراكش</span>
-                                    <span class="inline-block bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm">2023</span>
-                                </div>
-                            </div>
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-atlas"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">الطوبونيميا</h4>
+                            <span class="cv-tag mt-1 inline-block">إجازة</span>
                         </div>
                     </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">مقرر مركزي في الدراسات التاريخية، الطوبونيميا علم يبحث في أصول ومعاني أسماء المواقع والأعلام الجغرافية والأماكن ويستقصي عن معانيها الدفينة ويحاول تفسيرها وتبيان دلالاتها وأسباب تسميتها.</p>
+                </div>
+
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">تحقيق النصوص التاريخية</h4>
+                            <span class="cv-tag mt-1 inline-block">إجازة</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">مقرر منهجي يركز على تقنيات التعامل مع المصادر والنصوص الوسيطة قراءة وتحليلا، وتصنيفها وفق معايير حسب نوعيتها، مع تطبيقات عملية على نصوص مغربية.</p>
+                </div>
+
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">تاريخ النظم المائية والحضارة</h4>
+                            <span class="cv-tag mt-1 inline-block">ماستر</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">تحليل معمق لدور الماء كعنصر أساسي في بناء الحضارات، مع التركيز على تقنيات تدبير المياه وتأثيرها على العمران والاقتصاد في المغرب الإسلامي.</p>
+                </div>
+
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">التاريخ الاجتماعي للمغرب</h4>
+                            <span class="cv-tag mt-1 inline-block">إجازة</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">دراسة البنيات الاجتماعية، العلاقات بين الفئات المختلفة الذهنيات، والحياة اليومية في المغرب إبان المرحلة السعدية، بالاعتماد على مصادر متنوعة.</p>
+                </div>
+
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">تاريخ المساجد والعمران بالغرب الإسلامي</h4>
+                            <span class="cv-tag mt-1 inline-block">تكوين</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">تحليل نشأة وتطور المساجد والمدن في المغرب والأندلس، ودراسة وظائفهما الحضرية، وبنياتها المعمارية، وتنظيمها المجالي والاجتماعي.</p>
+                </div>
+
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">تاريخ الاستعمار وحركات التحرر</h4>
+                            <span class="cv-tag mt-1 inline-block">إجازة</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">مقرر أساسي يبين أهمية حركات التحرر في تاريخ المغرب، وأفريقيا، وآسيا، وأمريكا اللاتينية، بعد الحرب العالمية الثانية لإنهاء الاحتلال والاستعمار، واستعادة الحق في الحكم وبناء دول مستقلة ذات سيادة.</p>
+                </div>
+
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">تاريخ اليابان</h4>
+                            <span class="cv-tag mt-1 inline-block">إجازة</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">مقرر انفتح على تاريخ اليابان التي شهدت تحولاً مذهلاً من مجتمع تقليدي إلى قوة صناعية وتقنية في فترة زمنية قصيرة. وعرفت تطورات سياسية كبيرة من النظام الإقطاعي (العصر الإيدو) إلى النظام الإمبراطوري الحديث، هذا النموذج يدرس عالميًا كمصدر إلهام.</p>
+                </div>
+
+                <div class="cv-module">
+                    <div class="flex items-center mb-4">
+                        <div class="w-11 h-11 rounded-full flex items-center justify-center ml-3 flex-shrink-0" style="background:#f3ecdd;color:var(--brass)">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color:var(--ink)">الدولة المرينية</h4>
+                            <span class="cv-tag mt-1 inline-block">إجازة</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed flex-grow" style="color:#4a463d">يتناول هذا المقرر دراسة نشأة وتطور الحضارة الإسلامية في فترة الدولة المرينية (القرن 7–8 هـ / 13–15 م) في شمال أفريقيا والأندلس. يركز المقرر على الأبعاد السياسية والاجتماعية والثقافية والاقتصادية والدينية، مع تحليل المؤسسات الحكومية، الحركة العمرانية، والنتاج الفكري والفني.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Conferences -->
-<section class="py-16">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="text-center mb-12">
-            <div class="inline-block p-3 rounded-full bg-amber-100 text-amber-800 mb-4">
-                <i class="fas fa-chalkboard-teacher text-2xl"></i>
-            </div>
-            <h2 class="text-3xl font-bold text-amber-900">المشاركات العلمية والتنظيمية</h2>
-            <div class="h-1 w-24 bg-gradient-to-r from-amber-300 to-amber-500 mx-auto mt-4 rounded-full"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-lg overflow-x-auto">
-            <table class="w-full min-w-[800px] border-collapse">
-                <thead>
-                    <tr class="bg-amber-50 border-b-2 border-amber-200">
-                        <th class="text-right p-4 font-bold text-amber-900">الفعالية</th>
-                        <th class="text-right p-4 font-bold text-amber-900">نوع المشاركة</th>
-                        <th class="text-right p-4 font-bold text-amber-900">عنوان المساهمة</th>
-                        <th class="text-right p-4 font-bold text-amber-900">الجهة المنظمة / الإطار</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-b border-stone-200 hover:bg-amber-50/50 transition-colors">
-                        <td class="p-4 text-stone-800 font-medium">مؤتمر الأطراف COP22 – مراكش</td>
-                        <td class="p-4 align-middle"><span class="flex items-center gap-2 text-amber-700"><i class="fas fa-tasks text-sm"></i><span>تنظيم وتأطير</span></span></td>
-                        <td class="p-4 text-stone-700">الدورة التكوينية لوحدة التواصل السياحي (الديني، الحضاري، والتاريخي) على هامش COP22</td>
-                        <td class="p-4 text-stone-600">كلية اللغة العربية، جامعة القاضي عياض، تحت إشراف د. بشرى عبد المجيد تاكفراست</td>
-                    </tr>
-                    <tr class="border-b border-stone-200 hover:bg-amber-50/50 transition-colors">
-                        <td class="p-4 text-stone-800 font-medium">ندوة "الواحة والتحولات المجتمعية: الإنسان والمجال والمجتمع"</td>
-                        <td class="p-4 align-middle"><span class="flex items-center gap-2 text-green-700"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
-                        <td class="p-4 text-stone-700">أغرب الأطعمة في الواحات المغاربية</td>
-                        <td class="p-4 text-stone-600">ندوة علمية حول التحولات المجتمعية بالمجال الواحي</td>
-                    </tr>
-                    <tr class="border-b border-stone-200 hover:bg-amber-50/50 transition-colors">
-                        <td class="p-4 text-stone-800 font-medium">أمسية ثقافية – الريصاني</td>
-                        <td class="p-4 align-middle"><span class="flex items-center gap-2 text-blue-700"><i class="fas fa-pen text-sm"></i><span>مقرر</span></span></td>
-                        <td class="p-4 text-stone-700">الماء والعمران بواحات تافيلالت في العصر الوسيط</td>
-                        <td class="p-4 text-stone-600">المركز الثقافي بالريصاني، بتنظيم نادي البحث التاريخي بالريصاني</td>
-                    </tr>
-                    <tr class="border-b border-stone-200 hover:bg-amber-50/50 transition-colors">
-                        <td class="p-4 text-stone-800 font-medium">ندوة "تلوات: المجال واللغة والمجتمع"</td>
-                        <td class="p-4 align-middle"><span class="flex items-center gap-2 text-green-700"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
-                        <td class="p-4 text-stone-700">تلوات بين الرواسب اللسانية والأحداث التاريخية</td>
-                        <td class="p-4 text-stone-600">جمعية تلوات للتنمية البشرية وحماية القصبة، بشراكة مع جماعة تلوات ووزارة الشباب والثقافة والتواصل</td>
-                    </tr>
-                    <tr class="border-b border-stone-200 hover:bg-amber-50/50 transition-colors">
-                        <td class="p-4 text-stone-800 font-medium">المؤتمر الدولي للتراث المائي في الحضارة الإسلامية</td>
-                        <td class="p-4 align-middle"><span class="flex items-center gap-2 text-purple-700"><i class="fas fa-file-alt text-sm"></i><span>ورقة بحثية</span></span></td>
-                        <td class="p-4 text-stone-700">النظم المائية التقليدية بواحات المغرب وإسهاماتها في التنمية المستدامة</td>
-                        <td class="p-4 text-stone-600">مؤتمر دولي حول التراث المائي في الحضارة الإسلامية</td>
-                    </tr>
-                    <tr class="border-b border-stone-200 hover:bg-amber-50/50 transition-colors">
-                        <td class="p-4 text-stone-800 font-medium">ندوة الهوية الثقافية والمجال الواحي</td>
-                        <td class="p-4 align-middle"><span class="flex items-center gap-2 text-green-700"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
-                        <td class="p-4 text-stone-700">الاحتفاء بالموروث اللساني في واحات المغرب</td>
-                        <td class="p-4 text-stone-600">جمعية الأمل وحماية الطفولة، مراكش</td>
-                    </tr>
-                    <tr class="border-b border-stone-200 hover:bg-amber-50/50 transition-colors">
-                        <td class="p-4 text-stone-800 font-medium">مؤتمر "التاريخ المحلي والتنمية المستدامة" – ورزازات</td>
-                        <td class="p-4 align-middle"><span class="flex items-center gap-2 text-green-700"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
-                        <td class="p-4 text-stone-700">إعادة قراءة نظم الري التقليدية وأثرها على المجتمعات الواحية</td>
-                        <td class="p-4 text-stone-600">منظمة التعاون الثقافي والتنمية المحلية بواحات الجنوب</td>
-                    </tr>
-                    <tr class="hover:bg-amber-50/50 transition-colors">
-                        <td class="p-4 text-stone-800 font-medium">ندوة الفن الشعبي والموسيقى التقليدية بالواحات</td>
-                        <td class="p-4 align-middle"><span class="flex items-center gap-2 text-green-700"><i class="fas fa-microphone-alt text-sm"></i><span>مداخلة علمية</span></span></td>
-                        <td class="p-4 text-stone-700">الأغنية الفلاحية بين التعبير الثقافي والتوثيق التاريخي</td>
-                        <td class="p-4 text-stone-600">جمعية حماية التراث الثقافي والهوية الموسيقية</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- Academic Path Section -->
-<section class="py-16 bg-stone-50">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="text-center mb-12">
-            <div class="inline-block p-3 rounded-full bg-amber-100 text-amber-800 mb-4">
-                <i class="fas fa-book-reader text-2xl"></i>
-            </div>
-            <h2 class="text-3xl font-bold text-amber-900">المسار الدراسي بجامعة القاضي عياض</h2>
-            <div class="h-1 w-24 bg-gradient-to-r from-amber-300 to-amber-500 mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold text-amber-800 mb-6 flex items-center">
-                        <span class="text-amber-600 ml-3"><i class="fas fa-chalkboard-teacher"></i></span>
-                        مقررات وتأطير علمي متميز
-                    </h3>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Example Module 1 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-landmark"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">تاريخ المغرب القديم والوسيط</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">إجازة</span>
-                                </div>
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">مقرر أساسي يغطي التحولات الكبرى في تاريخ المغرب، من الفترات القديمة إلى نهاية العصر الوسيط، مع التركيز البنيات السياسية والاجتماعية للمغاربة. ويشمل تكوين نظري في وحدات تاريخ أفريقيا الشمالية وتاريخ الإسلام وحضارته.</p>
-                        </div>
-
-                        <!-- Example Module 2 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-atlas"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">التاريخ الإسلامي</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">إجازة</span>
-                                </div>
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">مقرر أساسي يشمل دراسة تفاعل الإنسان مع مجاله الجغرافي في الحضارة الإسلامية إبان المرحلة الأموية والعباسية، وتحليل أثر العوامل البشرية على التطور التاريخي للمدن والطرق التجارية.</p>
-                        </div>
-
-                        <!-- Example Module 2 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-atlas"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">الطوبونيميا</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">إجازة</span>
-                                </div>
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">مقرر مركزي في الدراسات التاريخية، الطوبونيميا علم يبحث في أصول ومعاني أسماء المواقع والأعلام الجغرافية والأماكن ويستقصي عن معانيها الدفينة ويحاول تفسيرها وتبيان دلالاتها وأسباب تسميتها.</p>
-                        </div>
-
-                        <!-- Example Module 3 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-scroll"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">تحقيق النصوص التاريخية</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">إجازة</span>
-                                </div>
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">مقرر منهجي يركز على تقنيات التعامل مع المصادر والنصوص الوسيطة قراءة  وتحليلا، وتصنيفها وفق معايير حسب نوعيتها، مع تطبيقات عملية على نصوص مغربية.</p>
-                        </div>
-
-                        <!-- Example Module 4 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-water"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">تاريخ النظم المائية والحضارة</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">ماستر</span>
-                                </div>
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">تحليل معمق لدور الماء كعنصر أساسي في بناء الحضارات، مع التركيز على تقنيات تدبير المياه وتأثيرها على العمران والاقتصاد في المغرب الإسلامي.</p>
-                        </div>
-
-                        <!-- Example Module 5 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">التاريخ الاجتماعي للمغرب</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">إجازة</span>
-                                </div>
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">دراسة البنيات الاجتماعية، العلاقات بين الفئات المختلفة الذهنيات، والحياة اليومية في المغرب إبان المرحلة السعدية، بالاعتماد على مصادر متنوعة.</p>
-                        </div>
-
-                        <!-- Example Module 6 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-city"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">تاريخ المساجد  والعمران بالغرب الإسلامي</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">تكوين</span>
-                                </div>
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">تحليل نشأة وتطور المساجد والمدن في المغرب والأندلس، ودراسة  وظائفهما الحضرية، و بنياتها المعمارية، وتنظيمها المجالي والاجتماعي.</p>
-                        </div>
-
-                        <!-- Example Module 7 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-book-open"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">تاريخ الاستعمار وحركات التحرر</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">إجازة</span>
-                                </div>
-                                
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">مقرر أساسي يبين أهمية حركات التحرر في تاريخ المغرب، و أفريقيا، وآسيا، وأمريكا اللاتينية، بعد الحرب العالمية الثانية لإنهاء الاحتلال والاستعمار، واستعادة الحق في الحكم  وبناء دول مستقلة ذات سيادة.</p>
-                        </div>
-
-                        <!-- Example Module 8 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-history"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">تاريخ اليابان</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">إجازة</span>
-                                </div>
-
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">مقرر انفتح على تاريخ اليابان التي شهدت تحولاً مذهلاً من مجتمع تقليدي إلى قوة صناعية وتقنية في فترة زمنية قصيرة. وعرفت تطورات سياسية كبيرة من النظام الإقطاعي (العصر الإيدو) إلى النظام الإمبراطوري الحديث، هذا النموذج  يدرس عالميًا كمصدر إلهام.</p>
-                        </div>
-
-                        <!-- Example Module 9 -->
-                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 hover:border-amber-200 hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 ml-4 flex-shrink-0">
-                                    <i class="fas fa-history"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-amber-900">الدولة المرينية</h4>
-                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm mt-1">إجازة</span>
-                                </div>
-
-                            </div>
-                            <p class="text-stone-700 mb-4 flex-grow">يتناول هذا المقرر دراسة نشأة وتطور الحضارة الإسلامية في فترة الدولة المرينية (القرن 7–8 هـ / 13–15 م) في شمال أفريقيا والأندلس. يركز المقرر على الأبعاد السياسية والاجتماعية والثقافية والاقتصادية والدينية، مع تحليل المؤسسات الحكومية، الحركة العمرانية، والنتاج الفكري والفني.</p>
-                        </div>
-                    </div>
+    <!-- ================= FUTURE VISION ================= -->
+    <section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+        <div class="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+            <div class="cv-sec-head">
+                <div>
+                    <p class="cv-kicker mb-2">06 — الأفق</p>
+                    <h2 class="text-3xl md:text-4xl font-bold" style="color:var(--ink)">الرؤية المستقبلية</h2>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<!-- Future vision -->
-<section class="py-16 bg-stone-50">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="text-center mb-12">
-            <div class="inline-block p-3 rounded-full bg-amber-100 text-amber-800 mb-4">
-                <i class="fas fa-compass text-2xl"></i>
-            </div>
-            <h2 class="text-3xl font-bold text-amber-900">الرؤية المستقبلية</h2>
-            <div class="h-1 w-24 bg-gradient-to-r from-amber-300 to-amber-500 mx-auto mt-4 rounded-full"></div>
-        </div>
-
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-white rounded-2xl p-8 shadow-lg relative overflow-hidden">
-                <!-- Decorative element -->
-                <div class="absolute top-0 right-0 w-40 h-40 bg-amber-100 rounded-full -mr-20 -mt-20 opacity-50"></div>
-
-                <div class="relative z-10">
-                    <p class="text-xl leading-relaxed text-stone-800 mb-8">
-                        أتطلع إلى المساهمة في تطوير البحث العلمي في مجال التاريخ الوسيط والدراسات المائية من خلال:
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                        <!-- Vision card 1 -->
-                        <div class="bg-gradient-to-br from-amber-50 to-stone-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-amber-100">
-                            <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 mb-4 mx-auto">
-                                <i class="fas fa-book text-2xl"></i>
-                            </div>
-<h3 class="text-xl font-bold text-amber-900 mb-3 text-center">مشروع موسوعة النظم المائية</h3>
-                            <p class="text-stone-700 text-center">
-                                إعداد موسوعة علمية شاملة توثق النظم والتقنيات المائية التقليدية في العالم الإسلامي، من خلال فريق بحثي متعدد التخصصات.
-                            </p>
-                        </div>
-
-                        <!-- Vision card 2 -->
-                        <div class="bg-gradient-to-br from-amber-50 to-stone-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-amber-100">
-                            <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 mb-4 mx-auto">
-                                <i class="fas fa-graduation-cap text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">تأسيس مركز دراسات متخصص</h3>
-                            <p class="text-stone-700 text-center">
-                                تأسيس مركز متخصص في دراسة التراث المائي وتطبيقاته المعاصرة، يجمع بين الباحثين والمهندسين والمختصين في التنمية المستدامة.
-                            </p>
-                        </div>
-                    </div>
-
-                    <blockquote class="border-r-4 border-amber-500 pr-6 py-4 bg-amber-50 rounded-lg italic text-xl text-stone-700 mb-8">
-                        <p class="italic text-lg text-stone-700 leading-relaxed text-start md:text-xl">«يكشف وصف البكري لمدينة سجلماسة الواقعة “على نهرين وعنصرهما من موضع يقال له أجلف تمده عيون كثيرة” عن أهمية شبكات العيون والجداول في تدبير الموراد المائية بالمدن الإسلامية الوسيطة، ويستدعي ذلك دراسة العلاقة بين مصادر الماء الطبيعية وأنماط الاستيطان والتقنيات التقليدية لتوزيع المياه.»</p>
-                        <div class="mt-4 text-xs text-stone-500 text-start md:text-sm">
-                            مصدر الاقتباس: البكري، المسالك والممالك، تحقيق أدريان فانليوفن وأندري فيري، الجزء الثاني، دار الغرب الإسلامي، 1992، ص. 836.
-                        </div>
-                    </blockquote>
-
-                    <p class="text-lg leading-relaxed text-stone-800">
-                        كما أسعى إلى تطوير برامج أكاديمية متخصصة في دراسات المياه من منظور تاريخي وثقافي، وإقامة شراكات بحثية مع مؤسسات دولية مهتمة بقضايا المياه والتنمية المستدامة، وإشراك الطلاب والباحثين الشباب في مشاريع بحثية تطبيقية تساهم في حل المشكلات المائية المعاصرة.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Call to action -->
-<section class="py-20 relative overflow-hidden">
-    <!-- Background with pattern -->
-    <div class="absolute inset-0 bg-gradient-to-r from-amber-800 to-amber-900">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-    </div>
-
-    <div class="container mx-auto px-4 lg:px-6 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">هل ترغب في التواصل؟</h2>
-            <p class="text-xl text-amber-100 mb-10">
-                للاستفسارات العلمية أو اقتراح التعاون البحثي في المجالات ذات الاهتمام المشترك
+            <p class="text-lg leading-relaxed mb-8" style="color:#4a463d">
+                أتطلع إلى المساهمة في تطوير البحث العلمي في مجال التاريخ الوسيط والدراسات المائية من خلال:
             </p>
 
-            <div class="flex justify-center gap-4">
-                <a href="/articles" class="inline-block px-8 py-4 bg-amber-600 text-white rounded-lg hover:bg-amber-500 transition-colors shadow-lg text-lg font-medium">
-                    <span class="flex items-center justify-center">
-                        <i class="fas fa-book-open ml-2"></i>
-                        استعراض المقالات
-                    </span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+                <div class="cv-card p-6 text-center">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:#f3ecdd;color:var(--brass)">
+                        <i class="fas fa-book text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3" style="color:var(--ink)">مشروع موسوعة النظم المائية</h3>
+                    <p class="text-sm leading-relaxed" style="color:#4a463d">
+                        إعداد موسوعة علمية شاملة توثق النظم والتقنيات المائية التقليدية في العالم الإسلامي، من خلال فريق بحثي متعدد التخصصات.
+                    </p>
+                </div>
+
+                <div class="cv-card p-6 text-center">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:#f3ecdd;color:var(--brass)">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3" style="color:var(--ink)">تأسيس مركز دراسات متخصص</h3>
+                    <p class="text-sm leading-relaxed" style="color:#4a463d">
+                        تأسيس مركز متخصص في دراسة التراث المائي وتطبيقاته المعاصرة، يجمع بين الباحثين والمهندسين والمختصين في التنمية المستدامة.
+                    </p>
+                </div>
+            </div>
+
+            <figure class="cv-quote rounded-sm p-6 md:p-8 mb-8">
+                <blockquote>
+                    <p class="text-lg md:text-xl leading-loose" style="color:#f2ecdd">
+                        «يكشف وصف البكري لمدينة سجلماسة الواقعة "على نهرين وعنصرهما من موضع يقال له أجلف تمده عيون كثيرة" عن أهمية شبكات العيون والجداول في تدبير الموراد المائية بالمدن الإسلامية الوسيطة، ويستدعي ذلك دراسة العلاقة بين مصادر الماء الطبيعية وأنماط الاستيطان والتقنيات التقليدية لتوزيع المياه.»
+                    </p>
+                    <figcaption class="mt-4 text-xs leading-relaxed" style="color:#cdbfa4">
+                        مصدر الاقتباس: البكري، المسالك والممالك، تحقيق أدريان فانليوفن وأندري فيري، الجزء الثاني، دار الغرب الإسلامي، 1992، ص. 836.
+                    </figcaption>
+                </blockquote>
+            </figure>
+
+            <p class="text-lg leading-relaxed" style="color:#4a463d">
+                كما أسعى إلى تطوير برامج أكاديمية متخصصة في دراسات المياه من منظور تاريخي وثقافي، وإقامة شراكات بحثية مع مؤسسات دولية مهتمة بقضايا المياه والتنمية المستدامة، وإشراك الطلاب والباحثين الشباب في مشاريع بحثية تطبيقية تساهم في حل المشكلات المائية المعاصرة.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="cv-cta">
+        <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+            <p class="cv-kicker mb-4" style="color:var(--brass-2)">تواصل</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-5" style="color:#f7f1e3">هل ترغب في التواصل؟</h2>
+            <p class="text-lg leading-relaxed mb-9 max-w-2xl mx-auto" style="color:#cfc4ae">
+                للاستفسارات العلمية أو اقتراح التعاون البحثي في المجالات ذات الاهتمام المشترك
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="{{ '/articles' | relative_url }}" class="inline-flex items-center gap-2 px-7 py-3 rounded-md cv-kufi text-sm font-semibold" style="background:var(--brass);color:#fff">
+                    <i class="fas fa-book-open"></i>
+                    استعراض المقالات
+                </a>
+                <a href="{{ '/contact' | relative_url }}" class="inline-flex items-center gap-2 px-7 py-3 rounded-md cv-kufi text-sm font-semibold border" style="border-color:rgba(233,220,194,.35);color:#f2ecdd">
+                    <i class="fas fa-envelope"></i>
+                    تواصل مع الباحث
                 </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+</div>
