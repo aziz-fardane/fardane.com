@@ -5,6 +5,8 @@ dates: 973-1048م (362-440هـ)
 location: خوارزم - غزنة
 image: /dist/images/scientists/al-biruni.jpg
 category: engineering
+region: mashriq
+order: 10
 tags:
   - الهيدرولوجيا
   - الجيولوجيا المائية

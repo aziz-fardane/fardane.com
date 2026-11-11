@@ -5,6 +5,8 @@ dates: 1100-1165م (493-560هـ)
 location: سبتة، المغرب - صقلية
 image: /dist/images/scientists/al-idrisi.jpg
 category: geography
+region: maghreb
+order: 4
 tags:
   - الجغرافيا المائية
   - الخرائط الهيدروغرافية

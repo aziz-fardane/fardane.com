@@ -5,6 +5,8 @@ dates: 1094-1162م (487-557هـ)
 location: إشبيلية، الأندلس
 image: /dist/images/scientists/abul-ala-zuhari.jpg
 category: medicine
+region: andalus
+order: 3
 tags:
   - الطب المائي
   - علوم التغذية

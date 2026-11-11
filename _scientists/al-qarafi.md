@@ -5,6 +5,8 @@ dates: 1228-1285م (626-684هـ)
 location: "المغرب-قرافة مصر "
 image: /dist/images/scientists/al-qarafi.jpg
 category: engineering
+region: mashriq
+order: 14
 tags:
   - الآليات الميكانيكية
   - الفقه الإسلامي

@@ -5,6 +5,8 @@ dates: عاش في القرن 8–9 الهجري (14–15 الميلادي)
 location: غرناطة، الأندلس
 image: /dist/images/scientists/ibn-baso.webp
 category: engineering
+region: andalus
+order: 7
 tags:
   - الهندسة المائية
   - الآلات المائية

@@ -5,6 +5,8 @@ dates: القرن 11 الميلادي (القرن 5 الهجري)
 location: طليطلة - إشبيلية، الأندلس
 image: https://www.alayyam.info/uploads/content/2105/8LJO3SOA-1VRS61-867D/v00jufcf.gif
 category: agriculture
+region: andalus
+order: 2
 tags:
   - هندسة الري
   - الهيدرولوجيا الزراعية

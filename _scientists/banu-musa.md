@@ -5,6 +5,8 @@ dates: القرن 9 الميلادي (القرن 3 الهجري)
 location: بغداد
 image: https://ideogram.ai/assets/image/balanced/response/dYAl2-ABR8KadX5GYtaPhQ@2k
 category: engineering
+region: mashriq
+order: 11
 tags:
   - الهندسة الميكانيكية
   - الآليات الهيدروليكية

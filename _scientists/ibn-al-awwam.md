@@ -5,6 +5,8 @@ dates: القرن 12 الميلادي (القرن 6 الهجري)
 location: إشبيلية، الأندلس
 image: /dist/images/scientists/ibn-al-awwam.jpg
 category: agriculture
+region: andalus
+order: 5
 tags:
   - الزراعة المائية
   - إدارة الموارد المائية

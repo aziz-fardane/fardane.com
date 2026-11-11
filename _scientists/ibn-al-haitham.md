@@ -5,6 +5,8 @@ dates: 965-1040م (354-430هـ)
 location: البصرة - القاهرة
 image: https://images.akhbarelyom.com/images/images/large/20250621213202308.jpg
 category: engineering
+region: mashriq
+order: 12
 tags:
   - فيزياء السوائل
   - الهيدرولوجيا

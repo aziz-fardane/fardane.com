@@ -5,6 +5,8 @@ dates: توفي حوالي 1029م (420هـ
 location: كرج-بغداد/ العراق
 image: /dist/images/scientists/al-karaji.webp
 category: engineering
+region: mashriq
+order: 13
 tags:
   - هندسة المياه الجوفية
   - الرياضيات التطبيقية

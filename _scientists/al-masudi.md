@@ -5,6 +5,8 @@ dates: 896-956م (283-345هـ)
 location: بغداد - مصر
 image: /dist/images/scientists/al-masudi.jpg
 category: geography
+region: mashriq
+order: 15
 tags:
   - الجغرافيا المائية
   - التاريخ البيئي

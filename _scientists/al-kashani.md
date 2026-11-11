@@ -5,6 +5,8 @@ dates: 1380-1429م (783-833هـ)
 location: كاشان - سمرقند
 image: /dist/images/scientists/al-kashani.jpg
 category: engineering
+region: mashriq
+order: 17
 tags:
   - الساعات المائية
   - الرياضيات

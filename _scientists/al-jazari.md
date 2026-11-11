@@ -5,6 +5,8 @@ dates: 1136-1206م (530-603هـ)
 location: ديار بكر، الجزيرة الفراتية
 image: /dist/images/scientists/al-jazari.jpg
 category: engineering
+region: mashriq
+order: 16
 tags:
   - الهندسة المائية
   - الآليات الهيدروليكية

@@ -5,6 +5,8 @@ dates: 980-1037م (370-428هـ)
 location: بخارى - همذان - أصفهان
 image: /dist/images/scientists/ibn-sina.jpg
 category: medicine
+region: mashriq
+order: 9
 tags:
   - الطب المائي
   - الكيمياء المائية
