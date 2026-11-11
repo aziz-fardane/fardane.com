@@ -1,541 +1,1553 @@
 ---
 layout: default
-title: العلماء والشخصيات التاريخية
-description: دراسة تحليلية لأبرز العلماء العرب والمسلمين وإسهاماتهم الرائدة في علوم المياه والهيدرولوجيا عبر العصور الإسلامية
+title: "علماء الماء في المغرب والأندلس — أرشيف هندسي"
+description: "أرشيف بصري لأعلام الماء في المغرب والأندلس خلال العصر الوسيط: الإدريسي، ابن العوام، ابن بصال، ابن الحبّاك، ابن خلدون، مع فهرس ومقياس زمني وجداول مواقع ولوحات المجالات."
 permalink: /scientists
 ---
 
-<!-- Modern Academic Header - Common Component for All Pages -->
-<header class="relative dir-rtl overflow-hidden">
-    <!-- Clean, dramatic background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-amber-950 via-amber-900 to-stone-950">
-        <!-- Subtle light beams effect -->
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-1/4 w-1/3 h-full bg-amber-400 blur-[100px] rotate-12 transform -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-1/4 w-1/3 h-full bg-amber-600 blur-[100px] -rotate-12 transform translate-y-1/2"></div>
-        </div>
-    </div>
+{% assign maghreb = site.scientists | where: "region", "maghreb" %}
+{% assign andalus = site.scientists | where: "region", "andalus" %}
+{% assign atlas = maghreb | concat: andalus | sort: "order" %}
+{% assign mashriq = site.scientists | where: "region", "mashriq" | sort: "order" %}
 
-    <!-- Content Container -->
-    <div class="relative z-10">
-        <!-- Page Title Section - Scientists specific content -->
-        <div class="container mx-auto px-6 py-16 md:py-20">
-            <div class="max-w-3xl mx-auto text-center" data-controller="reveal-animation" data-reveal-animation-classes="opacity-0 translate-y-8" data-reveal-animation-visible-class="opacity-100 translate-y-0" data-reveal-animation-threshold="0.1">
-                <!-- Academic credential badge -->
-                <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-amber-500/30 bg-gradient-to-r from-amber-800/40 to-amber-900/40 backdrop-blur-sm">
-                    <span class="text-amber-200 text-sm font-medium tracking-wide">تراث العلماء العرب والمسلمين في علوم المياه والهيدرولوجيا</span>
-                </div>
-                
-                <!-- Page Title - Scientists specific -->
-                <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-maghrebi leading-tight">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-amber-100">العلماء</span>
-                    <span class="block mt-2">والشخصيات التاريخية</span>
-                </h1>
-                
-                <!-- Page Description - Scientists specific -->
-                <p class="text-amber-100/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-                    دراسة تحليلية لإسهامات أبرز العلماء المسلمين في فهم وتطوير علوم المياه عبر العصور الإسلامية
-                </p>
-                
-                <!-- Research specific topic tags -->
-                <div class="flex flex-wrap justify-center gap-3 mt-8">
-                    <span class="bg-amber-700/50 text-amber-100 px-5 py-2 rounded-full text-sm backdrop-blur-sm border border-amber-500/30">
-                        <i class="fas fa-flask ml-2"></i>الهندسة المائية
-                    </span>
-                    <span class="bg-amber-700/50 text-amber-100 px-5 py-2 rounded-full text-sm backdrop-blur-sm border border-amber-500/30">
-                        <i class="fas fa-map-marked-alt ml-2"></i>الجغرافيا المائية
-                    </span>
-                    <span class="bg-amber-700/50 text-amber-100 px-5 py-2 rounded-full text-sm backdrop-blur-sm border border-amber-500/30">
-                        <i class="fas fa-vial ml-2"></i>علوم المياه
-                    </span>
-                </div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+    .eng{
+        --paper:#f3f0e7;
+        --paper-2:#faf8f2;
+        --ink:#131f1b;
+        --graphite:#3b463f;
+        --muted:#6f6a5c;
+        --line:#d9d2c1;
+        --line-strong:#c3baa5;
+        --brass:#a67a2e;
+        --brass-text:#8f6524;
+        --brass-2:#c9a35f;
+        --water:#2e6f68;
+        --water-2:#4f938b;
+        --water-soft:#e4ede9;
+        --night:#0b1c17;
+        --night-2:#081411;
+        --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+        --kufi:"Noto Kufi Arabic",system-ui,sans-serif;
+        --naskh:"Noto Naskh Arabic",Georgia,serif;
+        background:var(--paper);
+        color:var(--graphite);
+        font-family:var(--naskh);
+    }
+    .eng h1,.eng h2,.eng h3,.eng h4{font-family:var(--kufi);color:var(--ink);line-height:1.4;margin:0}
+    .eng-wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+    .code{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+    .code b{color:var(--brass-text);font-weight:500}
+
+    /* ================= HERO ================= */
+    .eng-hero{position:relative;overflow:hidden;background:linear-gradient(155deg,#0e241e 0%,#0b1c17 55%,#081411 100%);color:#e7dfcc}
+    .hero-grid{
+        position:absolute;inset:0;pointer-events:none;opacity:.55;
+        background-image:
+            linear-gradient(to left,rgba(201,163,95,.10) 1px,transparent 1px),
+            linear-gradient(to bottom,rgba(201,163,95,.10) 1px,transparent 1px);
+        background-size:34px 34px;
+        mask-image:radial-gradient(circle at 70% 30%,#000 20%,transparent 78%);
+        -webkit-mask-image:radial-gradient(circle at 70% 30%,#000 20%,transparent 78%);
+    }
+    .hero-drawing{
+        position:absolute;left:-40px;top:50%;transform:translateY(-50%);
+        width:min(48vw,560px);opacity:.42;z-index:1;pointer-events:none;
+    }
+    .hero-drawing line,.hero-drawing circle,.hero-drawing path{vector-effect:non-scaling-stroke}
+    /* ناعورة تدور ببطء */
+    .hero-drawing .wheel{transform-box:fill-box;transform-origin:center;animation:wheelSpin 150s linear infinite}
+    /* رسم اللوحة يظهر خطاً خطاً */
+    .hero-drawing [pathLength]{
+        stroke-dasharray:100;
+        animation:drawIn 1.15s cubic-bezier(.45,0,.25,1) both;
+        animation-delay:var(--d,0s);
+    }
+    @keyframes wheelSpin{to{transform:rotate(-360deg)}}
+    @keyframes drawIn{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+    /* تيار الماء أسفل الهيرو */
+    .hero-current{
+        position:absolute;left:0;right:0;bottom:34px;height:80px;z-index:1;pointer-events:none;opacity:.8;
+        mask-image:linear-gradient(to bottom,transparent 0,#000 62%,#000 100%);
+        -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 62%,#000 100%);
+    }
+    .hero-current::before,.hero-current::after{
+        content:"";position:absolute;top:0;bottom:0;left:0;width:200%;
+        mask-image:repeating-linear-gradient(to bottom,#000 0 1px,transparent 1px 7px);
+        -webkit-mask-image:repeating-linear-gradient(to bottom,#000 0 1px,transparent 1px 7px);
+        animation:flow 110s linear infinite;
+    }
+    .hero-current::before{background-image:repeating-linear-gradient(90deg,rgba(201,163,95,.55) 0 2.2%,transparent 2.2% 5%)}
+    .hero-current::after{
+        background-image:repeating-linear-gradient(90deg,rgba(201,163,95,.26) 0 1%,transparent 1% 2.5%);
+        animation-duration:170s;animation-direction:reverse;
+    }
+    @keyframes flow{to{transform:translateX(-50%)}}
+    .hero-inner{position:relative;z-index:2;padding:3.2rem 1.5rem 2.4rem}
+    .plate-bar{
+        display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+        border-bottom:1px solid rgba(201,163,95,.28);padding-bottom:.75rem;margin-bottom:2.6rem;
+        font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#9d9075;
+    }
+    .plate-bar .lat{color:var(--brass-2)}
+    .hero-kicker{
+        font-family:var(--kufi);font-size:11px;font-weight:700;letter-spacing:.2em;
+        color:var(--brass-2);margin:0 0 .9rem;
+    }
+    .hero-inner h1{
+        font-size:clamp(2.3rem,5vw,3.9rem);font-weight:800;color:#f5efdf;line-height:1.24;
+        max-width:720px;letter-spacing:-.01em;
+    }
+    .hero-inner h1 span{color:var(--brass-2)}
+    .dim{position:relative;width:min(320px,70%);height:12px;margin:1.7rem 0 .4rem;border-right:1px solid rgba(201,163,95,.55);border-left:1px solid rgba(201,163,95,.55)}
+    .dim::before{content:"";position:absolute;top:5px;left:0;right:0;height:1px;background:rgba(201,163,95,.55)}
+    .dim-label{position:absolute;right:0;top:14px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:#8e8268}
+    .hero-lede{
+        font-size:clamp(1rem,1.5vw,1.18rem);line-height:2;color:#cfc4ae;max-width:44rem;
+        margin:2.2rem 0 0;
+    }
+    .hero-facts{
+        display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:640px;
+        border:1px solid rgba(201,163,95,.3);margin-top:2.2rem;
+    }
+    .fact{padding:.85rem 1rem;border-left:1px solid rgba(201,163,95,.22)}
+    .fact:last-child{border-left:0}
+    .fact .k{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:#8e8268;margin-bottom:.2rem}
+    .fact .v{display:block;font-family:var(--kufi);font-size:1.45rem;font-weight:800;color:var(--brass-2);line-height:1.3}
+    .fact .u{display:block;font-size:.72rem;color:#a99d85;margin-top:.1rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+    .btn-solid,.btn-line{
+        display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.35rem;border-radius:0;
+        font-family:var(--kufi);font-size:.82rem;font-weight:700;transition:.2s;
+    }
+    .btn-solid{background:var(--brass-2);color:#101c17;border:1px solid var(--brass-2)}
+    .btn-solid:hover{background:#dcb877;border-color:#dcb877}
+    .btn-line{border:1px solid rgba(201,163,95,.5);color:#e6dcc6}
+    .btn-line:hover{background:rgba(201,163,95,.12);color:#fff}
+    .hero-ruler{
+        position:relative;z-index:2;height:34px;border-top:1px solid rgba(201,163,95,.25);
+        background-image:
+            repeating-linear-gradient(to left,rgba(201,163,95,.5) 0 1px,transparent 1px 34px),
+            repeating-linear-gradient(to left,rgba(201,163,95,.9) 0 1px,transparent 1px 170px);
+        background-position:0 0,0 0;
+        background-size:auto 9px,auto 16px;
+        background-repeat:repeat-x;
+    }
+
+    /* ================= SECTION SHELL ================= */
+    .eng-section{padding:4rem 0}
+    .alt{background:var(--paper-2);border-block:1px solid var(--line)}
+    .sec-head{
+        display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;
+        border-bottom:1px solid var(--line-strong);padding-bottom:.9rem;margin-bottom:2.2rem;
+    }
+    .sec-head h2{font-size:clamp(1.55rem,3vw,2.15rem);font-weight:800;margin-top:.35rem}
+    .sec-note{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);text-align:left;line-height:1.9}
+
+    /* ================= INDEX ================= */
+    .idx{border:1px solid var(--line-strong);border-top:0;background:var(--paper-2)}
+    .idx-head{
+        display:grid;grid-template-columns:44px 44px 1fr 92px;gap:1rem;align-items:center;
+        padding:.55rem 1rem;background:#eee9dc;border-bottom:1px solid var(--line-strong);
+        font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);
+    }
+    .idx-head span:last-child{text-align:left}
+    .idx-row{
+        display:grid;grid-template-columns:44px 44px 1fr 92px;gap:1rem;align-items:center;
+        padding:.8rem 1rem;border-top:1px solid var(--line);transition:.18s;color:inherit;
+    }
+    .idx-row:first-of-type{border-top:0}
+    .idx-row:hover{background:var(--water-soft)}
+    .idx-no{font-family:var(--mono);font-size:.78rem;color:var(--brass-text)}
+    .idx-thumb{
+        width:44px;height:44px;overflow:hidden;background:#e9e3d4;border:1px solid var(--line-strong);
+        filter:grayscale(.35) sepia(.12);
+    }
+    .idx-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .idx-main{min-width:0}
+    .idx-name{display:block;font-family:var(--kufi);font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.6}
+    .idx-row:hover .idx-name{color:var(--water)}
+    .idx-sub{
+        display:block;font-size:.76rem;color:var(--muted);line-height:1.9;margin-top:.1rem;
+        overflow:hidden;text-overflow:ellipsis;
+    }
+    .idx-sub i{font-style:normal;color:var(--line-strong);margin:0 .35rem}
+    .idx-sub .rg{color:var(--water)}
+    .idx-go{
+        justify-self:end;font-family:var(--kufi);font-size:.72rem;font-weight:700;color:var(--brass-text);
+        display:inline-flex;align-items:center;gap:.35rem;white-space:nowrap;
+    }
+    .idx-row:hover .idx-go{color:var(--water)}
+
+    /* ================= SCALE ================= */
+    .scale-scroll{overflow-x:auto;overflow-y:hidden;padding:.5rem 0 .2rem}
+    .scale{position:relative;min-width:860px;padding:0 76px}
+    .scale-inner{position:relative;height:180px}
+    .scale-line{position:absolute;top:96px;left:0;right:0;height:1px;background:var(--line-strong)}
+    .scale-ticks{
+        position:absolute;top:89px;left:0;right:0;height:14px;
+        background-image:repeating-linear-gradient(to left,var(--line-strong) 0 1px,transparent 1px calc(100% / 49));
+        opacity:.85;
+    }
+    .scale-end{position:absolute;top:104px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--muted)}
+    .scale-end.r{right:0}
+    .scale-end.l{left:0}
+    .pin{position:absolute;top:96px;width:0;height:0}
+    .pin::after{
+        content:"";position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:9999px;
+        background:var(--brass);box-shadow:0 0 0 3px var(--paper-2);
+    }
+    .pin::before{content:"";position:absolute;left:0;width:1px;height:22px;background:var(--line-strong)}
+    .pin.up::before{bottom:0}
+    .pin.down::before{top:0}
+    .pin .lab{position:absolute;left:50%;transform:translateX(-50%);width:max-content;max-width:160px;text-align:center}
+    .pin.up .lab{bottom:26px}
+    .pin.down .lab{top:26px}
+    .pin .lab b{display:block;font-family:var(--kufi);font-size:10.5px;font-weight:700;color:var(--ink);line-height:1.6}
+    .pin .lab span{display:block;font-family:var(--mono);font-size:9px;color:var(--brass-text)}
+    .scale-foot{
+        display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+        margin-top:1rem;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.06em;
+    }
+    .scale-foot .bar{display:flex;align-items:center;gap:.4rem}
+    .scale-foot .bar i{display:block;width:60px;height:5px;border:1px solid var(--line-strong);background:repeating-linear-gradient(to left,var(--line-strong) 0 1px,transparent 1px 10px)}
+
+    /* ================= CITIES ================= */
+    .cities{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line-strong)}
+    .city{background:var(--paper-2);padding:1.05rem 1rem;position:relative}
+    .city::before{content:"";position:absolute;top:0;right:0;width:10px;height:10px;border-top:1px solid var(--brass);border-right:1px solid var(--brass);opacity:.7}
+    .city h3{font-size:.92rem;font-weight:700}
+    .city .coord{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--water);margin:.2rem 0 .45rem}
+    .city p{font-size:.74rem;line-height:1.8;color:var(--muted);margin:0}
+
+    /* ================= MASHRIQ ================= */
+    .mash{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line-strong)}
+    .mash-card{background:var(--paper-2);padding:.85rem 1rem;display:grid;grid-template-columns:28px 1fr 14px;gap:.6rem;align-items:center;transition:.18s;color:inherit}
+    .mash-card:hover{background:var(--water-soft)}
+    .mash-no{font-family:var(--mono);font-size:9px;color:var(--brass-text)}
+    .mash-body b{display:block;font-family:var(--kufi);font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.6}
+    .mash-body span{display:block;font-size:.7rem;color:var(--muted);line-height:1.7}
+    .mash-arrow{font-family:var(--mono);font-size:.8rem;color:var(--line-strong);transition:.18s}
+    .mash-card:hover .mash-arrow{color:var(--water)}
+
+    /* ================= FIELDS ================= */
+    .fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .field{background:var(--paper-2);border:1px solid var(--line-strong);padding:1.35rem 1.25rem;position:relative;transition:.2s}
+    .field::before{content:"";position:absolute;top:-1px;right:-1px;width:13px;height:13px;border-top:2px solid var(--brass);border-right:2px solid var(--brass)}
+    .field:hover{border-color:var(--brass-2);box-shadow:0 16px 30px -26px rgba(19,31,27,.55)}
+    .field .code{display:block;margin-bottom:.7rem}
+    .field-ico{width:44px;height:44px;color:var(--water);margin-bottom:.5rem}
+    .field h3{font-size:.98rem;font-weight:700;margin-bottom:.45rem}
+    .field p{font-size:.84rem;line-height:1.9;color:var(--graphite);margin:0}
+    .field ul{list-style:none;margin:.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:.35rem}
+    .field li{display:flex;gap:.5rem;font-size:.76rem;color:var(--muted);line-height:1.7}
+    .field li::before{content:"";flex:0 0 auto;width:9px;height:1px;background:var(--brass-2);margin-top:.62rem}
+
+    /* ================= WATER CLOCKS ================= */
+    .clocks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem;align-items:stretch}
+    .clock-card{
+        position:relative;display:flex;flex-direction:column;gap:.85rem;
+        background:var(--paper);border:1px solid var(--line-strong);padding:1rem;
+    }
+    .clock-card::before{content:"";position:absolute;top:-1px;right:-1px;width:13px;height:13px;border-top:2px solid var(--brass);border-right:2px solid var(--brass)}
+    .clock-kicker{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;margin:0;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--muted)}
+    .clock-kicker b{font-family:var(--mono);font-weight:600;color:var(--brass-text)}
+    .clock-card h3{font-family:var(--kufi);font-size:1.05rem;font-weight:800;color:var(--ink);margin:-.35rem 0 0}
+    .clock-sub{margin:-.45rem 0 0;font-size:.75rem;line-height:1.85;color:var(--muted)}
+    .clock-fig{
+        margin:0;background:var(--paper-2);border:1px solid var(--line);
+        padding:.7rem .7rem .5rem;display:flex;flex-direction:column;gap:.45rem;
+    }
+    .clock-fig svg{display:block;width:100%;height:auto;max-width:340px;margin:0 auto}
+    .clock-fig figcaption{
+        display:flex;justify-content:space-between;gap:.5rem;border-top:1px solid var(--line);
+        padding-top:.4rem;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:var(--muted);
+    }
+    .cl{stroke:#a67a2e;stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
+    .cl-dash{stroke-dasharray:3 4}
+    .cl-soft{opacity:.45}
+    .clock-fig text{font-family:var(--mono);font-size:8px;letter-spacing:.1em;fill:#8f6524}
+    .clock-water{fill:#2e6f68;opacity:.16}
+    .clock-surface{stroke:#2e6f68;stroke-width:1.2;opacity:.9}
+    .clock-float{fill:#f3f0e7;stroke:#a67a2e;stroke-width:1.2}
+    .bed-level{animation:bedSink 110s linear infinite}
+    .bed-fill{transform-box:fill-box;transform-origin:bottom;animation:bedFill 110s linear infinite}
+    .mech-level{animation:mechLevel 96s linear infinite}
+    .mech-hand{animation:mechHand 96s linear infinite}
+    .mech-gear{transform-box:fill-box;transform-origin:center}
+    .mech-gear.a{animation:mechSpinA 96s linear infinite}
+    .mech-gear.b{animation:mechSpinB 72s linear infinite}
+    .mech-gear.c{animation:mechSpinC 84s linear infinite}
+    .mech-fig{transform-box:fill-box;transform-origin:center;opacity:0;animation:doorFig 24s ease-in-out infinite;animation-delay:var(--d,0s)}
+    @keyframes bedSink{0%{transform:translateY(0)}94%{transform:translateY(48px)}100%{transform:translateY(48px)}}
+    @keyframes bedFill{0%{transform:scaleY(.03)}94%{transform:scaleY(.34)}100%{transform:scaleY(.34)}}
+    @keyframes mechLevel{0%{transform:translateY(0)}96%{transform:translateY(40px)}100%{transform:translateY(40px)}}
+    @keyframes mechHand{to{transform:rotate(360deg)}}
+    @keyframes mechSpinA{to{transform:rotate(-360deg)}}
+    @keyframes mechSpinB{to{transform:rotate(360deg)}}
+    @keyframes mechSpinC{to{transform:rotate(360deg)}}
+    @keyframes doorFig{
+        0%{transform:translateY(-4px);opacity:0}
+        3%{transform:translateY(0);opacity:1}
+        7%{transform:translateY(0);opacity:1}
+        10%,100%{transform:translateY(-4px);opacity:0}
+    }
+    .clock-txt p{font-size:.86rem;line-height:1.95;color:var(--graphite);margin:0}
+    .clock-specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line-strong);margin:0}
+    .clock-specs div{padding:.55rem .55rem .6rem;border-left:1px solid var(--line)}
+    .clock-specs div:last-child{border-left:0}
+    .clock-specs dt{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--brass-text);margin-bottom:.2rem}
+    .clock-specs dd{margin:0;font-family:var(--kufi);font-size:.74rem;font-weight:700;color:var(--ink);line-height:1.7}
+    .clock-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.35rem .8rem}
+    .clock-list li{display:flex;gap:.5rem;font-size:.75rem;color:var(--muted);line-height:1.8}
+    .clock-list li::before{content:"";flex:0 0 auto;width:9px;height:1px;background:var(--brass-2);margin-top:.66rem}
+    .clock-compare{width:100%;border-collapse:collapse;margin-top:1.4rem;background:var(--paper)}
+    .clock-compare th,.clock-compare td{padding:.55rem .8rem;border:1px solid var(--line);text-align:right;vertical-align:top}
+    .clock-compare thead th{background:#eee9dc;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--brass-text);font-weight:600}
+    .clock-compare tbody th{font-family:var(--kufi);font-size:.76rem;font-weight:700;color:var(--ink);background:var(--paper-2);white-space:nowrap;width:88px}
+    .clock-compare td{font-size:.78rem;color:var(--graphite);line-height:1.8}
+    .clock-note{margin:.7rem 0 0;font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--muted);text-align:right}
+    .clock-note b{font-family:var(--mono);font-weight:600;color:var(--brass-text)}
+    .clock-aside{
+        margin:.15rem 0 0;padding-top:.6rem;border-top:1px dashed var(--line-strong);
+        font-size:.73rem;line-height:1.95;color:var(--muted);
+    }
+    .clock-aside b{font-family:var(--kufi);font-weight:700;color:var(--brass-text)}
+
+    /* ================= WATER MILLS ================= */
+    .mills{background:var(--paper);border-top:1px solid var(--line)}
+    .mill-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:2rem;align-items:start}
+    .mill-fig{position:relative;margin:0;background:var(--paper-2);border:1px solid var(--line-strong);padding:1rem}
+    .mill-fig::before{content:"";position:absolute;top:-1px;right:-1px;width:13px;height:13px;border-top:2px solid var(--brass);border-right:2px solid var(--brass)}
+    .mill-fig svg{display:block;width:100%;height:auto}
+    .mill-fig figcaption{
+        display:flex;justify-content:space-between;gap:.6rem;border-top:1px solid var(--line);
+        padding-top:.5rem;margin-top:.7rem;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:var(--muted);
+    }
+    .mill-fig text{font-family:var(--mono);font-size:8px;letter-spacing:.08em;fill:#8f6524}
+    .mill-stone{fill:#e7e0cf;stroke:#a67a2e;stroke-width:1}
+    .mill-stone-2{fill:#ded5c0;stroke:#a67a2e;stroke-width:1}
+    .mill-water{fill:#2e6f68;opacity:.16}
+    .mill-copy{display:flex;flex-direction:column;gap:1rem}
+    .mill-copy p{font-size:.9rem;line-height:2;color:var(--graphite);margin:0}
+    .mill-specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line-strong);margin:0}
+    .mill-specs div{padding:.55rem .55rem .6rem;border-left:1px solid var(--line)}
+    .mill-specs div:last-child{border-left:0}
+    .mill-specs dt{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--brass-text);margin-bottom:.2rem}
+    .mill-specs dd{margin:0;font-family:var(--kufi);font-size:.74rem;font-weight:700;color:var(--ink);line-height:1.7}
+    .mill-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.35rem .8rem}
+    .mill-list li{display:flex;gap:.5rem;font-size:.75rem;color:var(--muted);line-height:1.8}
+    .mill-list li::before{content:"";flex:0 0 auto;width:9px;height:1px;background:var(--brass-2);margin-top:.66rem}
+    .mill-note{margin:0;font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--muted)}
+    .mill-wheel{transform-box:fill-box;transform-origin:center;animation:millSpin 150s linear infinite}
+    .mill-gear{transform-box:fill-box;transform-origin:center;animation:millSpin 54s linear infinite reverse}
+    .mill-stream{stroke-dasharray:4 6;animation:millFlow 5s linear infinite}
+    @keyframes millSpin{to{transform:rotate(360deg)}}
+    @keyframes millFlow{to{stroke-dashoffset:-50}}
+
+    /* ================= IMPACT ================= */
+    .impact{position:relative;overflow:hidden;background:linear-gradient(150deg,#0e241e 0%,#0b1c17 60%,#081411 100%);color:#c9bea6}
+    .impact-grid-bg{
+        position:absolute;inset:0;pointer-events:none;opacity:.4;
+        background-image:
+            linear-gradient(to left,rgba(201,163,95,.09) 1px,transparent 1px),
+            linear-gradient(to bottom,rgba(201,163,95,.09) 1px,transparent 1px);
+        background-size:34px 34px;
+        mask-image:radial-gradient(circle at 20% 80%,#000 10%,transparent 70%);
+        -webkit-mask-image:radial-gradient(circle at 20% 80%,#000 10%,transparent 70%);
+    }
+    .impact .eng-wrap{position:relative;z-index:2}
+    .impact .sec-head{border-bottom-color:rgba(201,163,95,.3)}
+    .impact .sec-head h2{color:#f2ead8}
+    .impact .sec-note{color:#a99d85}
+    .impact .code{color:#a99d85}
+    .impact .code b{color:var(--brass-2)}
+    .impact-lede{font-size:1rem;line-height:1.95;color:#c9bea6;max-width:54rem;margin:-.6rem 0 2rem}
+    .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2.4rem}
+    .imp{border-top:1px solid rgba(201,163,95,.3);padding-top:1rem}
+    .imp .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--brass-2)}
+    .imp h3{font-size:1rem;color:#f2ead8;margin:.45rem 0 .45rem;font-weight:700}
+    .imp p{font-size:.86rem;line-height:1.9;color:#bdb29b;margin:0}
+    .imp ul{list-style:none;margin:.65rem 0 0;padding:0;display:flex;flex-direction:column;gap:.3rem}
+    .imp li{display:flex;gap:.5rem;font-size:.76rem;color:#a99d85;line-height:1.7}
+    .imp li::before{content:"";flex:0 0 auto;width:9px;height:1px;background:rgba(201,163,95,.6);margin-top:.62rem}
+
+    /* ================= CTA ================= */
+    .cta{background:var(--paper-2);border-top:1px solid var(--line)}
+    .cta-box{
+        position:relative;border:1px solid var(--line-strong);padding:clamp(2rem,5vw,3.5rem);
+        text-align:center;background:
+            linear-gradient(to left,rgba(19,31,27,.03) 1px,transparent 1px),
+            linear-gradient(to bottom,rgba(19,31,27,.03) 1px,transparent 1px);
+        background-size:26px 26px;
+    }
+    .cta-box::before,.cta-box::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--brass)}
+    .cta-box::before{top:-1px;right:-1px;border-left:0;border-bottom:0}
+    .cta-box::after{bottom:-1px;left:-1px;border-right:0;border-top:0}
+    .cta-box h2{font-size:clamp(1.5rem,3vw,2.05rem);font-weight:800}
+    .cta-box p{font-size:1rem;color:var(--muted);margin:.7rem auto 0;max-width:38rem}
+    .cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:1.7rem}
+    .btn-dark{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:#f6f1e4;border:1px solid var(--ink);padding:.78rem 1.4rem;font-family:var(--kufi);font-size:.82rem;font-weight:700;transition:.2s}
+    .btn-dark:hover{background:var(--water);border-color:var(--water)}
+    .btn-out{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line-strong);color:var(--brass-text);padding:.78rem 1.4rem;font-family:var(--kufi);font-size:.82rem;font-weight:700;transition:.2s}
+    .btn-out:hover{border-color:var(--brass);background:rgba(166,122,46,.06)}
+    .colophon{
+        display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+        margin-top:2rem;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted);
+        border-top:1px solid var(--line);padding-top:.8rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width:1023px){
+        .hero-drawing{width:420px;left:-90px;opacity:.2}
+        .fields{grid-template-columns:1fr 1fr}
+        .cities{grid-template-columns:1fr 1fr}
+        .mash{grid-template-columns:1fr 1fr}
+        .impact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:767px){
+        .eng-section{padding:3rem 0}
+        .hero-inner{padding-top:2.2rem}
+        .plate-bar{margin-bottom:1.8rem}
+        .hero-facts{grid-template-columns:1fr;max-width:none}
+        .fact{border-left:0;border-top:1px solid rgba(201,163,95,.22)}
+        .fact:first-child{border-top:0}
+        .sec-head{flex-direction:column;align-items:flex-start;gap:.5rem}
+        .sec-note{text-align:right}
+        .idx-head{display:none}
+        .idx-row{grid-template-columns:36px 40px 1fr;gap:.7rem;padding:.75rem .8rem}
+        .idx-thumb{width:40px;height:40px}
+        .idx-go{display:none}
+        .idx-sub{font-size:.72rem;white-space:normal}
+        .fields{grid-template-columns:1fr}
+        .mash{grid-template-columns:1fr}
+        .cities{grid-template-columns:1fr}
+        .hero-ruler{height:26px}
+        .hero-current{bottom:26px;height:64px}
+        .clocks{grid-template-columns:1fr}
+        .clock-list{grid-template-columns:1fr}
+        .clock-specs{grid-template-columns:1fr}
+        .clock-specs div{border-left:0;border-top:1px solid var(--line)}
+        .clock-specs div:first-child{border-top:0}
+        .clock-compare th,.clock-compare td{padding:.45rem .5rem;font-size:.72rem}
+        .clock-compare tbody th{width:64px;font-size:.7rem}
+        .clock-fig svg{max-width:320px}
+        .mill-grid{grid-template-columns:1fr}
+        .mill-specs{grid-template-columns:1fr}
+        .mill-specs div{border-left:0;border-top:1px solid var(--line)}
+        .mill-specs div:first-child{border-top:0}
+        .mill-list{grid-template-columns:1fr}
+    }
+    @media (prefers-reduced-motion:reduce){
+        .hero-drawing .wheel,.hero-drawing [pathLength],.hero-current::before,.hero-current::after,.bed-level,.bed-fill,.mech-level,.mech-hand,.mech-gear,.mech-fig,.mill-wheel,.mill-gear,.mill-stream{animation:none!important}
+    }
+</style>
+
+<div class="eng" dir="rtl">
+
+    <!-- ================= HERO ================= -->
+    <header class="eng-hero">
+        <div class="hero-grid"></div>
+
+        <svg class="hero-drawing" viewBox="0 0 520 520" aria-hidden="true">
+            <g fill="none" stroke="#c9a35f" stroke-width="1">
+                <g class="wheel">
+                    <g style="--d:0s">
+                        <circle pathLength="100" cx="260" cy="260" r="196" opacity=".55"/>
+                        <circle pathLength="100" cx="260" cy="260" r="168" opacity=".3"/>
+                        <circle pathLength="100" cx="260" cy="260" r="44" opacity=".7"/>
+                        <circle cx="260" cy="260" r="8" fill="#c9a35f" stroke="none" opacity=".9"/>
+                    </g>
+
+                    <g opacity=".75" style="--d:.55s">
+                        <path pathLength="100" d="M260 64 l-14 24 h28 Z"/>
+                        <path pathLength="100" d="M398 122 l-24 12 14 24 Z"/>
+                        <path pathLength="100" d="M456 260 l-24 14 v-28 Z"/>
+                        <path pathLength="100" d="M398 398 l-14 24 -24 -14 Z"/>
+                        <path pathLength="100" d="M260 456 l14 -24 h-28 Z"/>
+                        <path pathLength="100" d="M122 398 l24 -12 -14 -24 Z"/>
+                        <path pathLength="100" d="M64 260 l24 -14 v28 Z"/>
+                        <path pathLength="100" d="M122 122 l14 -24 24 14 Z"/>
+                    </g>
+                </g>
+
+                <g opacity=".5" style="--d:.3s">
+                    <line pathLength="100" x1="260" y1="64" x2="260" y2="456"/>
+                    <line pathLength="100" x1="64" y1="260" x2="456" y2="260"/>
+                    <line pathLength="100" x1="122" y1="122" x2="398" y2="398"/>
+                    <line pathLength="100" x1="398" y1="122" x2="122" y2="398"/>
+                </g>
+
+                <g opacity=".45" stroke-dasharray="3 5">
+                    <line x1="260" y1="456" x2="452" y2="508"/>
+                </g>
+
+                <g opacity=".5" style="--d:.85s">
+                    <line pathLength="100" x1="260" y1="48" x2="260" y2="34"/>
+                    <line pathLength="100" x1="260" y1="472" x2="260" y2="486"/>
+                    <line pathLength="100" x1="48" y1="260" x2="34" y2="260"/>
+                    <line pathLength="100" x1="472" y1="260" x2="486" y2="260"/>
+                </g>
+
+                <g opacity=".55" stroke-dasharray="2 6">
+                    <circle cx="260" cy="260" r="210"/>
+                </g>
+            </g>
+        </svg>
+
+        <div class="eng-wrap hero-inner">
+            <div class="plate-bar">
+                <span class="lat" dir="ltr">PL. 01 / WATER SCIENCES</span>
+                <span>أرشيف بصري · المغرب والأندلس · العصر الوسيط</span>
             </div>
-        </div>
-    </div>
-    
-    <!-- Improved Header-to-Content Transition -->
-    <div class="relative">
-        <!-- Elegant diagonal cut with subtle shadow -->
-        <div class="absolute -bottom-10 left-0 right-0 h-20 bg-white transform -skew-y-1.5 shadow-sm"></div>
-    </div>
-</header>
 
-<!-- Introduction Section -->
-<section class="py-16 bg-white dir-rtl relative z-10 pt-16">
-    <div class="container mx-auto px-8">
-        <div class="max-w-4xl mx-auto bg-white rounded-2xl p-8 md:p-10 shadow-xl" data-controller="reveal-animation" data-reveal-animation-classes="opacity-0" data-reveal-animation-visible-class="opacity-100" data-reveal-animation-threshold="0.1">
-            <div class="flex items-center justify-center mb-8">
-                <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800">
-                    <i class="fas fa-landmark text-2xl"></i>
-                </div>
+            <p class="hero-kicker">لوحة الغلاف</p>
+
+            <h1>
+                علماء الماء<br>
+                <span>في المغرب والأندلس</span>
+            </h1>
+
+            <div class="dim" aria-hidden="true">
+                <span class="dim-label">SCALE 1:1</span>
             </div>
 
-            <h2 class="text-2xl md:text-3xl font-bold text-center text-amber-900 mb-6 font-maghrebi">إسهامات العلماء المسلمين في علوم المياه</h2>
-
-            <p class="text-lg text-stone-700 leading-relaxed mb-6">
-                تميزت الحضارة الإسلامية بإسهامات علمية رائدة في مجال علوم المياه والهيدرولوجيا، حيث قدم العلماء المسلمون نظريات ومفاهيم متقدمة في فهم الدورة المائية وإدارة الموارد المائية وتطوير التقنيات الهيدروليكية.
+            <p class="hero-lede">
+                تسعة أعلام، من قرطبة إلى فاس: خرائط وصفية، وتقنيات رفع وريّ، وساعات مائية،
+                ومعرفة فلاحية. أرشيف مبني على لغة الرسم الهندسي الوسيط، حيث يُقاس الماء
+                بالزمن والمسافة لا بالكلمات.
             </p>
 
-            <p class="text-lg text-stone-700 leading-relaxed mb-6">
-                نستعرض في هذه الصفحة أبرز العلماء المسلمين الذين أسهموا في تطوير علوم المياه ووضعوا الأسس النظرية والتطبيقية للعديد من المفاهيم الهيدرولوجية التي ما زالت تستخدم في العلوم المعاصرة.
-            </p>
-            
-            <div class="flex justify-center mt-10">
-                <a href="#scientists-profiles" class="inline-block px-6 py-3 bg-amber-700 text-white rounded-lg hover:bg-amber-600 transition-colors shadow-md">
-                    <span class="flex items-center">
-                        <i class="fas fa-users ml-2"></i>
-                        تصفح قائمة العلماء
-                    </span>
+            <div class="hero-facts">
+                <div class="fact">
+                    <span class="k" dir="ltr">FIGURES</span>
+                    <span class="v">{{ atlas | size }}</span>
+                    <span class="u">أعلام المغرب والأندلس</span>
+                </div>
+                <div class="fact">
+                    <span class="k" dir="ltr">FILES</span>
+                    <span class="v">{{ site.scientists | size }}</span>
+                    <span class="u">ملفاً في الأرشيف</span>
+                </div>
+                <div class="fact">
+                    <span class="k" dir="ltr">PERIOD</span>
+                    <span class="v">5–10</span>
+                    <span class="u">القرون الهجرية</span>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#index" class="btn-solid">
+                    <i class="fas fa-list-ol"></i>
+                    فهرس الأعلام
+                </a>
+                <a href="#fields" class="btn-line">
+                    <i class="fas fa-drafting-compass"></i>
+                    لوحات المجالات
                 </a>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Filter and Search Section -->
-<section class="py-12 bg-stone-100 dir-rtl">
-    <div class="container mx-auto px-8">
-        <div class="max-w-4xl mx-auto">
-            <div class="bg-white rounded-xl p-6 shadow-md">
-                <h3 class="text-xl font-bold text-amber-900 mb-6 flex items-center">
-                    <i class="fas fa-filter ml-3 text-amber-700"></i>
-                    تصفية العلماء حسب التخصص
-                </h3>
-                
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    <button class="filter-btn px-4 py-3 bg-amber-700 text-white rounded-lg hover:bg-amber-600 transition-colors active" data-filter="all">
-                        <i class="fas fa-globe-africa ml-1"></i>
-                        الكل
-                    </button>
-                    <button class="filter-btn px-4 py-3 bg-stone-100 text-stone-800 rounded-lg hover:bg-amber-100 transition-colors" data-filter="engineering">
-                        <i class="fas fa-cogs ml-1"></i>
-                        الهندسة المائية
-                    </button>
-                    <button class="filter-btn px-4 py-3 bg-stone-100 text-stone-800 rounded-lg hover:bg-amber-100 transition-colors" data-filter="geography">
-                        <i class="fas fa-map-marked-alt ml-1"></i>
-                        الجغرافيا المائية
-                    </button>
-                    <button class="filter-btn px-4 py-3 bg-stone-100 text-stone-800 rounded-lg hover:bg-amber-100 transition-colors" data-filter="medicine">
-                        <i class="fas fa-flask ml-1"></i>
-                        الطب المائي
-                    </button>
-                    <button class="filter-btn px-4 py-3 bg-stone-100 text-stone-800 rounded-lg hover:bg-amber-100 transition-colors" data-filter="agriculture">
-                        <i class="fas fa-seedling ml-1"></i>
-                        الزراعة المائية
-                    </button>
+        <div class="hero-current" aria-hidden="true"></div>
+        <div class="hero-ruler" aria-hidden="true"></div>
+    </header>
+
+    <!-- ================= INDEX ================= -->
+    <section id="index" class="eng-section">
+        <div class="eng-wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="code"><b>PL. 02</b> · INDEX</p>
+                    <h2>فهرس الأعلام</h2>
                 </div>
-                
-                <div class="relative mt-6">
-                    <input type="text" id="scientistSearch" class="w-full bg-stone-50 border border-stone-200 text-stone-800 rounded-lg px-5 py-4 pr-12 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="ابحث عن عالم...">
-                    <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-amber-600">
-                        <i class="fas fa-search"></i>
+                <p class="sec-note">مرتّبون حسب تاريخ الوفاة<br>اضغط على أي اسم لفتح الملف الكامل</p>
+            </div>
+
+            <div class="idx">
+                <div class="idx-head">
+                    <span dir="ltr">NO.</span>
+                    <span dir="ltr">IMG</span>
+                    <span>العالم · الموضع · التاريخ · الإقليم · المجال</span>
+                    <span dir="ltr">FILE</span>
+                </div>
+
+                {% for s in atlas %}
+                {% assign _s_key = s.image | remove_first: '/' %}
+                <a href="{{ s.url | relative_url }}" class="idx-row">
+                    <span class="idx-no">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                    <span class="idx-thumb">
+                        <img src="{{ site.data.manifest[_s_key] | default: s.image | default: '/dist/images/scientists/default.jpg' }}"
+                             alt="{{ s.name }}" loading="lazy">
                     </span>
+                    <span class="idx-main">
+                        <span class="idx-name">{{ s.name }}</span>
+                        <span class="idx-sub">
+                            {{ s.location }}
+                            <i>·</i> {{ s.dates }}
+                            <i>·</i> <span class="rg">{% if s.region == 'andalus' %}الأندلس{% else %}المغرب{% endif %}</span>
+                            <i>·</i> {% case s.category %}{% when 'engineering' %}هندسة الماء{% when 'geography' %}جغرافيا الماء{% when 'medicine' %}طب الماء{% when 'agriculture' %}فلاحة الماء{% when 'astronomy' %}فلك ومواقيت{% when 'chemistry' %}كيمياء الماء{% when 'jurisprudence' %}فقه الماء{% else %}علوم الماء{% endcase %}
+                        </span>
+                    </span>
+                    <span class="idx-go">
+                        الملف
+                        <i class="fas fa-arrow-left" style="font-size:.65rem"></i>
+                    </span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCALE ================= -->
+    <section class="eng-section alt">
+        <div class="eng-wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="code"><b>PL. 03</b> · CHRONOLOGY</p>
+                    <h2>مقياس زمني</h2>
+                </div>
+                <p class="sec-note">كل تدريجة = 10 سنوات هجرية<br>من 480 هـ إلى 970 هـ</p>
+            </div>
+
+            <div class="scale-scroll">
+                <div class="scale">
+                    <div class="scale-inner">
+                        <div class="scale-line"></div>
+                        <div class="scale-ticks"></div>
+
+                        <span class="scale-end r" dir="ltr">480 AH</span>
+                        <span class="scale-end l" dir="ltr">970 AH</span>
+
+                        <div class="pin up" style="right:1.43%">
+                            <span class="lab"><b>البكري</b><span>487 هـ</span></span>
+                        </div>
+                        <div class="pin down" style="right:3.88%">
+                            <span class="lab"><b>ابن بصال</b><span>ق 5 هـ</span></span>
+                        </div>
+                        <div class="pin up" style="right:15.71%">
+                            <span class="lab"><b>ابن زهر</b><span>557 هـ</span></span>
+                        </div>
+                        <div class="pin down" style="right:16.33%">
+                            <span class="lab"><b>الإدريسي</b><span>560 هـ</span></span>
+                        </div>
+                        <div class="pin up" style="right:20.61%">
+                            <span class="lab"><b>ابن العوام</b><span>ق 6 هـ</span></span>
+                        </div>
+                        <div class="pin down" style="right:41.84%">
+                            <span class="lab"><b>ابن الحبّاك</b><span>685 هـ</span></span>
+                        </div>
+                        <div class="pin up" style="right:66.94%">
+                            <span class="lab"><b>ابن خلدون</b><span>808 هـ</span></span>
+                        </div>
+                        <div class="pin down" style="right:83.88%">
+                            <span class="lab"><b>ابن عاصم</b><span>ق 8–9 هـ</span></span>
+                        </div>
+                        <div class="pin up" style="right:98.37%">
+                            <span class="lab"><b>الوزان</b><span>962 هـ</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scale-foot">
+                <span>التواريخ الميلادية مثبتة في ملف كل عالم؛ المقياس هنا هجري تقريبي.</span>
+                <span class="bar"><i></i> 10 سنوات</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CITIES ================= -->
+    <section class="eng-section">
+        <div class="eng-wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="code"><b>PL. 04</b> · SITES</p>
+                    <h2>جدول المواقع</h2>
+                </div>
+                <p class="sec-note">إحداثيات تقريبية<br>المدن التي ارتبطت بها أعلام الماء</p>
+            </div>
+
+            <div class="cities">
+                <div class="city">
+                    <h3>قرطبة</h3>
+                    <span class="coord" dir="ltr">37.88°N · 4.78°W</span>
+                    <p>أبو عبيد الله البكري</p>
+                </div>
+                <div class="city">
+                    <h3>إشبيلية</h3>
+                    <span class="coord" dir="ltr">37.39°N · 5.99°W</span>
+                    <p>أبو العلاء بن زهر · ابن العوام</p>
+                </div>
+                <div class="city">
+                    <h3>طليطلة</h3>
+                    <span class="coord" dir="ltr">39.86°N · 4.02°W</span>
+                    <p>ابن بصال الطليطلي</p>
+                </div>
+                <div class="city">
+                    <h3>غرناطة</h3>
+                    <span class="coord" dir="ltr">37.18°N · 3.60°W</span>
+                    <p>ابن عاصم الغرناطي</p>
+                </div>
+                <div class="city">
+                    <h3>سبتة</h3>
+                    <span class="coord" dir="ltr">35.89°N · 5.32°W</span>
+                    <p>محمد الإدريسي</p>
+                </div>
+                <div class="city">
+                    <h3>فاس</h3>
+                    <span class="coord" dir="ltr">34.03°N · 5.00°W</span>
+                    <p>ابن الحَبّاك · الحسن الوزان</p>
+                </div>
+                <div class="city">
+                    <h3>مراكش</h3>
+                    <span class="coord" dir="ltr">31.63°N · 7.99°W</span>
+                    <p>ابن الحَبّاك</p>
+                </div>
+                <div class="city">
+                    <h3>تونس</h3>
+                    <span class="coord" dir="ltr">36.80°N · 10.18°E</span>
+                    <p>عبد الرحمن بن خلدون</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Scientists Profiles Section -->
-<section id="scientists-profiles" class="py-16 dir-rtl">
-    <div class="container mx-auto px-8">
-        <div class="flex items-center mb-12">
-            <div class="h-12 w-1.5 bg-amber-600 ml-4"></div>
-            <h2 class="text-3xl md:text-4xl font-bold text-amber-900 font-maghrebi">أبرز العلماء وإسهاماتهم</h2>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scientists-grid">
-{% assign scientists = site.scientists | sort: 'name' %}
-{% for scientist in scientists %}
-            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full" data-category="{{ scientist.category }}">
-                <div class="relative h-64 overflow-hidden">
-                    {% assign _s_key = scientist.image | remove_first: '/' %}
-                    <img src="{{ site.data.manifest[_s_key] | default: scientist.image | default: '/dist/images/scientists/default.jpg' }}" alt="{{ scientist.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                    <div class="absolute bottom-0 right-0 left-0 p-4 z-10">
-                        <h3 class="text-xl font-bold text-white">{{ scientist.name }}</h3>
-                        <p class="text-amber-200 text-sm">{{ scientist.dates }}</p>
-                    </div>
+    <!-- ================= MASHRIQ ================= -->
+    <section class="eng-section alt">
+        <div class="eng-wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="code"><b>PL. 05</b> · EASTERN SCHOOL</p>
+                    <h2>ملحق: علماء المشرق</h2>
                 </div>
+                <p class="sec-note">تسعة ملفات<br>امتداد المدرسة نفسها شرقاً</p>
+            </div>
 
-                <div class="p-6 flex-grow flex flex-col">
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        {% for tag in scientist.tags %}
-                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs">{{ tag }}</span>
-                        {% endfor %}
+            <div class="mash">
+                {% for s in mashriq %}
+                <a href="{{ s.url | relative_url }}" class="mash-card">
+                    <span class="mash-no">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                    <span class="mash-body">
+                        <b>{{ s.name }}</b>
+                        <span>{{ s.location }} · {{ s.dates }}</span>
+                    </span>
+                    <span class="mash-arrow">↗</span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FIELDS ================= -->
+    <section id="fields" class="eng-section">
+        <div class="eng-wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="code"><b>PL. 06</b> · PLATES</p>
+                    <h2>لوحات علوم الماء</h2>
+                </div>
+                <p class="sec-note">ستة حقول<br>كل لوحة مجال من مجالات المعرفة المائية</p>
+            </div>
+
+            <div class="fields">
+                <article class="field">
+                    <span class="code" dir="ltr">FIG. 01</span>
+                    <svg class="field-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 40h38"/>
+                        <path d="M10 40V22h28v18"/>
+                        <path d="M10 29h28" stroke-dasharray="2 3"/>
+                        <path d="M18 15l6-5 6 5"/>
+                        <path d="M24 10v8"/>
+                    </svg>
+                    <h3>هندسة الموارد المائية</h3>
+                    <p>
+                        طوَّر العلماء المسلمون تقنيات متقدمة في تخزين المياه ونقلها وتوزيعها، من خلال أنظمة الري المتطورة والسدود والقنوات المائية التي ما زالت بعضها مستخدمة حتى الآن.
+                    </p>
+                    <ul>
+                        <li>تقنيات استخراج المياه الجوفية (القنوات)</li>
+                        <li>أنظمة توزيع المياه داخل المدن</li>
+                        <li>تصميم الخزانات والصهاريج المائية</li>
+                    </ul>
+                </article>
+
+                <article class="field">
+                    <span class="code" dir="ltr">FIG. 02</span>
+                    <svg class="field-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M15 8v22a9 9 0 0 0 18 0V8"/>
+                        <path d="M15 17h18" stroke-dasharray="2 3"/>
+                        <path d="M15 8h-3M33 8h3"/>
+                        <path d="M24 42v-3"/>
+                        <path d="M21 39h6"/>
+                    </svg>
+                    <h3>فيزياء السوائل</h3>
+                    <p>
+                        قدم العلماء المسلمون نظريات متقدمة في فهم خصائص السوائل وسلوكها، حيث درسوا الضغط الهيدروستاتيكي والطفو وحركة السوائل في الأنابيب والقنوات المفتوحة.
+                    </p>
+                    <ul>
+                        <li>قياس الكثافة النوعية للسوائل</li>
+                        <li>دراسة ضغط السوائل وتطبيقاتها</li>
+                        <li>علم الهيدروديناميكا التطبيقي</li>
+                    </ul>
+                </article>
+
+                <article class="field">
+                    <span class="code" dir="ltr">FIG. 03</span>
+                    <svg class="field-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 7h8v10l8 16a6 6 0 0 1-5.4 8.8H17.4A6 6 0 0 1 12 33l8-16z"/>
+                        <path d="M16 31h16" stroke-dasharray="2 3"/>
+                        <circle cx="24" cy="37" r="1.4"/>
+                        <path d="M24 7V4"/>
+                    </svg>
+                    <h3>كيمياء المياه</h3>
+                    <p>
+                        اهتم العلماء المسلمون بدراسة خصائص المياه الكيميائية وتأثيرها على الصحة والبيئة، وطوروا تقنيات متقدمة لتنقية المياه وتقييم جودتها.
+                    </p>
+                    <ul>
+                        <li>طرق تنقية المياه وتعقيمها</li>
+                        <li>دراسة الخصائص الكيميائية للمياه</li>
+                        <li>معايير جودة مياه الشرب</li>
+                    </ul>
+                </article>
+
+                <article class="field">
+                    <span class="code" dir="ltr">FIG. 04</span>
+                    <svg class="field-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="24" cy="25" r="14"/>
+                        <circle cx="24" cy="25" r="4"/>
+                        <path d="M24 11v28M10 25h28M14 15l20 20M34 15L14 35"/>
+                        <path d="M24 39v5M14 44h20"/>
+                    </svg>
+                    <h3>التقنيات الهيدروليكية</h3>
+                    <p>
+                        ابتكر العلماء المسلمون آليات متطورة لرفع المياه وتوليد الطاقة باستخدام القوة الهيدروليكية، مثل النواعير والسواقي والمضخات المائية.
+                    </p>
+                    <ul>
+                        <li>آلات رفع المياه والطواحين المائية</li>
+                        <li>الساعات المائية المتطورة</li>
+                        <li>أنظمة الري الآلية ذاتية التشغيل</li>
+                    </ul>
+                </article>
+
+                <article class="field">
+                    <span class="code" dir="ltr">FIG. 05</span>
+                    <svg class="field-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 34c7-8 15-10 21-6s13 4 17-2"/>
+                        <path d="M5 25c7-8 15-10 21-6s13 4 17-2" opacity=".6"/>
+                        <path d="M5 43c8-6 16-6 24-2s11 2 14-2" opacity=".4"/>
+                        <circle cx="30" cy="18" r="2.4"/>
+                        <path d="M30 20.4V27"/>
+                    </svg>
+                    <h3>الهيدروجرافيا</h3>
+                    <p>
+                        طور العلماء المسلمون علم رسم الخرائط المائية وتوثيق المجاري والمسطحات المائية، مع تحليل خصائصها الفيزيائية والجغرافية.
+                    </p>
+                    <ul>
+                        <li>رسم خرائط الأنهار والبحيرات</li>
+                        <li>تصنيف أحواض المياه وأنظمتها</li>
+                        <li>دراسة التيارات البحرية وخصائصها</li>
+                    </ul>
+                </article>
+
+                <article class="field">
+                    <span class="code" dir="ltr">FIG. 06</span>
+                    <svg class="field-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M39 24a15 15 0 1 1-4.4-10.6"/>
+                        <path d="M39 9v7h-7"/>
+                        <path d="M24 17c3.2 4.2 5 6.6 5 9.2a5 5 0 0 1-10 0c0-2.6 1.8-5 5-9.2z"/>
+                    </svg>
+                    <h3>الهيدرولوجيا البيئية</h3>
+                    <p>
+                        قدم العلماء المسلمون فهماً متقدماً للعلاقة بين المياه والبيئة، ودرسوا الدورة المائية الطبيعية وتأثيرها على التوازن البيئي.
+                    </p>
+                    <ul>
+                        <li>فهم الدورة المائية الطبيعية</li>
+                        <li>تأثير المياه على الغطاء النباتي</li>
+                        <li>أنظمة الحماية من الفيضانات</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= WATER CLOCKS ================= -->
+    <section id="clock" class="eng-section alt">
+        <div class="eng-wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="code"><b>PL. 07</b> · INSTRUMENTS</p>
+                    <h2>الساعتان المائيتان</h2>
+                </div>
+                <p class="sec-note">لوحتان<br>الواحة والمدينة: مقياسان للزمن</p>
+            </div>
+
+            <div class="clocks">
+
+                <!-- ---------- الواحات ---------- -->
+                <article class="clock-card">
+                    <p class="clock-kicker"><b>FIG. A</b><span>OASIS · DESERT</span></p>
+                    <h3>الساعة البدوية</h3>
+
+                    <figure class="clock-fig">
+                                                <svg viewBox="0 0 340 470" role="img" aria-label="مقطع هندسي لساعة مائية بدوية: طاسة نحاسية مثقوبة القاع تغوص في حوض ماء بانتظام">
+                            <defs>
+                                <clipPath id="bowl-clip">
+                                    <path d="M124 196 L216 196 L198 336 L142 336 Z"/>
+                                </clipPath>
+                            </defs>
+
+                            <g class="cl cl-soft cl-dash">
+                                <line x1="170" y1="50" x2="170" y2="440"/>
+                                <line x1="40" y1="312" x2="300" y2="312"/>
+                            </g>
+
+                            <!-- مسقط علوي: حافة مدرّجة -->
+                            <g class="cl">
+                                <circle cx="170" cy="112" r="54"/>
+                                <circle cx="170" cy="112" r="47"/>
+                                <circle cx="170" cy="112" r="3.4" fill="#f3f0e7"/>
+                                <g class="cl-soft">
+                                    <line x1="217" y1="112" x2="224" y2="112"/>
+                                    <line x1="210.7" y1="135.5" x2="216.8" y2="139"/>
+                                    <line x1="193.5" y1="152.7" x2="197" y2="158.8"/>
+                                    <line x1="170" y1="159" x2="170" y2="166"/>
+                                    <line x1="146.5" y1="152.7" x2="143" y2="158.8"/>
+                                    <line x1="129.3" y1="135.5" x2="123.2" y2="139"/>
+                                    <line x1="123" y1="112" x2="116" y2="112"/>
+                                    <line x1="129.3" y1="88.5" x2="123.2" y2="85"/>
+                                    <line x1="146.5" y1="71.3" x2="143" y2="65.2"/>
+                                    <line x1="170" y1="65" x2="170" y2="58"/>
+                                    <line x1="193.5" y1="71.3" x2="197" y2="65.2"/>
+                                    <line x1="210.7" y1="88.5" x2="216.8" y2="85"/>
+                                </g>
+                            </g>
+                            <g class="cl cl-soft cl-dash">
+                                <line x1="108" y1="112" x2="232" y2="112"/>
+                            </g>
+                            <text x="170" y="184" text-anchor="middle">PLAN</text>
+
+                            <!-- الحوض -->
+                            <g class="cl">
+                                <path d="M62 300 V382 a14 14 0 0 0 14 14 H264 a14 14 0 0 0 14 -14 V300"/>
+                                <line x1="56" y1="300" x2="284" y2="300" stroke-width="2"/>
+                            </g>
+                            <rect class="clock-water" x="68" y="312" width="204" height="80"/>
+                            <line class="clock-surface" x1="68" y1="312" x2="272" y2="312"/>
+
+                            <!-- ماء داخل الطاسة -->
+                            <g clip-path="url(#bowl-clip)">
+                                <g class="bed-fill">
+                                    <rect class="clock-water" x="124" y="196" width="92" height="140"/>
+                                </g>
+                            </g>
+
+                            <!-- الطاسة والمؤشر -->
+                            <g class="bed-level">
+                                <g class="cl">
+                                    <path d="M124 196 L216 196 L198 336 L142 336 Z"/>
+                                    <path d="M133 203 L207 203 L192 328 L148 328" opacity=".4"/>
+                                    <line x1="116" y1="196" x2="224" y2="196" stroke-width="2"/>
+                                </g>
+                                <circle class="cl" cx="170" cy="336" r="2.4" fill="#f3f0e7"/>
+                                <line class="cl cl-soft" x1="216" y1="196" x2="252" y2="196"/>
+                                <circle cx="252" cy="196" r="2.6" fill="#a67a2e"/>
+                            </g>
+
+                            <!-- مسطرة الساعات -->
+                            <g class="cl">
+                                <line x1="258" y1="188" x2="258" y2="252"/>
+                                <g class="cl-soft">
+                                    <line x1="258" y1="196" x2="266" y2="196"/>
+                                    <line x1="258" y1="204" x2="266" y2="204"/>
+                                    <line x1="258" y1="212" x2="266" y2="212"/>
+                                    <line x1="258" y1="220" x2="266" y2="220"/>
+                                    <line x1="258" y1="228" x2="266" y2="228"/>
+                                    <line x1="258" y1="236" x2="266" y2="236"/>
+                                    <line x1="258" y1="244" x2="266" y2="244"/>
+                                </g>
+                            </g>
+                            <text x="270" y="199">0</text>
+                            <text x="270" y="247">6</text>
+
+                            <!-- الأرض والقياس -->
+                            <g class="cl cl-soft">
+                                <line x1="100" y1="396" x2="100" y2="412"/>
+                                <line x1="240" y1="396" x2="240" y2="412"/>
+                                <line x1="58" y1="412" x2="282" y2="412"/>
+                                <line class="cl-dash" x1="58" y1="418" x2="282" y2="418"/>
+                            </g>
+                            <g class="cl cl-soft">
+                                <line x1="40" y1="312" x2="40" y2="396"/>
+                                <line x1="36" y1="312" x2="44" y2="312"/>
+                                <line x1="36" y1="396" x2="44" y2="396"/>
+                            </g>
+                            <text x="34" y="358" text-anchor="end">h</text>
+                        </svg>
+                        <figcaption>
+                            <span dir="ltr">CLEPSYDRA · OASIS</span>
+                            <span dir="ltr">SCALE 1:3</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="clock-txt">
+                        <p>
+                            في الواحات والأطراف الصحراوية كان الزمن يُقاس بالماء نفسه: طاسة نحاسية مثقوبة القاع تُترك
+                            طافية في حوض، فيتسرّب الماء إليها عبر ثقب شعري، فتشتدّ ثقلاً وتغوص بانتظام. وبمقدار ما تغوص
+                            عُرفت الساعة المنقضية، وضُبطت بها حصص الري في الساقية.
+                        </p>
                     </div>
 
-                    <p class="text-stone-700 text-sm mb-4 flex-grow">
-                        {{ scientist.description }}
+                    <dl class="clock-specs">
+                        <div><dt>PRINCIPLE</dt><dd>غوص تدريجي</dd></div>
+                        <div><dt>BODY</dt><dd>طاسة نحاسية</dd></div>
+                        <div><dt>ORIFICE</dt><dd>ثقب القاع</dd></div>
+                    </dl>
+
+                    <ul class="clock-list">
+                        <li>حوض ماء ثابت المستوى</li>
+                        <li>طاسة مثقوبة القاع</li>
+                        <li>غوص منتظم مع الزمن</li>
+                        <li>مسطرة ساعات مرجعية</li>
+                    </ul>
+                </article>
+
+                <!-- ---------- الحواضر ---------- -->
+                <article class="clock-card">
+                    <p class="clock-kicker"><b>FIG. B</b><span>CITY · HINTERLAND</span></p>
+                    <h3>ساعة الحواضر</h3>
+                    <p class="clock-sub">أوتوماتا مغربية وأندلسية: أبواب تفتح، وأشكال تتحرك، وكرة تقرع</p>
+
+                    <figure class="clock-fig">
+                        <svg viewBox="0 0 340 470" role="img" aria-label="واجهة ساعة دار المكانة بفاس: اثنا عشر باباً تعلو كل واحد منها طاسة نحاسية، وكرة تسقط في الطاسة، وأسفلها مقطع يبيّن العوامة والترس والعربة">
+                            <defs>
+                                <clipPath id="mag-tank">
+                                    <rect x="64" y="384" width="56" height="28"/>
+                                </clipPath>
+                            </defs>
+
+                            <!-- الهيكل -->
+                            <g class="cl cl-soft">
+                                <path d="M56 62 L170 26 L284 62"/>
+                                <path d="M56 62 V424"/>
+                                <path d="M284 62 V424"/>
+                                <path d="M40 424 H300"/>
+                                <path d="M48 434 H292"/>
+                            </g>
+
+                            <!-- الجرس -->
+                            <g class="cl">
+                                <path d="M162 56 a8 8 0 0 1 16 0 z"/>
+                                <line x1="158" y1="56" x2="182" y2="56"/>
+                                <circle cx="170" cy="60" r="1.6" fill="#a67a2e" stroke="none"/>
+                            </g>
+
+                            <!-- القرص -->
+                            <g class="cl">
+                                <circle cx="170" cy="108" r="34"/>
+                                <circle cx="170" cy="108" r="28" stroke-width="5" stroke-dasharray="2 12.65" opacity=".55"/>
+                                <path d="M170 66 l-4 7 h8 z" fill="#a67a2e" stroke="none"/>
+                                <circle cx="170" cy="108" r="3.4" fill="#f3f0e7"/>
+                            </g>
+                            <g class="mech-hand cl">
+                                <line x1="170" y1="80" x2="170" y2="138"/>
+                                <path d="M170 76 l-3.4 8 h6.8 z" fill="#a67a2e" stroke="none"/>
+                                <circle cx="170" cy="132" r="3" fill="#a67a2e" stroke="none"/>
+                            </g>
+                            <text x="170" y="162" text-anchor="middle">FÈS · 1357</text>
+
+                            <!-- الواجهة -->
+                            <g class="cl">
+                                <rect x="52" y="176" width="236" height="168"/>
+                                <line x1="46" y1="176" x2="294" y2="176" stroke-width="2"/>
+                                <line x1="52" y1="184" x2="288" y2="184" opacity=".45"/>
+                                <line x1="46" y1="340" x2="294" y2="340" stroke-width="2"/>
+                                <line x1="52" y1="344" x2="288" y2="344" opacity=".45"/>
+                            </g>
+
+                            <!-- الأرقام فوق الأبواب -->
+                            <g class="cl-soft" fill="#8f6524" stroke="none">
+                                <text x="65" y="222" text-anchor="middle" font-size="6.5">1</text>
+                                <text x="84" y="222" text-anchor="middle" font-size="6.5">2</text>
+                                <text x="103" y="222" text-anchor="middle" font-size="6.5">3</text>
+                                <text x="122" y="222" text-anchor="middle" font-size="6.5">4</text>
+                                <text x="141" y="222" text-anchor="middle" font-size="6.5">5</text>
+                                <text x="160" y="222" text-anchor="middle" font-size="6.5">6</text>
+                                <text x="179" y="222" text-anchor="middle" font-size="6.5">7</text>
+                                <text x="198" y="222" text-anchor="middle" font-size="6.5">8</text>
+                                <text x="217" y="222" text-anchor="middle" font-size="6.5">9</text>
+                                <text x="236" y="222" text-anchor="middle" font-size="6.5">10</text>
+                                <text x="255" y="222" text-anchor="middle" font-size="6.5">11</text>
+                                <text x="274" y="222" text-anchor="middle" font-size="6.5">12</text>
+                            </g>
+
+                            <!-- الأبواب الاثنا عشر -->
+                            <g class="cl">
+                                <path d="M58 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M77 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M96 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M115 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M134 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M153 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M172 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M191 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M210 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M229 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M248 280 V235 a7 7 0 0 1 14 0 V280"/>
+                                <path d="M267 280 V235 a7 7 0 0 1 14 0 V280"/>
+                            </g>
+
+                            <!-- الأشكال خلف الأبواب -->
+                            <g class="mech-fig" style="--d:0s">
+                                <circle cx="65" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M61 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:2s">
+                                <circle cx="84" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M80 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:4s">
+                                <circle cx="103" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M99 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:6s">
+                                <circle cx="122" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M118 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:8s">
+                                <circle cx="141" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M137 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:10s">
+                                <circle cx="160" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M156 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:12s">
+                                <circle cx="179" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M175 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:14s">
+                                <circle cx="198" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M194 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:16s">
+                                <circle cx="217" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M213 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:18s">
+                                <circle cx="236" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M232 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:20s">
+                                <circle cx="255" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M251 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+                            <g class="mech-fig" style="--d:22s">
+                                <circle cx="274" cy="258" r="2.8" fill="#a67a2e" stroke="none"/>
+                                <path d="M270 276 V266 a4 4 0 0 1 8 0 V276 Z" fill="#a67a2e" stroke="none" opacity=".85"/>
+                            </g>
+
+                            <!-- الطاسات النحاسية -->
+                            <g class="cl">
+                                <path d="M59 288 a6 6 0 0 0 12 0"/>
+                                <path d="M78 288 a6 6 0 0 0 12 0"/>
+                                <path d="M97 288 a6 6 0 0 0 12 0"/>
+                                <path d="M116 288 a6 6 0 0 0 12 0"/>
+                                <path d="M135 288 a6 6 0 0 0 12 0"/>
+                                <path d="M154 288 a6 6 0 0 0 12 0"/>
+                                <path d="M173 288 a6 6 0 0 0 12 0"/>
+                                <path d="M192 288 a6 6 0 0 0 12 0"/>
+                                <path d="M211 288 a6 6 0 0 0 12 0"/>
+                                <path d="M230 288 a6 6 0 0 0 12 0"/>
+                                <path d="M249 288 a6 6 0 0 0 12 0"/>
+                                <path d="M268 288 a6 6 0 0 0 12 0"/>
+                            </g>
+
+                            <!-- شريط التأسيس -->
+                            <g class="cl cl-soft">
+                                <line x1="60" y1="304" x2="280" y2="304"/>
+                                <line x1="60" y1="332" x2="280" y2="332"/>
+                            </g>
+                            <text x="170" y="322" text-anchor="middle" font-size="7.5">DAR AL-MAGANA · 758 H</text>
+
+                            <!-- مسار الكرة -->
+                            <path class="cl cl-soft cl-dash" d="M56 202 V274 Q56 286 65 286"/>
+                            <circle cx="56" cy="206" r="3.2" fill="#a67a2e" stroke="none"/>
+
+                            <!-- مقطع الآلية -->
+                            <g class="cl">
+                                <rect x="52" y="360" width="236" height="64"/>
+                            </g>
+                            <text x="52" y="356">DETAIL · DRIVE</text>
+                            <text x="92" y="376" text-anchor="middle" font-size="6.5">WATER</text>
+                            <text x="180" y="376" text-anchor="middle" font-size="6.5">GEAR</text>
+                            <text x="252" y="376" text-anchor="middle" font-size="6.5">CART</text>
+
+                            <!-- خزان وعوامة -->
+                            <g clip-path="url(#mag-tank)">
+                                <rect class="clock-water" x="64" y="398" width="56" height="14"/>
+                                <line class="clock-surface" x1="64" y1="398" x2="120" y2="398"/>
+                            </g>
+                            <g class="cl">
+                                <path d="M62 384 V412 H122 V384"/>
+                            </g>
+                            <rect class="clock-float" x="78" y="394" width="28" height="5"/>
+                            <line class="cl cl-soft cl-dash" x1="122" y1="398" x2="166" y2="398"/>
+
+                            <!-- ترس -->
+                            <g class="mech-gear a cl">
+                                <circle cx="180" cy="398" r="16" stroke-width="5" stroke-dasharray="3 2.6" opacity=".5"/>
+                                <circle cx="180" cy="398" r="13"/>
+                                <circle cx="180" cy="398" r="3.4"/>
+                                <line x1="180" y1="385" x2="180" y2="411" opacity=".7"/>
+                                <line x1="167" y1="398" x2="193" y2="398" opacity=".7"/>
+                            </g>
+                            <line class="cl cl-soft cl-dash" x1="193" y1="398" x2="238" y2="398"/>
+
+                            <!-- عربة -->
+                            <g class="cl">
+                                <rect x="238" y="384" width="30" height="10"/>
+                                <circle cx="246" cy="402" r="5"/>
+                                <circle cx="260" cy="402" r="5"/>
+                            </g>
+                        </svg>
+                        <figcaption>
+                            <span dir="ltr">DAR AL-MAGANA · FÈS</span>
+                            <span dir="ltr">ELEVATION 1:4</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="clock-txt">
+                        <p>
+                            في حواضر المغرب والأندلس لم تكن الساعة وعاءً للماء فقط، بل واجهةً تتحرك فيها الأشكال:
+                            في دار المكانة بفاس، التي أمر ببنائها السلطان المريني أبو عنان فارس سنة 1357م، وضع
+                            الموقّت أبو الحسن التلمساني واجهةً ذات اثني عشر باباً، تعلو كلَّ بابٍ طاسة نحاسية.
+                            وخلف الأبواب عربةٌ تحملها عوامةٌ وثقل، فإذا انقضت ساعةٌ تحرّكت إلى الباب الموافق،
+                            وانزلقت كرةٌ نحاسية إلى الطاسة فقرعت الجرس. وبقيت دار المؤقت بجامع القرويين تضبط
+                            أوقات الصلاة، وعُرفت ساعة تلمسان سنة 1308م، ووصف المرادي ساعات طليطلة.
+                        </p>
+                    </div>
+
+                    <dl class="clock-specs">
+                        <div><dt>PLACE</dt><dd>دار المكانة · فاس</dd></div>
+                        <div><dt>DATE</dt><dd>1357م · 758هـ</dd></div>
+                        <div><dt>AUTOMATA</dt><dd>12 باباً · عربة</dd></div>
+                    </dl>
+
+                    <ul class="clock-list">
+                        <li>اثنا عشر باباً واثنتا عشرة طاسة</li>
+                        <li>عربة خلف الأبواب تحرّكها عوامة</li>
+                        <li>كرة نحاسية تقرع الطاسة كل ساعة</li>
+                        <li>دار المؤقت بجامع القرويين</li>
+                        <li>ساعة تلمسان سنة 1308م</li>
+                        <li>ساعات طليطلة عند المرادي</li>
+                    </ul>
+
+                    <p class="clock-aside">
+                        <b>للاستئناس</b> — وصف الجزري لساعته المائية، وساعة ابن رضوان الساعاتي بباب جيرون
+                        بدمشق، نموذجان مشرقيان للمقارنة، لا يدخلان في هذا اللوح.
+                    </p>
+                </article>
+
+            </div>
+
+            <table class="clock-compare">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">البدوية</th>
+                        <th scope="col">الحواضر</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">الموطن</th>
+                        <td>الواحات والصحراء</td>
+                        <td>فاس · تلمسان · طليطلة</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">المبدأ</th>
+                        <td>غوص الوعاء</td>
+                        <td>عوامة وثقل</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الآلية</th>
+                        <td>طاسة وماء</td>
+                        <td>عربة وأبواب وكرة</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">القراءة</th>
+                        <td>مسطرة ساعات</td>
+                        <td>أبواب وطاسات</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الوظيفة</th>
+                        <td>حصص الري</td>
+                        <td>أوقات الصلاة</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="clock-note"><b>CLEPSYDRA</b> — من اليونانية: «سارقة الماء»؛ اسم جامع للساعتين.</p>
+        </div>
+    </section>
+
+    <!-- ================= WATER MILLS ================= -->
+    <section id="mills" class="eng-section mills">
+        <div class="eng-wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="code"><b>PL. 08</b> · HYDRAULICS</p>
+                    <h2>الأرحاء المائية</h2>
+                </div>
+                <p class="sec-note">مقطع تشغيلي<br>من التيار إلى الطحين</p>
+            </div>
+
+            <div class="mill-grid">
+                <figure class="mill-fig">
+                    <svg viewBox="0 0 480 420" role="img" aria-label="مقطع هندسي لرحى مائية: ساقية تصب الماء على عجلة علوية، ومحور أفقي وترس تاجي يديران عموداً رأسياً وحجر رحى، وقمع حب فوق الحجر">
+                        <!-- الأرض والإطار -->
+                        <g class="cl cl-soft">
+                            <line x1="0" y1="382" x2="480" y2="382"/>
+                            <line class="cl-dash" x1="0" y1="390" x2="480" y2="390"/>
+                            <path d="M330 200 L280 382"/>
+                            <path d="M330 200 L380 382"/>
+                            <line x1="292" y1="340" x2="368" y2="340"/>
+                        </g>
+
+                        <!-- الساقية -->
+                        <g class="cl">
+                            <path d="M480 50 H398 V80 H480"/>
+                            <line x1="455" y1="80" x2="455" y2="382" opacity=".45"/>
+                            <line x1="470" y1="80" x2="470" y2="382" opacity=".45"/>
+                        </g>
+                        <rect class="mill-water" x="400" y="54" width="80" height="22"/>
+                        <text x="438" y="42" text-anchor="middle">WATER</text>
+
+                        <!-- نفّاث الماء -->
+                        <g class="cl mill-stream">
+                            <path d="M398 80 Q392 102 374 114"/>
+                            <path d="M402 82 Q396 106 380 122"/>
+                            <path d="M394 82 Q388 100 366 104"/>
+                        </g>
+
+                        <!-- العجلة العلوية -->
+                        <g class="cl mill-wheel">
+                            <circle cx="330" cy="200" r="86"/>
+                            <circle cx="330" cy="200" r="76"/>
+                            <circle cx="330" cy="200" r="11"/>
+                            <circle cx="330" cy="200" r="4"/>
+                            <line x1="330" y1="200" x2="406" y2="200"/>
+                            <line x1="330" y1="200" x2="395.8" y2="238"/>
+                            <line x1="330" y1="200" x2="368" y2="265.8"/>
+                            <line x1="330" y1="200" x2="330" y2="276"/>
+                            <line x1="330" y1="200" x2="292" y2="265.8"/>
+                            <line x1="330" y1="200" x2="264.2" y2="238"/>
+                            <line x1="330" y1="200" x2="254" y2="200"/>
+                            <line x1="330" y1="200" x2="264.2" y2="162"/>
+                            <line x1="330" y1="200" x2="292" y2="134.2"/>
+                            <line x1="330" y1="200" x2="330" y2="124"/>
+                            <line x1="330" y1="200" x2="368" y2="134.2"/>
+                            <line x1="330" y1="200" x2="395.8" y2="162"/>
+                            <line x1="406" y1="200" x2="422" y2="200"/>
+                            <line x1="395.8" y1="238" x2="409.7" y2="246"/>
+                            <line x1="368" y1="265.8" x2="379.7" y2="279.7"/>
+                            <line x1="330" y1="276" x2="330" y2="292"/>
+                            <line x1="292" y1="265.8" x2="280.3" y2="279.7"/>
+                            <line x1="264.2" y1="238" x2="250.3" y2="246"/>
+                            <line x1="254" y1="200" x2="238" y2="200"/>
+                            <line x1="264.2" y1="162" x2="250.3" y2="154"/>
+                            <line x1="292" y1="134.2" x2="280.3" y2="120.3"/>
+                            <line x1="330" y1="124" x2="330" y2="108"/>
+                            <line x1="368" y1="134.2" x2="379.7" y2="120.3"/>
+                            <line x1="395.8" y1="162" x2="409.7" y2="154"/>
+                        </g>
+                        <text x="330" y="306" text-anchor="middle">WHEEL</text>
+
+                        <!-- المحور -->
+                        <line class="cl" x1="330" y1="200" x2="150" y2="200" stroke-width="2"/>
+                        <g class="cl cl-soft">
+                            <line x1="300" y1="192" x2="300" y2="208"/>
+                            <line x1="180" y1="192" x2="180" y2="208"/>
+                        </g>
+
+                        <!-- الترس التاجي -->
+                        <g class="cl mill-gear">
+                            <circle cx="150" cy="200" r="33" stroke-width="6" stroke-dasharray="4 3.9" opacity=".5"/>
+                            <circle cx="150" cy="200" r="28"/>
+                            <circle cx="150" cy="200" r="5"/>
+                            <line x1="150" y1="172" x2="150" y2="228"/>
+                            <line x1="122" y1="200" x2="178" y2="200"/>
+                        </g>
+                        <text x="150" y="160" text-anchor="middle">GEAR</text>
+
+                        <!-- العمود والحب -->
+                        <path d="M124 268 H176 L166 296 H134 Z" fill="#faf8f2" stroke="#a67a2e" stroke-width="1"/>
+                        <g fill="#a67a2e" stroke="none">
+                            <circle cx="140" cy="276" r="1.2"/>
+                            <circle cx="148" cy="280" r="1.2"/>
+                            <circle cx="156" cy="274" r="1.2"/>
+                            <circle cx="144" cy="286" r="1.2"/>
+                            <circle cx="154" cy="288" r="1.2"/>
+                        </g>
+                        <text x="118" y="264" text-anchor="end">GRAIN</text>
+                        <line class="cl" x1="150" y1="228" x2="150" y2="330" stroke-width="2.5"/>
+                        <line class="cl cl-soft cl-dash" x1="150" y1="296" x2="150" y2="316"/>
+
+                        <!-- الحجران -->
+                        <rect class="mill-stone" x="102" y="316" width="96" height="14" rx="2"/>
+                        <rect class="mill-stone-2" x="94" y="334" width="112" height="12" rx="2"/>
+                        <ellipse cx="150" cy="323" rx="5" ry="2" fill="#f3f0e7" stroke="#a67a2e" stroke-width="1"/>
+                        <circle cx="150" cy="323" r="1.8" fill="#a67a2e"/>
+                        <g class="cl cl-soft">
+                            <line x1="110" y1="346" x2="100" y2="382"/>
+                            <line x1="190" y1="346" x2="200" y2="382"/>
+                        </g>
+                        <text x="88" y="326" text-anchor="end">STONE</text>
+                        <line class="cl cl-soft" x1="90" y1="322" x2="102" y2="322"/>
+
+                        <!-- ماء العودة -->
+                        <g class="cl cl-soft mill-stream">
+                            <path d="M285 278 Q270 330 250 372"/>
+                            <path d="M300 290 Q285 335 268 374"/>
+                        </g>
+                    </svg>
+                    <figcaption>
+                        <span dir="ltr">UPPER-SHOT MILL · SECTION</span>
+                        <span dir="ltr">SCALE 1:5</span>
+                    </figcaption>
+                </figure>
+
+                <div class="mill-copy">
+                    <p>
+                        الرحى المائية أوضح صورة لتحويل الماء إلى حركة: ينزل الماء من الساقية على أكواب العجلة
+                        العليا فيدفعها إلى الدوران، فينقل المحور الأفقي الحركة إلى ترس تاجي، ويدير العمود
+                        الرأسي حجر الرحى العلوي فوق السفلي. ويُصبّ الحب في «العين» وسط الحجر، فيتوزع بين
+                        الحجرين ويخرج دقيقاً.
+                    </p>
+                    <p>
+                        وفي المغرب والأندلس انتشرت هذه الأرحاء على السواقي والأنهار، وارتبطت بها مطاحن المدن
+                        وأرباضها؛ كما استُثمرت حركة المدّ والجزر في بعض سواحل الأندلس. وهي مثال على هندسة
+                        الماء التي تجمع العجلة والترس والحجر في آلة واحدة.
                     </p>
 
+                    <dl class="mill-specs">
+                        <div><dt>DRIVE</dt><dd>عجلة علوية</dd></div>
+                        <div><dt>TRANSMISSION</dt><dd>محور وترس تاجي</dd></div>
+                        <div><dt>OUTPUT</dt><dd>حجرا رحى</dd></div>
+                    </dl>
 
+                    <ul class="mill-list">
+                        <li>أكواب دافعة على محيط العجلة</li>
+                        <li>محور أفقي وترس تاجي</li>
+                        <li>عمود رأسي يدير الحجر العلوي</li>
+                        <li>قمع حب وفتحة «عين»</li>
+                        <li>طحين بين الحجرين</li>
+                    </ul>
+
+                    <p class="mill-note" dir="ltr">MILL · UPPER-SHOT · WATER → WHEEL → GEAR → STONE</p>
                 </div>
             </div>
-{% endfor %}
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Related Sciences Section -->
-<section class="py-16 bg-stone-100">
-    <div class="container mx-auto px-4 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-12">
-            <div class="inline-block p-3 rounded-full bg-amber-100 text-amber-800 mb-4">
-                <i class="fas fa-atom text-2xl"></i>
+    <!-- ================= IMPACT ================= -->
+    <section class="eng-section impact">
+        <div class="impact-grid-bg"></div>
+        <div class="eng-wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="code"><b>PL. 09</b> · LEGACY</p>
+                    <h2>الأثر</h2>
+                </div>
+                <p class="sec-note">من التراث إلى المعاصرة<br>أربعة امتدادات للمعرفة المائية</p>
             </div>
-            <h2 class="text-3xl font-bold text-amber-900 mb-4">علوم المياه في الحضارة الإسلامية</h2>
-            <p class="text-lg text-stone-700">
-                شهدت الحضارة الإسلامية تطوراً غير مسبوق في مختلف فروع علوم المياه، مما أسس للعديد من المفاهيم العلمية المعاصرة
+
+            <p class="impact-lede">
+                شكلت إنجازات العلماء المسلمين في مجال علوم المياه أساساً للعديد من المفاهيم والتقنيات المعاصرة.
             </p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Water Science 1 -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4 group-hover:bg-amber-200 transition-colors duration-300">
-                    <i class="fas fa-tint text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">هندسة الموارد المائية</h3>
-                <p class="text-stone-700 mb-4">
-                    طوَّر العلماء المسلمون تقنيات متقدمة في تخزين المياه ونقلها وتوزيعها، من خلال أنظمة الري المتطورة والسدود والقنوات المائية التي ما زالت بعضها مستخدمة حتى الآن.
-                </p>
-                <ul class="text-sm text-stone-600 space-y-2">
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>تقنيات استخراج المياه الجوفية (القنوات)</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>أنظمة توزيع المياه داخل المدن</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>تصميم الخزانات والصهاريج المائية</span>
-                    </li>
-                </ul>
-            </div>
+            <div class="impact-grid">
+                <article class="imp">
+                    <span class="n" dir="ltr">FIG. 01</span>
+                    <h3>الأسس المعرفية للعلوم الحديثة</h3>
+                    <p>
+                        وضعت اكتشافات وابتكارات علماء المسلمين الأسس المعرفية والمنهجية لعلوم الهيدروليكا والهيدرولوجيا الحديثة، مما مهد الطريق لظهور مدارس علمية متخصصة في أوروبا خلال عصر النهضة.
+                    </p>
+                    <ul>
+                        <li>تأسيس المنهج التجريبي في دراسة علوم المياه</li>
+                        <li>تطوير النظريات العلمية المتعلقة بسلوك السوائل</li>
+                        <li>تأسيس مبادئ الهندسة الهيدروليكية</li>
+                    </ul>
+                </article>
 
-            <!-- Water Science 2 -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4 group-hover:bg-amber-200 transition-colors duration-300">
-                    <i class="fas fa-microscope text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">فيزياء السوائل</h3>
-                <p class="text-stone-700 mb-4">
-                    قدم العلماء المسلمون نظريات متقدمة في فهم خصائص السوائل وسلوكها، حيث درسوا الضغط الهيدروستاتيكي والطفو وحركة السوائل في الأنابيب والقنوات المفتوحة.
-                </p>
-                <ul class="text-sm text-stone-600 space-y-2">
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>قياس الكثافة النوعية للسوائل</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>دراسة ضغط السوائل وتطبيقاتها</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>علم الهيدروديناميكا التطبيقي</span>
-                    </li>
-                </ul>
-            </div>
+                <article class="imp">
+                    <span class="n" dir="ltr">FIG. 02</span>
+                    <h3>التقنيات المعاصرة والتنمية المستدامة</h3>
+                    <p>
+                        ما زالت العديد من التقنيات المائية التي طورها العلماء المسلمون تشكل مصدر إلهام للحلول المعاصرة في مجال التنمية المستدامة وإدارة الموارد المائية.
+                    </p>
+                    <ul>
+                        <li>تقنيات الري المستدام والزراعة المائية</li>
+                        <li>أنظمة معالجة المياه وإعادة استخدامها</li>
+                        <li>حلول تخزين المياه وتوزيعها في المناطق الجافة</li>
+                    </ul>
+                </article>
 
-            <!-- Water Science 3 -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4 group-hover:bg-amber-200 transition-colors duration-300">
-                    <i class="fas fa-vial text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">كيمياء المياه</h3>
-                <p class="text-stone-700 mb-4">
-                    اهتم العلماء المسلمون بدراسة خصائص المياه الكيميائية وتأثيرها على الصحة والبيئة، وطوروا تقنيات متقدمة لتنقية المياه وتقييم جودتها.
-                </p>
-                <ul class="text-sm text-stone-600 space-y-2">
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>طرق تنقية المياه وتعقيمها</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>دراسة الخصائص الكيميائية للمياه</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>معايير جودة مياه الشرب</span>
-                    </li>
-                </ul>
-            </div>
+                <article class="imp">
+                    <span class="n" dir="ltr">FIG. 03</span>
+                    <h3>العلاقة بين المياه والصحة العامة</h3>
+                    <p>
+                        أسهمت دراسات العلماء المسلمين في فهم العلاقة بين جودة المياه والصحة العامة، مما أسس لمبادئ الطب الوقائي والصحة البيئية المعاصرة.
+                    </p>
+                    <ul>
+                        <li>معايير جودة مياه الشرب وآثارها الصحية</li>
+                        <li>العلاقة بين تلوث المياه والأمراض</li>
+                        <li>أنظمة المياه والنظافة العامة</li>
+                    </ul>
+                </article>
 
-            <!-- Water Science 4 -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4 group-hover:bg-amber-200 transition-colors duration-300">
-                    <i class="fas fa-cogs text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">التقنيات الهيدروليكية</h3>
-                <p class="text-stone-700 mb-4">
-                    ابتكر العلماء المسلمون آليات متطورة لرفع المياه وتوليد الطاقة باستخدام القوة الهيدروليكية، مثل النواعير والسواقي والمضخات المائية.
-                </p>
-                <ul class="text-sm text-stone-600 space-y-2">
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>آلات رفع المياه والطواحين المائية</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>الساعات المائية المتطورة</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>أنظمة الري الآلية ذاتية التشغيل</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Water Science 5 -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4 group-hover:bg-amber-200 transition-colors duration-300">
-                    <i class="fas fa-map-marked-alt text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">الهيدروجرافيا</h3>
-                <p class="text-stone-700 mb-4">
-                    طور العلماء المسلمون علم رسم الخرائط المائية وتوثيق المجاري والمسطحات المائية، مع تحليل خصائصها الفيزيائية والجغرافية.
-                </p>
-                <ul class="text-sm text-stone-600 space-y-2">
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>رسم خرائط الأنهار والبحيرات</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>تصنيف أحواض المياه وأنظمتها</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>دراسة التيارات البحرية وخصائصها</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Water Science 6 -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4 group-hover:bg-amber-200 transition-colors duration-300">
-                    <i class="fas fa-flask text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">الهيدرولوجيا البيئية</h3>
-                <p class="text-stone-700 mb-4">
-                    قدم العلماء المسلمون فهماً متقدماً للعلاقة بين المياه والبيئة، ودرسوا الدورة المائية الطبيعية وتأثيرها على التوازن البيئي.
-                </p>
-                <ul class="text-sm text-stone-600 space-y-2">
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>فهم الدورة المائية الطبيعية</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>تأثير المياه على الغطاء النباتي</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-600 ml-2"><i class="fas fa-chevron-circle-left"></i></span>
-                        <span>أنظمة الحماية من الفيضانات</span>
-                    </li>
-                </ul>
+                <article class="imp">
+                    <span class="n" dir="ltr">FIG. 04</span>
+                    <h3>الإدارة المتكاملة للموارد المائية</h3>
+                    <p>
+                        طوَّر العلماء المسلمون مفهوم الإدارة المتكاملة للموارد المائية، الذي يعد من المفاهيم الأساسية في الإدارة البيئية المعاصرة.
+                    </p>
+                    <ul>
+                        <li>نظم توزيع المياه والعدالة الاجتماعية</li>
+                        <li>التخطيط المائي المتكامل للمدن</li>
+                        <li>الموازنة بين الاحتياجات البشرية والتوازن البيئي</li>
+                    </ul>
+                </article>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contributions Impact Section -->
-<section class="py-16 relative overflow-hidden">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 bg-gradient-to-r from-amber-900 to-amber-800">
-        <div class="absolute inset-0 bg-[url({{ 'dist/images/patterns/islamic-pattern.svg' | absolute_url }})] bg-repeat opacity-5"></div>
-    </div>
-
-    <div class="container mx-auto px-4 lg:px-8 relative z-10">
-        <div class="max-w-3xl mx-auto text-center mb-12">
-            <div class="inline-block p-3 rounded-full bg-amber-100/20 backdrop-blur-sm text-amber-100 mb-4">
-                <i class="fas fa-lightbulb text-2xl"></i>
-            </div>
-            <h2 class="text-3xl font-bold text-white mb-4">تأثير الإسهامات العلمية على الحضارة الإنسانية</h2>
-            <p class="text-xl text-amber-100/80">
-                شكلت إنجازات العلماء المسلمين في مجال علوم المياه أساساً للعديد من المفاهيم والتقنيات المعاصرة
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Impact 1 -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div class="flex items-start mb-4">
-                    <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 ml-4 flex-shrink-0">
-                        <i class="fas fa-university text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">الأسس المعرفية للعلوم الحديثة</h3>
-                        <p class="text-amber-100/80">
-                            وضعت اكتشافات وابتكارات علماء المسلمين الأسس المعرفية والمنهجية لعلوم الهيدروليكا والهيدرولوجيا الحديثة، مما مهد الطريق لظهور مدارس علمية متخصصة في أوروبا خلال عصر النهضة.
-                        </p>
-                    </div>
+    <!-- ================= CTA ================= -->
+    <section class="eng-section cta">
+        <div class="eng-wrap">
+            <div class="cta-box">
+                <p class="code"><b>PL. 10</b> · CONTINUE</p>
+                <h2>من اللوحات إلى المقالات</h2>
+                <p>
+                    اقرأ الدراسات الكاملة عن الماء والعمران والمخطوطات في المغرب الوسيط.
+                </p>
+                <div class="cta-actions">
+                    <a href="{{ '/articles' | relative_url }}" class="btn-dark">
+                        <i class="fas fa-book-open"></i>
+                        استعراض المقالات
+                    </a>
+                    <a href="{{ '/about' | relative_url }}" class="btn-out">
+                        <i class="fas fa-user"></i>
+                        السيرة العلمية
+                    </a>
                 </div>
-                <ul class="space-y-2 text-amber-100/80 mr-16">
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>تأسيس المنهج التجريبي في دراسة علوم المياه</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>تطوير النظريات العلمية المتعلقة بسلوك السوائل</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>تأسيس مبادئ الهندسة الهيدروليكية</span>
-                    </li>
-                </ul>
             </div>
 
-            <!-- Impact 2 -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div class="flex items-start mb-4">
-                    <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 ml-4 flex-shrink-0">
-                        <i class="fas fa-cog text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">التقنيات المعاصرة والتنمية المستدامة</h3>
-                        <p class="text-amber-100/80">
-                            ما زالت العديد من التقنيات المائية التي طورها العلماء المسلمون تشكل مصدر إلهام للحلول المعاصرة في مجال التنمية المستدامة وإدارة الموارد المائية.
-                        </p>
-                    </div>
-                </div>
-                <ul class="space-y-2 text-amber-100/80 mr-16">
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>تقنيات الري المستدام والزراعة المائية</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>أنظمة معالجة المياه وإعادة استخدامها</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>حلول تخزين المياه وتوزيعها في المناطق الجافة</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Impact 3 -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div class="flex items-start mb-4">
-                    <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 ml-4 flex-shrink-0">
-                        <i class="fas fa-microscope text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">العلاقة بين المياه والصحة العامة</h3>
-                        <p class="text-amber-100/80">
-                            أسهمت دراسات العلماء المسلمين في فهم العلاقة بين جودة المياه والصحة العامة، مما أسس لمبادئ الطب الوقائي والصحة البيئية المعاصرة.
-                        </p>
-                    </div>
-                </div>
-                <ul class="space-y-2 text-amber-100/80 mr-16">
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>معايير جودة مياه الشرب وآثارها الصحية</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>العلاقة بين تلوث المياه والأمراض</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>أنظمة المياه والنظافة العامة</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Impact 4 -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div class="flex items-start mb-4">
-                    <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 ml-4 flex-shrink-0">
-                        <i class="fas fa-globe-africa text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">الإدارة المتكاملة للموارد المائية</h3>
-                        <p class="text-amber-100/80">
-                            طوَّر العلماء المسلمون مفهوم الإدارة المتكاملة للموارد المائية، الذي يعد من المفاهيم الأساسية في الإدارة البيئية المعاصرة.
-                        </p>
-                    </div>
-                </div>
-                <ul class="space-y-2 text-amber-100/80 mr-16">
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>نظم توزيع المياه والعدالة الاجتماعية</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>التخطيط المائي المتكامل للمدن</span>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-amber-300 ml-2"><i class="fas fa-check-circle"></i></span>
-                        <span>الموازنة بين الاحتياجات البشرية والتوازن البيئي</span>
-                    </li>
-                </ul>
+            <div class="colophon">
+                <span dir="ltr">FARDANE · MEDIEVAL WATER ARCHIVE</span>
+                <span>أُعدّت هذه اللوحة على مقياس 1:1 — جميع البيانات قابلة للتحقق في ملفات الأعلام</span>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Add this JavaScript at the end of your page, before the closing body tag -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Filter functionality
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const scientistCards = document.querySelectorAll('.scientists-grid > div');
-    
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Update active button styling
-        filterButtons.forEach(btn => btn.classList.remove('active', 'bg-amber-700', 'text-white'));
-        filterButtons.forEach(btn => btn.classList.add('bg-stone-100', 'text-stone-800'));
-        button.classList.remove('bg-stone-100', 'text-stone-800');
-        button.classList.add('active', 'bg-amber-700', 'text-white');
-        
-        const filterValue = button.getAttribute('data-filter');
-        
-        scientistCards.forEach(card => {
-          if (filterValue === 'all') {
-            card.style.display = 'flex';
-          } else {
-            if (card.getAttribute('data-category') === filterValue) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          }
-        });
-      });
-    });
-    
-    // Search functionality
-    const searchInput = document.getElementById('scientistSearch');
-    
-    searchInput.addEventListener('keyup', function() {
-      const searchTerm = this.value.trim().toLowerCase();
-      
-      scientistCards.forEach(card => {
-        const scientistName = card.querySelector('h3').textContent.toLowerCase();
-        
-        if (scientistName.includes(searchTerm)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      
-      // If search is cleared, respect current filter
-      if (searchTerm === '') {
-        const activeFilter = document.querySelector('.filter-btn.active');
-        if (activeFilter) {
-          activeFilter.click();
-        }
-      }
-    });
-  });
-</script>
+</div>

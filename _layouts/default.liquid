@@ -29,8 +29,8 @@
         <!-- Arabic fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        {% if page.layout == "post-feature" or page.url == "/about" or page.url == "/about/" %}
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+        {% if page.layout == "post-feature" or page.layout == "scientist" or page.url == "/about" or page.url == "/about/" or page.url == "/scientists" or page.url == "/scientists/" %}
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
         {% else %}
         <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
         {% endif %}
@@ -251,7 +251,7 @@
         <!-- Scripts -->
         <script defer src="{{ site.data.manifest['dist/main.js'] }}"></script>
     </head>
-    <body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col">
+    <body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}">
         <!-- Simple preloader -->
         <div id="preloader" class="fixed inset-0 bg-sand-50 z-50 flex items-center justify-center">
             <div class="animate-pulse">
