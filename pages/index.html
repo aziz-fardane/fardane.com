@@ -4,548 +4,567 @@ title: السيرة العلمية والمسار البحثي
 permalink: /
 ---
 
-<!-- Elegant Scholarly Hero with Water Visualization -->
-<section class="relative min-h-screen overflow-visible">
-    <!-- 3D Water Canvas Background with subtle animation -->
-    <div class="absolute inset-0 -z-10 w-full h-full">
-        <canvas id="waterCanvas" class="w-full h-full"></canvas>
+<style>
+    /* ============================================================
+       HOME · DOSSIER COVER
+       ============================================================ */
+    body.home-page{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#2c3833;
+        --muted:#6f6a5c; --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f;
+        --water:#2e6f68; --night:#0b1c17; --line:#ded7c5; --line-strong:#cfc6b0;
+        --naskh:'Noto Naskh Arabic',serif; --kufi:'Noto Kufi Arabic',sans-serif; --mono:'IBM Plex Mono',monospace;
+        background:var(--paper);
+    }
+    body.home-page main{background:var(--paper)}
+    body.home-page #preloader{background:var(--paper)}
+    body.home-page #preloader .border-amber-600{border-color:var(--brass)}
+    body.home-page header > div.absolute{background:var(--paper)!important;box-shadow:none!important;border-bottom:1px solid var(--line-strong)}
+    body.home-page header .bg-white{background:var(--paper)!important}
+    body.home-page header .text-stone-900{color:var(--ink)!important}
+    body.home-page header .text-stone-800{color:var(--ink)!important}
+    body.home-page header .text-stone-700{color:#3b463f!important}
+    body.home-page header .text-stone-600{color:var(--muted)!important}
+    body.home-page header .text-amber-600{color:var(--brass-text)!important}
+    body.home-page header .text-amber-700{color:var(--water)!important}
+    body.home-page header .bg-amber-600{background:var(--brass-text)!important}
+    body.home-page header .bg-stone-800{background:var(--ink)!important}
+    body.home-page header .bg-amber-100{background:#e4ede9!important}
+    body.home-page header .hover\:text-stone-800:hover{color:var(--ink)!important}
+    body.home-page header .from-amber-600{--tw-gradient-from:var(--brass-text)!important}
+    body.home-page header .to-amber-400{--tw-gradient-to:var(--brass-2)!important}
+    body.home-page header .hover\:text-amber-700:hover{color:var(--water)!important}
+    body.home-page header .hover\:bg-stone-100:hover{background:#e9e3d4!important}
+    body.home-page footer.bg-stone-900{background:var(--night)!important;border-top:1px solid rgba(201,163,95,.28)}
+    body.home-page footer .text-amber-400{color:var(--brass-2)!important}
+    body.home-page footer .text-amber-500{color:var(--brass)!important}
+    body.home-page footer .text-amber-600{color:var(--brass)!important}
+    body.home-page footer .text-amber-300{color:#e6dcc6!important}
+    body.home-page footer .hover\:text-amber-300:hover{color:#f2ead8!important}
+    body.home-page footer .bg-amber-700{background:var(--water)!important}
+    body.home-page footer .hover\:bg-amber-700:hover{background:var(--water)!important}
+    body.home-page footer .bg-amber-500{background:var(--brass)!important}
+    body.home-page footer .bg-stone-800{background:#132a23!important}
+    body.home-page footer .border-stone-700{border-color:rgba(201,163,95,.22)!important}
+    body.home-page footer .text-stone-300{color:#c9bea6!important}
+    body.home-page footer .text-stone-400{color:#a8a08d!important}
+    body.home-page footer .text-stone-500{color:#918a79!important}
+    body.home-page footer .hover\:text-amber-400:hover{color:var(--brass-2)!important}
+    body.home-page footer .from-amber-600{--tw-gradient-from:var(--brass)!important}
+    body.home-page footer .to-amber-400{--tw-gradient-to:var(--brass-2)!important}
+    body.home-page #back-to-top{background:var(--water)!important}
+
+    /* ---------- COVER ---------- */
+    .hc{position:relative;min-height:calc(100vh - 76px);display:flex;align-items:center;overflow:hidden;background:var(--paper);padding:clamp(2rem,5vw,3.5rem) 0 clamp(3.5rem,6vw,5rem)}
+    .hc-grid{
+        position:absolute;inset:0;pointer-events:none;
+        background-image:linear-gradient(to left,rgba(19,31,27,.055) 1px,transparent 1px),linear-gradient(to bottom,rgba(19,31,27,.055) 1px,transparent 1px);
+        background-size:92px 92px;
+        -webkit-mask-image:radial-gradient(120% 90% at 50% 40%,#000 30%,transparent 100%);
+        mask-image:radial-gradient(120% 90% at 50% 40%,#000 30%,transparent 100%);
+    }
+    .hc-spine{
+        position:absolute;top:0;bottom:0;left:0;width:44px;border-right:1px solid var(--line-strong);
+        display:flex;align-items:center;justify-content:center;gap:.55rem;background:var(--paper-2);
+    }
+    .hc-spine span{
+        writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--mono);font-size:8.5px;
+        letter-spacing:.34em;color:var(--muted);text-transform:uppercase;white-space:nowrap;
+    }
+    .hc-spine span:first-child{color:var(--brass-text)}
+    .hc-inner{
+        position:relative;z-index:2;width:100%;max-width:1260px;margin:0 auto;
+        padding:0 clamp(1.2rem,4vw,3rem) 0 clamp(3rem,6vw,4.5rem);
+        display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,392px);
+        gap:clamp(2rem,5vw,4.5rem);align-items:center;
+    }
+    .hc-text{min-width:0}
+    .hc-code{display:flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--muted);margin:0 0 1.1rem}
+    .hc-code b{color:var(--brass-text);font-weight:500}
+    .hc-code::before{content:"";width:26px;height:1px;background:var(--brass-2)}
+    .hc-byline{
+        font-family:var(--kufi);font-weight:700;font-size:.78rem;letter-spacing:.01em;color:var(--brass-text);
+        margin:1.05rem 0 0;display:flex;align-items:center;gap:.55rem;
+    }
+    .hc-byline .dot{font-family:var(--naskh);font-size:1.15em;color:var(--brass);font-weight:700;line-height:1}
+    .hc-byline::after{content:"";height:1px;width:42px;background:var(--line-strong);flex:0 0 auto}
+    .hc-topic{
+        font-family:var(--naskh);font-weight:700;color:var(--ink);
+        font-size:clamp(2.6rem,6.2vw,4.9rem);line-height:1.18;letter-spacing:-.012em;
+        margin:.4rem 0 0;text-wrap:balance;
+    }
+    .hc-topic em{font-style:normal;color:var(--water)}
+    .hc-thesis{
+        font-size:.8rem;line-height:1.95;color:var(--muted);margin:1.2rem 0 0;
+        border-right:2px solid var(--brass-2);padding-right:.85rem;max-width:52ch;
+    }
+    .hc-sub{font-size:.92rem;line-height:2;color:var(--graphite);margin:.9rem 0 0;max-width:56ch}
+    .hc-spec{
+        display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:2rem 0 0;
+        border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);
+    }
+    .hc-spec div{padding:.65rem .75rem;border-right:1px solid var(--line)}
+    .hc-spec div:first-child{border-right:0;padding-right:0}
+    .hc-spec dt{font-family:var(--mono);font-size:7.5px;letter-spacing:.14em;color:var(--brass-text);margin:0}
+    .hc-spec dd{margin:.3rem 0 0;font-family:var(--kufi);font-size:.73rem;font-weight:700;color:var(--ink);line-height:1.65}
+    .hc-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.7rem}
+    .hc-btn{
+        display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.35rem;
+        background:var(--ink);color:var(--paper-2);text-decoration:none;
+        font-family:var(--kufi);font-size:.8rem;font-weight:700;letter-spacing:.01em;
+        border:1px solid var(--ink);transition:background .25s ease,color .25s ease,border-color .25s ease;
+    }
+    .hc-btn:hover{background:var(--water);border-color:var(--water);color:#f7f3e8}
+    .hc-btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+    .hc-btn.ghost:hover{background:transparent;border-color:var(--brass);color:var(--brass-text)}
+    .hc-btn i{font-size:.7rem;opacity:.85}
+
+    .hc-plate{
+        position:relative;margin:0;background:var(--paper-2);border:1px solid var(--line-strong);
+        padding:.9rem .9rem .7rem;
+    }
+    .hc-plate::before,.hc-plate::after{content:"";position:absolute;width:14px;height:14px;border:0 solid var(--brass)}
+    .hc-plate::before{top:-1px;right:-1px;border-top-width:2px;border-right-width:2px}
+    .hc-plate::after{bottom:-1px;left:-1px;border-bottom-width:2px;border-left-width:2px}
+    .hc-plate svg{display:block;width:100%;height:auto}
+    .hc-plate figcaption{
+        display:flex;justify-content:space-between;gap:.6rem;margin-top:.55rem;padding-top:.5rem;
+        border-top:1px solid var(--line);font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--muted);
+    }
+    .hc-plate text{font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;fill:var(--brass-text);direction:ltr}
+    .kt-flow{stroke-dasharray:3 8;animation:ktFlow 7s linear infinite}
+    @keyframes ktFlow{to{stroke-dashoffset:-66}}
+    .kt-pool{animation:ktPool 9s ease-in-out infinite}
+    @keyframes ktPool{0%,100%{opacity:.16}50%{opacity:.3}}
+    .nw-wheel{transform-box:view-box;transform-origin:338px 196px;animation:nwSpin 92s linear infinite}
+    @keyframes nwSpin{to{transform:rotate(360deg)}}
+    .nw-pour{stroke-dasharray:5 6;animation:nwPour 1.15s linear infinite}
+    @keyframes nwPour{to{stroke-dashoffset:-22}}
+    .nw-wave{animation:nwWave 17s linear infinite}
+    @keyframes nwWave{to{transform:translateX(-96px)}}
+    .kt-level{animation:ktLevel 6s ease-in-out infinite alternate}
+    @keyframes ktLevel{from{transform:translateY(3px)}to{transform:translateY(-4px)}}
+    .kt-rip{transform-box:fill-box;transform-origin:center;animation:ktRip 6s ease-out infinite}
+    .kt-rip.b{animation-delay:3s}
+    @keyframes ktRip{0%{transform:scale(.5);opacity:.5}100%{transform:scale(1.45);opacity:0}}
+
+    .hc-scroll{
+        position:absolute;bottom:1.6rem;right:50%;transform:translateX(50%);
+        display:flex;flex-direction:column;align-items:center;gap:.55rem;
+        font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;color:var(--muted);text-decoration:none;
+    }
+    .hc-scroll i{display:block;width:1px;height:34px;background:linear-gradient(to bottom,var(--brass-2),transparent);position:relative;overflow:hidden}
+    .hc-scroll i::after{content:"";position:absolute;top:-8px;left:0;width:1px;height:8px;background:var(--brass);animation:scrollCue 2.4s ease-in-out infinite}
+    @keyframes scrollCue{0%{top:-8px;opacity:0}30%{opacity:1}100%{top:34px;opacity:0}}
+    .hc-scroll:hover{color:var(--brass-text)}
+
+    /* ---------- PLATES ---------- */
+    .hp{padding:clamp(3.2rem,6.5vw,5.6rem) 0;background:var(--paper);border-top:1px solid var(--line)}
+    .hp.alt{background:var(--paper-2)}
+    .hp.night{background:var(--night);border-top:1px solid rgba(201,163,95,.3);position:relative;overflow:hidden}
+    .hp.night::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+        background-image:
+            radial-gradient(1.3px 1.3px at 10% 18%,rgba(239,233,216,.55),transparent),
+            radial-gradient(1.1px 1.1px at 26% 8%,rgba(239,233,216,.4),transparent),
+            radial-gradient(1.5px 1.5px at 42% 24%,rgba(239,233,216,.5),transparent),
+            radial-gradient(1.1px 1.1px at 63% 12%,rgba(239,233,216,.35),transparent),
+            radial-gradient(1.4px 1.4px at 78% 30%,rgba(239,233,216,.45),transparent),
+            radial-gradient(1.2px 1.2px at 92% 16%,rgba(239,233,216,.4),transparent)}
+    .hp.night .hp-inner{position:relative;z-index:2}
+    .night-wheel{position:absolute;left:-130px;top:50%;width:540px;height:540px;margin-top:-270px;
+        opacity:.075;pointer-events:none;animation:nwSpin 150s linear infinite;transform-origin:center}
+    .night-wheel circle,.night-wheel line{fill:none;stroke:var(--brass-2)}
+    .hp-inner{
+        max-width:1180px;margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem);
+        display:grid;grid-template-columns:186px minmax(0,1fr);gap:clamp(1.6rem,4.5vw,3.6rem);
+    }
+    .hp-head{position:sticky;top:104px;align-self:start}
+    .hp-code{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;color:var(--brass-text);margin:0;display:flex;align-items:center;gap:.55rem}
+    .hp-code b{font-weight:500;color:var(--brass-text)}
+    .hp-code::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+    .hp-title{font-family:var(--naskh);font-weight:700;font-size:clamp(1.35rem,2.4vw,1.85rem);line-height:1.4;color:var(--ink);margin:.65rem 0 0;text-wrap:balance}
+    .hp-note{font-size:.7rem;line-height:1.95;color:var(--muted);margin:.9rem 0 0}
+    .hp-body{min-width:0}
+    .hp-body p{font-size:.95rem;line-height:2.1;color:var(--graphite);margin:0 0 1.1rem}
+    .hp-body > p{text-align:justify;text-justify:inter-word}
+    .hp-body p:last-child{margin-bottom:0}
+    .hp-lede{font-size:1.05rem!important;line-height:2.1!important;color:var(--ink)!important;margin-bottom:1.3rem!important}
+    .hp-strong{font-weight:700;color:var(--brass-text)}
+
+    /* axes */
+    .hp-axes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line-strong);margin:0}
+    .hp-axis{padding:1.2rem 1.1rem;border-right:1px solid var(--line)}
+    .hp-axis:first-child{border-right:0}
+    .hp-axis .n{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--brass-text)}
+    .hp-axis h3{font-family:var(--naskh);font-weight:700;font-size:1.08rem;color:var(--ink);margin:.55rem 0 .55rem;line-height:1.5}
+    .hp-axis p{font-size:.78rem;line-height:1.95;color:var(--muted);margin:0 0 .9rem}
+    .hp-axis a{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--water);text-decoration:none;border-bottom:1px solid transparent}
+    .hp-axis a:hover{border-bottom-color:var(--water)}
+
+    /* quote */
+    .hp-quote{margin:2.2rem 0 0;padding:1.4rem 1.5rem;background:#efe9d9;border-right:3px solid var(--brass);position:relative}
+    .hp-quote::before{content:"”";position:absolute;top:-.4rem;left:1rem;font-family:var(--naskh);font-size:4rem;color:rgba(166,122,46,.22);line-height:1}
+    .hp-quote p{font-family:var(--naskh);font-size:1.12rem;line-height:2.05;color:var(--ink);margin:0}
+    .hp-quote footer{margin-top:.9rem;font-size:.72rem;line-height:1.9;color:var(--muted)}
+    .hp-quote footer b{color:var(--brass-text)}
+
+    /* stats */
+    .hp-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(201,163,95,.28);border:1px solid rgba(201,163,95,.28);margin-top:2rem}
+    .hp-stat{background:var(--night);padding:1.15rem .8rem;text-align:center}
+    .hp-stat b{display:block;font-family:var(--mono);font-size:2rem;font-weight:500;color:var(--brass-2);line-height:1}
+    .hp-stat span{display:block;margin-top:.45rem;font-size:.7rem;color:#c9bea6;line-height:1.7}
+    .hp.night .hp-title{color:#f0e9d8}
+    .hp.night .hp-body p{color:#cfc7b3}
+    .hp.night .hp-lede{color:#f0e9d8!important}
+    .hp.night .hp-code{color:var(--brass-2)}
+    .hp.night .hp-code::after{background:rgba(201,163,95,.35)}
+    .hp.night .hp-note{color:#9d9a8d}
+
+    /* project */
+    .hp-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line-strong);margin:1.6rem 0 1.8rem}
+    .hp-col{background:var(--paper-2);padding:1.15rem 1.05rem}
+    .hp-col .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;color:var(--brass-text)}
+    .hp-col h3{font-family:var(--naskh);font-weight:700;font-size:1.02rem;color:var(--ink);margin:.5rem 0 .5rem}
+    .hp-col p{font-size:.78rem;line-height:1.95;color:var(--muted);margin:0}
+
+    /* gallery */
+    .hp-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin:1.8rem 0}
+    .hp-gallery figure{margin:0;background:var(--paper-2);border:1px solid var(--line-strong);padding:.45rem}
+    .hp-gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(.18) contrast(1.03)}
+    .hp-gallery figcaption{font-size:.68rem;line-height:1.75;color:var(--muted);margin-top:.45rem}
+
+    /* timeline */
+    .hp-time{border-right:1px solid var(--line-strong);padding-right:1.5rem;margin:1.8rem 0 0 0}
+    .hp-tick{position:relative;padding-bottom:1.9rem}
+    .hp-tick:last-child{padding-bottom:0}
+    .hp-tick::before{content:"";position:absolute;right:-1.58rem;top:.4rem;width:7px;height:7px;background:var(--paper);border:1px solid var(--brass);transform:rotate(45deg)}
+    .hp-year{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;color:var(--brass-text)}
+    .hp-tick h3{font-family:var(--naskh);font-weight:700;font-size:1.05rem;color:var(--ink);margin:.35rem 0 .4rem}
+    .hp-tick p{font-size:.82rem;line-height:1.95;color:var(--muted);margin:0}
+
+    /* publications */
+    .hp-pub{display:grid;grid-template-columns:112px minmax(0,1fr);gap:1.3rem;border-top:1px solid var(--line-strong);padding:1.4rem 0}
+    .hp-pub:first-of-type{border-top:0;padding-top:0}
+    .hp-pub-cover{background:#fff;border:1px solid var(--line);padding:.35rem}
+    .hp-pub-cover img{display:block;width:100%;height:auto}
+    .hp-pub h3{font-family:var(--naskh);font-weight:700;font-size:1.06rem;line-height:1.55;color:var(--ink);margin:0}
+    .hp-meta{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--muted);margin:.5rem 0 .6rem}
+    .hp-pub p{font-size:.82rem;line-height:1.95;color:var(--muted);margin:0}
+    .hp-cta{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.6rem;padding:.75rem 1.4rem;background:var(--brass-text);color:#fbf7ec;text-decoration:none;font-family:var(--kufi);font-size:.8rem;font-weight:700;transition:background .25s ease}
+    .hp-cta:hover{background:var(--water);color:#fbf7ec}
+
+    @media (max-width:1080px){
+        .hc-inner{grid-template-columns:minmax(0,1fr) minmax(260px,330px);gap:2rem}
+        .hc-spec{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .hc-spec div:nth-child(3){border-right:0;padding-right:0;border-top:1px solid var(--line)}
+        .hc-spec div:nth-child(4){border-top:1px solid var(--line)}
+        .hp-inner{grid-template-columns:1fr}
+        .hp-head{position:static;display:flex;flex-direction:column;gap:.2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line)}
+        .hp-code::after{display:none}
+        .hp-note{margin-top:.4rem}
+        .hp.night .hp-head{border-bottom-color:rgba(201,163,95,.3)}
+    }
+    @media (max-width:880px){
+        .hc{min-height:0;padding-top:2.2rem}
+        .hc-spine{display:none}
+        .hc-inner{grid-template-columns:1fr;padding-left:clamp(1.2rem,5vw,2rem)}
+        .hc-plate{max-width:420px;margin:0 auto;width:100%}
+        .hc-scroll{display:none}
+        .hp-axes,.hp-cols,.hp-gallery{grid-template-columns:1fr}
+        .hp-axis{border-right:0;border-top:1px solid var(--line)}
+        .hp-axis:first-child{border-top:0}
+        .hp-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:560px){
+        .hc-topic{font-size:2.15rem}
+        .hp-pub{grid-template-columns:84px minmax(0,1fr);gap:.9rem}
+        .hp-quote{padding:1.1rem 1rem}
+        .hp-time{padding-right:1.1rem}
+        .hp-tick::before{right:-1.18rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+        .kt-flow,.kt-pool,.hc-scroll i::after,.nw-wheel,.nw-pour,.nw-wave,.kt-level,.kt-rip,.night-wheel{animation:none!important}
+    }
+</style>
+
+<!-- ============================================================
+     COVER · PL. 01
+     ============================================================ -->
+<section class="hc">
+    <div class="hc-grid" aria-hidden="true"></div>
+    <div class="hc-spine" aria-hidden="true">
+        <span>ARCHIVE F.01</span>
+        <span>WATER · SETTLEMENT · MOROCCO</span>
     </div>
 
-    <!-- Refined gradient overlay with more depth -->
-    <div class="absolute inset-0 bg-gradient-to-b from-stone-900/95 via-stone-800/85 to-amber-900/75 -z-5"></div>
+    <div class="hc-inner">
+        <div class="hc-text">
+            <p class="hc-code"><b>PL. 01</b> · DOSSIER · ملف أكاديمي</p>
 
-    <!-- Enhanced pattern overlay for texture -->
-    <div class="absolute inset-0 bg-repeat opacity-15 -z-4"></div>
+            <p class="hc-byline"><span class="dot">د.</span> عزيز فردان</p>
+            <h1 class="hc-topic">الماءُ في تاريخ <em>المغرب الوسيط</em></h1>
 
-    <!-- Centered content layout with elegant spacing -->
-    <div class="relative container mx-auto px-4 sm:px-6 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 z-10 flex flex-col justify-center min-h-screen">
-        <!-- Main title with refined typography -->
-        <div class="max-w-4xl mx-auto text-center mb-12 md:mb-16" data-controller="text-animation">
-            <h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight mt-8 mb-6">
-                <span class="inline-block relative px-2 overflow-hidden">
-                    <span class="relative z-10 text-reveal">الماء</span>
-                    <span class="absolute bottom-2 left-0 right-0 h-3 bg-amber-500/40 -z-5 transform skew-x-1 animate-pulse-slow"></span>
-                </span>
-                <span class="text-amber-200 text-reveal-delayed">في تاريخ المغرب الوسيط</span>
-            </h1>
-
-            <!-- Scholar name with elegant distinction -->
-            <div class="mt-10 inline-flex items-center justify-center bg-white/10 backdrop-blur-md px-6 py-3.5 rounded-full border border-white/20 shadow-lg hover:shadow-amber-500/10 transition-all duration-500 transform hover:scale-102">
-                <span class="text-amber-100 text-lg md:text-xl font-medium">د. عزيز فردان</span>
-            </div>
-
-            <!-- Subtitle description -->
-            <p class="mt-5 text-white/60 text-sm md:text-base font-light tracking-wide max-w-xl mx-auto">
-                باحث متخصص في تاريخ الماء، النظم المائية، والعمران بالمغرب الوسيط
+            <p class="hc-thesis">
+                أطروحة الدكتوراه: <span class="hp-strong">الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة</span>
+                — كلية الآداب والعلوم الإنسانية، جامعة القاضي عياض.
             </p>
-        </div>
 
-        <!-- Enhanced Research Highlights with Elegant Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto" data-controller="reveal-animation">
-            <!-- First card -->
-            <div class="group relative" data-reveal-animation-target="item">
-                <div class="absolute inset-0 bg-gradient-to-b from-amber-600/30 to-amber-800/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-700 -z-1"></div>
-                <div class="bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl p-6 md:p-8 hover:bg-white/12 transition-all duration-500 relative z-10 h-full flex flex-col">
-                    <div class="text-amber-400 mb-5 group-hover:scale-110 transition-transform duration-500">
-                        <i class="fas fa-water text-3xl"></i>
-                    </div>
-                    <h3 class="text-white text-xl md:text-2xl font-medium mb-3">النظم المائية التقليدية</h3>
-                    <p class="text-white/80 text-sm mb-6 flex-grow">دراسة توثيقية لتقنيات إدارة المياه في الواحات المغربية وأثرها على التشكيلات العمرانية.</p>
-                    <a href="/articles" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-medium mb-4 transition-colors duration-300">
-                        <span>اقرأ المزيد</span>
-                        <i class="fas fa-arrow-left text-xs"></i>
-                    </a>
-                    <div class="h-0.5 bg-gradient-to-r from-amber-500/20 via-amber-500/50 to-amber-500/20 group-hover:from-amber-500/40 group-hover:via-amber-500/80 group-hover:to-amber-500/40 transition-all duration-700"></div>
-                </div>
-            </div>
+            <p class="hc-sub">باحث متخصص في تاريخ الماء، النظم المائية، والعمران بالمغرب الوسيط</p>
 
-            <!-- Second card -->
-            <div class="group relative" data-reveal-animation-target="item">
-                <div class="absolute inset-0 bg-gradient-to-b from-amber-600/30 to-amber-800/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-700 -z-1"></div>
-                <div class="bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl p-6 md:p-8 hover:bg-white/12 transition-all duration-500 relative z-10 h-full flex flex-col">
-                    <div class="text-amber-400 mb-5 group-hover:scale-110 transition-transform duration-500">
-                        <i class="fas fa-clock text-3xl"></i>
-                    </div>
-                    <h3 class="text-white text-xl md:text-2xl font-medium mb-3">الساعات المائية</h3>
-                    <p class="text-white/80 text-sm mb-6 flex-grow">تحليل تاريخي وتقني للابتكارات الهيدروليكية في قياس الزمن بالماء خلال العصر الإسلامي.</p>
-                    <a href="/articles" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-medium mb-4 transition-colors duration-300">
-                        <span>اقرأ المزيد</span>
-                        <i class="fas fa-arrow-left text-xs"></i>
-                    </a>
-                    <div class="h-0.5 bg-gradient-to-r from-amber-500/20 via-amber-500/50 to-amber-500/20 group-hover:from-amber-500/40 group-hover:via-amber-500/80 group-hover:to-amber-500/40 transition-all duration-700"></div>
-                </div>
-            </div>
+            <dl class="hc-spec">
+                <div><dt>FIELD</dt><dd>تاريخ الماء والنظم المائية</dd></div>
+                <div><dt>DEGREE</dt><dd>دكتوراه · 2025</dd></div>
+                <div><dt>INSTITUTION</dt><dd>جامعة القاضي عياض</dd></div>
+                <div><dt>STATUS</dt><dd>باحث مستقل</dd></div>
+            </dl>
 
-            <!-- Third card -->
-            <div class="group relative" data-reveal-animation-target="item">
-                <div class="absolute inset-0 bg-gradient-to-b from-amber-600/30 to-amber-800/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-700 -z-1"></div>
-                <div class="bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl p-6 md:p-8 hover:bg-white/12 transition-all duration-500 relative z-10 h-full flex flex-col">
-                    <div class="text-amber-400 mb-5 group-hover:scale-110 transition-transform duration-500">
-                        <i class="fas fa-mosque text-3xl"></i>
-                    </div>
-                    <h3 class="text-white text-xl md:text-2xl font-medium mb-3">العمران الإسلامي</h3>
-                    <p class="text-white/80 text-sm mb-6 flex-grow">رصد للعلاقة بين الماء والتخطيط العمراني في المدن الإسلامية والواحات المغربية.</p>
-                    <a href="/articles" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-medium mb-4 transition-colors duration-300">
-                        <span>اقرأ المزيد</span>
-                        <i class="fas fa-arrow-left text-xs"></i>
-                    </a>
-                    <div class="h-0.5 bg-gradient-to-r from-amber-500/20 via-amber-500/50 to-amber-500/20 group-hover:from-amber-500/40 group-hover:via-amber-500/80 group-hover:to-amber-500/40 transition-all duration-700"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Elegant Stats and Call to Action -->
-        <div class="mt-16 md:mt-20 lg:mt-24 max-w-6xl mx-auto w-full">
-            <!-- Stylish divider -->
-            <div class="flex items-center justify-center mb-12">
-                <div class="h-px w-16 bg-amber-500/40"></div>
-                <div class="mx-4 text-amber-400/80">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="h-px w-16 bg-amber-500/40"></div>
-            </div>
-
-            <!-- Stats in elegant layout -->
-            <div class="grid grid-cols-3 gap-4 sm:gap-8 md:gap-16 mb-12 max-w-2xl mx-auto">
-                <div class="flex flex-col items-center group text-center" data-controller="counter" data-counter-target-value="15" data-counter-start-value="0">
-                    <div class="relative">
-                        <span class="text-3xl sm:text-4xl md:text-5xl font-bold text-amber-400 mb-2 group-hover:scale-110 transition-transform duration-500" data-counter-target="number">15</span>
-                        <div class="absolute -inset-1 bg-amber-500/20 blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-                    </div>
-                    <span class="text-white/80 text-xs sm:text-sm uppercase tracking-wider font-light">بحث منشور</span>
-                </div>
-
-                <div class="flex flex-col items-center group text-center" data-controller="counter" data-counter-target-value="8" data-counter-start-value="0">
-                    <div class="relative">
-                        <span class="text-3xl sm:text-4xl md:text-5xl font-bold text-amber-400 mb-2 group-hover:scale-110 transition-transform duration-500" data-counter-target="number">8</span>
-                        <div class="absolute -inset-1 bg-amber-500/20 blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-                    </div>
-                    <span class="text-white/80 text-xs sm:text-sm uppercase tracking-wider font-light">مؤتمر دولي</span>
-                </div>
-
-                <div class="flex flex-col items-center group text-center" data-controller="counter" data-counter-target-value="6" data-counter-start-value="0">
-                    <div class="relative">
-                        <span class="text-3xl sm:text-4xl md:text-5xl font-bold text-amber-400 mb-2 group-hover:scale-110 transition-transform duration-500" data-counter-target="number">6</span>
-                        <div class="absolute -inset-1 bg-amber-500/20 blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-                    </div>
-                    <span class="text-white/80 text-xs sm:text-sm uppercase tracking-wider font-light">جائزة أكاديمية</span>
-                </div>
-            </div>
-
-            <!-- Enhanced call to action buttons -->
-            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6">
-                <a href="https://www.linkedin.com/in/aziz-fardane-gis1948/" class="px-8 py-3 bg-gradient-to-r from-amber-700 to-amber-600 text-white text-center rounded-full hover:from-amber-600 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-amber-900/30 group">
-                    <span class="inline-flex items-center">
-                        <i class="fab fa-linkedin me-2 group-hover:scale-110 transition-transform"></i>
-                        السيرة الأكاديمية
-                    </span>
+            <div class="hc-actions">
+                <a class="hc-btn" href="https://www.linkedin.com/in/aziz-fardane-gis1948/">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    <span>السيرة الأكاديمية</span>
                 </a>
-                <a href="/articles" class="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-center rounded-full hover:bg-white/15 transition-all duration-300 shadow-lg group">
-                    <span class="inline-flex items-center">
-                        <i class="fas fa-book-open me-2 group-hover:scale-110 transition-transform"></i>
-                        المنشورات العلمية
-                    </span>
+                <a class="hc-btn ghost" href="/articles">
+                    <i class="fas fa-book-open" aria-hidden="true"></i>
+                    <span>المنشورات العلمية</span>
                 </a>
             </div>
         </div>
+
+        <figure class="hc-plate">
+            <svg viewBox="0 0 520 700" role="img" aria-label="لوحة مركّبة: ناعورة ترفع الماء من الوادي إلى قناة، ومقطع خطّارة ينقل الماء إلى واحة">
+                <defs>
+                    <g id="hwBucket">
+                        <rect x="331" y="104" width="14" height="11" fill="#faf8f2" stroke="#a67a2e" stroke-width="1.1"/>
+                        <path d="M333 112 h10" stroke="#2e6f68" stroke-width="2.6"/>
+                    </g>
+                </defs>
+
+                <!-- إطار اللوحة -->
+                <rect x="10" y="10" width="500" height="680" fill="none" stroke="#c9a35f" stroke-width="1"/>
+                <path d="M10 26 V10 H26" fill="none" stroke="#a67a2e" stroke-width="2"/>
+                <path d="M494 10 H510 V26" fill="none" stroke="#a67a2e" stroke-width="2"/>
+                <path d="M10 674 V690 H26" fill="none" stroke="#a67a2e" stroke-width="2"/>
+                <path d="M494 690 H510 V674" fill="none" stroke="#a67a2e" stroke-width="2"/>
+
+                <text x="28" y="36">PLATE I</text>
+                <text x="492" y="36" text-anchor="end">WATER LIFT / CONVEYANCE</text>
+                <line x1="28" y1="44" x2="492" y2="44" stroke="#cfc6b0" stroke-width="1"/>
+
+                <!-- ===== A · الناعورة ===== -->
+                <text x="28" y="66">A · LIFT</text>
+                <text x="492" y="66" text-anchor="end">NORIA · SIDE ELEVATION</text>
+
+                <g stroke="#a67a2e" stroke-width="1.6" fill="none" opacity=".55">
+                    <path d="M288 316 L338 202"/>
+                    <path d="M388 316 L338 202"/>
+                    <path d="M304 272 H372"/>
+                </g>
+
+                <rect x="236" y="300" width="256" height="34" fill="#2e6f68" opacity=".07"/>
+                <g class="nw-wave">
+                    <path d="M236 310 q18 -5 36 0 t36 0 t36 0 t36 0 t36 0 t36 0 t36 0" fill="none" stroke="#2e6f68" stroke-width="1.4" opacity=".65"/>
+                    <path d="M236 322 q18 -5 36 0 t36 0 t36 0 t36 0 t36 0 t36 0 t36 0" fill="none" stroke="#2e6f68" stroke-width="1" opacity=".4"/>
+                </g>
+
+                <g class="nw-wheel">
+                    <circle cx="338" cy="196" r="92" fill="none" stroke="#a67a2e" stroke-width="2"/>
+                    <circle cx="338" cy="196" r="80" fill="none" stroke="#c9a35f" stroke-width=".9" opacity=".7"/>
+                    <g stroke="#a67a2e" stroke-width="1.1" opacity=".85">
+                        <line x1="338" y1="196" x2="338" y2="116"/>
+                        <line x1="338" y1="196" x2="394.6" y2="139.4"/>
+                        <line x1="338" y1="196" x2="418" y2="196"/>
+                        <line x1="338" y1="196" x2="394.6" y2="252.6"/>
+                        <line x1="338" y1="196" x2="338" y2="276"/>
+                        <line x1="338" y1="196" x2="281.4" y2="252.6"/>
+                        <line x1="338" y1="196" x2="258" y2="196"/>
+                        <line x1="338" y1="196" x2="281.4" y2="139.4"/>
+                    </g>
+                    <use href="#hwBucket"/>
+                    <use href="#hwBucket" transform="rotate(45 338 196)"/>
+                    <use href="#hwBucket" transform="rotate(90 338 196)"/>
+                    <use href="#hwBucket" transform="rotate(135 338 196)"/>
+                    <use href="#hwBucket" transform="rotate(180 338 196)"/>
+                    <use href="#hwBucket" transform="rotate(225 338 196)"/>
+                    <use href="#hwBucket" transform="rotate(270 338 196)"/>
+                    <use href="#hwBucket" transform="rotate(315 338 196)"/>
+                </g>
+                <circle cx="338" cy="196" r="14" fill="#faf8f2" stroke="#a67a2e" stroke-width="1.5"/>
+                <circle cx="338" cy="196" r="4" fill="#a67a2e"/>
+
+                <!-- القناة -->
+                <path d="M36 132 H206 V154 H36 Z" fill="#faf8f2" stroke="#a67a2e" stroke-width="1.3"/>
+                <path d="M42 148 H200" stroke="#2e6f68" stroke-width="3"/>
+                <g stroke="#c9a35f" stroke-width=".9" opacity=".6">
+                    <path d="M36 154 V176"/><path d="M64 154 V168"/><path d="M92 154 V176"/>
+                    <path d="M120 154 V168"/><path d="M148 154 V176"/><path d="M176 154 V168"/>
+                    <path d="M204 154 V176"/>
+                </g>
+                <text x="36" y="124">AQUEDUCT</text>
+
+                <!-- الماء الساقط -->
+                <path class="nw-pour" d="M282 116 C264 132 236 142 210 148" fill="none" stroke="#2e6f68" stroke-width="2.8" stroke-linecap="round"/>
+                <path d="M282 116 C264 132 236 142 210 148" fill="none" stroke="#2e6f68" stroke-width="6" opacity=".12"/>
+
+                <text x="492" y="104" text-anchor="end">LIFT · 12 M</text>
+                <text x="240" y="326">RIVER</text>
+
+                <!-- ===== فاصل ===== -->
+                <line x1="28" y1="350" x2="492" y2="350" stroke="#cfc6b0" stroke-width="1"/>
+                <text x="28" y="344">B · CONVEYANCE</text>
+                <text x="492" y="344" text-anchor="end">KHETTARA · SECTION</text>
+
+                <!-- ===== B · الخطّارة ===== -->
+                <path d="M28 642 H150 L330 424 H492" fill="none" stroke="#a67a2e" stroke-width="1.3"/>
+                <path d="M28 642 H150 L330 424 H492 V668 H28 Z" fill="#faf8f2" opacity=".55"/>
+                <g stroke="#cfc6b0" stroke-width=".8">
+                    <line x1="34" y1="648" x2="44" y2="658"/><line x1="54" y1="648" x2="64" y2="658"/>
+                    <line x1="74" y1="648" x2="84" y2="658"/><line x1="94" y1="648" x2="104" y2="658"/>
+                    <line x1="114" y1="648" x2="124" y2="658"/>
+                    <line x1="168" y1="634" x2="178" y2="644"/><line x1="206" y1="606" x2="216" y2="616"/>
+                    <line x1="246" y1="570" x2="256" y2="580"/><line x1="286" y1="534" x2="296" y2="544"/>
+                    <line x1="326" y1="498" x2="336" y2="508"/><line x1="356" y1="470" x2="366" y2="480"/>
+                    <line x1="396" y1="444" x2="406" y2="454"/><line x1="436" y1="424" x2="446" y2="434"/>
+                    <line x1="470" y1="424" x2="480" y2="434"/>
+                </g>
+
+                <!-- الفرشة المائية -->
+                <rect x="360" y="566" width="132" height="102" fill="#2e6f68" opacity=".07"/>
+                <line x1="360" y1="566" x2="492" y2="566" stroke="#2e6f68" stroke-width="1" stroke-dasharray="4 5" opacity=".8"/>
+                <text x="492" y="558" text-anchor="end">WATER TABLE</text>
+
+                <!-- بئر أم -->
+                <g stroke="#a67a2e" stroke-width="1.3" fill="none">
+                    <line x1="414" y1="424" x2="414" y2="566"/>
+                    <line x1="428" y1="424" x2="428" y2="566"/>
+                </g>
+                <rect x="406" y="410" width="30" height="14" fill="#faf8f2" stroke="#a67a2e" stroke-width="1.1"/>
+                <g stroke="#a67a2e" stroke-width="1.1" fill="none">
+                    <line x1="408" y1="410" x2="400" y2="386"/>
+                    <line x1="434" y1="410" x2="442" y2="386"/>
+                    <line x1="397" y1="386" x2="445" y2="386"/>
+                    <line x1="421" y1="386" x2="421" y2="446"/>
+                </g>
+                <path d="M415 446 h12 l-2 9 h-8 z" fill="#faf8f2" stroke="#a67a2e" stroke-width="1"/>
+                <rect class="kt-level" x="415" y="520" width="12" height="42" fill="#2e6f68" opacity=".35"/>
+                <text x="492" y="404" text-anchor="end">MOTHER WELL</text>
+                <line x1="456" y1="400" x2="446" y2="400" stroke="#a67a2e" stroke-width=".8"/>
+
+                <!-- النفق -->
+                <g stroke="#a67a2e" stroke-width="1.2" fill="none">
+                    <path d="M414 558 L150 630"/>
+                    <path d="M428 566 L150 640"/>
+                </g>
+                <path d="M421 562 L150 635" stroke="#2e6f68" stroke-width="2.4" fill="none" class="kt-flow"/>
+                <text x="270" y="592" transform="rotate(-15 270 592)">TUNNEL</text>
+
+                <!-- الواحة -->
+                <ellipse cx="138" cy="644" rx="24" ry="6" fill="#2e6f68" opacity=".2" stroke="#2e6f68" stroke-width="1" class="kt-pool"/>
+                <ellipse class="kt-rip" cx="138" cy="644" rx="24" ry="6" fill="none" stroke="#2e6f68" stroke-width="1"/>
+                <ellipse class="kt-rip b" cx="138" cy="644" rx="24" ry="6" fill="none" stroke="#2e6f68" stroke-width="1"/>
+                <path d="M150 635 Q146 642 138 645" stroke="#2e6f68" stroke-width="1.6" fill="none"/>
+                <g stroke="#a67a2e" stroke-width="1.2" fill="none">
+                    <path d="M108 642 C106 614 102 586 96 562"/>
+                    <path d="M96 562 Q84 554 74 558"/>
+                    <path d="M96 562 Q88 546 78 544"/>
+                    <path d="M96 562 Q101 545 111 541"/>
+                    <path d="M96 562 Q110 555 121 561"/>
+                    <path d="M96 562 Q97 574 89 580"/>
+                </g>
+                <g stroke="#a67a2e" stroke-width="1" fill="none" opacity=".85">
+                    <path d="M78 642 C77 622 74 602 70 586"/>
+                    <path d="M70 586 Q61 580 54 583"/>
+                    <path d="M70 586 Q64 574 57 572"/>
+                    <path d="M70 586 Q74 573 82 570"/>
+                    <path d="M70 586 Q80 581 88 586"/>
+                </g>
+                <g stroke="#cfc6b0" stroke-width=".9" fill="none">
+                    <rect x="28" y="614" width="34" height="13"/>
+                    <rect x="66" y="617" width="26" height="10"/>
+                    <line x1="28" y1="620" x2="62" y2="620"/>
+                    <line x1="45" y1="614" x2="45" y2="627"/>
+                </g>
+                <text x="28" y="606">OASIS</text>
+
+                <!-- مقياس -->
+                <g stroke="#cfc6b0" stroke-width="1">
+                    <line x1="28" y1="678" x2="168" y2="678"/>
+                    <line x1="28" y1="674" x2="28" y2="682"/>
+                    <line x1="98" y1="675" x2="98" y2="681"/>
+                    <line x1="168" y1="674" x2="168" y2="682"/>
+                </g>
+                <text x="28" y="670">0</text>
+                <text x="94" y="670">5</text>
+                <text x="164" y="670">10 M</text>
+                <text x="492" y="678" text-anchor="end">FIG. 1.1</text>
+            </svg>
+            <figcaption>
+                <span>ناعورة وخطّارة · لوحة مركّبة</span>
+                <span dir="ltr">LIFT / CONVEYANCE · NOT TO SCALE</span>
+            </figcaption>
+        </figure>
     </div>
 
-    <!-- Elegant "See More" Button with improved animation -->
-    <button id="seeMoreBtn" class="fixed bottom-8 right-0 transform -translate-x-1/2 z-50 group opacity-100 transition-all duration-500">
-        <div class="relative flex flex-col items-center">
-            <!-- Text label with elegant styling -->
-            <span class="mb-2 text-amber-200/90 text-sm font-light tracking-wider">اكتشف المزيد</span>
-
-            <!-- Stylish circular button with icon -->
-            <div class="w-12 h-12 rounded-full bg-gradient-to-b from-amber-700/60 to-amber-900/60 backdrop-blur-md flex items-center justify-center border border-amber-500/40 shadow-lg group-hover:shadow-amber-600/40 transition-all duration-300">
-                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/15 transition-all duration-300">
-                    <i class="fas fa-chevron-down text-amber-300 group-hover:text-amber-200 animate-bounce"></i>
-                </div>
-            </div>
-
-            <!-- Decorative elements -->
-            <div class="absolute -inset-1 bg-amber-500/10 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        </div>
-    </button>
+    <a class="hc-scroll" href="#file">
+        <span>اكتشف الملف</span>
+        <i aria-hidden="true"></i>
+    </a>
 </section>
 
-<!-- Updated script to handle the "See More" button behavior -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const seeMoreBtn = document.getElementById('seeMoreBtn');
-
-        // Show/hide the button based on scroll position
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                seeMoreBtn.classList.add('opacity-0', 'pointer-events-none');
-                seeMoreBtn.classList.remove('opacity-100');
-            } else {
-                seeMoreBtn.classList.add('opacity-100');
-                seeMoreBtn.classList.remove('opacity-0', 'pointer-events-none');
-            }
-        });
-
-        // Scroll down slightly when button is clicked (just a small amount)
-        seeMoreBtn.addEventListener('click', function() {
-            // Calculate current viewport height
-            const viewportHeight = window.innerHeight;
-
-            // Scroll down by a small portion of the viewport (30%)
-            window.scrollBy({
-                top: viewportHeight * 0.3,
-                behavior: 'smooth'
-            });
-        });
-    });
-</script>
-
-<!-- JavaScript for 3D water visualization -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get canvas and context
-        const canvas = document.getElementById('waterCanvas');
-        const ctx = canvas.getContext('2d');
-
-        // Animation variables
-        let time = 0;
-        let animationFrameId;
-        let mouseX = 0, mouseY = 0;
-        let ripples = [];
-
-        // Wave parameters
-        const waveCount = 5;
-        const waves = [];
-
-        // Initialize wave parameters
-        function initWaves() {
-            waves.length = 0;
-
-            for (let i = 0; i < waveCount; i++) {
-                waves.push({
-                    // Larger wavelengths for wider waves
-                    wavelength: 150 + (i * 50),
-                    // Decreasing amplitude for each layer (smaller at the back)
-                    amplitude: 20 - (i * 3),
-                    // Vary the speed slightly for natural movement
-                    speed: 0.03 + (i * 0.005),
-                    // Different starting phases
-                    phase: Math.random() * Math.PI * 2,
-                    // Opacity decreases with depth
-                    opacity: 0.3 - (i * 0.05)
-                });
-            }
-        }
-
-        // Resize canvas to fill container
-        function resizeCanvas() {
-            canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-            canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-
-            // Reinitialize waves with new dimensions
-            initWaves();
-        }
-
-        // Track mouse position for interactive ripples
-        function setupInteraction() {
-            // Mouse movement
-            canvas.addEventListener('mousemove', function(e) {
-                const rect = canvas.getBoundingClientRect();
-                mouseX = (e.clientX - rect.left) * window.devicePixelRatio;
-                mouseY = (e.clientY - rect.top) * window.devicePixelRatio;
-            });
-
-            // Mouse click adds ripple
-            canvas.addEventListener('click', function(e) {
-                const rect = canvas.getBoundingClientRect();
-                const x = (e.clientX - rect.left) * window.devicePixelRatio;
-                const y = (e.clientY - rect.top) * window.devicePixelRatio;
-
-                // Add a ripple at click position
-                ripples.push({
-                    x: x,
-                    y: y,
-                    radius: 5,
-                    maxRadius: 100,
-                    opacity: 0.5,
-                    speed: 3
-                });
-            });
-
-            // Add automatic ripples occasionally
-            setInterval(function() {
-                // Only add auto-ripples if we have few active ones
-                if (ripples.length < 5) {
-                    ripples.push({
-                        x: Math.random() * canvas.width,
-                        y: canvas.height * 0.4 + (Math.random() * canvas.height * 0.2),
-                        radius: 5,
-                        maxRadius: 80 + Math.random() * 40,
-                        opacity: 0.2 + Math.random() * 0.3,
-                        speed: 2 + Math.random() * 2
-                    });
-                }
-            }, 3000);
-        }
-
-        // Create surface particles that float on water
-        function createParticles(count) {
-            const particles = [];
-
-            for (let i = 0; i < count; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: (canvas.height * 0.4) + (Math.random() * canvas.height * 0.2),
-                    size: 1 + Math.random() * 2,
-                    speedX: (Math.random() - 0.5) * 0.5,
-                    opacity: 0.1 + Math.random() * 0.3
-                });
-            }
-
-            return particles;
-        }
-
-        // Draw a water ripple
-        function drawRipple(ripple) {
-            ctx.beginPath();
-            ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${ripple.opacity})`;
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
-        }
-
-        // Update all ripples
-        function updateRipples() {
-            for (let i = 0; i < ripples.length; i++) {
-                // Expand ripple
-                ripples[i].radius += ripples[i].speed;
-                ripples[i].opacity -= 0.01;
-
-                // Remove old ripples
-                if (ripples[i].opacity <= 0 || ripples[i].radius >= ripples[i].maxRadius) {
-                    ripples.splice(i, 1);
-                    i--;
-                    continue;
-                }
-
-                drawRipple(ripples[i]);
-            }
-        }
-
-        // Draw an Islamic-inspired geometric pattern in the background
-        function drawPatternBackground() {
-            // Very subtle pattern
-            ctx.globalAlpha = 0.05;
-
-            const patternSize = 80;
-            const cols = Math.ceil(canvas.width / patternSize);
-            const rows = Math.ceil(canvas.height / patternSize);
-
-            for (let y = 0; y < rows; y++) {
-                for (let x = 0; x < cols; x++) {
-                    const centerX = x * patternSize + patternSize / 2;
-                    const centerY = y * patternSize + patternSize / 2;
-
-                    // Draw 8-fold pattern (common in Islamic art)
-                    ctx.beginPath();
-                    for (let i = 0; i < 8; i++) {
-                        const angle = (i / 8) * Math.PI * 2;
-                        const radius = patternSize * 0.3;
-                        const px = centerX + radius * Math.cos(angle);
-                        const py = centerY + radius * Math.sin(angle);
-
-                        if (i === 0) {
-                            ctx.moveTo(px, py);
-                        } else {
-                            ctx.lineTo(px, py);
-                        }
-                    }
-                    ctx.closePath();
-                    ctx.strokeStyle = 'rgba(217, 119, 6, 0.4)';
-                    ctx.lineWidth = 1;
-                    ctx.stroke();
-
-                    // Draw center dot
-                    ctx.beginPath();
-                    ctx.arc(centerX, centerY, 2, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(217, 119, 6, 0.5)';
-                    ctx.fill();
-                }
-            }
-
-            ctx.globalAlpha = 1.0;
-        }
-
-        // Draw multiple wave layers with varying properties
-        function drawWaves() {
-            const baseY = canvas.height * 0.5;
-
-            // Draw wave layers from back to front
-            for (let i = waves.length - 1; i >= 0; i--) {
-                const wave = waves[i];
-
-                ctx.beginPath();
-                ctx.moveTo(0, baseY);
-
-                // Draw the wave path
-                for (let x = 0; x <= canvas.width; x += 2) {
-                    // Primary wave
-                    const y1 = Math.sin(x / wave.wavelength + wave.phase) * wave.amplitude;
-
-                    // Secondary wave component for complexity
-                    const y2 = Math.sin(x / (wave.wavelength * 0.6) + wave.phase * 1.3) * (wave.amplitude * 0.3);
-
-                    // Islamic art inspired harmonic pattern
-                    const y3 = Math.sin(x / (wave.wavelength * 0.2) + wave.phase * 0.7) * (wave.amplitude * 0.1);
-
-                    // Combined wave
-                    const y = baseY + y1 + y2 + y3 + (i * 10); // Offset each layer
-
-                    ctx.lineTo(x, y);
-                }
-
-                // Complete the wave shape
-                ctx.lineTo(canvas.width, canvas.height);
-                ctx.lineTo(0, canvas.height);
-                ctx.closePath();
-
-                // Create a gradient for water color
-                const gradient = ctx.createLinearGradient(0, baseY - 50, 0, canvas.height);
-                gradient.addColorStop(0, `rgba(217, 119, 6, ${wave.opacity * 1.5})`);
-                gradient.addColorStop(0.3, `rgba(217, 119, 6, ${wave.opacity})`);
-                gradient.addColorStop(0.7, `rgba(217, 119, 6, ${wave.opacity * 0.7})`);
-                gradient.addColorStop(1, `rgba(217, 119, 6, ${wave.opacity * 0.4})`);
-
-                ctx.fillStyle = gradient;
-                ctx.fill();
-
-                // Add highlight on top of wave
-                if (i === 0) {
-                    ctx.beginPath();
-                    ctx.moveTo(0, baseY);
-
-                    for (let x = 0; x <= canvas.width; x += 2) {
-                        const y1 = Math.sin(x / wave.wavelength + wave.phase) * wave.amplitude;
-                        const y2 = Math.sin(x / (wave.wavelength * 0.6) + wave.phase * 1.3) * (wave.amplitude * 0.3);
-                        const y3 = Math.sin(x / (wave.wavelength * 0.2) + wave.phase * 0.7) * (wave.amplitude * 0.1);
-                        const y = baseY + y1 + y2 + y3;
-
-                        ctx.lineTo(x, y);
-                    }
-
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
-                    ctx.lineWidth = 1;
-                    ctx.stroke();
-                }
-
-                // Update wave phase for next frame
-                wave.phase += wave.speed;
-            }
-        }
-
-        // Draw floating particles on water surface
-        function drawParticles(particles) {
-            for (let i = 0; i < particles.length; i++) {
-                const p = particles[i];
-
-                // Update position
-                p.x += p.speedX;
-
-                // Wrap around screen
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-
-                // Calculate wave height at particle position for realistic floating
-                const baseY = canvas.height * 0.5;
-                let waveHeight = 0;
-
-                // Sample wave height at particle position
-                for (let j = 0; j < waves.length; j++) {
-                    const wave = waves[j];
-                    waveHeight += Math.sin(p.x / wave.wavelength + wave.phase) * wave.amplitude;
-                }
-
-                // Draw particle
-                ctx.beginPath();
-                ctx.arc(p.x, p.y + waveHeight * 0.3, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
-                ctx.fill();
-            }
-        }
-
-        // Main animation function
-        function animate() {
-            // Clear canvas with a subtle background
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw subtle background pattern
-            drawPatternBackground();
-
-            // Increment time for animation
-            time += 0.01;
-
-            // Draw all wave layers
-            drawWaves();
-
-            // Update and draw ripples
-            updateRipples();
-
-            // Draw particles floating on the water
-            drawParticles(particles);
-
-            // Continue animation
-            animationFrameId = requestAnimationFrame(animate);
-        }
-
-        // Initialize
-        let particles;
-
-        function init() {
-            // Setup canvas size
-            resizeCanvas();
-
-            // Initialize waves
-            initWaves();
-
-            // Create particles
-            particles = createParticles(50);
-
-            // Setup interaction
-            setupInteraction();
-
-            // Start animation
-            animate();
-        }
-
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            cancelAnimationFrame(animationFrameId);
-            resizeCanvas();
-            animate();
-        });
-
-        // Start everything
-        init();
-    });
-</script>
-
-<!-- Academic path section -->
-<section id="about" class="py-16">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="bg-white rounded-xl p-8 shadow-sm">
-            <div class="flex items-center justify-center mb-8">
-                <div class="h-px w-12 bg-amber-500"></div>
-                <h2 class="text-3xl font-bold text-amber-900 px-4">المسار الأكاديمي والتكوين العلمي</h2>
-                <div class="h-px w-12 bg-amber-500"></div>
+<!-- ============================================================
+     PL. 02 · محاور البحث
+     ============================================================ -->
+<section id="file" class="hp alt">
+    <div class="hp-inner">
+        <header class="hp-head">
+            <p class="hp-code"><b>PL. 02</b> · RESEARCH AXES</p>
+            <h2 class="hp-title">محاور البحث</h2>
+            <p class="hp-note">ثلاثة مداخل<br>إلى ملف الماء والعمران</p>
+        </header>
+
+        <div class="hp-body">
+            <div class="hp-axes">
+                <div class="hp-axis">
+                    <span class="n">01</span>
+                    <h3>النظم المائية التقليدية</h3>
+                    <p>دراسة توثيقية لتقنيات إدارة المياه في الواحات المغربية وأثرها على التشكيلات العمرانية.</p>
+                    <a href="/articles">اقرأ المزيد ←</a>
+                </div>
+                <div class="hp-axis">
+                    <span class="n">02</span>
+                    <h3>الساعات المائية</h3>
+                    <p>تحليل تاريخي وتقني للابتكارات الهيدروليكية في قياس الزمن بالماء خلال العصر الإسلامي.</p>
+                    <a href="/articles">اقرأ المزيد ←</a>
+                </div>
+                <div class="hp-axis">
+                    <span class="n">03</span>
+                    <h3>العمران الإسلامي</h3>
+                    <p>رصد للعلاقة بين الماء والتخطيط العمراني في المدن الإسلامية والواحات المغربية.</p>
+                    <a href="/articles">اقرأ المزيد ←</a>
+                </div>
             </div>
+        </div>
+    </div>
+</section>
 
-            <p class="text-xl leading-relaxed text-stone-700 mb-6"></p>
+<!-- ============================================================
+     PL. 03 · المسار الأكاديمي
+     ============================================================ -->
+<section id="about" class="hp">
+    <div class="hp-inner">
+        <header class="hp-head">
+            <p class="hp-code"><b>PL. 03</b> · ACADEMIC PATH</p>
+            <h2 class="hp-title">المسار الأكاديمي والتكوين العلمي</h2>
+            <p class="hp-note">التكوين<br>والمنهج</p>
+        </header>
+
+        <div class="hp-body">
+            <p class="hp-lede">
                 باحث متخصص في مجال التاريخ الاجتماعي والاقتصادي والحضاري للمغرب الإسلامي في العصر الوسيط، مع اهتمام بحثي
                 عميق بالتفاعلات المعقدة بين الإنسان والبيئة الطبيعية، وتأثيراتها على التشكلات العمرانية والحضارية. أنجزت
-                أطروحة الدكتوراه في موضوع <span class="font-bold text-amber-700">الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة</span>
+                أطروحة الدكتوراه في موضوع <span class="hp-strong">الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة</span>
                 بإشراف علمي رصين من كلية الآداب والعلوم الإنسانية بجامعة القاضي عياض.
             </p>
 
-            <p class="text-lg leading-relaxed text-stone-700 mb-8">
+            <p>
                 تستند منهجيتي البحثية على التقاطع المعرفي بين التاريخ والأنثروبولوجيا والجغرافيا التاريخية، مع توظيف
                 قراءة نقدية للنصوص التاريخية ومقاربة أركيولوجية للمصادر المادية والمعمارية. هذا التكامل المنهجي
                 مكّنني من إعادة بناء التصورات التاريخية حول العلاقة بين الإنسان والماء في سياق التحولات الاجتماعية
@@ -553,123 +572,126 @@ permalink: /
                 المجالي في المناطق الواحية والصحراوية.
             </p>
 
-            <!-- Enhanced Academic Blockquote -->
-            <blockquote class="my-12 border-r-4 border-amber-600 bg-amber-50 p-6 rounded-lg shadow-sm relative overflow-hidden">
-                <span class="absolute top-2 right-3 text-6xl text-amber-100 opacity-75 pointer-events-none">
-                    <i class="fas fa-quote-right"></i>
-                </span>
-                <p class="relative z-10 text-xl leading-relaxed text-stone-800 mb-4">
-                    "الاهتمام بالماء شغل الإنسان المغربي من تدابير الاستنباط والتخزين سواء كان جوفيا أو سطحيا، والبحث عن أحسن الطرق لاستغلاله وتصريفه عن طريق ابتكار منشآت وتقنيات تستجيب لحاجياته"
-                </p>
-                <footer class="relative z-10 text-sm text-stone-600 mt-4 text-left">
-                    — <span class="font-bold text-amber-700"> الدكتورة عائشة كنتوري</span>، <cite class="italic">الماء بالمغرب الأقصى من خلال المصادر</cite>، المطبعة والوراقة الوطنية، ط 1، مراكش 2016، ص: 12.
+            <blockquote class="hp-quote">
+                <p>«الاهتمام بالماء شغل الإنسان المغربي من تدابير الاستنباط والتخزين سواء كان جوفيا أو سطحيا، والبحث عن أحسن الطرق لاستغلاله وتصريفه عن طريق ابتكار منشآت وتقنيات تستجيب لحاجياته»</p>
+                <footer>
+                    — <b>الدكتورة عائشة كنتوري</b>، <cite>الماء بالمغرب الأقصى من خلال المصادر</cite>، المطبعة والوراقة الوطنية، ط 1، مراكش 2016، ص: 12.
                 </footer>
             </blockquote>
         </div>
     </div>
 </section>
 
-<!-- Research achievements section -->
-<section class="py-16">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="relative bg-gradient-to-b from-amber-800 to-amber-900 rounded-xl px-8 py-12 text-white">
-            <h2 class="text-3xl font-bold mb-8 text-center">الإنجازات البحثية والتميز العلمي</h2>
+<!-- ============================================================
+     PL. 04 · الإنجازات
+     ============================================================ -->
+<section class="hp night">
+    <svg class="night-wheel" viewBox="0 0 540 540" aria-hidden="true">
+        <circle cx="270" cy="270" r="250" stroke-width="2"/>
+        <circle cx="270" cy="270" r="228" stroke-width="1"/>
+        <circle cx="270" cy="270" r="170" stroke-width=".8"/>
+        <g stroke-width="1.2">
+            <line x1="270" y1="270" x2="270" y2="42"/>
+            <line x1="270" y1="270" x2="431" y2="109"/>
+            <line x1="270" y1="270" x2="498" y2="270"/>
+            <line x1="270" y1="270" x2="431" y2="431"/>
+            <line x1="270" y1="270" x2="270" y2="498"/>
+            <line x1="270" y1="270" x2="109" y2="431"/>
+            <line x1="270" y1="270" x2="42" y2="270"/>
+            <line x1="270" y1="270" x2="109" y2="109"/>
+        </g>
+        <g stroke-width="1.4">
+            <rect x="262" y="34" width="16" height="14"/>
+            <rect x="424" y="102" width="16" height="14" transform="rotate(45 432 109)"/>
+            <rect x="490" y="263" width="16" height="14"/>
+            <rect x="424" y="424" width="16" height="14" transform="rotate(45 432 431)"/>
+            <rect x="262" y="492" width="16" height="14"/>
+            <rect x="100" y="424" width="16" height="14" transform="rotate(45 108 431)"/>
+            <rect x="34" y="263" width="16" height="14"/>
+            <rect x="100" y="102" width="16" height="14" transform="rotate(45 108 109)"/>
+        </g>
+        <circle cx="270" cy="270" r="26" stroke-width="2"/>
+        <circle cx="270" cy="270" r="6" stroke-width="1.5"/>
+    </svg>
+    <div class="hp-inner">
+        <header class="hp-head">
+            <p class="hp-code"><b>PL. 04</b> · RECORD</p>
+            <h2 class="hp-title">الإنجازات البحثية والتميز العلمي</h2>
+            <p class="hp-note">التقدير<br>والمشاركات</p>
+        </header>
 
-            <div class="max-w-4xl mx-auto space-y-6">
-                <p class="leading-relaxed">
-                    حظيت أطروحة الدكتوراه بتقدير مشرف جدا من لجنة المناقشة العلمية، وهي من ضمن الأطروحات العلمية في مجال الدراسات التاريخية على مستوى جامعة القاضي عياض للعام الأكاديمي 2025. تميزت هذه
-                    الدراسة بمقاربتها المنهجية في استنطاق النصوص التاريخية ومعالجتها للإشكالات المعرفية
-                    المرتبطة بتاريخ النظم المائية والتعمير بالمغرب الوسيط، مع تقديم إضافات نوعية في مجال الجغرافيا
-                    التاريخية والسيوسيولوجيا المائية.
-                </p>
+        <div class="hp-body">
+            <p class="hp-lede">
+                حظيت أطروحة الدكتوراه بتقدير مشرف جدا من لجنة المناقشة العلمية، وهي من ضمن الأطروحات العلمية في مجال الدراسات التاريخية على مستوى جامعة القاضي عياض للعام الأكاديمي 2025. تميزت هذه
+                الدراسة بمقاربتها المنهجية في استنطاق النصوص التاريخية ومعالجتها للإشكالات المعرفية
+                المرتبطة بتاريخ النظم المائية والتعمير بالمغرب الوسيط، مع تقديم إضافات نوعية في مجال الجغرافيا
+                التاريخية والسيوسيولوجيا المائية.
+            </p>
 
-                <p class="leading-relaxed"></p>
-                    كما نلت شرف المشاركة في عدة مؤتمرات وطنية وندوات علمية متخصصة، وتم اختيار أبحاثي للنشر في مجلات
-                    علمية محكّمة ومرموقة في مجال الدراسات التاريخية والحضارية، مما أسهم في إثراء النقاش الأكاديمي حول
-                    دور الماء في تشكيل المشهد الحضاري والعمراني للمجتمعات الإسلامية في العصر الوسيط.
-                </p>
-            </div>
+            <p>
+                كما نلت شرف المشاركة في عدة مؤتمرات وطنية وندوات علمية متخصصة، وتم اختيار أبحاثي للنشر في مجلات
+                علمية محكّمة ومرموقة في مجال الدراسات التاريخية والحضارية، مما أسهم في إثراء النقاش الأكاديمي حول
+                دور الماء في تشكيل المشهد الحضاري والعمراني للمجتمعات الإسلامية في العصر الوسيط.
+            </p>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                <div class="text-center bg-white/10 rounded-lg p-6">
-                    <div class="text-4xl font-bold text-amber-300 mb-2">15</div>
-                    <p class="text-amber-100">بحث منشور</p>
-                </div>
-
-                <div class="text-center bg-white/10 rounded-lg p-6">
-                    <div class="text-4xl font-bold text-amber-300 mb-2">8</div>
-                    <p class="text-amber-100">مؤتمر وطني ودولي</p>
-                </div>
-
-                <div class="text-center bg-white/10 rounded-lg p-6">
-                    <div class="text-4xl font-bold text-amber-300 mb-2">4</div>
-                    <p class="text-amber-100">ندوة علمية</p>
-                </div>
-
-                <div class="text-center bg-white/10 rounded-lg p-6">
-                    <div class="text-4xl font-bold text-amber-300 mb-2">6</div>
-                    <p class="text-amber-100">جائزة أكاديمية</p>
-                </div>
+            <div class="hp-stats">
+                <div class="hp-stat"><b>15</b><span>بحث منشور</span></div>
+                <div class="hp-stat"><b>8</b><span>مؤتمر وطني ودولي</span></div>
+                <div class="hp-stat"><b>4</b><span>ندوة علمية</span></div>
+                <div class="hp-stat"><b>6</b><span>جائزة أكاديمية</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Academic project section -->
-<section class="py-16">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="bg-white rounded-xl p-8 shadow-sm">
-            <div class="flex items-center justify-center mb-8">
-                <div class="h-px w-12 bg-amber-500"></div>
-                <h2 class="text-3xl font-bold text-amber-900 px-4">المشروع الأكاديمي والرؤية المستقبلية</h2>
-                <div class="h-px w-12 bg-amber-500"></div>
-            </div>
+<!-- ============================================================
+     PL. 05 · المشروع الأكاديمي
+     ============================================================ -->
+<section class="hp">
+    <div class="hp-inner">
+        <header class="hp-head">
+            <p class="hp-code"><b>PL. 05</b> · PROJECT</p>
+            <h2 class="hp-title">المشروع الأكاديمي والرؤية المستقبلية</h2>
+            <p class="hp-note">لماذا هذا<br>الموقع؟</p>
+        </header>
 
-            <p class="text-lg leading-relaxed text-stone-700 mb-6">
+        <div class="hp-body">
+            <p>
                 يأتي تأسيس هذا الموقع الإلكتروني في إطار مشروع معرفي متكامل يستهدف إحياء التراث العلمي والتقني المرتبط
                 بالماء والعمران في الحضارة الإسلامية وتقديمه للباحثين والمهتمين بأسلوب علمي رصين يجمع بين الأصالة
-                والمعاصرة. تبلورت الفكرة أثناء إنجاز أطروحة الماستر حول <span class="font-bold text-amber-700">"الساعات المائية بالمغرب الوسيط"</span>،
+                والمعاصرة. تبلورت الفكرة أثناء إنجاز أطروحة الماستر حول <span class="hp-strong">«الساعات المائية بالمغرب الوسيط»</span>،
                 حيث رصدت تبايناً معرفياً وإبستيمولوجياً بين المعطيات المتداولة في الفضاء الرقمي والحقائق التاريخية
                 الموثقة في المصادر.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="mb-4 text-amber-600 text-center">
-                        <i class="fas fa-scroll text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-amber-800 mb-3 text-center">التوثيق والتحقيق</h3>
-                    <p class="text-stone-700">
+            <div class="hp-cols">
+                <div class="hp-col">
+                    <span class="n">01</span>
+                    <h3>التوثيق والتحقيق</h3>
+                    <p>
                         توثيق وتحقيق النصوص التاريخية والمخطوطات المتعلقة بالماء والعمران في التراث العربي الإسلامي،
                         واستخراج المعارف والتقنيات المائية التي طورتها الحضارة الإسلامية.
                     </p>
                 </div>
-
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="mb-4 text-amber-600 text-center">
-                        <i class="fas fa-chart-line text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-amber-800 mb-3 text-center">الرصد والتحليل</h3>
-                    <p class="text-stone-700">
+                <div class="hp-col">
+                    <span class="n">02</span>
+                    <h3>الرصد والتحليل</h3>
+                    <p>
                         رصد وتحليل العلاقات المتشابكة بين البنى الثقافية والاجتماعية والسياسية والمائية في التشكيلات
                         الحضارية والعمرانية بالمغرب الوسيط.
                     </p>
                 </div>
-
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="mb-4 text-amber-600 text-center">
-                        <i class="fas fa-seedling text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-amber-800 mb-3 text-center">الإحياء والتنمية</h3>
-                    <p class="text-stone-700">
+                <div class="hp-col">
+                    <span class="n">03</span>
+                    <h3>الإحياء والتنمية</h3>
+                    <p>
                         استثمار التراث المائي في مقاربات التنمية المستدامة المعاصرة، والاستفادة من الحلول التاريخية في
                         معالجة التحديات المائية الراهنة.
                     </p>
                 </div>
             </div>
 
-            <p class="text-lg leading-relaxed text-stone-700">
+            <p>
                 يتوخى هذا المشروع الأكاديمي تطوير منهجية بحثية متعددة التخصصات، تجمع بين مناهج البحث التاريخي وتقنيات
                 التوثيق الرقمي والتحليل المجالي، مع الاستفادة من التطورات التكنولوجية في مجال المعلوميات والذكاء
                 الاصطناعي في تحليل المعطيات التاريخية واستخراج الأنماط والنماذج المعرفية الكامنة في النصوص والوثائق
@@ -679,201 +701,77 @@ permalink: /
     </div>
 </section>
 
-<!-- Water history and systems section -->
-<section class="py-16">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="bg-white rounded-xl p-8 shadow-sm">
-            <div class="flex items-center justify-center mb-8">
-                <div class="h-px w-12 bg-amber-500"></div>
-                <h2 class="text-3xl font-bold text-amber-900 px-4">التاريخ المائي والأنظمة الهيدرولية التقليدية</h2>
-                <div class="h-px w-12 bg-amber-500"></div>
-            </div>
+<!-- ============================================================
+     PL. 06 · التاريخ المائي
+     ============================================================ -->
+<section class="hp alt">
+    <div class="hp-inner">
+        <header class="hp-head">
+            <p class="hp-code"><b>PL. 06</b> · HYDRAULICS</p>
+            <h2 class="hp-title">التاريخ المائي والأنظمة الهيدرولية التقليدية</h2>
+            <p class="hp-note">من الخطّارة<br>إلى الساعة</p>
+        </header>
 
-            <p class="text-lg leading-relaxed text-stone-700 mb-8">
+        <div class="hp-body">
+            <p class="hp-lede">
                 تُمثل دراسة النظم المائية التاريخية وتأثيرها على التطور العمراني في المغرب الوسيط محوراً أساسياً في
                 أبحاثي الأكاديمية. من خلال دراسات ميدانية مستفيضة وتحليل متعمق للمصادر التاريخية، تمكنت من توثيق العديد
                 من النماذج الفريدة للإدارة المائية والتقنيات الهندسية التي طورتها المجتمعات المغربية للتأقلم مع تحديات
                 الندرة المائية والظروف المناخية القاسية.
             </p>
 
-            <!-- Gallery with simple hover effects -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="overflow-hidden rounded-lg shadow-sm group cursor-pointer">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="{{ site.data.manifest['dist/images/research/water-system.jpg'] | default: '/dist/images/research/water-system.jpg' }}" alt="نظام مائي تقليدي"
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                            <p class="font-semibold text-lg">نظام الخطارات في واحات الجنوب الشرقي</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-sm group cursor-pointer">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="{{ site.data.manifest['dist/images/research/urban-layout.jpg'] | default: '/dist/images/research/urban-layout.jpg' }}" alt="تخطيط عمراني"
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                            <p class="font-semibold text-lg">نموذج للتخطيط العمراني المتأثر بتوزيع الموارد المائية</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-sm group cursor-pointer">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="{{ site.data.manifest['dist/images/research/water-clock.jpg'] | default: '/dist/images/research/water-clock.jpg' }}" alt="ساعة مائية"
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                            <p class="font-semibold text-lg">إعادة تمثيل لساعة مائية من العصر المريني</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="hp-gallery">
+                <figure>
+                    <img src="{{ site.data.manifest['dist/images/research/water-system.jpg'] | default: '/dist/images/research/water-system.jpg' }}" alt="نظام مائي تقليدي" loading="lazy">
+                    <figcaption>نظام الخطارات في واحات الجنوب الشرقي</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{ site.data.manifest['dist/images/research/urban-layout.jpg'] | default: '/dist/images/research/urban-layout.jpg' }}" alt="تخطيط عمراني" loading="lazy">
+                    <figcaption>نموذج للتخطيط العمراني المتأثر بتوزيع الموارد المائية</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{ site.data.manifest['dist/images/research/water-clock.jpg'] | default: '/dist/images/research/water-clock.jpg' }}" alt="ساعة مائية" loading="lazy">
+                    <figcaption>إعادة تمثيل لساعة مائية من العصر المريني</figcaption>
+                </figure>
             </div>
 
-            <p class="text-lg leading-relaxed text-stone-700 mb-12">
+            <p>
                 توصلت من خلال دراساتي إلى استنتاجات مهمة حول العلاقة الجدلية بين توزيع الموارد المائية وأنماط التعمير
                 والسكن في المناطق الواحية والصحراوية، وكيف أنتجت هذه العلاقة نظماً اجتماعية وثقافية وقانونية فريدة، تجلت
                 في مؤسسات تدبير الماء (كالجماعة وأمين الماء)، وقواعد توزيع الماء (كالنوبة والكارة)، وأساليب هندسية
                 متطورة لحفر القنوات ونقل المياه وتخزينها وتوزيعها.
             </p>
 
-            <!-- Elegant Academic Timeline -->
-            <div class="relative my-16 max-w-5xl mx-auto">
-                <!-- Decorative header for timeline - fixed z-index and added solid background -->
-                <div class="flex items-center justify-center mb-10 relative z-20">
-                    <div class="h-px w-20 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
-                    <div class="mx-4 px-5 py-2 bg-amber-50 border border-amber-200 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-amber-800 text-center">المراحل التاريخية الرئيسية</h3>
-                    </div>
-                    <div class="h-px w-20 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+            <div class="hp-time">
+                <div class="hp-tick">
+                    <span class="hp-year">القرن 11–12</span>
+                    <h3>عصر المرابطين والموحدين</h3>
+                    <p>
+                        شهد هذا العصر تطوراً ملحوظاً في نظم إدارة المياه وتقنيات الري، حيث برز دور المؤسسات الدينية
+                        والوقفية في تنظيم الموارد المائية، مع توسع في شبكات الخطارات والسواقي في المناطق الصحراوية
+                        والواحات.
+                    </p>
                 </div>
-                
-                <!-- Central vertical line with decorative elements - now positioned below the header in z-order -->
-                <div class="absolute inset-y-0 right-1/2 w-0.5 bg-gradient-to-b from-amber-300 via-amber-500 to-amber-300 translate-x-1/2 z-10 hidden md:block mt-16"></div>
-                
-                <!-- Timeline entries -->
-                <div class="space-y-12 md:space-y-24 relative">
-                    <!-- First period -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start">
-                        <!-- Date marker for desktop -->
-                        <div class="hidden md:flex flex-col items-center mr-6 w-1/2 relative">
-                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-lg flex items-center justify-center z-20 mb-2">
-                                <span class="font-bold text-amber-800 text-center text-sm">القرن<br/>11-12</span>
-                            </div>
-                            <div class="absolute top-8 -left-8 w-8 h-0.5 bg-amber-500"></div>
-                        </div>
-                        
-                        <!-- Content box -->
-                        <div class="w-full md:w-1/2 md:mr-6 group">
-                            <!-- Date marker for mobile -->
-                            <div class="md:hidden w-16 h-16 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-md flex items-center justify-center z-20 mb-4 mx-auto">
-                                <span class="font-bold text-amber-800 text-center text-sm">القرن<br/>11-12</span>
-                            </div>
-                            
-                            <div class="bg-gradient-to-br from-amber-50 to-amber-100/60 p-6 rounded-lg shadow-md border border-amber-200/50 transition-transform duration-300 hover:shadow-lg relative group-hover:-translate-y-1">
-                                <!-- Icon -->
-                                <div class="absolute top-0 right-6 -translate-y-1/2 w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center border-2 border-white shadow-md">
-                                    <span class="fas fa-mosque text-sm"></span>
-                                </div>
-                                
-                                <h4 class="text-amber-900 font-bold text-xl mb-3 mt-3">عصر المرابطين والموحدين</h4>
-                                <p class="text-stone-700">
-                                    شهد هذا العصر تطوراً ملحوظاً في نظم إدارة المياه وتقنيات الري، حيث برز دور المؤسسات الدينية
-                                    والوقفية في تنظيم الموارد المائية، مع توسع في شبكات الخطارات والسواقي في المناطق الصحراوية
-                                    والواحات.
-                                </p>
-                                
-                                <!-- Decorative footer -->
-                                <div class="mt-4 h-0.5 w-1/3 bg-gradient-to-r from-amber-500/20 to-transparent"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Second period -->
-                    <div class="flex flex-col md:flex-row-reverse items-center md:items-start">
-                        <!-- Date marker for desktop -->
-                        <div class="hidden md:flex flex-col items-center ml-6 w-1/2 relative">
-                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-lg flex items-center justify-center z-20 mb-2">
-                                <span class="font-bold text-amber-800 text-center text-sm">القرن<br/>13-14</span>
-                            </div>
-                            <div class="absolute top-8 -right-8 w-8 h-0.5 bg-amber-500"></div>
-                        </div>
-                        
-                        <!-- Content box -->
-                        <div class="w-full md:w-1/2 md:ml-6 group">
-                            <!-- Date marker for mobile -->
-                            <div class="md:hidden w-16 h-16 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-md flex items-center justify-center z-20 mb-4 mx-auto">
-                                <span class="font-bold text-amber-800 text-center text-sm">القرن<br/>13-14</span>
-                            </div>
-                            
-                            <div class="bg-gradient-to-br from-amber-50 to-amber-100/60 p-6 rounded-lg shadow-md border border-amber-200/50 transition-transform duration-300 hover:shadow-lg relative group-hover:-translate-y-1">
-                                <!-- Icon -->
-                                <div class="absolute top-0 right-6 -translate-y-1/2 w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center border-2 border-white shadow-md">
-                                    <span class="fas fa-water text-sm"></span>
-                                </div>
-                                
-                                <h4 class="text-amber-900 font-bold text-xl mb-3 mt-3">العصر المريني</h4>
-                                <p class="text-stone-700">
-                                    تميزت هذه الفترة بتطور كبير في الهندسة المائية، وانتشار السواقي والأحواض والحمامات في المدن
-                                    الإسلامية الكبرى، مع تنظيم قانوني متقدم لاستخدامات المياه في الزراعة والحرف والاستهلاك
-                                    المنزلي.
-                                </p>
-                                
-                                <!-- Decorative footer -->
-                                <div class="mt-16 h-0.5 w-1/3 bg-gradient-to-r from-amber-500/20 to-transparent"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Third period -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start">
-                        <!-- Date marker for desktop -->
-                        <div class="hidden md:flex flex-col items-center mr-6 w-1/2 relative">
-                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-lg flex items-center justify-center z-20 mb-2">
-                                <span class="font-bold text-amber-800 text-center text-sm">القرن<br/>15-16</span>
-                            </div>
-                            <div class="absolute top-8 -left-8 w-8 h-0.5 bg-amber-500"></div>
-                        </div>
-                        
-                        <!-- Content box -->
-                        <div class="w-full md:w-1/2 md:mr-6 group">
-                            <!-- Date marker for mobile -->
-                            <div class="md:hidden w-16 h-16 rounded-full bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-md flex items-center justify-center z-20 mb-4 mx-auto">
-                                <span class="font-bold text-amber-800 text-center text-sm">القرن<br/>15-16</span>
-                            </div>
-                            
-                            <div class="bg-gradient-to-br from-amber-50 to-amber-100/60 p-6 rounded-lg shadow-md border border-amber-200/50 transition-transform duration-300 hover:shadow-lg relative group-hover:-translate-y-1">
-                                <!-- Icon -->
-                                <div class="absolute top-0 right-6 -translate-y-1/2 w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center border-2 border-white shadow-md">
-                                    <span class="fas fa-clock text-sm"></span>
-                                </div>
-                                
-                                <h4 class="text-amber-900 font-bold text-xl mb-3 mt-3">العصر السعدي</h4>
-                                <p class="text-stone-700">
-                                    مرحلة تحولات عميقة في أنماط استغلال الموارد المائية، مع ظهور تحديات مناخية وسياسية أثرت على
-                                    النظم المائية التقليدية، وشهدت هذه الفترة محاولات تكييف وابتكار في أساليب إدارة المياه.
-                                </p>
-                                
-                                <!-- Decorative footer -->
-                                <div class="mt-14 h-0.5 w-1/3 bg-gradient-to-r from-amber-500/20 to-transparent"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="hp-tick">
+                    <span class="hp-year">القرن 13–14</span>
+                    <h3>العصر المريني</h3>
+                    <p>
+                        تميزت هذه الفترة بتطور كبير في الهندسة المائية، وانتشار السواقي والأحواض والحمامات في المدن
+                        الإسلامية الكبرى، مع تنظيم قانوني متقدم لاستخدامات المياه في الزراعة والحرف والاستهلاك
+                        المنزلي.
+                    </p>
                 </div>
-                
-                <!-- Timeline footer with scholarly decoration -->
-                <div class="flex items-center justify-center mt-12">
-                    <div class="h-px w-12 bg-amber-500/30"></div>
-                    <div class="mx-2 text-amber-600/80">
-                        <i class="fas fa-book-open text-sm"></i>
-                    </div>
-                    <div class="h-px w-12 bg-amber-500/30"></div>
+                <div class="hp-tick">
+                    <span class="hp-year">القرن 15–16</span>
+                    <h3>العصر السعدي</h3>
+                    <p>
+                        مرحلة تحولات عميقة في أنماط استغلال الموارد المائية، مع ظهور تحديات مناخية وسياسية أثرت على
+                        النظم المائية التقليدية، وشهدت هذه الفترة محاولات تكييف وابتكار في أساليب إدارة المياه.
+                    </p>
                 </div>
             </div>
 
-            <p class="text-lg leading-relaxed text-stone-700 mt-12">
+            <p style="margin-top:1.6rem">
                 لقد أظهرت هذه الدراسات أهمية المعرفة التاريخية بالنظم المائية التقليدية في فهم التراث العمراني والمعماري
                 للمغرب الإسلامي، وإمكانية الاستفادة منها في تطوير حلول مستدامة لإدارة الموارد المائية في العصر الحالي،
                 خاصة في ظل التحديات المناخية والبيئية المتزايدة.
@@ -882,109 +780,60 @@ permalink: /
     </div>
 </section>
 
-<!-- Research publications section -->
-<section id="research" class="py-16 bg-stone-100">
-    <div class="container mx-auto px-4 lg:px-6">
-        <div class="flex items-center justify-center mb-12">
-            <div class="h-px w-12 bg-amber-500"></div>
-            <h2 class="text-3xl font-bold text-amber-900 px-4">المنشورات والأبحاث العلمية</h2>
-            <div class="h-px w-12 bg-amber-500"></div>
-        </div>
+<!-- ============================================================
+     PL. 07 · المنشورات
+     ============================================================ -->
+<section id="research" class="hp">
+    <div class="hp-inner">
+        <header class="hp-head">
+            <p class="hp-code"><b>PL. 07</b> · PUBLICATIONS</p>
+            <h2 class="hp-title">المنشورات والأبحاث العلمية</h2>
+            <p class="hp-note">نموذجان<br>من الأرشيف</p>
+        </header>
 
-        <div class="grid grid-cols-1 gap-6">
-            <!-- Publication 1 -->
-            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="md:w-1/4">
-                        <div class="bg-amber-50 h-full rounded-lg p-4 flex items-center justify-center">
-                            <img src="{{ site.data.manifest['dist/images/publications/book-cover-1.jpg'] | default: '/dist/images/publications/book-cover-1.jpg' }}" alt="غلاف الكتاب" class="max-h-48 object-contain">
-                        </div>
-                    </div>
-                    <div class="md:w-3/4">
-                        <h3 class="text-xl font-bold text-amber-900 mb-2">الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة</h3>
-                        <div class="flex items-center mb-3 text-sm text-stone-600">
-                            <span class="ml-3"><i class="fas fa-calendar-alt ml-1"></i> 2023</span>
-                            <span class="ml-3"><i class="fas fa-bookmark ml-1"></i> أطروحة</span>
-                            <span><i class="fas fa-language ml-1"></i> العربية</span>
-                        </div>
-                        <p class="text-stone-700">
-                            دراسة مستفيضة تتناول العلاقة بين الموارد المائية والتشكيلات العمرانية في المغرب الوسيط، مع
-                            التركيز على منطقة الجنوب الشرقي وبلاد القبلة. توثق هذه الدراسة النظم المائية التقليدية
-                            وتأثيرها على التنظيم الاجتماعي والاقتصادي والسياسي.
-                        </p>
-                    </div>
+        <div class="hp-body">
+            <article class="hp-pub">
+                <div class="hp-pub-cover">
+                    <img src="{{ site.data.manifest['dist/images/publications/book-cover-1.jpg'] | default: '/dist/images/publications/book-cover-1.jpg' }}" alt="غلاف الكتاب" loading="lazy">
                 </div>
-            </div>
-
-            <!-- Publication 2 -->
-            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="md:w-1/4">
-                        <div class="bg-amber-50 h-full rounded-lg p-4 flex items-center justify-center">
-                            <img src="{{ site.data.manifest['dist/images/publications/journal-cover-1.jpg'] | default: '/dist/images/publications/journal-cover-1.jpg' }}" alt="غلاف المجلة" class="max-h-48 object-contain">
-                        </div>
+                <div>
+                    <h3>الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة</h3>
+                    <div class="hp-meta">
+                        <span>2023</span>
+                        <span>أطروحة</span>
+                        <span>العربية</span>
                     </div>
-                    <div class="md:w-3/4">
-                        <h3 class="text-xl font-bold text-amber-900 mb-2">الساعات المائية في المغرب الإسلامي: دراسة تاريخية وتقنية</h3>
-                        <div class="flex items-center mb-3 text-sm text-stone-600">
-                            <span class="ml-3"><i class="fas fa-calendar-alt ml-1"></i> 2021</span>
-                            <span class="ml-3"><i class="fas fa-bookmark ml-1"></i> مقال منشور في مجلة محكمة</span>
-                            <span><i class="fas fa-language ml-1"></i> العربية</span>
-                        </div>
-                        <p class="text-stone-700">
-                            يتناول البحث تاريخ وتقنيات الساعات المائية في المغرب الإسلامي، مع تحليل لأنواعها وأساليب
-                            صناعتها واستخداماتها في الحياة اليومية والعبادات. يقدم البحث نماذج مستخرجة من المصادر التاريخية
-                            مع إعادة تمثيل تصويري لها.
-                        </p>
-                    </div>
+                    <p>
+                        دراسة مستفيضة تتناول العلاقة بين الموارد المائية والتشكيلات العمرانية في المغرب الوسيط، مع
+                        التركيز على منطقة الجنوب الشرقي وبلاد القبلة. توثق هذه الدراسة النظم المائية التقليدية
+                        وتأثيرها على التنظيم الاجتماعي والاقتصادي والسياسي.
+                    </p>
                 </div>
-            </div>
-        </div>
+            </article>
 
-        <div class="text-center mt-8">
-            <a href="/articles" class="inline-block px-6 py-3 bg-amber-700 text-white rounded-md hover:bg-amber-600 transition-colors shadow-lg">
-                عرض جميع المنشورات (15)
+            <article class="hp-pub">
+                <div class="hp-pub-cover">
+                    <img src="{{ site.data.manifest['dist/images/publications/journal-cover-1.jpg'] | default: '/dist/images/publications/journal-cover-1.jpg' }}" alt="غلاف المجلة" loading="lazy">
+                </div>
+                <div>
+                    <h3>الساعات المائية في المغرب الإسلامي: دراسة تاريخية وتقنية</h3>
+                    <div class="hp-meta">
+                        <span>2021</span>
+                        <span>مقال منشور في مجلة محكمة</span>
+                        <span>العربية</span>
+                    </div>
+                    <p>
+                        يتناول البحث تاريخ وتقنيات الساعات المائية في المغرب الإسلامي، مع تحليل لأنواعها وأساليب
+                        صناعتها واستخداماتها في الحياة اليومية والعبادات. يقدم البحث نماذج مستخرجة من المصادر التاريخية
+                        مع إعادة تمثيل تصويري لها.
+                    </p>
+                </div>
+            </article>
+
+            <a class="hp-cta" href="/articles">
+                <span>عرض جميع المنشورات (15)</span>
+                <span aria-hidden="true">←</span>
             </a>
         </div>
     </div>
 </section>
-
-<!-- JavaScript for smooth scrolling and UI effects -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Fade in elements on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-
-        function checkFade() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', checkFade);
-        checkFade(); // Check on initial load
-    });
-</script>
