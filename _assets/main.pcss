@@ -173,6 +173,130 @@ body {
 }
 
 
+/* --------------------------------------------------------------------------
+   Newsletter band (above the footer) — shown only when site.newsletter_action
+   is configured. Falls back to nothing, so no dead form is ever rendered.
+   -------------------------------------------------------------------------- */
+.nl-band {
+    padding: clamp(2.6rem, 5vw, 4rem) 0;
+    background: #f3f0e7;
+    border-top: 1px solid #ded7c5;
+    color: #131f1b;
+    font-family: 'Noto Naskh Arabic', serif;
+}
+
+.nl-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
+    align-items: center;
+    width: min(1120px, 100% - 2.4rem);
+    margin-inline: auto;
+}
+
+.nl-code {
+    margin: 0 0 0.8rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: #8f6524;
+}
+
+.nl-title {
+    margin: 0;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+    line-height: 1.4;
+    color: #131f1b;
+}
+
+.nl-text {
+    max-width: 46ch;
+    margin: 0.6rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.9;
+    color: #6f6a5c;
+}
+
+.nl-form {
+    margin: 0;
+}
+
+.nl-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #2c3833;
+}
+
+.nl-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nl-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.8rem 1rem;
+    border: 1px solid #cfc6b0;
+    background: #faf8f2;
+    color: #131f1b;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.nl-input::placeholder {
+    color: #9a9284;
+}
+
+.nl-input:focus {
+    outline: none;
+    border-color: #8f6524;
+    box-shadow: 0 0 0 2px rgba(166, 122, 46, 0.18);
+}
+
+.nl-btn {
+    flex: 0 0 auto;
+    padding: 0.8rem 1.4rem;
+    border: 0;
+    background: #8f6524;
+    color: #fbf7ec;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.nl-btn:hover {
+    background: #2e6f68;
+}
+
+.nl-note {
+    margin: 0.55rem 0 0;
+    font-size: 0.7rem;
+    color: #6f6a5c;
+}
+
+@media (max-width: 820px) {
+    .nl-inner {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nl-row {
+        flex-direction: column;
+    }
+
+    .nl-btn {
+        width: 100%;
+    }
+}
+
 /* Optional print styles for better printing */
 @media print {
     body {

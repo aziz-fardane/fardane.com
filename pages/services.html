@@ -1,0 +1,289 @@
+---
+layout: default
+title: الخدمات البحثية والاستشارات العلمية
+description: خدمات بحثية للباحثين والطلبة والمؤسسات — استشارة منهجية، تحرير وتدقيق علمي، خرائط وتوثيق بصري، إعداد ملفات النشر، محاضرات وورشات، ومرافقة المشاريع التراثية.
+permalink: /services/
+keywords: خدمات بحثية, استشارات علمية, تحرير أكاديمي, خرائط تاريخية, تاريخ الماء, التراث
+---
+
+<div class="sv-page" dir="rtl">
+<style>
+    /* ============================================================
+       SERVICES · بطاقات الخدمات البحثية
+       ============================================================ */
+    .sv-page{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#2c3833;
+        --muted:#6f6a5c; --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f;
+        --water:#2e6f68; --night:#0b1c17; --line:#ded7c5; --line-strong:#cfc6b0;
+        --naskh:'Noto Naskh Arabic',serif; --kufi:'Noto Kufi Arabic',sans-serif; --mono:'IBM Plex Mono',monospace;
+        background:var(--paper); color:var(--ink); font-family:var(--naskh); line-height:1.9;
+    }
+    .sv-page *{box-sizing:border-box}
+    .sv-wrap{width:min(1120px,100% - 2.4rem);margin-inline:auto}
+
+    /* ---------- HERO ---------- */
+    .sv-hero{padding:clamp(3rem,7vw,5.8rem) 0 clamp(2.4rem,5vw,3.6rem);border-bottom:1px solid var(--line)}
+    .sv-code{font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--brass-text);margin:0 0 1.1rem;text-transform:uppercase}
+    .sv-title{font-family:var(--kufi);font-weight:800;font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.35;margin:0;color:var(--ink)}
+    .sv-title em{display:block;font-style:normal;color:var(--brass-text)}
+    .sv-lede{max-width:58ch;margin:1.1rem 0 0;font-size:clamp(.95rem,1.6vw,1.06rem);color:var(--muted)}
+    .sv-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
+    .sv-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.5rem;background:var(--brass-text);color:#fbf7ec;text-decoration:none;font-family:var(--kufi);font-size:.82rem;font-weight:700;transition:background .22s ease,color .22s ease,border-color .22s ease}
+    .sv-btn:hover{background:var(--water);color:#fbf7ec}
+    .sv-btn-ghost{background:transparent;color:var(--brass-text);border:1px solid var(--line-strong)}
+    .sv-btn-ghost:hover{background:transparent;color:var(--water);border-color:var(--water)}
+    .sv-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 0;padding:0;list-style:none}
+    .sv-tags li{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:var(--graphite);border:1px solid var(--line-strong);padding:.35rem .7rem;background:var(--paper-2)}
+
+    /* ---------- SECTIONS ---------- */
+    .sv-section{padding:clamp(2.8rem,5.5vw,4.6rem) 0;border-bottom:1px solid var(--line)}
+    .sv-section.alt{background:var(--paper-2)}
+    .sv-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+    .sv-head h2{font-family:var(--kufi);font-size:clamp(1.35rem,2.6vw,1.9rem);margin:0;color:var(--ink)}
+    .sv-head p{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--brass-text);margin:0}
+
+    /* ---------- SERVICES GRID ---------- */
+    .sv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line-strong)}
+    .sv-card{display:flex;flex-direction:column;gap:.55rem;padding:1.5rem 1.4rem 1.6rem;background:var(--paper-2);transition:background .2s ease}
+    .sv-card:hover{background:#f2ebdd}
+    .sv-num{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--brass-2)}
+    .sv-card h3{font-family:var(--kufi);font-size:1rem;font-weight:700;margin:0;color:var(--ink)}
+    .sv-card p{font-size:.85rem;line-height:1.95;color:var(--muted);margin:0}
+    .sv-list{margin:.35rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.3rem}
+    .sv-list li{position:relative;padding-inline-start:.9rem;font-size:.78rem;color:var(--graphite)}
+    .sv-list li::before{content:"";position:absolute;inset-inline-start:0;top:.62em;width:.3rem;height:.3rem;border-radius:50%;background:var(--brass-2)}
+
+    /* ---------- PROCESS ---------- */
+    .sv-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem}
+    .sv-step{padding-top:1.3rem;border-top:1px solid var(--line-strong)}
+    .sv-step b{display:block;margin-bottom:.5rem;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--brass-text)}
+    .sv-step h3{font-family:var(--kufi);font-size:.95rem;margin:0 0 .35rem;color:var(--ink)}
+    .sv-step p{font-size:.82rem;line-height:1.95;color:var(--muted);margin:0}
+
+    /* ---------- NOTE ---------- */
+    .sv-note{display:grid;grid-template-columns:1.1fr .9fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+    .sv-note>div{padding:1.6rem;background:var(--paper-2)}
+    .sv-note h3{font-family:var(--kufi);font-size:1rem;margin:0 0 .6rem;color:var(--ink)}
+    .sv-note p{font-size:.85rem;line-height:1.95;color:var(--muted);margin:0}
+
+    /* ---------- FAQ ---------- */
+    .sv-faq{display:flex;flex-direction:column;gap:.7rem;max-width:840px}
+    .sv-faq details{padding:.9rem 1.1rem;border:1px solid var(--line-strong);background:var(--paper-2)}
+    .sv-faq summary{cursor:pointer;list-style:none;font-family:var(--kufi);font-size:.92rem;font-weight:700;color:var(--ink)}
+    .sv-faq summary::-webkit-details-marker{display:none}
+    .sv-faq summary::after{content:"+";float:left;font-family:var(--mono);color:var(--brass-text)}
+    .sv-faq details[open] summary::after{content:"−"}
+    .sv-faq p{margin:.7rem 0 0;font-size:.84rem;line-height:1.95;color:var(--muted)}
+
+    /* ---------- FINAL CTA ---------- */
+    .sv-cta{padding:clamp(2.6rem,5vw,4rem) 0;background:var(--night);color:#f3f0e7}
+    .sv-cta .sv-wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem}
+    .sv-cta h2{font-family:var(--kufi);font-size:clamp(1.3rem,2.6vw,1.8rem);margin:0 0 .4rem;color:#f3f0e7}
+    .sv-cta p{margin:0;font-size:.9rem;color:rgba(243,240,231,.72)}
+    .sv-cta .sv-btn{background:var(--brass-2);color:var(--night)}
+    .sv-cta .sv-btn:hover{background:#f3f0e7;color:var(--night)}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:980px){
+        .sv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .sv-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:680px){
+        .sv-grid,.sv-steps,.sv-note{grid-template-columns:1fr}
+        .sv-cta .sv-wrap{align-items:flex-start}
+    }
+    @media (prefers-reduced-motion:reduce){
+        .sv-page *{transition:none!important}
+    }
+</style>
+
+<header class="sv-hero">
+    <div class="sv-wrap">
+        <p class="sv-code"><b>SV. 01</b> · SERVICES</p>
+        <h1 class="sv-title">الخدمات البحثية <em>والاستشارات العلمية</em></h1>
+        <p class="sv-lede">
+            أساعد الباحثين والطلبة والمؤسسات على إنجاز أعمالهم العلمية بدقة: من صياغة الإشكالية وبناء المنهج،
+            إلى التوثيق والخرائط، وصولاً إلى ملف جاهز للنشر.
+        </p>
+        <div class="sv-actions">
+            <a class="sv-btn" href="{{ '/contact/' | relative_url }}">اطلب عرضاً <span aria-hidden="true">←</span></a>
+            <a class="sv-btn sv-btn-ghost" href="{{ '/articles/' | relative_url }}">أعمالي المنشورة</a>
+        </div>
+        <ul class="sv-tags" aria-label="مجالات التخصص">
+            <li>التاريخ الوسيط</li>
+            <li>تاريخ الماء والبيئة</li>
+            <li>التراث الثقافي</li>
+            <li>نظم المعلومات الجغرافية</li>
+            <li>المنهج والتوثيق</li>
+        </ul>
+    </div>
+</header>
+
+<section class="sv-section" id="services">
+    <div class="sv-wrap">
+        <div class="sv-head">
+            <h2>ما أقدّمه</h2>
+            <p>06 · SERVICES</p>
+        </div>
+
+        <div class="sv-grid">
+            <article class="sv-card">
+                <span class="sv-num">01</span>
+                <h3>استشارة منهجية</h3>
+                <p>تحديد الإشكالية، بناء خطة البحث، اختيار المنهج والمصادر، وضبط حدود الموضوع.</p>
+                <ul class="sv-list">
+                    <li>مذكرة منهجية</li>
+                    <li>خطة عمل زمنية</li>
+                    <li>قائمة مصادر أولية</li>
+                </ul>
+            </article>
+
+            <article class="sv-card">
+                <span class="sv-num">02</span>
+                <h3>تحرير وتدقيق علمي</h3>
+                <p>مراجعة لغوية ومنهجية للنصوص الأكاديمية، وتوحيد المصطلحات، وضبط المراجع وفق النمط المطلوب.</p>
+                <ul class="sv-list">
+                    <li>نص مُدقَّق لغوياً</li>
+                    <li>مراجع موحَّدة</li>
+                    <li>ملاحظات مراجعة</li>
+                </ul>
+            </article>
+
+            <article class="sv-card">
+                <span class="sv-num">03</span>
+                <h3>خرائط وتوثيق بصري</h3>
+                <p>خرائط تاريخية وجغرافية، معالجة صور أرشيفية، وإعداد الأشكال والوثائق بما يخدم الحجة العلمية.</p>
+                <ul class="sv-list">
+                    <li>خرائط مطبوعة ورقمية</li>
+                    <li>أشكال ووثائق</li>
+                    <li>ملفات مصدر قابلة للتعديل</li>
+                </ul>
+            </article>
+
+            <article class="sv-card">
+                <span class="sv-num">04</span>
+                <h3>إعداد ملفات النشر</h3>
+                <p>تنسيق المقال وفق متطلبات المجلة: البنية، الملخص، الكلمات المفاتيح، المراجع، ورسالة التغطية.</p>
+                <ul class="sv-list">
+                    <li>ملف جاهز للإرسال</li>
+                    <li>ملخص وكلمات مفاتيح</li>
+                    <li>رسالة تغطية</li>
+                </ul>
+            </article>
+
+            <article class="sv-card">
+                <span class="sv-num">05</span>
+                <h3>محاضرات وورشات</h3>
+                <p>مدخلات وورشات في تاريخ الماء والبيئة والتراث، ومناهج البحث، ونظم المعلومات الجغرافية للباحثين.</p>
+                <ul class="sv-list">
+                    <li>عرض محاضرة</li>
+                    <li>مادة تدريبية</li>
+                    <li>تمرين تطبيقي</li>
+                </ul>
+            </article>
+
+            <article class="sv-card">
+                <span class="sv-num">06</span>
+                <h3>مرافقة المشاريع التراثية</h3>
+                <p>المحتوى العلمي لملفات التعريف والمعارض والمسارات، وتوثيق المواقع والموارد المائية.</p>
+                <ul class="sv-list">
+                    <li>محتوى علمي محرَّر</li>
+                    <li>بطاقات موقع</li>
+                    <li>مراجع وتوثيق</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="sv-section alt" id="process">
+    <div class="sv-wrap">
+        <div class="sv-head">
+            <h2>طريقة العمل</h2>
+            <p>04 · STEPS</p>
+        </div>
+
+        <div class="sv-steps">
+            <div class="sv-step">
+                <b>01</b>
+                <h3>التواصل</h3>
+                <p>أرسل وصفاً موجزاً للمشروع: الهدف، المادة المتوفرة، والمدة المتاحة.</p>
+            </div>
+            <div class="sv-step">
+                <b>02</b>
+                <h3>التشخيص</h3>
+                <p>نحدّد معاً نطاق العمل والمنهج والمخرجات المتوقعة.</p>
+            </div>
+            <div class="sv-step">
+                <b>03</b>
+                <h3>العرض</h3>
+                <p>عرض مكتوب بالتكلفة والمدة قبل أي التزام.</p>
+            </div>
+            <div class="sv-step">
+                <b>04</b>
+                <h3>التنفيذ</h3>
+                <p>تسليم مرحلي ومراجعة حتى النسخة النهائية.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sv-section">
+    <div class="sv-wrap">
+        <div class="sv-note">
+            <div>
+                <h3>الأخلاقيات الأكاديمية</h3>
+                <p>
+                    المرافقة المنهجية والتوجيه والمراجعة، لا كتابة الأعمال الجامعية بدلاً عن أصحابها.
+                    تبقى المسؤولية العلمية عن البحث محفوظة لصاحبه.
+                </p>
+            </div>
+            <div>
+                <h3>التكلفة والمدة</h3>
+                <p>
+                    تُحدَّد التكلفة حسب نطاق العمل والمدة، ويُقدَّم عرض مكتوب قبل البدء.
+                    لا تكاليف خفية، ولا التزام قبل الموافقة على العرض.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sv-section alt" id="faq">
+    <div class="sv-wrap">
+        <div class="sv-head">
+            <h2>أسئلة متكررة</h2>
+            <p>FAQ</p>
+        </div>
+
+        <div class="sv-faq">
+            <details>
+                <summary>هل تعمل مع طلبة الماستر والدكتوراه؟</summary>
+                <p>نعم، في حدود الأخلاقيات الأكاديمية: توجيه منهجي، مناقشة الإشكالية، ومراجعة النص. لا أكتب العمل الجامعي بدل الطالب.</p>
+            </details>
+            <details>
+                <summary>هل تُنجز الخرائط من الصفر؟</summary>
+                <p>نعم، انطلاقاً من مصادر ووثائق موثقة، مع تسليم ملفات المصدر والبيانات المستعملة لتسهيل التحقق والتحديث.</p>
+            </details>
+            <details>
+                <summary>ما مدة إنجاز المشروع؟</summary>
+                <p>تتراوح عادة بين أسبوع وثلاثة أشهر حسب النطاق، وتُحدَّد بدقة في العرض المكتوب قبل البدء.</p>
+            </details>
+            <details>
+                <summary>هل تعمل عن بُعد؟</summary>
+                <p>نعم، مع اجتماعات عبر الإنترنت وتسليم رقمي للملفات، وإمكانية اللقاء المباشر عند الحاجة داخل مراكش.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section class="sv-cta">
+    <div class="sv-wrap">
+        <div>
+            <h2>لديك مشروع بحثي في الأفق؟</h2>
+            <p>أرسل وصفاً موجزاً، وسأعود إليك بعرض واضح خلال أيام.</p>
+        </div>
+        <a class="sv-btn" href="{{ '/contact/' | relative_url }}">تواصل معي <span aria-hidden="true">←</span></a>
+    </div>
+</section>
+</div>

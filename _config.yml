@@ -52,6 +52,12 @@ author: "د. عزيز فردان"
 # C'est la ligne la plus importante pour l'image par défaut !
 image: https://fardane.com/dist/images/profile.jpg
 
+# Newsletter
+# ضع هنا رابط نموذج الاشتراك (Buttondown / Mailchimp / ...) لتفعيل شريط النشرة
+# في جميع صفحات الموقع. اتركه معطّلاً فلا يظهر أي نموذج.
+# newsletter_action: "https://buttondown.email/api/emails/embed-subscribe/..."
+newsletter_action:
+
 plugins:
     - jekyll-feed
     - jekyll-seo-tag

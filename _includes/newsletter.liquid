@@ -1,0 +1,25 @@
+{% comment %}
+    شريط الاشتراك البريدي.
+    لا يظهر إلا عند ضبط site.newsletter_action في _config.yml
+    (مثال: رابط نموذج Buttondown أو Mailchimp).
+{% endcomment %}
+{% if site.newsletter_action %}
+<section class="nl-band" dir="rtl" aria-labelledby="nl-title">
+    <div class="nl-inner">
+        <div class="nl-copy">
+            <p class="nl-code"><b>NL</b> · NEWSLETTER</p>
+            <h2 class="nl-title" id="nl-title">دراسة جديدة كل أسبوعين، في بريدك</h2>
+            <p class="nl-text">ملخصات ومصادر وخرائط من أرشيف البحث، دون إزعاج. يمكنك إلغاء الاشتراك في أي وقت.</p>
+        </div>
+
+        <form class="nl-form" action="{{ site.newsletter_action }}" method="post" target="_blank" rel="noopener">
+            <label class="nl-label" for="nl-email">البريد الإلكتروني</label>
+            <div class="nl-row">
+                <input class="nl-input" id="nl-email" type="email" name="email" required autocomplete="email" placeholder="name@example.com" dir="ltr">
+                <button class="nl-btn" type="submit">اشترك</button>
+            </div>
+            <p class="nl-note">بالاشتراك، أنت توافق على استلام رسائل من fardane.com فقط.</p>
+        </form>
+    </div>
+</section>
+{% endif %}
