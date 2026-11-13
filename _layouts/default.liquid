@@ -251,7 +251,7 @@
         <!-- Scripts -->
         <script defer src="{{ site.data.manifest['dist/main.js'] }}"></script>
     </head>
-    <body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}{% if page.layout == 'post' or page.layout == 'post-feature' %} post-page{% endif %}{% if page.url == '/' %} home-page{% endif %}{% if page.url == '/articles/' %} articles-page{% endif %}">
+    <body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}{% if page.layout == 'post' or page.layout == 'post-feature' %} post-page{% endif %}{% if page.layout == 'post' %} post-edition{% endif %}{% if page.url == '/' %} home-page{% endif %}{% if page.url == '/articles/' %} articles-page{% endif %}">
         <!-- Simple preloader -->
         <div id="preloader" class="fixed inset-0 bg-sand-50 z-50 flex items-center justify-center">
             <div class="animate-pulse">
