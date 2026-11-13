@@ -58,7 +58,7 @@
         {% assign _og_img_key = page.thumbnail | remove_first: '/' %}
         <meta property="og:image" content="{{ site.data.manifest[_og_img_key] | default: page.thumbnail | absolute_url }}">
         {% else %}
-        <meta property="og:image" content="{{ site.url }}{{ site.data.manifest['dist/images/profile.png'] | default: '/dist/images/profile.png' }}">
+        <meta property="og:image" content="{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}">
         {% endif %}
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
@@ -75,7 +75,7 @@
         {% assign _tw_img_key = page.thumbnail | remove_first: '/' %}
         <meta name="twitter:image" content="{{ site.data.manifest[_tw_img_key] | default: page.thumbnail | absolute_url }}">
         {% else %}
-        <meta name="twitter:image" content="{{ site.url }}{{ site.data.manifest['dist/images/profile.png'] | default: '/dist/images/profile.png' }}">
+        <meta name="twitter:image" content="{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}">
         {% endif %}
         {% if site.twitter.username %}
         <meta name="twitter:site" content="@{{ site.twitter.username }}">
@@ -100,7 +100,7 @@
                 "url": "https://www.uca.ma"
               },
               "url": "{{ site.url }}",
-              "image": "{{ site.url }}{{ site.data.manifest['dist/images/profile.png'] | default: '/dist/images/profile.png' }}",
+              "image": "{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}",
               "sameAs": [
                 "https://www.linkedin.com/in/aziz-fardane-gis1948/"
               ],
@@ -152,7 +152,7 @@
             "@type": "Person",
             "name": "د. عزيز فردان",
             "url": "{{ site.url }}",
-            "image": "{{ site.url }}{{ site.data.manifest['dist/images/profile.png'] | default: '/dist/images/profile.png' }}"
+            "image": "{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}"
           },
           "publisher": {
             "@type": "Organization",

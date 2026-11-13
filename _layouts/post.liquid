@@ -7,7 +7,7 @@ layout: default
 
 {% assign pf_thumb_key = page.thumbnail | remove_first: '/' %}
 {% assign pf_cover = site.data.manifest[pf_thumb_key] | default: page.thumbnail | default: '/dist/images/articles/default.jpg' %}
-{% assign pf_author_img = site.data.manifest['dist/images/author.png'] | default: '/dist/images/author.png' %}
+{% assign pf_author_img = site.data.manifest['dist/images/author.jpg'] | default: '/dist/images/author.jpg' %}
 {% assign pf_category = page.categories | first | default: page.category %}
 {% assign pf_category_label = pf_category | replace: '-', ' ' %}
 {% assign pf_share_url = page.url | absolute_url | url_encode %}
@@ -92,7 +92,7 @@ layout: default
                 <a href="{{ '/articles/' | relative_url }}">أبحاث ومقالات</a>
                 {% if pf_category %}
                 <span class="sep" aria-hidden="true">/</span>
-                <a href="/articles/category/{{ pf_category | slugify }}/">{{ pf_category_label }}</a>
+                <a href="{{ '/articles/' | relative_url }}?cat={{ pf_category | uri_escape }}">{{ pf_category_label }}</a>
                 {% endif %}
             </nav>
 
@@ -162,7 +162,7 @@ layout: default
                         {% if page.tags.size > 0 %}
                         <ul class="ed-tags">
                             {% for tag in page.tags %}
-                            <li><a href="/articles/tag/{{ tag | slugify }}/">{{ tag | replace: '-', ' ' }}</a></li>
+                            <li><a href="{{ '/articles/' | relative_url }}?tag={{ tag | uri_escape }}">{{ tag | replace: '-', ' ' }}</a></li>
                             {% endfor %}
                         </ul>
                         {% endif %}

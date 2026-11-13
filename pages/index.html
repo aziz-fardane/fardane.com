@@ -252,6 +252,19 @@ permalink: /
     .hp-cta{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.6rem;padding:.75rem 1.4rem;background:var(--brass-text);color:#fbf7ec;text-decoration:none;font-family:var(--kufi);font-size:.8rem;font-weight:700;transition:background .25s ease}
     .hp-cta:hover{background:var(--water);color:#fbf7ec}
 
+    /* latest studies */
+    .hp-studies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line-strong)}
+    .hp-study{display:flex;flex-direction:column;background:var(--paper);text-decoration:none;color:inherit;transition:background .2s ease}
+    .hp-study:hover{background:#f2ebdd}
+    .hp-study-thumb{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);background:var(--line)}
+    .hp-study-thumb img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(.12) contrast(1.02)}
+    .hp-study-body{display:flex;flex-direction:column;gap:.35rem;flex:1;padding:1rem 1.05rem 1.1rem}
+    .hp-study-body p.hp-study-meta{font-family:var(--mono);font-size:8px!important;letter-spacing:.1em;color:var(--brass-text)!important;margin:0!important;line-height:1.7!important}
+    .hp-study-body h3{font-family:var(--naskh);font-weight:700;font-size:1rem;line-height:1.6;color:var(--ink);margin:0}
+    .hp-study-body p{font-size:.78rem!important;line-height:1.9!important;color:var(--muted)!important;margin:0!important}
+    .hp-study-more{margin-top:auto;padding-top:.65rem;font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--water)}
+    .hp-study:hover .hp-study-more{color:var(--brass-text)}
+
     @media (max-width:1080px){
         .hc-inner{grid-template-columns:minmax(0,1fr) minmax(260px,330px);gap:2rem}
         .hc-spec{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -269,7 +282,7 @@ permalink: /
         .hc-inner{grid-template-columns:1fr;padding-left:clamp(1.2rem,5vw,2rem)}
         .hc-plate{max-width:420px;margin:0 auto;width:100%}
         .hc-scroll{display:none}
-        .hp-axes,.hp-cols,.hp-gallery{grid-template-columns:1fr}
+        .hp-axes,.hp-cols,.hp-gallery,.hp-studies{grid-template-columns:1fr}
         .hp-axis{border-right:0;border-top:1px solid var(--line)}
         .hp-axis:first-child{border-top:0}
         .hp-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -832,6 +845,45 @@ permalink: /
 
             <a class="hp-cta" href="/articles">
                 <span>عرض جميع المنشورات (15)</span>
+                <span aria-hidden="true">←</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PL. 08 · أحدث الدراسات
+     ============================================================ -->
+<section id="latest" class="hp alt">
+    <div class="hp-inner">
+        <header class="hp-head">
+            <p class="hp-code"><b>PL. 08</b> · LATEST STUDIES</p>
+            <h2 class="hp-title">أحدث الدراسات</h2>
+            <p class="hp-note">من الأرشيف<br>الرقمي</p>
+        </header>
+
+        <div class="hp-body">
+            <div class="hp-studies">
+                {% for post in site.posts limit:6 %}
+                {% assign _skey = post.thumbnail | remove_first: '/' %}
+                <a class="hp-study" href="{{ post.url | relative_url }}">
+                    <div class="hp-study-thumb">
+                        <img src="{{ site.data.manifest[_skey] | default: post.thumbnail }}" alt="" loading="lazy">
+                    </div>
+                    <div class="hp-study-body">
+                        <p class="hp-study-meta">
+                            {% include arabic-date.html date=post.date %}{% if post.category %} · {{ post.category | replace: '-', ' ' }}{% endif %}
+                        </p>
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.description | truncate: 130 }}</p>
+                        <span class="hp-study-more">اقرأ الدراسة <span aria-hidden="true">←</span></span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <a class="hp-cta" href="{{ '/articles/' | relative_url }}">
+                <span>جميع الدراسات ({{ site.posts.size }})</span>
                 <span aria-hidden="true">←</span>
             </a>
         </div>

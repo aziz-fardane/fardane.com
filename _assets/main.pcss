@@ -3,8 +3,10 @@
 @import "./articles-index.pcss";
 
 /* Minimal custom styles that can't be handled with Tailwind alone */
-html {
-    scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 /* For RTL text alignment */

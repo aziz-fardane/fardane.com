@@ -50,27 +50,14 @@ author: "د. عزيز فردان"
 #staticman_url:: "https://api.staticman.net/v3/entry/github/yoeunes/fardane.com/main/comments"
 
 # C'est la ligne la plus importante pour l'image par défaut !
-image: https://fardane.com/dist/images/profile.png
+image: https://fardane.com/dist/images/profile.jpg
 
 plugins:
     - jekyll-feed
     - jekyll-seo-tag
     - jekyll-sitemap
     - faraday-retry
-    - jekyll-archives
     - jekyll-redirect-from
-
-# Jekyll Archives configuration
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layouts:
-    category: category_archive
-    tag: tag_archive
-  permalinks:
-    tag: '/articles/tag/:name/'
-    category: '/articles/category/:name/'
 
 exclude:
     - "*.config.js"
