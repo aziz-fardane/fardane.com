@@ -1,131 +1,322 @@
 ---
 layout: default
 title: التواصل مع الباحث
-description: للتواصل مع الدكتور عزيز فردان بخصوص الاستفسارات العلمية، التعاون البحثي، أو المشاركة في المؤتمرات.
+description: للتواصل مع الدكتور عزيز فردان بخصوص الاستشارات المنهجية، الخدمات البحثية، ترجمة المخطوطات، أو التعاون في مشاريع بحثية.
 permalink: /contact/
 noindex: true
 ---
 
-<header class="relative dir-rtl overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-amber-950 via-amber-900 to-stone-950">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-1/4 w-1/3 h-full bg-amber-400 blur-[100px] rotate-12 transform -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-1/4 w-1/3 h-full bg-amber-600 blur-[100px] -rotate-12 transform translate-y-1/2"></div>
+<div class="ct-page" dir="rtl">
+<style>
+    /* ============================================================
+       CONTACT · صفحة التواصل مع الباحث
+       ============================================================ */
+    .ct-page{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#2c3833;
+        --muted:#6f6a5c; --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f;
+        --water:#2e6f68; --night:#0b1c17; --line:#ded7c5; --line-strong:#cfc6b0;
+        --naskh:'Noto Naskh Arabic',serif; --kufi:'Noto Kufi Arabic',sans-serif; --mono:'IBM Plex Mono',monospace;
+        background:var(--paper); color:var(--ink); font-family:var(--naskh); line-height:1.9;
+    }
+    .ct-page *{box-sizing:border-box}
+    .ct-wrap{width:min(1120px,100% - 2.4rem);margin-inline:auto}
+
+    /* ---------- HERO ---------- */
+    .ct-hero{padding:clamp(3rem,7vw,5.4rem) 0 clamp(2.4rem,5vw,3.4rem);border-bottom:1px solid var(--line)}
+    .ct-code{font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--brass-text);margin:0 0 1.1rem;text-transform:uppercase}
+    .ct-title{font-family:var(--kufi);font-weight:800;font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.35;margin:0;color:var(--ink)}
+    .ct-title em{display:block;font-style:normal;color:var(--brass-text)}
+    .ct-lede{max-width:56ch;margin:1.1rem 0 0;font-size:clamp(.95rem,1.6vw,1.06rem);color:var(--muted)}
+    .ct-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
+    .ct-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.5rem;background:var(--brass-text);color:#fbf7ec;text-decoration:none;font-family:var(--kufi);font-size:.82rem;font-weight:700;transition:background .22s ease,color .22s ease,border-color .22s ease}
+    .ct-btn:hover{background:var(--water);color:#fbf7ec}
+    .ct-btn-ghost{background:transparent;color:var(--brass-text);border:1px solid var(--line-strong)}
+    .ct-btn-ghost:hover{background:transparent;color:var(--water);border-color:var(--water)}
+    .ct-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin:2rem 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted)}
+    .ct-meta li{display:inline-flex;align-items:center;gap:.45rem}
+    .ct-meta li::before{content:"";width:.3rem;height:.3rem;background:var(--brass-2);border-radius:50%}
+
+    /* ---------- MAIN GRID ---------- */
+    .ct-main{padding:clamp(2.6rem,5vw,4.4rem) 0;border-bottom:1px solid var(--line)}
+    .ct-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+    .ct-panel{background:var(--paper-2);padding:clamp(1.4rem,2.8vw,2.3rem)}
+    .ct-panel h2{font-family:var(--kufi);font-size:clamp(1.2rem,2.2vw,1.5rem);margin:0;color:var(--ink)}
+    .ct-panel-intro{margin:.6rem 0 0;font-size:.88rem;color:var(--muted)}
+
+    /* ---------- FORM ---------- */
+    .ct-form{display:flex;flex-direction:column;gap:1rem;margin-top:1.6rem}
+    .ct-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .ct-field label{display:block;margin-bottom:.4rem;font-family:var(--kufi);font-size:.75rem;font-weight:700;color:var(--graphite)}
+    .ct-field label span{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--muted);font-weight:400}
+    .ct-input,.ct-select,.ct-textarea{width:100%;padding:.75rem .9rem;border:1px solid var(--line-strong);background:var(--paper);color:var(--ink);font-family:var(--naskh);font-size:.92rem;line-height:1.7}
+    .ct-input::placeholder,.ct-textarea::placeholder{color:#9a9284}
+    .ct-input:focus,.ct-select:focus,.ct-textarea:focus{outline:none;border-color:var(--brass-text);box-shadow:0 0 0 2px rgba(166,122,46,.18)}
+    .ct-textarea{min-height:9.5rem;resize:vertical}
+    .ct-submit{align-self:flex-start;display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.7rem;border:0;background:var(--brass-text);color:#fbf7ec;font-family:var(--kufi);font-size:.82rem;font-weight:700;cursor:pointer;transition:background .22s ease}
+    .ct-submit:hover{background:var(--water)}
+    .ct-status{margin:.2rem 0 0;min-height:1.3em;font-size:.78rem;color:var(--water)}
+    .ct-form-note{margin:0;font-size:.72rem;color:var(--muted)}
+
+    /* ---------- INFO COLUMN ---------- */
+    .ct-info{display:flex;flex-direction:column;gap:1.5rem;margin-top:1.6rem}
+    .ct-item{display:grid;grid-template-columns:2.3rem 1fr;gap:.9rem;align-items:start}
+    .ct-icon{width:2.3rem;height:2.3rem;display:grid;place-items:center;background:var(--paper);border:1px solid var(--line-strong);color:var(--brass-text);font-size:.9rem}
+    .ct-label{margin:0 0 .25rem;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--brass-text)}
+    .ct-value{margin:0;font-size:.9rem;line-height:1.8;color:var(--graphite)}
+    .ct-value a{color:var(--water);text-decoration:none;border-bottom:1px solid rgba(46,111,104,.35)}
+    .ct-value a:hover{color:var(--brass-text);border-bottom-color:rgba(166,122,46,.45)}
+    .ct-social{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.45rem}
+    .ct-social a{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .7rem;border:1px solid var(--line-strong);background:var(--paper);color:var(--graphite);text-decoration:none;font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;transition:color .2s ease,border-color .2s ease}
+    .ct-social a:hover{color:var(--brass-text);border-color:var(--brass-2)}
+    .ct-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:.5rem;font-family:var(--kufi);font-size:.76rem;font-weight:700;color:var(--brass-text);text-decoration:none}
+    .ct-more:hover{color:var(--water)}
+
+    /* ---------- BEFORE YOU SEND ---------- */
+    .ct-note{padding:clamp(2.4rem,4.5vw,3.6rem) 0}
+    .ct-note-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.4rem,3vw,3rem);align-items:start}
+    .ct-note h2{font-family:var(--kufi);font-size:clamp(1.2rem,2.2vw,1.5rem);margin:0 0 .6rem;color:var(--ink)}
+    .ct-note p{margin:0;font-size:.88rem;color:var(--muted)}
+    .ct-tips{display:grid;gap:1px;background:var(--line);border:1px solid var(--line-strong);margin:0;padding:0;list-style:none}
+    .ct-tips li{padding:.9rem 1.1rem;background:var(--paper-2)}
+    .ct-tips b{display:block;margin-bottom:.2rem;font-family:var(--kufi);font-size:.82rem;color:var(--ink)}
+    .ct-tips span{font-size:.8rem;color:var(--muted)}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:900px){
+        .ct-grid{grid-template-columns:1fr}
+        .ct-note-inner{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+        .ct-row{grid-template-columns:1fr}
+        .ct-submit{width:100%;justify-content:center}
+    }
+    @media (prefers-reduced-motion:reduce){
+        .ct-page *{transition:none!important}
+    }
+</style>
+
+<header class="ct-hero">
+    <div class="ct-wrap">
+        <p class="ct-code"><b>CV. 01</b> · CONTACT</p>
+        <h1 class="ct-title">تواصل <em>مع الباحث</em></h1>
+        <p class="ct-lede">
+            للاستفسارات العلمية، طلب عرض للخدمات البحثية، أو اقتراح تعاون في مشروع.
+            اكتب رسالة موجزة، وسأعود إليك بعرض واضح.
+        </p>
+        <div class="ct-actions">
+            <a class="ct-btn" href="mailto:aziz.fardane@gmail.com">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                aziz.fardane@gmail.com
+            </a>
+            <a class="ct-btn ct-btn-ghost" href="{{ '/services/' | relative_url }}">الخدمات البحثية</a>
         </div>
-    </div>
-
-    <div class="relative z-10">
-        <div class="container mx-auto px-6 py-16 md:py-20">
-            <div class="max-w-3xl mx-auto text-center" data-controller="reveal-animation" data-reveal-animation-classes="opacity-0 translate-y-8" data-reveal-animation-visible-class="opacity-100 translate-y-0" data-reveal-animation-threshold="0.1">
-                <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-amber-500/30 bg-gradient-to-r from-amber-800/40 to-amber-900/40 backdrop-blur-sm">
-                    <span class="text-amber-200 text-sm font-medium tracking-wide">استفسارات أكاديمية وتعاون بحثي</span>
-                </div>
-
-                <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-maghrebi leading-tight">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-amber-100">تواصل</span>
-                    <span class="block mt-2">مع الباحث</span>
-                </h1>
-
-                <p class="text-amber-100/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-                    أرحب بالاستفسارات العلمية واقتراحات التعاون البحثي في المجالات ذات الاهتمام المشترك.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="relative">
-        <div class="absolute -bottom-10 left-0 right-0 h-20 bg-stone-50 transform -skew-y-1.5 shadow-sm"></div>
+        <ul class="ct-meta">
+            <li>الرد خلال 48 ساعة</li>
+            <li>مراكش، المغرب</li>
+            <li>العمل عن بُعد</li>
+        </ul>
     </div>
 </header>
 
-<section class="py-20 bg-stone-50 relative z-10 dir-rtl pt-24">
-    <div class="container mx-auto px-8">
-        <div class="max-w-6xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-xl" data-controller="reveal-animation" data-reveal-animation-classes="opacity-0" data-reveal-animation-visible-class="opacity-100">
+<section class="ct-main">
+    <div class="ct-wrap">
+        <div class="ct-grid">
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <div class="ct-panel">
+                <h2>أرسل رسالة</h2>
+                <p class="ct-panel-intro">
+                    املأ الحقول، وسيُفتح تطبيق البريد لديك برسالة جاهزة — دون إنشاء حساب ولا انتظار.
+                </p>
 
-                <div>
-                    <div class="flex items-center mb-8">
-                        <div class="h-10 w-1.5 bg-amber-500 ml-4"></div>
-                        <h2 class="text-3xl font-bold text-amber-900 font-maghrebi">أرسل رسالة</h2>
+                <form class="ct-form" id="ct-form">
+                    <div class="ct-row">
+                        <div class="ct-field">
+                            <label for="ct-name">الاسم الكامل</label>
+                            <input class="ct-input" type="text" id="ct-name" name="name" required autocomplete="name">
+                        </div>
+                        <div class="ct-field">
+                            <label for="ct-email">البريد الإلكتروني</label>
+                            <input class="ct-input" type="email" id="ct-email" name="email" required autocomplete="email" dir="ltr">
+                        </div>
                     </div>
 
-                    <p class="text-stone-700 mb-8 leading-relaxed">
-                        الرجاء ملء النموذج أدناه لإرسال رسالة مباشرة. سأحرص على الرد في أقرب وقت ممكن.
+                    <div class="ct-field">
+                        <label for="ct-topic">نوع الطلب</label>
+                        <select class="ct-select" id="ct-topic" name="topic">
+                            <option value="">اختر…</option>
+                            <option value="استشارة منهجية">استشارة منهجية</option>
+                            <option value="تحرير وتدقيق علمي">تحرير وتدقيق علمي</option>
+                            <option value="خرائط وتوثيق بصري">خرائط وتوثيق بصري</option>
+                            <option value="ترجمة المخطوطات">ترجمة المخطوطات من العربية إلى العربية</option>
+                            <option value="العمل ضمن فريق بحثي">العمل ضمن فريق بحثي</option>
+                            <option value="إعداد ملفات النشر">إعداد ملفات النشر</option>
+                            <option value="محاضرة أو ورشة">محاضرة أو ورشة</option>
+                            <option value="تعاون بحثي">تعاون بحثي</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                    </div>
+
+                    <div class="ct-field">
+                        <label for="ct-subject">الموضوع <span>اختياري</span></label>
+                        <input class="ct-input" type="text" id="ct-subject" name="subject">
+                    </div>
+
+                    <div class="ct-field">
+                        <label for="ct-message">الرسالة</label>
+                        <textarea class="ct-textarea" id="ct-message" name="message" required placeholder="وصف موجز للمشروع: الهدف، المادة المتوفرة، والمدة المطلوبة."></textarea>
+                    </div>
+
+                    <button class="ct-submit" type="submit">
+                        إرسال الرسالة
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+
+                    <p class="ct-status" id="ct-status" role="status" aria-live="polite"></p>
+                    <p class="ct-form-note">
+                        لا تُخزَّن بياناتك على الموقع؛ الرسالة تُكتب في بريدك أنت قبل الإرسال.
                     </p>
+                    <noscript>
+                        <p class="ct-form-note">
+                            إن كان JavaScript معطّلاً، أرسل مباشرة إلى
+                            <a href="mailto:aziz.fardane@gmail.com">aziz.fardane@gmail.com</a>.
+                        </p>
+                    </noscript>
+                </form>
+            </div>
 
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-stone-800 font-medium mb-2">الاسم الكامل</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-shadow hover:shadow-sm">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-stone-800 font-medium mb-2">البريد الإلكتروني</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-shadow hover:shadow-sm">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-stone-800 font-medium mb-2">الموضوع</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-shadow hover:shadow-sm">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-stone-800 font-medium mb-2">الرسالة</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-shadow hover:shadow-sm"></textarea>
-                        </div>
-                        <div class="text-left">
-                            <button type="submit" class="group inline-flex items-center px-8 py-3 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:from-amber-600 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-amber-900/20 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2">
-                                <span class="ml-2">إرسال الرسالة</span>
-                                <i class="fas fa-arrow-left text-sm transform transition-transform group-hover:-translate-x-1"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            <div class="ct-panel">
+                <h2>معلومات مباشرة</h2>
 
-                <div class="mt-8 lg:mt-0">
-                    <div class="flex items-center mb-8">
-                        <div class="h-10 w-1.5 bg-amber-500 ml-4"></div>
-                        <h2 class="text-3xl font-bold text-amber-900 font-maghrebi">معلومات أخرى</h2>
+                <div class="ct-info">
+                    <div class="ct-item">
+                        <div class="ct-icon"><i class="fas fa-envelope-open-text" aria-hidden="true"></i></div>
+                        <div>
+                            <p class="ct-label">البريد الإلكتروني</p>
+                            <p class="ct-value"><a href="mailto:aziz.fardane@gmail.com" dir="ltr">aziz.fardane@gmail.com</a></p>
+                        </div>
                     </div>
 
-                    <div class="space-y-6 mb-10">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 ml-4">
-                                <i class="fas fa-envelope-open-text text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-amber-800">البريد الإلكتروني</h3>
-                                <a href="mailto:aziz.fardane@gmail.com" class="text-stone-600 hover:text-amber-700 transition-colors">aziz.fardane@gmail.com</a>
-                            </div>
+                    <div class="ct-item">
+                        <div class="ct-icon"><i class="fas fa-user-graduate" aria-hidden="true"></i></div>
+                        <div>
+                            <p class="ct-label">الصفة العلمية</p>
+                            <p class="ct-value">باحث مستقل حاصل على شهادة الدكتوراه في التاريخ الوسيط</p>
                         </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 ml-4">
-                                <i class="fas fa-university text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-amber-800">الانتماء الأكاديمي</h3>
-                                <p class="text-stone-600">كلية الآداب والعلوم الإنسانية, جامعة القاضي عياض, مراكش, المغرب</p>
-                            </div>
+                    </div>
+
+                    <div class="ct-item">
+                        <div class="ct-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></div>
+                        <div>
+                            <p class="ct-label">الخدمات</p>
+                            <p class="ct-value">
+                                ترجمة المخطوطات من العربية إلى العربية، والعمل ضمن فرق لإنجاح مشاريع بحثية،
+                                إلى جانب الاستشارة المنهجية والتحرير والخرائط.
+                            </p>
+                            <a class="ct-more" href="{{ '/services/' | relative_url }}">كل الخدمات <span aria-hidden="true">←</span></a>
                         </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 ml-4">
-                                <i class="fas fa-share-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-amber-800">الشبكات الأكاديمية</h3>
-                                <div class="flex items-center gap-4 mt-2">
-                                    <a href="https://www.linkedin.com/in/aziz-fardane-gis1948/" target="_blank" class="text-stone-500 hover:text-amber-700 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
-                                    <a href="https://independent.academia.edu/azizfardane" target="_blank" class="text-stone-500 hover:text-amber-700 transition-colors"><i class="fab fa-academia fa-lg"></i></a>
-                                </div>
+                    </div>
+
+                    <div class="ct-item">
+                        <div class="ct-icon"><i class="fas fa-share-alt" aria-hidden="true"></i></div>
+                        <div>
+                            <p class="ct-label">الشبكات الأكاديمية</p>
+                            <div class="ct-social">
+                                <a href="https://www.linkedin.com/in/aziz-fardane-gis1948/" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                                </a>
+                                <a href="https://independent.academia.edu/azizfardane" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-academia" aria-hidden="true"></i> Academia
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="rounded-xl overflow-hidden shadow-md border border-stone-200">
-                        <div class="aspect-w-16 aspect-h-9 h-64">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.022960621453!2d-8.02660188484675!3d31.63399498133385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee9b7c768839%3A0x2e811b7dce958763!2sCadi%20Ayyad%20University!5e0!3m2!1sen!2sma!4v1672522514332!5m2!1sen!2sma" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="ct-item">
+                        <div class="ct-icon"><i class="fas fa-location-dot" aria-hidden="true"></i></div>
+                        <div>
+                            <p class="ct-label">نطاق العمل</p>
+                            <p class="ct-value">مراكش، المغرب — مع الباحثين والطلبة والمؤسسات عن بُعد.</p>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
+<section class="ct-note">
+    <div class="ct-wrap">
+        <div class="ct-note-inner">
+            <div>
+                <h2>قبل أن ترسل</h2>
+                <p>
+                    ثلاث معلومات تختصر جولة كاملة من المراسلات.
+                    المرافقة المنهجية لا تعني كتابة الأعمال الجامعية بدل أصحابها.
+                </p>
+            </div>
+            <ul class="ct-tips">
+                <li>
+                    <b>هدف المشروع</b>
+                    <span>سطران عن الإشكالية أو النتيجة التي تريد الوصول إليها.</span>
+                </li>
+                <li>
+                    <b>المادة المتوفرة</b>
+                    <span>نصوص، صور، خرائط، وثائق، أو بيانات — وما ينقصك منها.</span>
+                </li>
+                <li>
+                    <b>المدة والتسليم</b>
+                    <span>الموعد المطلوب، وهل هناك مرحلة وسيطة تنتظرها.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+</div>
+
+<script>
+(function () {
+    var form = document.getElementById('ct-form');
+    if (!form) return;
+
+    var status = document.getElementById('ct-status');
+    var EMAIL = 'aziz.fardane@gmail.com';
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var field = function (name) {
+            var el = form.elements.namedItem(name);
+            return el && el.value ? el.value.trim() : '';
+        };
+
+        var name = field('name');
+        var email = field('email');
+        var topic = field('topic');
+        var subject = field('subject');
+        var message = field('message');
+
+        if (!name || !email || !message) {
+            if (status) status.textContent = 'الاسم والبريد والرسالة مطلوبة.';
+            return;
+        }
+
+        var subjectLine = 'رسالة من الموقع';
+        if (topic) subjectLine += ' — ' + topic;
+        if (subject) subjectLine += ': ' + subject;
+
+        var body = 'الاسم: ' + name +
+            '\nالبريد: ' + email +
+            (topic ? '\nنوع الطلب: ' + topic : '') +
+            '\n\n' + message;
+
+        window.location.href = 'mailto:' + EMAIL +
+            '?subject=' + encodeURIComponent(subjectLine) +
+            '&body=' + encodeURIComponent(body);
+
+        if (status) {
+            status.textContent = 'يُفتح تطبيق البريد لديك الآن. إن لم يُفتح، اكتب إلى ' + EMAIL;
+        }
+    });
+})();
+</script>

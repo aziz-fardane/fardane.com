@@ -43,7 +43,7 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     .sv-head p{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--brass-text);margin:0}
 
     /* ---------- SERVICES GRID ---------- */
-    .sv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line-strong)}
+    .sv-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line-strong)}
     .sv-card{display:flex;flex-direction:column;gap:.55rem;padding:1.5rem 1.4rem 1.6rem;background:var(--paper-2);transition:background .2s ease}
     .sv-card:hover{background:#f2ebdd}
     .sv-num{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--brass-2)}
@@ -84,8 +84,10 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     .sv-cta .sv-btn:hover{background:#f3f0e7;color:var(--night)}
 
     /* ---------- RESPONSIVE ---------- */
-    @media (max-width:980px){
+    @media (max-width:1100px){
         .sv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:980px){
         .sv-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media (max-width:680px){
@@ -123,7 +125,7 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     <div class="sv-wrap">
         <div class="sv-head">
             <h2>ما أقدّمه</h2>
-            <p>06 · SERVICES</p>
+            <p>08 · SERVICES</p>
         </div>
 
         <div class="sv-grid">
@@ -190,6 +192,28 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
                     <li>محتوى علمي محرَّر</li>
                     <li>بطاقات موقع</li>
                     <li>مراجع وتوثيق</li>
+                </ul>
+            </article>
+
+            <article class="sv-card">
+                <span class="sv-num">07</span>
+                <h3>ترجمة المخطوطات من العربية إلى العربية</h3>
+                <p>تحويل نص المخطوط من العربية القديمة إلى عربية معاصرة مقروءة، مع ضبط الأعلام والمصطلحات.</p>
+                <ul class="sv-list">
+                    <li>نص مفرَّغ ومضبوط</li>
+                    <li>حواشٍ توضيحية</li>
+                    <li>ملف Word وPDF</li>
+                </ul>
+            </article>
+
+            <article class="sv-card">
+                <span class="sv-num">08</span>
+                <h3>العمل ضمن فرق لإنجاح مشاريع بحثية</h3>
+                <p>الانضمام إلى فريق بحثي أو قيادة جزء منه: توزيع المهام، مراجعة المخرجات، والتنسيق حتى التسليم.</p>
+                <ul class="sv-list">
+                    <li>خطة توزيع المهام</li>
+                    <li>مراجعة المخرجات</li>
+                    <li>تنسيق التسليم النهائي</li>
                 </ul>
             </article>
         </div>
