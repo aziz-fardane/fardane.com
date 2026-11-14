@@ -45,6 +45,7 @@ facebook:
 #        mais l'App ID donne accès aux outils de modération.
 facebook_app_id: 779381528284234
 author: "د. عزيز فردان"
+email: "aziz.fardane@gmail.com"
 
 # Staticman configuration
 #staticman_url:: "https://api.staticman.net/v3/entry/github/yoeunes/fardane.com/main/comments"
