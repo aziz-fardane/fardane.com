@@ -1,0 +1,346 @@
+---
+layout: default
+title: جلسة تشخيص بحثية
+description: جلسة استشارية مدتها 60 دقيقة لتشخيص الإشكالية والمنهج والمصادر، مع ملخص مكتوب وخطة عمل للباحثين وطلبة الماستر والدكتوراه.
+permalink: /consultation/
+keywords: استشارة بحثية, تشخيص الإشكالية, منهجية البحث, مرافقة الباحثين, جلسة استشارية
+---
+
+<div class="cs-page" dir="rtl">
+<style>
+    /* ============================================================
+       CONSULTATION · جلسة تشخيص بحثية
+       ============================================================ */
+    .cs-page{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#2c3833;
+        --muted:#6f6a5c; --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f;
+        --water:#2e6f68; --night:#0b1c17; --line:#ded7c5; --line-strong:#cfc6b0;
+        --naskh:'Noto Naskh Arabic',serif; --kufi:'Noto Kufi Arabic',sans-serif; --mono:'IBM Plex Mono',monospace;
+        background:var(--paper); color:var(--ink); font-family:var(--naskh); line-height:1.9;
+    }
+    .cs-page *{box-sizing:border-box}
+    .cs-wrap{width:min(1120px,100% - 2.4rem);margin-inline:auto}
+
+    /* ---------- HERO ---------- */
+    .cs-hero{padding:clamp(3rem,7vw,5.4rem) 0 clamp(2.4rem,5vw,3.4rem);border-bottom:1px solid var(--line)}
+    .cs-code{font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--brass-text);margin:0 0 1.1rem;text-transform:uppercase}
+    .cs-title{font-family:var(--kufi);font-weight:800;font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.35;margin:0;color:var(--ink)}
+    .cs-title em{display:block;font-style:normal;color:var(--brass-text)}
+    .cs-lede{max-width:58ch;margin:1.1rem 0 0;font-size:clamp(.95rem,1.6vw,1.06rem);color:var(--muted)}
+    .cs-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
+    .cs-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.5rem;background:var(--brass-text);color:#fbf7ec;text-decoration:none;font-family:var(--kufi);font-size:.82rem;font-weight:700;transition:background .22s ease,color .22s ease,border-color .22s ease}
+    .cs-btn:hover{background:var(--water);color:#fbf7ec}
+    .cs-btn-ghost{background:transparent;color:var(--brass-text);border:1px solid var(--line-strong)}
+    .cs-btn-ghost:hover{background:transparent;color:var(--water);border-color:var(--water)}
+    .cs-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin:2rem 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted)}
+    .cs-meta li{display:inline-flex;align-items:center;gap:.45rem}
+    .cs-meta li::before{content:"";width:.3rem;height:.3rem;background:var(--brass-2);border-radius:50%}
+
+    /* ---------- SECTIONS ---------- */
+    .cs-section{padding:clamp(2.8rem,5.5vw,4.6rem) 0;border-bottom:1px solid var(--line)}
+    .cs-section.alt{background:var(--paper-2)}
+    .cs-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.6rem;padding-bottom:.8rem;border-bottom:1px solid var(--line-strong)}
+    .cs-head h2{font-family:var(--kufi);font-size:clamp(1.3rem,2.6vw,1.8rem);margin:0;color:var(--ink)}
+    .cs-head p{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brass-text);margin:0;white-space:nowrap}
+
+    .cs-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+    .cs-card{padding:1.5rem 1.3rem;background:var(--paper-2)}
+    .cs-card b{display:block;margin-bottom:.55rem;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brass-text)}
+    .cs-card h3{font-family:var(--kufi);font-size:.98rem;margin:0 0 .4rem;color:var(--ink)}
+    .cs-card p{margin:0;font-size:.84rem;line-height:1.9;color:var(--muted)}
+
+    .cs-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
+    .cs-step{padding:1.5rem 1.4rem;border:1px solid var(--line-strong);background:var(--paper)}
+    .cs-step b{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;margin-bottom:.8rem;border:1px solid var(--brass-2);border-radius:50%;font-family:var(--mono);font-size:10px;color:var(--brass-text)}
+    .cs-step h3{font-family:var(--kufi);font-size:.98rem;margin:0 0 .4rem;color:var(--ink)}
+    .cs-step p{margin:0;font-size:.84rem;line-height:1.9;color:var(--muted)}
+
+    /* ---------- BOOKING ---------- */
+    .cs-book{display:grid;grid-template-columns:1.15fr .85fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+    .cs-panel{background:var(--paper-2);padding:clamp(1.4rem,2.8vw,2.3rem)}
+    .cs-panel h2{font-family:var(--kufi);font-size:clamp(1.2rem,2.2vw,1.5rem);margin:0;color:var(--ink)}
+    .cs-panel-intro{margin:.6rem 0 0;font-size:.88rem;color:var(--muted)}
+
+    .cs-form{display:flex;flex-direction:column;gap:1rem;margin-top:1.6rem}
+    .cs-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .cs-field label{display:block;margin-bottom:.4rem;font-family:var(--kufi);font-size:.75rem;font-weight:700;color:var(--graphite)}
+    .cs-field label span{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--muted);font-weight:400}
+    .cs-input,.cs-select,.cs-textarea{width:100%;padding:.75rem .9rem;border:1px solid var(--line-strong);background:var(--paper);color:var(--ink);font-family:var(--naskh);font-size:.92rem;line-height:1.7}
+    .cs-input::placeholder,.cs-textarea::placeholder{color:#9a9284}
+    .cs-input:focus,.cs-select:focus,.cs-textarea:focus{outline:none;border-color:var(--brass-text);box-shadow:0 0 0 2px rgba(166,122,46,.18)}
+    .cs-textarea{min-height:9.5rem;resize:vertical}
+    .cs-submit{align-self:flex-start;display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.7rem;border:0;background:var(--brass-text);color:#fbf7ec;font-family:var(--kufi);font-size:.82rem;font-weight:700;cursor:pointer;transition:background .22s ease}
+    .cs-submit:hover{background:var(--water)}
+    .cs-status{margin:.2rem 0 0;min-height:1.3em;font-size:.78rem;color:var(--water)}
+    .cs-form-note{margin:0;font-size:.72rem;color:var(--muted)}
+    .cs-form-note a{color:var(--water);text-decoration:none;border-bottom:1px solid rgba(46,111,104,.35)}
+    .cs-form-note a:hover{color:var(--brass-text)}
+
+    .cs-success{padding:1.3rem 1.4rem;border:1px solid var(--line-strong);border-inline-start:3px solid var(--water);background:var(--paper)}
+    .cs-success-title{margin:0 0 .35rem;font-family:var(--kufi);font-size:.95rem;font-weight:700;color:var(--ink)}
+    .cs-success-title i{color:var(--water);margin-inline-end:.4rem}
+    .cs-success-text{margin:0 0 .55rem;font-size:.86rem;line-height:1.85;color:var(--muted)}
+    .cs-success-list{margin:.6rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;color:var(--graphite)}
+    .cs-success-list li{display:flex;gap:.5rem;align-items:flex-start}
+    .cs-success-list i{color:var(--brass-text);font-size:.6rem;margin-top:.55rem}
+
+    .cs-side h2{font-family:var(--kufi);font-size:1rem;margin:0 0 .7rem;color:var(--ink)}
+    .cs-tips{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line-strong);margin:0;padding:0;list-style:none}
+    .cs-tips li{padding:.9rem 1.1rem;background:var(--paper)}
+    .cs-tips b{display:block;margin-bottom:.2rem;font-family:var(--kufi);font-size:.82rem;color:var(--ink)}
+    .cs-tips span{font-size:.8rem;color:var(--muted)}
+    .cs-side-note{margin:1.2rem 0 0;font-size:.8rem;color:var(--muted)}
+    .cs-side-note a{color:var(--water);text-decoration:none;border-bottom:1px solid rgba(46,111,104,.35)}
+    .cs-side-note a:hover{color:var(--brass-text)}
+
+    .cs-page a:focus-visible,.cs-page button:focus-visible,.cs-page input:focus-visible,.cs-page select:focus-visible,.cs-page textarea:focus-visible{outline:2px solid var(--water);outline-offset:2px}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:980px){
+        .cs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .cs-book{grid-template-columns:1fr}
+    }
+    @media (max-width:680px){
+        .cs-grid,.cs-steps{grid-template-columns:1fr}
+        .cs-row{grid-template-columns:1fr}
+        .cs-submit{width:100%;justify-content:center}
+    }
+    @media (prefers-reduced-motion:reduce){
+        .cs-page *{transition:none!important}
+    }
+</style>
+
+<header class="cs-hero">
+    <div class="cs-wrap">
+        <p class="cs-code"><b>CS. 01</b> · CONSULTATION</p>
+        <h1 class="cs-title">جلسة تشخيص <em>بحثية</em></h1>
+        <p class="cs-lede">
+            ستون دقيقة نقرأ فيها مشروعك كما يقرأه مشرف: أين الإشكالية، وأين الثغرة،
+            وما الخطوة التالية. تخرج بملخص مكتوب وخطة عمل، لا بانطباعات.
+        </p>
+        <div class="cs-actions">
+            <a class="cs-btn" href="#book">احجز جلستك <span aria-hidden="true">←</span></a>
+            <a class="cs-btn cs-btn-ghost" href="{{ '/services/' | relative_url }}">الخدمات البحثية</a>
+        </div>
+        <ul class="cs-meta">
+            <li>60 دقيقة</li>
+            <li>عن بُعد</li>
+            <li>ملخص مكتوب</li>
+        </ul>
+    </div>
+</header>
+
+<section class="cs-section">
+    <div class="cs-wrap">
+        <div class="cs-head">
+            <h2>ما تحصل عليه</h2>
+            <p>OUTCOMES</p>
+        </div>
+
+        <div class="cs-grid">
+            <article class="cs-card">
+                <b>01</b>
+                <h3>تشخيص الإشكالية</h3>
+                <p>نصوغ السؤال المركزي بدقة، ونختبر قابليته للبحث ضمن المادة المتوفرة لديك.</p>
+            </article>
+            <article class="cs-card">
+                <b>02</b>
+                <h3>خريطة المصادر</h3>
+                <p>ما لديك، وما ينقصك، وأين تبحث عنه: أرشيف، منشور، أو مصدر رقمي.</p>
+            </article>
+            <article class="cs-card">
+                <b>03</b>
+                <h3>خطة عمل</h3>
+                <p>خطوات مرتبة بمواعيد واقعية حتى التسليم أو موعد المناقشة.</p>
+            </article>
+            <article class="cs-card">
+                <b>04</b>
+                <h3>ملخص مكتوب</h3>
+                <p>ملاحظات الجلسة وقائمة المهام تصلك خلال 48 ساعة من الموعد.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section alt">
+    <div class="cs-wrap">
+        <div class="cs-head">
+            <h2>كيف تسير الجلسة</h2>
+            <p>03 · STEPS</p>
+        </div>
+
+        <div class="cs-steps">
+            <div class="cs-step">
+                <b>01</b>
+                <h3>أرسل الطلب</h3>
+                <p>املأ النموذج: نوع العمل، المرحلة التي أنت فيها، والموعد الذي تستهدفه.</p>
+            </div>
+            <div class="cs-step">
+                <b>02</b>
+                <h3>نتفق على الموعد</h3>
+                <p>أرسل لك تأكيد الموعد وتفاصيل الأجر وطرق الدفع. لا دفع قبل التأكيد.</p>
+            </div>
+            <div class="cs-step">
+                <b>03</b>
+                <h3>الجلسة والملخص</h3>
+                <p>60 دقيقة عبر Zoom أو Google Meet، ثم ملخص مكتوب وقائمة مهام.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section" id="book">
+    <div class="cs-wrap">
+        <div class="cs-book">
+
+            <div class="cs-panel">
+                <h2>احجز جلستك</h2>
+                <p class="cs-panel-intro">
+                    كل ما تكتبه يصل إلى بريد الباحث مباشرة. أُجيب خلال 24–48 ساعة.
+                </p>
+
+                <form class="cs-form" id="cs-form" action="{{ site.contact_action }}" method="POST">
+                    <input type="hidden" name="_subject" value="طلب جلسة تشخيص بحثية — fardane.com">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://fardane.com/consultation/?sent=1">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <div class="cs-row">
+                        <div class="cs-field">
+                            <label for="cs-name">الاسم الكامل</label>
+                            <input class="cs-input" type="text" id="cs-name" name="name" required autocomplete="name">
+                        </div>
+                        <div class="cs-field">
+                            <label for="cs-email">البريد الإلكتروني</label>
+                            <input class="cs-input" type="email" id="cs-email" name="email" required autocomplete="email" dir="ltr">
+                        </div>
+                    </div>
+
+                    <div class="cs-row">
+                        <div class="cs-field">
+                            <label for="cs-work">نوع العمل</label>
+                            <select class="cs-select" id="cs-work" name="work_type" required>
+                                <option value="">اختر…</option>
+                                <option value="مذكرة ماستر">مذكرة ماستر</option>
+                                <option value="أطروحة دكتوراه">أطروحة دكتوراه</option>
+                                <option value="مقال محكّم">مقال محكّم</option>
+                                <option value="كتاب أو فصل">كتاب أو فصل</option>
+                                <option value="مشروع مؤسسة">مشروع مؤسسة</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="cs-field">
+                            <label for="cs-stage">المرحلة الحالية</label>
+                            <select class="cs-select" id="cs-stage" name="stage" required>
+                                <option value="">اختر…</option>
+                                <option value="فكرة أولية">فكرة أولية</option>
+                                <option value="إشكالية وخطة">إشكالية وخطة</option>
+                                <option value="فصل قيد الكتابة">فصل قيد الكتابة</option>
+                                <option value="مسودة كاملة">مسودة كاملة</option>
+                                <option value="قبل المناقشة">قبل المناقشة</option>
+                                <option value="بعد ملاحظات اللجنة">بعد ملاحظات اللجنة</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="cs-row">
+                        <div class="cs-field">
+                            <label for="cs-pages">عدد الصفحات <span>اختياري</span></label>
+                            <input class="cs-input" type="number" id="cs-pages" name="pages" min="1" inputmode="numeric" placeholder="120">
+                        </div>
+                        <div class="cs-field">
+                            <label for="cs-deadline">الموعد المستهدف <span>اختياري</span></label>
+                            <input class="cs-input" type="text" id="cs-deadline" name="deadline" placeholder="مثال: جوان 2027">
+                        </div>
+                    </div>
+
+                    <div class="cs-field">
+                        <label for="cs-message">ما السؤال الذي تريد حلّه؟</label>
+                        <textarea class="cs-textarea" id="cs-message" name="message" required placeholder="أين توقفت؟ وما العقدة التي تحتاج إلى تشخيص: الإشكالية، الخطة، المصادر، أم البناء المنهجي؟"></textarea>
+                    </div>
+
+                    <button class="cs-submit" type="submit">
+                        أرسل طلب الجلسة
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+
+                    <p class="cs-status" id="cs-status" role="status" aria-live="polite"></p>
+                    <p class="cs-form-note">
+                        الطلب لا يُلزمك بالدفع: تُحدَّد القيمة في رسالة التأكيد.
+                        إن تعذّر الإرسال، اكتب إلى
+                        <a href="mailto:aziz.fardane@gmail.com">aziz.fardane@gmail.com</a>.
+                    </p>
+                </form>
+
+                <div class="cs-success" id="cs-success" hidden>
+                    <p class="cs-success-title"><i class="fas fa-check-circle" aria-hidden="true"></i> وصل طلبك</p>
+                    <p class="cs-success-text">
+                        سأراجع الطلب وأرسل لك الموعد وتفاصيل الأجر خلال 24–48 ساعة.
+                        لا يُطلب أي دفع قبل التأكيد.
+                    </p>
+                    <ul class="cs-success-list">
+                        <li><i class="fas fa-circle" aria-hidden="true"></i> راجع بريدك، بما فيه مجلد الرسائل غير المرغوبة.</li>
+                        <li><i class="fas fa-circle" aria-hidden="true"></i> إن لم يصلك ردّ، راسلني مباشرة على البريد.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="cs-panel cs-side">
+                <h2>قبل أن تحجز</h2>
+                <ul class="cs-tips">
+                    <li>
+                        <b>سؤال واحد واضح</b>
+                        <span>الجلسة ليست قراءة كاملة للرسالة، بل حلّ لعقدة محددة.</span>
+                    </li>
+                    <li>
+                        <b>أرسل ما لديك</b>
+                        <span>خطة أو فصل أو فقرة: القراءة المسبقة ترفع مردود الجلسة.</span>
+                    </li>
+                    <li>
+                        <b>حدود مهنية</b>
+                        <span>توجيه ومنهج ومراجعة، لا كتابة العمل الجامعي بدل صاحبه.</span>
+                    </li>
+                </ul>
+                <p class="cs-side-note">
+                    تحتاج مرافقة أطول من جلسة؟ راجع
+                    <a href="{{ '/services/' | relative_url }}">باقات الخدمات</a>
+                    أو
+                    <a href="{{ '/contact/' | relative_url }}">تواصل مباشرة</a>.
+                </p>
+            </aside>
+
+        </div>
+    </div>
+</section>
+</div>
+
+<script>
+(function () {
+    var form = document.getElementById('cs-form');
+    if (!form) return;
+
+    var status = document.getElementById('cs-status');
+    var success = document.getElementById('cs-success');
+
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+        form.hidden = true;
+        if (success) success.hidden = false;
+    }
+
+    form.addEventListener('submit', function (event) {
+        var field = function (name) {
+            var el = form.elements.namedItem(name);
+            return el && el.value ? el.value.trim() : '';
+        };
+
+        if (!field('name') || !field('email') || !field('message')) {
+            event.preventDefault();
+            if (status) status.textContent = 'الاسم والبريد والسؤال المطلوب أساسية.';
+            return;
+        }
+
+        if (status) status.textContent = 'جارٍ إرسال الطلب…';
+    });
+})();
+</script>

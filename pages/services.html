@@ -78,6 +78,12 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     .sv-pack .sv-btn{margin-top:auto;justify-content:center;text-align:center;font-size:.78rem;padding:.72rem 1rem}
     .sv-pack-note{margin:1.3rem 0 0;font-size:.78rem;color:var(--muted)}
 
+    /* ---------- CONSULTATION BAND ---------- */
+    .sv-consult{display:grid;grid-template-columns:1.5fr auto;gap:1.4rem 2rem;align-items:center;padding:clamp(1.5rem,3vw,2.3rem);border:1px solid var(--line-strong);border-inline-start:3px solid var(--brass-text);background:var(--paper-2)}
+    .sv-consult-code{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brass-text);margin:0 0 .5rem}
+    .sv-consult h2{font-family:var(--kufi);font-size:clamp(1.1rem,2.2vw,1.45rem);margin:0 0 .45rem;color:var(--ink)}
+    .sv-consult p{margin:0;font-size:.86rem;line-height:1.95;color:var(--muted);max-width:62ch}
+
     /* ---------- FAQ ---------- */
     .sv-faq{display:flex;flex-direction:column;gap:.7rem;max-width:840px}
     .sv-faq details{padding:.9rem 1.1rem;border:1px solid var(--line-strong);background:var(--paper-2)}
@@ -86,6 +92,8 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     .sv-faq summary::after{content:"+";float:left;font-family:var(--mono);color:var(--brass-text)}
     .sv-faq details[open] summary::after{content:"−"}
     .sv-faq p{margin:.7rem 0 0;font-size:.84rem;line-height:1.95;color:var(--muted)}
+    .sv-faq p a{color:var(--water);text-decoration:underline;text-underline-offset:2px}
+    .sv-faq p a:hover{color:var(--brass-text)}
 
     /* ---------- FINAL CTA ---------- */
     .sv-cta{padding:clamp(2.6rem,5vw,4rem) 0;background:var(--night);color:#f3f0e7}
@@ -105,6 +113,7 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     }
     @media (max-width:680px){
         .sv-grid,.sv-steps,.sv-note{grid-template-columns:1fr}
+        .sv-consult{grid-template-columns:1fr}
         .sv-cta .sv-wrap{align-items:flex-start}
     }
     @media (prefers-reduced-motion:reduce){
@@ -291,7 +300,23 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     </div>
 </section>
 
-<section class="sv-section" id="process">
+<section class="sv-section" id="consultation">
+    <div class="sv-wrap">
+        <div class="sv-consult">
+            <div>
+                <p class="sv-consult-code">START HERE · 60 MIN</p>
+                <h2>لست متأكداً من البداية؟</h2>
+                <p>
+                    جلسة تشخيص واحدة تكفي لتحديد الإشكالية والخطوة التالية، مع ملخص مكتوب وقائمة مهام —
+                    قبل أي التزام بباقة.
+                </p>
+            </div>
+            <a class="sv-btn" href="{{ '/consultation/' | relative_url }}">احجز جلسة تشخيص <span aria-hidden="true">←</span></a>
+        </div>
+    </div>
+</section>
+
+<section class="sv-section alt" id="process">
     <div class="sv-wrap">
         <div class="sv-head">
             <h2>طريقة العمل</h2>
@@ -323,7 +348,7 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     </div>
 </section>
 
-<section class="sv-section alt">
+<section class="sv-section">
     <div class="sv-wrap">
         <div class="sv-note">
             <div>
@@ -344,7 +369,7 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     </div>
 </section>
 
-<section class="sv-section" id="faq">
+<section class="sv-section alt" id="faq">
     <div class="sv-wrap">
         <div class="sv-head">
             <h2>أسئلة متكررة</h2>
@@ -355,6 +380,10 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
             <details>
                 <summary>هل تعمل مع طلبة الماستر والدكتوراه؟</summary>
                 <p>نعم، في حدود الأخلاقيات الأكاديمية: توجيه منهجي، مناقشة الإشكالية، ومراجعة النص. لا أكتب العمل الجامعي بدل الطالب.</p>
+            </details>
+            <details>
+                <summary>هل توجد جلسة واحدة دون الالتزام بباقة؟</summary>
+                <p>نعم، جلسة تشخيص مدتها 60 دقيقة عن بُعد، تخرج منها بملخص مكتوب وخطة عمل. <a href="{{ '/consultation/' | relative_url }}">تفاصيل الجلسة والحجز</a>.</p>
             </details>
             <details>
                 <summary>هل تُنجز الخرائط من الصفر؟</summary>
