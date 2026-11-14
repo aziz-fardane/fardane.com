@@ -16,3 +16,6 @@
 
 # Hidden/unpublished articles must never be committed or published
 /_hidden/
+
+# Business documents (not part of the public site)
+/_business/
