@@ -1,7 +1,7 @@
 ---
 layout: default
 title: جلسة تشخيص بحثية
-description: جلسة استشارية مدتها 60 دقيقة لتشخيص الإشكالية والمنهج والمصادر، مع ملخص مكتوب وخطة عمل للباحثين وطلبة الماستر والدكتوراه.
+description: جلسة استشارية من 30 إلى 90 دقيقة لتشخيص الإشكالية والمنهج والمصادر، مع ملخص مكتوب وخطة عمل للباحثين وطلبة الماستر والدكتوراه.
 permalink: /consultation/
 keywords: استشارة بحثية, تشخيص الإشكالية, منهجية البحث, مرافقة الباحثين, جلسة استشارية
 ---
@@ -48,6 +48,20 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
     .cs-card b{display:block;margin-bottom:.55rem;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brass-text)}
     .cs-card h3{font-family:var(--kufi);font-size:.98rem;margin:0 0 .4rem;color:var(--ink)}
     .cs-card p{margin:0;font-size:.84rem;line-height:1.9;color:var(--muted)}
+
+    .cs-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+    .cs-level{display:flex;flex-direction:column;gap:.45rem;padding:1.6rem 1.4rem;background:var(--paper-2)}
+    .cs-level.hl{background:#f7f1e3}
+    .cs-level-time{margin:0;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brass-text)}
+    .cs-level h3{font-family:var(--kufi);font-size:1.02rem;margin:0;color:var(--ink)}
+    .cs-level p{margin:0;font-size:.84rem;line-height:1.9;color:var(--muted)}
+    .cs-level ul{margin:.25rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.4rem}
+    .cs-level li{position:relative;padding-inline-start:.95rem;font-size:.82rem;line-height:1.75;color:var(--graphite)}
+    .cs-level li::before{content:"";position:absolute;inset-inline-start:0;top:.6rem;width:.3rem;height:.3rem;background:var(--brass-2);border-radius:50%}
+    .cs-level-for{margin-top:auto;padding-top:.75rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--brass-text)}
+    .cs-levels-note{margin:1.1rem 0 0;font-size:.78rem;color:var(--muted)}
+    .cs-levels-note a{color:var(--water);text-decoration:underline;text-underline-offset:2px}
+    .cs-levels-note a:hover{color:var(--brass-text)}
 
     .cs-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
     .cs-step{padding:1.5rem 1.4rem;border:1px solid var(--line-strong);background:var(--paper)}
@@ -98,6 +112,7 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
     /* ---------- RESPONSIVE ---------- */
     @media (max-width:980px){
         .cs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .cs-levels{grid-template-columns:1fr}
         .cs-book{grid-template-columns:1fr}
     }
     @media (max-width:680px){
@@ -115,7 +130,7 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
         <p class="cs-code"><b>CS. 01</b> · CONSULTATION</p>
         <h1 class="cs-title">جلسة تشخيص <em>بحثية</em></h1>
         <p class="cs-lede">
-            ستون دقيقة نقرأ فيها مشروعك كما يقرأه مشرف: أين الإشكالية، وأين الثغرة،
+            من ثلاثين إلى تسعين دقيقة نقرأ فيها مشروعك كما يقرأه مشرف: أين الإشكالية، وأين الثغرة،
             وما الخطوة التالية. تخرج بملخص مكتوب وخطة عمل، لا بانطباعات.
         </p>
         <div class="cs-actions">
@@ -123,7 +138,7 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
             <a class="cs-btn cs-btn-ghost" href="{{ '/services/' | relative_url }}">الخدمات البحثية</a>
         </div>
         <ul class="cs-meta">
-            <li>60 دقيقة</li>
+            <li>30 · 60 · 90 دقيقة</li>
             <li>عن بُعد</li>
             <li>ملخص مكتوب</li>
         </ul>
@@ -165,6 +180,58 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
 <section class="cs-section alt">
     <div class="cs-wrap">
         <div class="cs-head">
+            <h2>ثلاث مدد، ثلاث حالات</h2>
+            <p>30 · 60 · 90</p>
+        </div>
+
+        <div class="cs-levels">
+            <article class="cs-level">
+                <p class="cs-level-time">30 دقيقة</p>
+                <h3>تشخيص سريع</h3>
+                <p>عقدة واحدة، وجلسة قصيرة حولها.</p>
+                <ul>
+                    <li>سؤال واحد محدد</li>
+                    <li>ملاحظة مكتوبة قصيرة</li>
+                    <li>خطة من ثلاث خطوات</li>
+                </ul>
+                <p class="cs-level-for">لمن يعرف مشكلته ويريد حلاً مباشراً.</p>
+            </article>
+
+            <article class="cs-level hl">
+                <p class="cs-level-time">60 دقيقة</p>
+                <h3>تشخيص كامل</h3>
+                <p>الحالة الافتراضية: خطة أو فصل في بدايته.</p>
+                <ul>
+                    <li>الإشكالية والمصادر</li>
+                    <li>خطة عمل بمواعيد</li>
+                    <li>ملخص وقائمة مهام</li>
+                </ul>
+                <p class="cs-level-for">لمن يبني خطة أو يبدأ فصلاً.</p>
+            </article>
+
+            <article class="cs-level">
+                <p class="cs-level-time">90 دقيقة</p>
+                <h3>تشخيص موسّع</h3>
+                <p>قراءة مسبقة، ثم جلسة على النص نفسه.</p>
+                <ul>
+                    <li>كل ما في التشخيص الكامل</li>
+                    <li>ملاحظات على فصل أو مسودة</li>
+                    <li>أولويات قبل المناقشة</li>
+                </ul>
+                <p class="cs-level-for">قبل المناقشة أو بعد ملاحظات اللجنة.</p>
+            </article>
+        </div>
+
+        <p class="cs-levels-note">
+            تختار المدة في الطلب، والقيمة تُرسل في رسالة التأكيد.
+            <a href="#book">احجز الآن</a>.
+        </p>
+    </div>
+</section>
+
+<section class="cs-section">
+    <div class="cs-wrap">
+        <div class="cs-head">
             <h2>كيف تسير الجلسة</h2>
             <p>03 · STEPS</p>
         </div>
@@ -183,7 +250,7 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
             <div class="cs-step">
                 <b>03</b>
                 <h3>الجلسة والملخص</h3>
-                <p>60 دقيقة عبر Zoom أو Google Meet، ثم ملخص مكتوب وقائمة مهام.</p>
+                <p>المدة التي اخترتها، عبر Zoom أو Google Meet، ثم ملخص مكتوب وقائمة مهام.</p>
             </div>
         </div>
     </div>
@@ -246,13 +313,22 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
 
                     <div class="cs-row">
                         <div class="cs-field">
+                            <label for="cs-length">مدة الجلسة</label>
+                            <select class="cs-select" id="cs-length" name="session_length" required>
+                                <option value="30 دقيقة">30 دقيقة — تشخيص سريع</option>
+                                <option value="60 دقيقة" selected>60 دقيقة — تشخيص كامل</option>
+                                <option value="90 دقيقة">90 دقيقة — تشخيص موسّع</option>
+                            </select>
+                        </div>
+                        <div class="cs-field">
                             <label for="cs-pages">عدد الصفحات <span>اختياري</span></label>
                             <input class="cs-input" type="number" id="cs-pages" name="pages" min="1" inputmode="numeric" placeholder="120">
                         </div>
-                        <div class="cs-field">
-                            <label for="cs-deadline">الموعد المستهدف <span>اختياري</span></label>
-                            <input class="cs-input" type="text" id="cs-deadline" name="deadline" placeholder="مثال: جوان 2027">
-                        </div>
+                    </div>
+
+                    <div class="cs-field">
+                        <label for="cs-deadline">الموعد المستهدف <span>اختياري</span></label>
+                        <input class="cs-input" type="text" id="cs-deadline" name="deadline" placeholder="مثال: جوان 2027">
                     </div>
 
                     <div class="cs-field">
