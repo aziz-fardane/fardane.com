@@ -67,7 +67,7 @@ contact_action: "https://formsubmit.co/aziz.fardane@gmail.com"
 
 # WhatsApp — رقم دولي بلا + ولا مسافات، مثل: "212612345678"
 # اتركه فارغاً فلا يظهر أي زر واتساب في الموقع.
-whatsapp:
+whatsapp: "212641150123"
 
 plugins:
     - jekyll-feed
