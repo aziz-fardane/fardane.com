@@ -56,6 +56,12 @@ noindex: true
     .ct-submit:hover{background:var(--water)}
     .ct-status{margin:.2rem 0 0;min-height:1.3em;font-size:.78rem;color:var(--water)}
     .ct-form-note{margin:0;font-size:.72rem;color:var(--muted)}
+    .ct-form-note a{color:var(--water);text-decoration:none;border-bottom:1px solid rgba(46,111,104,.35)}
+    .ct-form-note a:hover{color:var(--brass-text)}
+    .ct-success{padding:1.3rem 1.4rem;border:1px solid var(--line-strong);border-inline-start:3px solid var(--water);background:var(--paper)}
+    .ct-success-title{margin:0 0 .35rem;font-family:var(--kufi);font-size:.95rem;font-weight:700;color:var(--ink)}
+    .ct-success-title i{color:var(--water);margin-inline-end:.4rem}
+    .ct-success-text{margin:0 0 .55rem;font-size:.86rem;line-height:1.85;color:var(--muted)}
 
     /* ---------- INFO COLUMN ---------- */
     .ct-info{display:flex;flex-direction:column;gap:1.5rem;margin-top:1.6rem}
@@ -128,7 +134,12 @@ noindex: true
                     املأ الحقول، وسيُفتح تطبيق البريد لديك برسالة جاهزة — دون إنشاء حساب ولا انتظار.
                 </p>
 
-                <form class="ct-form" id="ct-form">
+                <form class="ct-form" id="ct-form" action="{{ site.contact_action }}" method="POST">
+                    <input type="hidden" name="_subject" value="رسالة جديدة من fardane.com">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://fardane.com/contact/?sent=1">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="ct-row">
                         <div class="ct-field">
                             <label for="ct-name">الاسم الكامل</label>
@@ -173,7 +184,8 @@ noindex: true
 
                     <p class="ct-status" id="ct-status" role="status" aria-live="polite"></p>
                     <p class="ct-form-note">
-                        لا تُخزَّن بياناتك على الموقع؛ الرسالة تُكتب في بريدك أنت قبل الإرسال.
+                        تُرسل الرسالة إلى بريد الباحث مباشرة. إن تعذّر الإرسال، اكتب إلى
+                        <a href="mailto:aziz.fardane@gmail.com">aziz.fardane@gmail.com</a>.
                     </p>
                     <noscript>
                         <p class="ct-form-note">
@@ -182,6 +194,12 @@ noindex: true
                         </p>
                     </noscript>
                 </form>
+
+                <div class="ct-success" id="ct-success" hidden>
+                    <p class="ct-success-title"><i class="fas fa-check-circle" aria-hidden="true"></i> وصلت رسالتك</p>
+                    <p class="ct-success-text">سأعود إليك خلال 48 ساعة على البريد الذي تركته. شكراً لتواصلك.</p>
+                    <a class="ct-more" href="mailto:aziz.fardane@gmail.com">أو أضف تفصيلاً على البريد <span aria-hidden="true">←</span></a>
+                </div>
             </div>
 
             <div class="ct-panel">
@@ -280,43 +298,26 @@ noindex: true
     if (!form) return;
 
     var status = document.getElementById('ct-status');
-    var EMAIL = 'aziz.fardane@gmail.com';
+    var success = document.getElementById('ct-success');
+
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+        form.hidden = true;
+        if (success) success.hidden = false;
+    }
 
     form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
         var field = function (name) {
             var el = form.elements.namedItem(name);
             return el && el.value ? el.value.trim() : '';
         };
 
-        var name = field('name');
-        var email = field('email');
-        var topic = field('topic');
-        var subject = field('subject');
-        var message = field('message');
-
-        if (!name || !email || !message) {
+        if (!field('name') || !field('email') || !field('message')) {
+            event.preventDefault();
             if (status) status.textContent = 'الاسم والبريد والرسالة مطلوبة.';
             return;
         }
 
-        var subjectLine = 'رسالة من الموقع';
-        if (topic) subjectLine += ' — ' + topic;
-        if (subject) subjectLine += ': ' + subject;
-
-        var body = 'الاسم: ' + name +
-            '\nالبريد: ' + email +
-            (topic ? '\nنوع الطلب: ' + topic : '') +
-            '\n\n' + message;
-
-        window.location.href = 'mailto:' + EMAIL +
-            '?subject=' + encodeURIComponent(subjectLine) +
-            '&body=' + encodeURIComponent(body);
-
-        if (status) {
-            status.textContent = 'يُفتح تطبيق البريد لديك الآن. إن لم يُفتح، اكتب إلى ' + EMAIL;
-        }
+        if (status) status.textContent = 'جارٍ إرسال الرسالة…';
     });
 })();
 </script>

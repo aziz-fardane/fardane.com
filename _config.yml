@@ -58,6 +58,11 @@ image: https://fardane.com/dist/images/profile.jpg
 # newsletter_action: "https://buttondown.email/api/emails/embed-subscribe/..."
 newsletter_action:
 
+# Contact form (FormSubmit.co)
+# أول إرسال يرسل رابط تفعيل إلى البريد؛ بعد التفعيل تصل كل الرسائل مباشرة.
+# بعد التفعيل يمكن استبدال البريد بالمعرّف المشفّر الذي ترسله الخدمة.
+contact_action: "https://formsubmit.co/aziz.fardane@gmail.com"
+
 plugins:
     - jekyll-feed
     - jekyll-seo-tag
