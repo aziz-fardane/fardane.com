@@ -56,12 +56,18 @@ image: https://fardane.com/dist/images/profile.jpg
 # ضع هنا رابط نموذج الاشتراك (Buttondown / Mailchimp / ...) لتفعيل شريط النشرة
 # في جميع صفحات الموقع. اتركه معطّلاً فلا يظهر أي نموذج.
 # newsletter_action: "https://buttondown.email/api/emails/embed-subscribe/..."
-newsletter_action:
+# مفعّلة مؤقتاً عبر FormSubmit: كل اشتراك يصل إلى بريد الباحث.
+# لاستبدالها بخدمة نشرة حقيقية (Buttondown/Mailchimp) غيّر الرابط فقط.
+newsletter_action: "https://formsubmit.co/aziz.fardane@gmail.com"
 
 # Contact form (FormSubmit.co)
 # أول إرسال يرسل رابط تفعيل إلى البريد؛ بعد التفعيل تصل كل الرسائل مباشرة.
 # بعد التفعيل يمكن استبدال البريد بالمعرّف المشفّر الذي ترسله الخدمة.
 contact_action: "https://formsubmit.co/aziz.fardane@gmail.com"
+
+# WhatsApp — رقم دولي بلا + ولا مسافات، مثل: "212612345678"
+# اتركه فارغاً فلا يظهر أي زر واتساب في الموقع.
+whatsapp:
 
 plugins:
     - jekyll-feed

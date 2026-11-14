@@ -66,6 +66,19 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     .sv-note h3{font-family:var(--kufi);font-size:1rem;margin:0 0 .6rem;color:var(--ink)}
     .sv-note p{font-size:.85rem;line-height:1.95;color:var(--muted);margin:0}
 
+    /* ---------- PACKAGES ---------- */
+    .sv-packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+    .sv-pack{display:flex;flex-direction:column;gap:.65rem;padding:1.7rem 1.5rem 1.8rem;background:var(--paper-2)}
+    .sv-pack.hl{background:#f7f1e3}
+    .sv-pack .sv-pack-code{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brass-text);margin:0}
+    .sv-pack h3{font-family:var(--kufi);font-size:1.05rem;margin:0;color:var(--ink)}
+    .sv-pack .sv-pack-price{font-family:var(--kufi);font-size:1.2rem;font-weight:800;color:var(--brass-text);margin:0;line-height:1.5}
+    .sv-pack .sv-pack-price span{display:block;margin-top:.15rem;font-family:var(--mono);font-size:8.5px;font-weight:400;letter-spacing:.08em;color:var(--muted)}
+    .sv-pack p{font-size:.84rem;line-height:1.95;color:var(--muted);margin:0}
+    .sv-pack .sv-list{margin:0}
+    .sv-pack .sv-btn{margin-top:auto;justify-content:center;text-align:center;font-size:.78rem;padding:.72rem 1rem}
+    .sv-pack-note{margin:1.3rem 0 0;font-size:.78rem;color:var(--muted)}
+
     /* ---------- FAQ ---------- */
     .sv-faq{display:flex;flex-direction:column;gap:.7rem;max-width:840px}
     .sv-faq details{padding:.9rem 1.1rem;border:1px solid var(--line-strong);background:var(--paper-2)}
@@ -89,6 +102,7 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     }
     @media (max-width:980px){
         .sv-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .sv-packs{grid-template-columns:1fr}
     }
     @media (max-width:680px){
         .sv-grid,.sv-steps,.sv-note{grid-template-columns:1fr}
@@ -109,6 +123,9 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
         </p>
         <div class="sv-actions">
             <a class="sv-btn" href="{{ '/contact/' | relative_url }}">اطلب عرضاً <span aria-hidden="true">←</span></a>
+            {% if site.whatsapp %}
+            <a class="sv-btn sv-btn-ghost" href="https://wa.me/{{ site.whatsapp }}?text={{ 'مرحباً، أستفسر عن الخدمات البحثية' | uri_escape }}" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> واتساب</a>
+            {% endif %}
             <a class="sv-btn sv-btn-ghost" href="{{ '/articles/' | relative_url }}">أعمالي المنشورة</a>
         </div>
         <ul class="sv-tags" aria-label="مجالات التخصص">
@@ -220,7 +237,62 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     </div>
 </section>
 
-<section class="sv-section alt" id="process">
+<section class="sv-section alt" id="packages">
+    <div class="sv-wrap">
+        <div class="sv-head">
+            <h2>باقات العمل</h2>
+            <p>03 · PACKAGES</p>
+        </div>
+
+        <div class="sv-packs">
+            <article class="sv-pack">
+                <p class="sv-pack-code">01 · مراجعة وضبط</p>
+                <h3>قراءة نقدية</h3>
+                <p class="sv-pack-price">من 400 د.م<span>للمذكرة أو الفصل الواحد</span></p>
+                <p>مراجعة الإشكالية والخطة أو فصل واحد، بملاحظات مكتوبة وجلسة نقاش.</p>
+                <ul class="sv-list">
+                    <li>ملاحظات مكتوبة مفصّلة</li>
+                    <li>تصحيح المنهج والتوثيق</li>
+                    <li>جلسة 45 دقيقة</li>
+                </ul>
+                <a class="sv-btn sv-btn-ghost" href="{{ '/contact/' | relative_url }}">اطلب هذه الباقة <span aria-hidden="true">←</span></a>
+            </article>
+
+            <article class="sv-pack hl">
+                <p class="sv-pack-code">02 · من الفكرة إلى النشر</p>
+                <h3>المرافقة الكاملة</h3>
+                <p class="sv-pack-price">من 1200 د.م<span>حسب نطاق العمل</span></p>
+                <p>من ضبط الإشكالية إلى ملف جاهز للنشر، مع متابعة مرحلية ومراجعة نهائية.</p>
+                <ul class="sv-list">
+                    <li>إشكالية وخطة ومصادر</li>
+                    <li>مراجعة النص والتوثيق</li>
+                    <li>تنسيق ملف النشر</li>
+                    <li>خرائط أو مخطّط توضيحي</li>
+                </ul>
+                <a class="sv-btn" href="{{ '/contact/' | relative_url }}">اطلب هذه الباقة <span aria-hidden="true">←</span></a>
+            </article>
+
+            <article class="sv-pack">
+                <p class="sv-pack-code">03 · مؤسسات</p>
+                <h3>مشاريع وورشات</h3>
+                <p class="sv-pack-price">حسب الطلب<span>عرض مكتوب مسبق</span></p>
+                <p>ورشات تدريبية، خرائط وتوثيق بصري، أو مرافقة فريق بحثي في مشروع تراثي.</p>
+                <ul class="sv-list">
+                    <li>ورشة حضوريّة أو عن بُعد</li>
+                    <li>خرائط ووثائق بصرية</li>
+                    <li>مرافقة فريق بحثي</li>
+                </ul>
+                <a class="sv-btn sv-btn-ghost" href="{{ '/contact/' | relative_url }}">اطلب عرضاً <span aria-hidden="true">←</span></a>
+            </article>
+        </div>
+
+        <p class="sv-pack-note">
+            الأسعار تقديرية وتبدأ من القيم أعلاه؛ العرض النهائي يُحدَّد حسب النطاق والمدة ويُسلَّم مكتوباً قبل أي التزام.
+        </p>
+    </div>
+</section>
+
+<section class="sv-section" id="process">
     <div class="sv-wrap">
         <div class="sv-head">
             <h2>طريقة العمل</h2>
@@ -252,7 +324,7 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     </div>
 </section>
 
-<section class="sv-section">
+<section class="sv-section alt">
     <div class="sv-wrap">
         <div class="sv-note">
             <div>
@@ -273,7 +345,7 @@ keywords: خدمات بحثية, استشارات علمية, تحرير أكا�
     </div>
 </section>
 
-<section class="sv-section alt" id="faq">
+<section class="sv-section" id="faq">
     <div class="sv-wrap">
         <div class="sv-head">
             <h2>أسئلة متكررة</h2>

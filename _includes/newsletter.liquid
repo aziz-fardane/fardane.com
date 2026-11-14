@@ -1,7 +1,8 @@
 {% comment %}
     شريط الاشتراك البريدي.
     لا يظهر إلا عند ضبط site.newsletter_action في _config.yml
-    (مثال: رابط نموذج Buttondown أو Mailchimp).
+    (حالياً: FormSubmit، فتُجمَع العناوين في بريد الباحث).
+    يمكن استبداله لاحقاً برابط Buttondown أو Mailchimp دون تعديل القالب.
 {% endcomment %}
 {% if site.newsletter_action %}
 <section class="nl-band" dir="rtl" aria-labelledby="nl-title">
@@ -12,7 +13,13 @@
             <p class="nl-text">ملخصات ومصادر وخرائط من أرشيف البحث، دون إزعاج. يمكنك إلغاء الاشتراك في أي وقت.</p>
         </div>
 
-        <form class="nl-form" action="{{ site.newsletter_action }}" method="post" target="_blank" rel="noopener">
+        <form class="nl-form" id="nl-form" action="{{ site.newsletter_action }}" method="post">
+            <input type="hidden" name="_subject" value="اشتراك جديد في نشرة fardane.com">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://fardane.com/?subscribed=1">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
             <label class="nl-label" for="nl-email">البريد الإلكتروني</label>
             <div class="nl-row">
                 <input class="nl-input" id="nl-email" type="email" name="email" required autocomplete="email" placeholder="name@example.com" dir="ltr">
@@ -20,6 +27,18 @@
             </div>
             <p class="nl-note">بالاشتراك، أنت توافق على استلام رسائل من fardane.com فقط.</p>
         </form>
+
+        <p class="nl-ok" id="nl-ok" role="status" hidden>تم تسجيل بريدك. شكراً لثقتك — تصلك أول دراسة قريباً.</p>
     </div>
 </section>
+
+<script>
+(function () {
+    if (new URLSearchParams(window.location.search).get('subscribed') !== '1') return;
+    var form = document.getElementById('nl-form');
+    var ok = document.getElementById('nl-ok');
+    if (form) form.hidden = true;
+    if (ok) ok.hidden = false;
+})();
+</script>
 {% endif %}

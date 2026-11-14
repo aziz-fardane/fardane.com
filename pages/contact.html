@@ -3,7 +3,6 @@ layout: default
 title: التواصل مع الباحث
 description: للتواصل مع الدكتور عزيز فردان بخصوص الاستشارات المنهجية، الخدمات البحثية، ترجمة المخطوطات، أو التعاون في مشاريع بحثية.
 permalink: /contact/
-noindex: true
 ---
 
 <div class="ct-page" dir="rtl">
@@ -213,6 +212,16 @@ noindex: true
                             <p class="ct-value"><a href="mailto:aziz.fardane@gmail.com" dir="ltr">aziz.fardane@gmail.com</a></p>
                         </div>
                     </div>
+
+                    {% if site.whatsapp %}
+                    <div class="ct-item">
+                        <div class="ct-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+                        <div>
+                            <p class="ct-label">واتساب</p>
+                            <p class="ct-value"><a href="https://wa.me/{{ site.whatsapp }}?text={{ 'مرحباً، أستفسر عن الخدمات البحثية' | uri_escape }}" target="_blank" rel="noopener">محادثة مباشرة</a></p>
+                        </div>
+                    </div>
+                    {% endif %}
 
                     <div class="ct-item">
                         <div class="ct-icon"><i class="fas fa-user-graduate" aria-hidden="true"></i></div>
