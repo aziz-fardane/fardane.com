@@ -31,6 +31,31 @@ permalink: /articles/
             <div class="ar-grid">
 
                 <div class="ar-main-col">
+                    <article class="ar-feature">
+                        <div class="ar-feature-body">
+                            <p class="ar-feature-kicker"><b>LEAD STUDY</b> · UCA 01</p>
+                            <h2 class="ar-feature-title">
+                                <a href="{{ '/uca/' | relative_url }}">لمحة عن جامعة القاضي عياض: من الإرث المرابطي إلى الجامعة الحديثة</a>
+                            </h2>
+                            <p class="ar-feature-excerpt">
+                                دراسة تاريخية لنشأة جامعة القاضي عياض وتطورها، من الإرث المرابطي إلى الجامعة الحديثة،
+                                مع تسليط الضوء على دور القاضي عياض وجامع ابن يوسف.
+                            </p>
+                            <ul class="ar-feature-meta">
+                                <li><i class="far fa-folder" aria-hidden="true"></i> تاريخ المؤسسات</li>
+                                <li><i class="far fa-clock" aria-hidden="true"></i> قراءة 10 دقائق</li>
+                                <li><i class="fas fa-location-dot" aria-hidden="true"></i> مراكش · 514هـ — 1978</li>
+                            </ul>
+                            <a class="ar-read" href="{{ '/uca/' | relative_url }}">
+                                قراءة الدراسة
+                                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <figure class="ar-feature-fig">
+                            <img src="{{ site.data.manifest['dist/images/uca/ben-toumart.jpeg'] | default: '/dist/images/uca/ben-toumart.jpeg' }}" alt="الإرث الفكري المرابطي والموحدي" width="1024" height="1536" loading="lazy">
+                        </figure>
+                    </article>
+
                     <div class="ar-section-head">
                         <h2 class="ar-section-title">جميع المقالات</h2>
                         <p class="ar-section-code">PL. 05 · {{ site.posts.size }} STUDIES</p>
@@ -243,6 +268,10 @@ permalink: /articles/
     var cat = params.get('cat');
     var active = tag || cat;
     if (!active) return;
+
+    document.querySelectorAll('.ar-feature').forEach(function (feature) {
+        feature.hidden = true;
+    });
 
     var items = Array.prototype.slice.call(document.querySelectorAll('.ar-item'));
     var shown = 0;

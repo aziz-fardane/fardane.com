@@ -303,6 +303,102 @@
 }
 
 /* --------------------------------------------------------------------------
+   Lead study (featured record)
+   -------------------------------------------------------------------------- */
+.ar-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(160px, 24%, 190px);
+    gap: clamp(1.1rem, 2.6vw, 1.8rem);
+    margin: 0 0 clamp(1.5rem, 3vw, 2.2rem);
+    padding: clamp(1.1rem, 2.4vw, 1.6rem);
+    border: 1px solid var(--line-strong);
+    background: var(--paper-2);
+    align-items: start;
+}
+
+.ar-feature[hidden] {
+    display: none !important;
+}
+
+.ar-feature-kicker {
+    margin: 0 0 0.55rem;
+    font-family: var(--mono);
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass-text);
+}
+
+.ar-feature-kicker b {
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.ar-feature-title {
+    margin: 0 0 0.5rem;
+    font-family: var(--kufi);
+    font-weight: 800;
+    font-size: clamp(1.02rem, 2.2vw, 1.32rem);
+    line-height: 1.65;
+}
+
+.ar-feature-title a {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+.ar-feature-title a:hover {
+    color: var(--brass-text);
+}
+
+.ar-feature-excerpt {
+    max-width: 62ch;
+    margin: 0 0 0.85rem;
+    font-size: 0.88rem;
+    line-height: 1.95;
+    color: var(--graphite);
+}
+
+.ar-feature-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin: 0 0 0.35rem;
+    padding: 0;
+    list-style: none;
+    font-family: var(--mono);
+    font-size: 8.5px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+.ar-feature-meta li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.ar-feature-meta i {
+    font-size: 0.62rem;
+    color: var(--brass-text);
+}
+
+.ar-feature-fig {
+    margin: 0;
+}
+
+.ar-feature-fig img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top center;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+}
+
+/* --------------------------------------------------------------------------
    Article records
    -------------------------------------------------------------------------- */
 .ar-list {
@@ -750,6 +846,19 @@
     .ar-item {
         grid-template-columns: 1fr;
         gap: 0.9rem;
+    }
+
+    .ar-feature {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.9rem;
+    }
+
+    .ar-feature-fig {
+        order: -1;
+    }
+
+    .ar-feature-fig img {
+        aspect-ratio: 16 / 9;
     }
 
     .ar-num {

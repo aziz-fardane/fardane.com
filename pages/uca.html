@@ -6,283 +6,537 @@ permalink: /uca/
 image: /dist/images/uca/ben-toumart.jpeg
 ---
 
-<header class="relative dir-rtl overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-amber-950 via-amber-900 to-stone-950"><div class="absolute inset-0 opacity-20"><div class="absolute top-0 left-1/4 w-1/3 h-full bg-amber-400 blur-[100px] rotate-12 transform -translate-y-1/2"></div><div class="absolute bottom-0 right-1/4 w-1/3 h-full bg-amber-600 blur-[100px] -rotate-12 transform translate-y-1/2"></div></div></div>
-    <div class="relative z-10">
-        <div class="container mx-auto px-6 py-16 md:py-20">
-            <div class="max-w-4xl mx-auto text-center" data-controller="reveal-animation">
-                <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-maghrebi leading-tight">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-amber-100">لمحة عن جامعة القاضي عياض</span>
-                    <span class="block mt-2">من الإرث المرابطي إلى الجامعة الحديثة</span>
-                </h1>
+<div class="uc-page" dir="rtl">
+<style>
+    /* ============================================================
+       UCA — لمحة عن جامعة القاضي عياض
+       ============================================================ */
+    .uc-page{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#2c3833;
+        --muted:#6f6a5c; --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f;
+        --water:#2e6f68; --night:#0b1c17; --line:#ded7c5; --line-strong:#cfc6b0;
+        --naskh:'Noto Naskh Arabic',serif; --kufi:'Noto Kufi Arabic',sans-serif; --mono:'IBM Plex Mono',monospace;
+        background:var(--paper); color:var(--ink); font-family:var(--naskh); line-height:1.95;
+    }
+    .uc-page *{box-sizing:border-box}
+    .uc-wrap{width:min(1120px,100% - 2.4rem);margin-inline:auto}
+
+    /* ---------- HERO ---------- */
+    .uc-hero{padding:clamp(2.4rem,5.5vw,4.4rem) 0 clamp(2rem,4vw,3rem);border-bottom:1px solid var(--line)}
+    .uc-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.4fr);gap:clamp(1.8rem,4vw,3.6rem);align-items:center}
+    .uc-kicker{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--brass-text);margin:0 0 1rem;text-transform:uppercase}
+    .uc-kicker b{font-weight:500;color:var(--ink)}
+    .uc-title{font-family:var(--kufi);font-weight:800;font-size:clamp(1.75rem,4vw,2.9rem);line-height:1.4;margin:0;color:var(--ink)}
+    .uc-title em{display:block;font-style:normal;font-size:.6em;line-height:1.6;color:var(--brass-text);margin-top:.55rem}
+    .uc-lede{max-width:56ch;margin:1.1rem 0 0;font-size:clamp(.95rem,1.6vw,1.04rem);color:var(--muted)}
+    .uc-meta{display:flex;flex-wrap:wrap;gap:.45rem 1.3rem;margin:1.7rem 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--muted)}
+    .uc-meta li{display:inline-flex;align-items:center;gap:.45rem}
+    .uc-meta li::before{content:"";width:.3rem;height:.3rem;background:var(--brass-2);border-radius:50%}
+    .uc-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.7rem}
+    .uc-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.78rem 1.4rem;background:var(--brass-text);color:#fbf7ec;text-decoration:none;font-family:var(--kufi);font-size:.8rem;font-weight:700;transition:background .22s ease,color .22s ease,border-color .22s ease}
+    .uc-btn:hover{background:var(--water);color:#fbf7ec}
+    .uc-btn-ghost{background:transparent;color:var(--brass-text);border:1px solid var(--line-strong)}
+    .uc-btn-ghost:hover{background:transparent;color:var(--water);border-color:var(--water)}
+    .uc-hero-fig{margin:0}
+    .uc-hero-fig img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top center;border:1px solid var(--line-strong);background:var(--paper-2)}
+    .uc-hero-fig figcaption{margin-top:.5rem;font-family:var(--mono);font-size:8px;letter-spacing:.06em;line-height:1.7;color:var(--muted);text-align:center}
+
+    /* ---------- KEY FACTS ---------- */
+    .uc-facts{background:var(--night);color:#f3f0e7}
+    .uc-facts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(243,240,231,.16)}
+    .uc-fact{padding:1.3rem 1.2rem;background:var(--night)}
+    .uc-fact b{display:block;font-family:var(--kufi);font-weight:800;font-size:1.22rem;line-height:1.3;color:var(--brass-2);margin-bottom:.3rem}
+    .uc-fact span{display:block;font-size:.76rem;line-height:1.75;color:rgba(243,240,231,.74)}
+
+    /* ---------- BODY LAYOUT ---------- */
+    .uc-body{padding:clamp(2.4rem,5vw,4rem) 0}
+    .uc-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:clamp(1.6rem,3.6vw,3.2rem);align-items:start}
+    .uc-aside{position:sticky;top:1.6rem}
+
+    /* ---------- TOC ---------- */
+    .uc-toc{border:1px solid var(--line-strong);background:var(--paper-2);padding:1.1rem 1rem}
+    .uc-toc-title{margin:0 0 .65rem;padding-bottom:.55rem;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--brass-text)}
+    .uc-toc ol{margin:0;padding:0;list-style:none;counter-reset:toc}
+    .uc-toc li{counter-increment:toc;margin:0}
+    .uc-toc a{display:flex;gap:.55rem;padding:.34rem 0;font-family:var(--kufi);font-size:.72rem;line-height:1.65;color:var(--graphite);text-decoration:none;transition:color .18s ease}
+    .uc-toc a::before{content:counter(toc,decimal-leading-zero);font-family:var(--mono);font-size:8px;color:var(--brass-text);padding-top:.35em;flex-shrink:0}
+    .uc-toc a:hover{color:var(--brass-text)}
+
+    /* ---------- ARTICLE ---------- */
+    .uc-article{max-width:72ch;min-width:0}
+    .uc-sec{padding-top:2rem;margin-top:2rem;border-top:1px solid var(--line);scroll-margin-top:1.6rem}
+    .uc-sec:first-of-type{padding-top:0;margin-top:0;border-top:0}
+    .uc-sec-code{margin:0 0 .3rem;font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;color:var(--brass-text)}
+    .uc-sec h2{font-family:var(--kufi);font-weight:800;font-size:clamp(1.22rem,2.4vw,1.62rem);line-height:1.55;margin:0 0 .9rem;color:var(--ink)}
+    .uc-sec p{margin:0 0 1rem;font-size:1rem;line-height:2.05;color:var(--graphite)}
+    .uc-sec p:last-child{margin-bottom:0}
+    .uc-sec .uc-lead{font-size:1.07rem;color:var(--ink)}
+    .uc-subhead{font-family:var(--kufi);font-weight:700;font-size:1rem;line-height:1.7;margin:1.3rem 0 0;color:var(--ink)}
+
+    /* ---------- EPIGRAPH / QUOTES ---------- */
+    .uc-epigraph{margin:0 0 2.2rem;padding:1.2rem 1.3rem;border-inline-start:3px solid var(--brass-2);background:var(--paper-2)}
+    .uc-epigraph p{margin:0;font-size:1.02rem;font-style:italic;line-height:2;color:var(--graphite)}
+    .uc-quote{margin:1.5rem 0;padding:1.2rem 1.3rem;border-inline-start:3px solid var(--brass-2);background:var(--paper-2)}
+    .uc-quote p{margin:0;font-size:1.02rem;font-style:italic;line-height:2;color:var(--graphite)}
+
+    /* ---------- CARDS ---------- */
+    .uc-cards{display:grid;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-top:1.2rem}
+    .uc-card{background:var(--paper-2);padding:1.3rem 1.25rem}
+    .uc-card.hl{background:#f7f1e3}
+    .uc-card h3{font-family:var(--kufi);font-weight:700;font-size:.96rem;line-height:1.6;margin:0 0 .45rem;color:var(--ink)}
+    .uc-card p{margin:0 0 .7rem;font-size:.92rem;line-height:1.98;color:var(--graphite)}
+    .uc-card p:last-child{margin-bottom:0}
+
+    /* ---------- REFERENCE GRID ---------- */
+    .uc-refs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin:1rem 0 0}
+    .uc-refs.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .uc-ref{background:var(--paper-2);padding:1.1rem 1rem}
+    .uc-ref b{display:block;font-family:var(--kufi);font-weight:700;font-size:.84rem;line-height:1.65;color:var(--ink);margin-bottom:.35rem}
+    .uc-ref span{display:block;font-size:.79rem;line-height:1.9;color:var(--muted)}
+    .uc-refs + p{margin-top:1rem}
+    .uc-refs + .uc-card{margin-top:1.1rem}
+
+    /* ---------- BULLET LISTS ---------- */
+    .uc-list{margin:.6rem 0 1rem;padding:0;list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .uc-list li{position:relative;padding-inline-start:1rem;font-size:.94rem;line-height:1.95;color:var(--graphite)}
+    .uc-list li::before{content:"";position:absolute;inset-inline-start:0;top:.78em;width:.3rem;height:.3rem;border-radius:50%;background:var(--brass-2)}
+    .uc-list strong{color:var(--ink);font-weight:700}
+
+    /* ---------- LEVELS (3 أسلاك) ---------- */
+    .uc-levels{display:grid;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-top:1.1rem}
+    .uc-level{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:1rem;background:var(--paper-2);padding:1.15rem 1.2rem}
+    .uc-level-time{margin:0;padding-top:.15rem;font-family:var(--mono);font-size:9px;letter-spacing:.1em;line-height:1.7;color:var(--brass-text)}
+    .uc-level h3{font-family:var(--kufi);font-weight:700;font-size:.92rem;line-height:1.6;margin:0 0 .35rem;color:var(--ink)}
+    .uc-level p{margin:0;font-size:.87rem;line-height:1.95;color:var(--graphite)}
+    .uc-levels-note{margin:.8rem 0 0;font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;color:var(--muted)}
+
+    /* ---------- SCHEDULE ---------- */
+    .uc-sched{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin:1rem 0 1.2rem}
+    .uc-sched div{background:var(--paper-2);padding:.9rem 1rem}
+    .uc-sched b{display:block;margin-bottom:.2rem;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:var(--brass-text)}
+    .uc-sched span{display:block;font-size:.79rem;line-height:1.8;color:var(--graphite)}
+
+    /* ---------- TIMELINE ---------- */
+    .uc-timeline{padding:clamp(2.4rem,5vw,3.8rem) 0;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .uc-band-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .uc-band-head h2{font-family:var(--kufi);font-weight:800;font-size:clamp(1.3rem,2.6vw,1.8rem);margin:0;color:var(--ink)}
+    .uc-band-head p{margin:0;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--brass-text)}
+    .uc-tl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+    .uc-tl-item{display:flex;flex-direction:column;gap:.35rem;background:var(--paper);padding:1.1rem 1rem}
+    .uc-tl-date{font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--brass-text)}
+    .uc-tl-item h3{font-family:var(--kufi);font-weight:700;font-size:.8rem;line-height:1.55;margin:0;color:var(--ink)}
+    .uc-tl-item p{margin:0;font-size:.74rem;line-height:1.8;color:var(--muted)}
+
+    /* ---------- NEXT LINKS ---------- */
+    .uc-next{padding:clamp(1.8rem,4vw,2.8rem) 0}
+    .uc-next-grid{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap}
+    .uc-next-label{margin:0;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--brass-text)}
+    .uc-next-links{display:flex;flex-wrap:wrap;gap:.6rem}
+    .uc-next-links a{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1rem;border:1px solid var(--line-strong);background:var(--paper-2);font-family:var(--kufi);font-size:.76rem;font-weight:600;color:var(--graphite);text-decoration:none;transition:color .18s ease,border-color .18s ease}
+    .uc-next-links a:hover{color:var(--brass-text);border-color:var(--brass-2)}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:980px){
+        .uc-hero-grid{grid-template-columns:1fr}
+        .uc-hero-fig{order:-1;max-width:340px;margin-inline:auto}
+        .uc-hero-fig img{aspect-ratio:5/4}
+        .uc-layout{grid-template-columns:1fr}
+        .uc-aside{position:static;order:-1}
+        .uc-toc ol{columns:2;column-gap:1.4rem}
+        .uc-toc li{break-inside:avoid}
+        .uc-facts-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .uc-tl{grid-template-columns:repeat(3,minmax(0,1fr))}
+        .uc-refs,.uc-refs.two{grid-template-columns:1fr}
+        .uc-sched{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:680px){
+        .uc-wrap{width:calc(100% - 1.8rem)}
+        .uc-toc ol{columns:auto;max-height:13rem;overflow:auto;overscroll-behavior:contain}
+        .uc-facts-grid{grid-template-columns:1fr}
+        .uc-tl{grid-template-columns:1fr}
+        .uc-sched{grid-template-columns:1fr}
+        .uc-level{grid-template-columns:1fr;gap:.4rem}
+        .uc-level-time{padding-top:0}
+        .uc-next-grid{align-items:flex-start;flex-direction:column}
+    }
+    @media (prefers-reduced-motion:reduce){
+        .uc-page *{transition:none!important;animation:none!important}
+    }
+</style>
+
+<header class="uc-hero">
+    <div class="uc-wrap uc-hero-grid">
+        <div>
+            <p class="uc-kicker"><b>UCA · 01</b> · HISTORICAL NOTE</p>
+            <h1 class="uc-title">
+                لمحة عن جامعة القاضي عياض
+                <em>من الإرث المرابطي إلى الجامعة الحديثة</em>
+            </h1>
+            <p class="uc-lede">
+                دراسة تاريخية لنشأة جامعة القاضي عياض وتطورها، من الإرث المرابطي إلى الجامعة الحديثة،
+                مع تسليط الضوء على دور القاضي عياض وجامع ابن يوسف.
+            </p>
+            <ul class="uc-meta">
+                <li>11 محوراً</li>
+                <li>قراءة 10 دقائق</li>
+                <li>مراكش · 514هـ — 1978</li>
+            </ul>
+            <div class="uc-actions">
+                <a class="uc-btn" href="#s1">ابدأ القراءة <span aria-hidden="true">←</span></a>
+                <a class="uc-btn uc-btn-ghost" href="#timeline">الخط الزمني</a>
+            </div>
+        </div>
+
+        <figure class="uc-hero-fig">
+            <img src="{{ site.data.manifest['dist/images/uca/ben-toumart.jpeg'] | default: '/dist/images/uca/ben-toumart.jpeg' }}" alt="الإرث الفكري المرابطي والموحدي" width="1024" height="1536">
+            <figcaption>الإرث الفكري المرابطي والموحدي</figcaption>
+        </figure>
+    </div>
+</header>
+
+<section class="uc-facts" aria-label="أرقام مفصلية">
+    <div class="uc-wrap">
+        <div class="uc-facts-grid">
+            <div class="uc-fact">
+                <b>514هـ</b>
+                <span>تأسيس جامع ابن يوسف على يد الأمير علي بن يوسف بن تاشفين</span>
+            </div>
+            <div class="uc-fact">
+                <b>1939</b>
+                <span>تحوّل الجامع إلى «جامعة ابن يوسف»</span>
+            </div>
+            <div class="uc-fact">
+                <b>1978</b>
+                <span>تأسيس جامعة القاضي عياض بمراكش</span>
+            </div>
+            <div class="uc-fact">
+                <b>3 أسلاك</b>
+                <span>مسار من 12 سنة: 3 + 6 + 3، يُختم بشهادة «العالمية»</span>
             </div>
         </div>
     </div>
-    <div class="relative"><div class="absolute -bottom-10 left-0 right-0 h-20 bg-white transform -skew-y-1.5 shadow-sm"></div></div>
-</header>
+</section>
 
-<section class="py-16 bg-white dir-rtl relative z-10 pt-20">
-    <div class="container mx-auto px-8">
-        <article class="max-w-5xl mx-auto">
-            <div class="mb-16" data-controller="reveal-animation">
-                <div class="max-w-md mx-auto mb-8">
-                    <div class="rounded-2xl overflow-hidden shadow-lg">
-                        <img src="{{ site.data.manifest['dist/images/uca/ben-toumart.jpeg'] | default: '/dist/images/uca/ben-toumart.jpeg' }}" alt="الإرث الفكري المرابطي والموحدي" class="w-full h-auto object-cover">
+<section class="uc-body">
+    <div class="uc-wrap uc-layout">
+        <aside class="uc-aside">
+            <nav class="uc-toc" aria-label="فهرس الصفحة">
+                <p class="uc-toc-title">في هذه الصفحة</p>
+                <ol>
+                    <li><a href="#s1">المقدمة</a></li>
+                    <li><a href="#s2">من هو القاضي عياض؟</a></li>
+                    <li><a href="#s3">أولاً: المؤلفات المرابطية – ترسيخ الفقه المالكي وسلطة التقليد</a></li>
+                    <li><a href="#s4">ثانياً: المؤلفات الموحدية – نقد التقليد وإعادة بناء العقيدة</a></li>
+                    <li><a href="#s5">ثالثاً: من الصراع إلى التوليف – ازدهار الفكر في العهد الموحدي</a></li>
+                    <li><a href="#s6">رابعاً: جامع ابن يوسف – الحاضنة التاريخية للصراع والإنتاج العلمي</a></li>
+                    <li><a href="#s7">من جامع إلى جامعة</a></li>
+                    <li><a href="#s8">طرق التدريس</a></li>
+                    <li><a href="#s9">خامساً: جامعة القاضي عياض وريثة جامعة ابن يوسف</a></li>
+                    <li><a href="#s10">السياق التاريخي لنشأة الجامعة</a></li>
+                    <li><a href="#s11">الإصلاحات الجامعية بعد الاستقلال ودور الجامعة في التنمية الجهوية</a></li>
+                </ol>
+            </nav>
+        </aside>
+
+        <article class="uc-article">
+            <blockquote class="uc-epigraph">
+                <p>"إن تأريخ المؤسسات العلمية ليس مجرد سرد لتطور البنى التحتية، بل هو استنطاق للذاكرة الجماعية التي شكلتها، ورصد للإسهامات الفكرية التي انبثقت من رحابها، وتتبع لمسار الأجيال التي نهلت من معينها."</p>
+            </blockquote>
+
+            <section class="uc-sec" id="s1" aria-labelledby="h-s1">
+                <p class="uc-sec-code">01</p>
+                <h2 id="h-s1">المقدمة</h2>
+                <p class="uc-lead">
+                    تمثل جامعة القاضي عياض بمراكش حلقة متأخرة في سلسلة تاريخية تعود جذورها إلى القرن السادس الهجري، حين تشكلت في المدينة نواة حاضرة علمية كبرى في ظل الدولتين المرابطية والموحدية. فمن جامع ابن يوسف الذي أسسه الأمير علي بن يوسف بن تاشفين سنة 514هـ، انطلقت دينامية علمية ستصبح مسرحاً لصراع فكري عميق بين أنصار المذهب المالكي المدعوم من السلطة المرابطية، وأنصار الحركة الموحدية بزعامة محمد بن تومرت.
+                </p>
+            </section>
+
+            <section class="uc-sec" id="s2" aria-labelledby="h-s2">
+                <p class="uc-sec-code">02</p>
+                <h2 id="h-s2">من هو القاضي عياض؟</h2>
+
+                <div class="uc-cards">
+                    <div class="uc-card hl">
+                        <h3>القاضي عياض: بين الإرث الفكري في المغرب الوسيط والشخصية التاريخية المؤثرة</h3>
+                        <p>
+                            يمثل القاضي عياض نموذجاً متفرداً في التاريخ الإسلامي، يجمع بين الفقه، القضاء، والتأليف العلمي، كما تُعدّ شخصيته حلقة وصل حقيقية بين الفكر العلمي للمغرب الوسيط ومجالات المعرفة الحديثة في التعليم الشرعي والفلسفي. ليس فقط بوصفه عالماً أو قاضياً، بل كرائد فكري ساهم في بناء أساس معرفي عميق استمر أثره لقرون لاحقة.
+                        </p>
+                        <p>
+                            يُعدّ القاضي عياض بن موسى اليحصبي (494–544 هـ / 1099–1149 م) أحد أبرز علماء الفقه المالكي في حقبة العصور الوسطى الإسلامية. وقد شكّل اسمه علامة بارزة في تاريخ الثقافة الإسلامية في المغرب، نظراً لإسهاماته العلمية المحكمة، ومكانته الكبيرة في النظام القضائي، وتأثيره المستمر في التراث الفكري للمغرب والأندلس.
+                        </p>
+                    </div>
+
+                    <div class="uc-card">
+                        <h3>السيرة العلمية والمسار التعليمي</h3>
+                        <p>
+                            نشأ القاضي عياض في مدينة مراكش في بيئة علمية، فتلقى علومه الأساسية والشاملة في الفقه، الحديث، اللغة العربية، والعلوم الشرعية في المغرب والأندلس. واتسمت مسيرته باندماج بين التعليم النظري والتطبيق القضائي العملي، ما جعله نموذجاً فريداً للفقيه الذي يجمع بين العلم والعمل.
+                        </p>
+                    </div>
+
+                    <div class="uc-card">
+                        <h3>دوره القضائي والوظيفة العامة</h3>
+                        <p>
+                            تبوّأ القاضي عياض منصب قاضي مدينة مراكش في ظلّ الدولة المرابطية، ولاحقاً في عصر الدولة الموحدية. وقد تميّز بالعدالة، الدقة في استنباط الأحكام، والتمسّك الصارم بمبادئ المذهب المالكي. وهذه المواقف العملية عزّزت دوره في تعزيز التقاليد القانونية القائمة، وجعلت منه شخصية تحظى بالاحترام والسمعة الطيبة داخل المجتمع وخارجه.
+                        </p>
+                    </div>
+
+                    <div class="uc-card">
+                        <h3>إسهاماته الفكرية ومؤلفاته</h3>
+                        <p>
+                            انصبّت أهمّ إسهامات القاضي عياض في كتابة وتأليف مؤلفات علمية ذات قيمة عالية، منها:
+                        </p>
+                        <ul class="uc-list">
+                            <li><strong>"الشفا بتعريف حقوق المصطفى":</strong> عمل موسوعي يتناول السيرة النبوية وحقوق النبي ﷺ، ويُعد مرجعاً أساسياً للباحثين في السيرة والحديث.</li>
+                            <li><strong>"توضيح المدارك في أحكام الفرائض":</strong> من أبرز ما كُتب في الفقه المالكي في القضايا الشرعية المتعلقة بالمواريث.</li>
+                        </ul>
+                        <p>
+                            وقد امتازت مؤلفات القاضي عياض بعمق التحليل، قوة المنهج، واتساع المعارف، ما جعلها دعامات صلبة في مكتبات المدارس الشرعية والجامعات الإسلامية في المغرب والأندلس.
+                        </p>
+                    </div>
+
+                    <div class="uc-card">
+                        <h3>مكانته في الإرث العلمي المغربي</h3>
+                        <p>
+                            يُنظر إلى القاضي عياض اليوم كأحد القنوات الأساسية التي نقلت التراث الفكري للدولة المرابطية والموحدية إلى الأجيال اللاحقة. فكان واحداً من القلائل الذين حافظوا على قواعد الفقه المالكي، وأعادوا صياغتها في ضوء الواقع العلمي والاجتماعي في وقتهم. وقد ساهم ذلك في صيانة الهوية العلمية في المغرب عبر القرون.
+                        </p>
                     </div>
                 </div>
-                <blockquote class="bg-stone-50 border-r-4 border-amber-500 pr-6 py-4 rounded-lg italic text-lg md:text-xl text-stone-700 text-center max-w-3xl mx-auto">
-                    <p>"إن تأريخ المؤسسات العلمية ليس مجرد سرد لتطور البنى التحتية، بل هو استنطاق للذاكرة الجماعية التي شكلتها، ورصد للإسهامات الفكرية التي انبثقت من رحابها، وتتبع لمسار الأجيال التي نهلت من معينها."</p>
+            </section>
+
+            <section class="uc-sec" id="s3" aria-labelledby="h-s3">
+                <p class="uc-sec-code">03</p>
+                <h2 id="h-s3">أولاً: المؤلفات المرابطية – ترسيخ الفقه المالكي وسلطة التقليد</h2>
+                <p>
+                    في ظل الدولة المرابطية، تشكلت هوية علمية واضحة قوامها الفقه المالكي والالتزام بالتقليد المذهبي. وقد انعكس هذا التوجه في جملة من المؤلفات التي كانت تُدرّس في حلقات جامع ابن يوسف، ومن أبرزها:
+                </p>
+                <div class="uc-refs">
+                    <div class="uc-ref">
+                        <b>المدونة الكبرى</b>
+                        <span>التي شكلت المرجع الفقهي الأساس في الغرب الإسلامي، واعتمدها فقهاء مراكش في القضاء والإفتاء.</span>
+                    </div>
+                    <div class="uc-ref">
+                        <b>البيان والتحصيل لابن رشد الجد</b>
+                        <span>الذي مثّل ذروة الشرح الفقهي والتحقيق داخل المذهب المالكي.</span>
+                    </div>
+                    <div class="uc-ref">
+                        <b>الشفا بتعريف حقوق المصطفى للقاضي عياض</b>
+                        <span>وهو كتاب يجمع بين الفقه والحديث والسيرة، ويعكس روح الدفاع عن المرجعية السنية في مرحلة التحولات السياسية.</span>
+                    </div>
+                </div>
+                <p>
+                    لقد كانت هذه المؤلفات تجسد رؤية معرفية تقوم على أولوية الفروع الفقهية والالتزام بالمذهب باعتباره ضامناً للاستقرار.
+                </p>
+            </section>
+
+            <section class="uc-sec" id="s4" aria-labelledby="h-s4">
+                <p class="uc-sec-code">04</p>
+                <h2 id="h-s4">ثانياً: المؤلفات الموحدية – نقد التقليد وإعادة بناء العقيدة</h2>
+                <p>
+                    في مقابل هذا البناء الفقهي التقليدي، جاء مشروع ابن تومرت الإصلاحي ناقداً لما اعتبره انحرافاً عن أصول التوحيد. وقد تبلورت أفكاره في مجموعة من النصوص والخطب التي جمعها أتباعه في:
+                </p>
+                <div class="uc-refs two">
+                    <div class="uc-ref">
+                        <b>أعز ما يُطلب</b>
+                        <span>وهو النص العقدي المؤسس للفكر الموحدي، الذي ركز على تنزيه الله ومحاربة التشبيه.</span>
+                    </div>
+                    <div class="uc-ref">
+                        <b>رسائل التوحيد والخطب الإصلاحية</b>
+                        <span>التي دعت إلى تجاوز الجمود الفقهي والعودة إلى أصول الدين.</span>
+                    </div>
+                </div>
+
+                <div class="uc-card hl">
+                    <h3>صراع النموذجين المعرفيين</h3>
+                    <p>
+                        لم يكن الخلاف إذن خلافاً فقهياً فحسب، بل كان صراعاً بين نموذجين معرفيين:
+                    </p>
+                    <ul class="uc-list">
+                        <li>نموذج فقهي محافظ يقدّم الفروع ويؤكد التقليد.</li>
+                        <li>ونموذج عقدي إصلاحي يقدّم أصول العقيدة ويدعو إلى الاجتهاد.</li>
+                    </ul>
+                    <p>
+                        وقد انعكس هذا الصراع في المناظرات التي شهدتها مراكش، خاصة في محيط جامع ابن يوسف، حيث اصطدم خطاب المهدي الموحدي بخطاب فقهاء المالكية المدعومين من السلطة المرابطية.
+                    </p>
+                </div>
+            </section>
+
+            <section class="uc-sec" id="s5" aria-labelledby="h-s5">
+                <p class="uc-sec-code">05</p>
+                <h2 id="h-s5">ثالثاً: من الصراع إلى التوليف – ازدهار الفكر في العهد الموحدي</h2>
+                <p>
+                    بعد قيام الدولة الموحدية، لم يُلغَ الإرث المالكي، بل أعيد تأطيره داخل مشروع سياسي جديد. وبرزت في هذه المرحلة مؤلفات كبرى جمعت بين الفقه والفلسفة والكلام، مثل:
+                </p>
+                <ul class="uc-list">
+                    <li>شروح ابن رشد الحفيد الفلسفية والفقهية.</li>
+                    <li>مؤلفات علم الكلام التي ازدهرت في البلاط الموحدي.</li>
+                </ul>
+                <p>
+                    وهكذا تحول الصراع إلى دينامية تجديد، سمحت بظهور علماء موسوعيين يجمعون بين النقل والعقل، وكان القاضي عياض أحد أبرز رموز هذه المرحلة الانتقالية.
+                </p>
+            </section>
+
+            <section class="uc-sec" id="s6" aria-labelledby="h-s6">
+                <p class="uc-sec-code">06</p>
+                <h2 id="h-s6">رابعاً: جامع ابن يوسف – الحاضنة التاريخية للصراع والإنتاج العلمي</h2>
+                <p>
+                    كان جامع ابن يوسف مسرحاً لهذه التحولات. فمن خلال حلقاته العلمية، انتقلت كتب المالكية، ومن خلال مناظراته، طُرحت أفكار الموحدين. وهكذا لم يكن الجامع مجرد معلمة دينية، بل مؤسسة لإنتاج المعرفة وصياغة الشرعية.
+                </p>
+                <p>
+                    وعندما تحول سنة 1939 إلى "جامعة ابن يوسف"، ظل وفياً لهذا التقليد القائم على دراسة الفقه والحديث واللغة ضمن نظام الأسلاك الثلاثة، ومنح شهادة "العالمية"، مما حافظ على استمرارية الإرث الوسيط.
+                </p>
+            </section>
+
+            <section class="uc-sec" id="s7" aria-labelledby="h-s7">
+                <p class="uc-sec-code">07</p>
+                <h2 id="h-s7">من جامع إلى جامعة</h2>
+                <p>
+                    لقد تحول جامع ابن يوسف في مراكش سنة 1939 من مؤسسة دينية تحمل اسم "الجامع" إلى مؤسسة تعليمية عليا "جامعة" تعنى بالدراسات الإسلامية المتخصصة في علوم القرآن والحديث والفقه والأصول وعلوم النحو والصرف، والبلاغة والعروض والتاريخ والجغرافية والرياضيات والمنطق والفلسفة، وفنون الآداب. ومنذ أن أصبحت هذه المؤسسة تحمل اسم "جامعة ابن يوسف" غدت تخضع في نظامها الدراسي إلى النظام الذي حدده المكلفون عن التعليم الأصلي في المغرب، والذي يجتاز فيه الطالب ثلاثة أسلاك، وهي:
+                </p>
+
+                <h3 class="uc-subhead">الأسلاك التعليمية الثلاثة</h3>
+                <div class="uc-levels">
+                    <div class="uc-level">
+                        <p class="uc-level-time">3 سنوات</p>
+                        <div>
+                            <h3>سلك التعليم الأولي</h3>
+                            <p>ويتم خلاله قبول الطلاب المتمكنين من حفظ القرآن الكريم وبعض متون الفقه ومبادئ النحو والحساب وحفظ بعض روائع الشعر العربي يقضي الطالب في هذا السلك مدة ثلاث سنوات.</p>
+                        </div>
+                    </div>
+                    <div class="uc-level">
+                        <p class="uc-level-time">6 سنوات</p>
+                        <div>
+                            <h3>سلك التعليم الثانوي</h3>
+                            <p>يقبل في هذا السلك الطلاب الذين اجتازوا امتحانات السلك الأول بنجاح، ومدته ست سنوات. وتركز الدراسة خلال هذه السنوات على اكتساب مواد الفقه والفرائض والبلاغة والبيان وتاريخ الإسلام الديني والسياسي.</p>
+                        </div>
+                    </div>
+                    <div class="uc-level">
+                        <p class="uc-level-time">3 سنوات</p>
+                        <div>
+                            <h3>سلك التعليم العالي، النهائي</h3>
+                            <p>يقبل في هذا السلك الأخير الطلبة الناجحون في نهاية السلك السابق ونظامه الدراسي شبيه بما يتم في جامعة القرويين بفاس. يقضي الطالب مدة ثلاث سنوات في هذا السلك يعمق معارفه في الفقه والأصول وتفسير القرآن الكريم. وإذا تخصص الطالب في الآداب فإنه يركز على دراسة التاريخ والنقد الأدبي وعلم الاجتماع الخلدوني، في حين يركز على التعمق في الحديث إذا اختص في العلوم الشرعية. يحصل الطالب الناجح في امتحان التخرج على شهادة "العالمية"، كما تدعى، بعد النجاح في كتابي وآخر شفاهي وإلقاء محاضرة خاصة تحدد اللجنة موضوعها والشهادة التي يحصل عليها معترف بها.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="uc-levels-note">مجموع المسار: 12 سنة · 3 + 6 + 3</p>
+            </section>
+
+            <section class="uc-sec" id="s8" aria-labelledby="h-s8">
+                <p class="uc-sec-code">08</p>
+                <h2 id="h-s8">طرق التدريس</h2>
+                <p>
+                    لا تختلف طريقة التدريس في جامعة ابن يوسف عن غيرها من المعاهد العلمية الجامعات المغربية الأصيلة الأخرى، حيث كانت جل الحلقات الدراسية النهارية تعقد في جامع ابن يوسف ويشرف عليها كبار العلماء. في حين كانت الحلقات الدراسية الليلية تعقد في الزوايا والأضرحة والمساجد الصغيرة؛ وبما أنها كانت تقدم إلى عامة الناس فقد كانت تتعرض للمواضيع العامة. كانت تشغل من الأسبوع خمسة أيام، أي من يوم السبت إلى يوم الأربعاء، بينما تخصص حلقات يومي الخميس والجمعة صباحا للتعليق على مختلف النصوص، كما كان العلماء بهذه الجامعة يقتصرون أيام العطل والمناسبات الدينية على شرح كتب السيرة والحديث.
+                </p>
+
+                <div class="uc-sched" aria-label="جدول الحلقات الدراسية">
+                    <div><b>الثامنة صباحاً</b><span>الفقه ثم النحو إلى منتصف النهار</span></div>
+                    <div><b>بعد صلاة الظهر</b><span>حلقات البلاغة والإعراب</span></div>
+                    <div><b>بعد صلاة العصر</b><span>الشروح والتفسير</span></div>
+                    <div><b>السبت — الأربعاء</b><span>حلقات نهارية في جامع ابن يوسف</span></div>
+                    <div><b>الخميس والجمعة صباحاً</b><span>التعليق على مختلف النصوص</span></div>
+                    <div><b>العطل والمناسبات</b><span>شرح كتب السيرة والحديث</span></div>
+                </div>
+
+                <p>
+                    أما بالنسبة لمواعيد الدرس، فقد كانت الحلقات الدراسية، تبدأ في الثامنة صباحا، وعادة ما كانت للفقه ثم النحو إلى منتصف النهار، لتبدأ بعد صلاة الظهر حلقات البلاغة والإعراب، أما بعد صلاة العصر، فقد كانت الحلقات العلمية تخصص للشروح والتفسير.
+                </p>
+
+                <blockquote class="uc-quote">
+                    <p>إن الصراع بين أنصار المهدي الموحدي وفقهاء المالكية لم يكن مجرد مواجهة سياسية، بل كان صراعاً حول طبيعة المعرفة الدينية وموقعها في المجتمع. وقد أفرز هذا الصراع تراثاً علمياً غنياً تجسد في مؤلفات فقهية وعقدية كبرى، احتضنها جامع ابن يوسف وشكلت أساس الهوية العلمية لمراكش. ومن هذا الإرث الوسيط، ولدت جامعة القاضي عياض باعتبارها امتداداً مؤسساتياً لذاكرة علمية متجذرة، تؤكد أن تاريخ الجامعة هو في جوهره تاريخ جدل فكري، وتجدد معرفي، واستمرارية حضارية عبر العصور.</p>
                 </blockquote>
-            </div>
+            </section>
 
-            <div class="prose prose-lg prose-stone max-w-none rtl text-right space-y-12">
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        المقدمة
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p class="text-lg">
-                            تمثل جامعة القاضي عياض بمراكش حلقة متأخرة في سلسلة تاريخية تعود جذورها إلى القرن السادس الهجري، حين تشكلت في المدينة نواة حاضرة علمية كبرى في ظل الدولتين المرابطية والموحدية. فمن جامع ابن يوسف الذي أسسه الأمير علي بن يوسف بن تاشفين سنة 514هـ، انطلقت دينامية علمية ستصبح مسرحاً لصراع فكري عميق بين أنصار المذهب المالكي المدعوم من السلطة المرابطية، وأنصار الحركة الموحدية بزعامة محمد بن تومرت.
-                        </p>
-                    </div>
-                </div>
+            <section class="uc-sec" id="s9" aria-labelledby="h-s9">
+                <p class="uc-sec-code">09</p>
+                <h2 id="h-s9">خامساً: جامعة القاضي عياض وريثة جامعة ابن يوسف</h2>
+                <p>
+                    عندما تأسست جامعة القاضي عياض سنة 1978، لم تكن مجرد مؤسسة تعليمية حديثة، بل كانت استعادة واعية لذاكرة علمية تعود إلى العصرين المرابطي والموحدي...
+                </p>
+                <p>
+                    إن اختيار اسم القاضي عياض يرمز إلى:
+                </p>
+                <ul class="uc-list">
+                    <li>الامتداد المالكي السني.</li>
+                    <li>الروح الموسوعية التي طبعت القرن السادس الهجري.</li>
+                    <li>التفاعل الخلاق بين الجدل الفكري والاستقرار المؤسسي.</li>
+                </ul>
+                <p>
+                    وقد واصلت كلية الآداب والعلوم الإنسانية، خاصة شعبة التاريخ والدراسات الإسلامية والأدب العربي والفلسفة..، إعادة قراءة تلك المرحلة من خلال تحقيق المخطوطات ودراسة البنيات الاجتماعية والسياسية للعصرين المرابطي والموحدي، مما أعاد إدماج تلك المؤلفات في البحث الأكاديمي الحديث.
+                </p>
+            </section>
 
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        من هو القاضي عياض؟
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 md:p-8">
-                            <h3 class="text-2xl font-bold text-amber-800 mb-4">القاضي عياض: بين الإرث الفكري في المغرب الوسيط والشخصية التاريخية المؤثرة</h3>
-                            <p class="mb-4">
-                                يمثل القاضي عياض نموذجاً متفرداً في التاريخ الإسلامي، يجمع بين الفقه، القضاء، والتأليف العلمي، كما تُعدّ شخصيته حلقة وصل حقيقية بين الفكر العلمي للمغرب الوسيط ومجالات المعرفة الحديثة في التعليم الشرعي والفلسفي. ليس فقط بوصفه عالماً أو قاضياً، بل كرائد فكري ساهم في بناء أساس معرفي عميق استمر أثره لقرون لاحقة.
-                            </p>
-                            <p>
-                                يُعدّ القاضي عياض بن موسى اليحصبي (494–544 هـ / 1099–1149 م) أحد أبرز علماء الفقه المالكي في حقبة العصور الوسطى الإسلامية. وقد شكّل اسمه علامة بارزة في تاريخ الثقافة الإسلامية في المغرب، نظراً لإسهاماته العلمية المحكمة، ومكانته الكبيرة في النظام القضائي، وتأثيره المستمر في التراث الفكري للمغرب والأندلس.
-                            </p>
-                        </div>
+            <section class="uc-sec" id="s10" aria-labelledby="h-s10">
+                <p class="uc-sec-code">10</p>
+                <h2 id="h-s10">السياق التاريخي لنشأة الجامعة</h2>
+                <p>
+                    إن الحديث عن تاريخ جامعة القاضي عياض يقتضي من المؤرخ التزام رؤية منهجية تتجاوز السرد الكرونولوجي للأحداث، لتغوص في عمق التحولات التي شهدها المغرب في فترة ما بعد الاستقلال. ففي سياق سياسة اللامركزية الأكاديمية التي انتهجتها الدولة المغربية خلال عقدي السبعينيات والثمانينيات من القرن العشرين، والتي هدفت إلى توزيع المؤسسات الجامعية على مختلف جهات المملكة لتقريب العلم من الطلبة وتخفيف الضغط على جامعات الرباط وفاس التاريخية، برزت الحاجة الماسة إلى إنشاء قطب جامعي كبير في جنوب البلاد لتلبية الطموحات التنموية والاجتماعية للمنطقة.
+                </p>
+                <p>
+                    لم يكن اختيار اسم "القاضي عياض" لهذا الصرح العلمي اختياراً اعتباطياً، بل كان فعلاً ثقافياً وسياسياً بليغاً، يهدف إلى تكريم أحد أعظم أعلام مراكش والعالم الإسلامي، القاضي أبو الفضل عياض بن موسى اليحصبي السبتي (ت. 544 هـ / 1149 م)، الذي جمع بين الفقه والحديث والتاريخ والأدب. وبهذا التكريم، تم ربط الجامعة الحديثة بإرث علمي عريق، وتأكيد على أن هذا الصرح الجديد هو امتداد طبيعي لمنارات العلم التاريخية التي اشتهرت بها مراكش عبر العصور، كجامع ابن يوسف، مما يمنح المؤسسة الفتية عمقاً تاريخياً وشرعية معرفية.
+                </p>
+            </section>
 
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-6 md:p-8 space-y-4">
-                            <h3 class="text-2xl font-bold text-amber-800">السيرة العلمية والمسار التعليمي</h3>
-                            <p>
-                                نشأ القاضي عياض في مدينة مراكش في بيئة علمية، فتلقى علومه الأساسية والشاملة في الفقه، الحديث، اللغة العربية، والعلوم الشرعية في المغرب والأندلس. واتسمت مسيرته باندماج بين التعليم النظري والتطبيق القضائي العملي، ما جعله نموذجاً فريداً للفقيه الذي يجمع بين العلم والعمل.
-                            </p>
-                        </div>
-
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-6 md:p-8 space-y-4">
-                            <h3 class="text-2xl font-bold text-amber-800">دوره القضائي والوظيفة العامة</h3>
-                            <p>
-                                تبوأ القاضي عياض منصب قاضي مدينة مراكش في ظلّ الدولة المرابطية، ولاحقاً في عصر الدولة الموحدية. وقد تميّز بالعدالة، الدقة في استنباط الأحكام، والتمسّك الصارم بمبادئ المذهب المالكي. وهذه المواقف العملية عزّزت دوره في تعزيز التقاليد القانونية القائمة، وجعلت منه شخصية تحظى بالاحترام والسمعة الطيبة داخل المجتمع وخارجه.
-                            </p>
-                        </div>
-
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-6 md:p-8 space-y-4">
-                            <h3 class="text-2xl font-bold text-amber-800">إسهاماته الفكرية ومؤلفاته</h3>
-                            <p class="mb-4">
-                                انصبّت أهمّ إسهامات القاضي عياض في كتابة وتأليف مؤلفات علمية ذات قيمة عالية، منها:
-                            </p>
-                            <ul class="list-none space-y-3 pt-2">
-                                <li class="flex items-start">
-                                    <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm me-4 mt-1 flex-shrink-0">1</span>
-                                    <span><strong>"الشفا بتعريف حقوق المصطفى":</strong> عمل موسوعي يتناول السيرة النبوية وحقوق النبي ﷺ، ويُعد مرجعاً أساسياً للباحثين في السيرة والحديث.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm me-4 mt-1 flex-shrink-0">2</span>
-                                    <span><strong>"توضيح المدارك في أحكام الفرائض":</strong> من أبرز ما كُتب في الفقه المالكي في القضايا الشرعية المتعلقة بالمواريث.</span>
-                                </li>
-                            </ul>
-                            <p class="mt-4">
-                                وقد امتازت مؤلفات القاضي عياض بعمق التحليل، قوة المنهج، واتساع المعارف، ما جعلها دعامات صلبة في مكتبات المدارس الشرعية والجامعات الإسلامية في المغرب والأندلس.
-                            </p>
-                        </div>
-
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-6 md:p-8 space-y-4">
-                            <h3 class="text-2xl font-bold text-amber-800">مكانته في الإرث العلمي المغربي</h3>
-                            <p>
-                                يُنظر إلى القاضي عياض اليوم كأحد القنوات الأساسية التي نقلت التراث الفكري للدولة المرابطية والموحدية إلى الأجيال اللاحقة. فكان واحداً من القلائل الذين حافظوا على قواعد الفقه المالكي، وأعادوا صياغتها في ضوء الواقع العلمي والاجتماعي في وقتهم. وقد ساهم ذلك في صيانة الهوية العلمية في المغرب عبر القرون.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        أولاً: المؤلفات المرابطية – ترسيخ الفقه المالكي وسلطة التقليد
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p>
-                            في ظل الدولة المرابطية، تشكلت هوية علمية واضحة قوامها الفقه المالكي والالتزام بالتقليد المذهبي. وقد انعكس هذا التوجه في جملة من المؤلفات التي كانت تُدرّس في حلقات جامع ابن يوسف، ومن أبرزها:
-                        </p>
-                        <ul class="list-disc pr-8 space-y-3 mt-4 text-stone-700">
-                            <li><strong>المدونة الكبرى:</strong> التي شكلت المرجع الفقهي الأساس في الغرب الإسلامي، واعتمدها فقهاء مراكش في القضاء والإفتاء.</li>
-                            <li><strong>البيان والتحصيل لابن رشد الجد:</strong> الذي مثّل ذروة الشرح الفقهي والتحقيق داخل المذهب المالكي.</li>
-                            <li><strong>الشفا بتعريف حقوق المصطفى للقاضي عياض:</strong> وهو كتاب يجمع بين الفقه والحديث والسيرة، ويعكس روح الدفاع عن المرجعية السنية في مرحلة التحولات السياسية.</li>
-                        </ul>
-                        <p class="mt-4">
-                            لقد كانت هذه المؤلفات تجسد رؤية معرفية تقوم على أولوية الفروع الفقهية والالتزام بالمذهب باعتباره ضامناً للاستقرار.
-                        </p>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        ثانياً: المؤلفات الموحدية – نقد التقليد وإعادة بناء العقيدة
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p>
-                            في مقابل هذا البناء الفقهي التقليدي، جاء مشروع ابن تومرت الإصلاحي ناقداً لما اعتبره انحرافاً عن أصول التوحيد. وقد تبلورت أفكاره في مجموعة من النصوص والخطب التي جمعها أتباعه في:
-                        </p>
-                        <ul class="list-disc pr-8 space-y-3 mt-4 text-stone-700">
-                            <li><strong>أعز ما يُطلب:</strong> وهو النص العقدي المؤسس للفكر الموحدي، الذي ركز على تنزيه الله ومحاربة التشبيه.</li>
-                            <li><strong>رسائل التوحيد والخطب الإصلاحية:</strong> التي دعت إلى تجاوز الجمود الفقهي والعودة إلى أصول الدين.</li>
-                        </ul>
-                        <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 md:p-8 mt-6">
-                            <h4 class="text-xl font-bold text-amber-800 mb-4">صراع النموذجين المعرفيين</h4>
-                            <p class="mb-4">
-                                لم يكن الخلاف إذن خلافاً فقهياً فحسب، بل كان صراعاً بين نموذجين معرفيين:
-                            </p>
-                            <ul class="list-disc pr-8 space-y-2 text-stone-700">
-                                <li>نموذج فقهي محافظ يقدّم الفروع ويؤكد التقليد.</li>
-                                <li>ونموذج عقدي إصلاحي يقدّم أصول العقيدة ويدعو إلى الاجتهاد.</li>
-                            </ul>
-                            <p class="mt-4">
-                                وقد انعكس هذا الصراع في المناظرات التي شهدتها مراكش، خاصة في محيط جامع ابن يوسف، حيث اصطدم خطاب المهدي الموحدي بخطاب فقهاء المالكية المدعومين من السلطة المرابطية.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        ثالثاً: من الصراع إلى التوليف – ازدهار الفكر في العهد الموحدي
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p>
-                            بعد قيام الدولة الموحدية، لم يُلغَ الإرث المالكي، بل أعيد تأطيره داخل مشروع سياسي جديد. وبرزت في هذه المرحلة مؤلفات كبرى جمعت بين الفقه والفلسفة والكلام، مثل:
-                        </p>
-                        <ul class="list-disc pr-8 space-y-3 mt-4 text-stone-700">
-                            <li>شروح ابن رشد الحفيد الفلسفية والفقهية.</li>
-                            <li>مؤلفات علم الكلام التي ازدهرت في البلاط الموحدي.</li>
-                        </ul>
-                        <p class="mt-4">
-                            وهكذا تحول الصراع إلى دينامية تجديد، سمحت بظهور علماء موسوعيين يجمعون بين النقل والعقل، وكان القاضي عياض أحد أبرز رموز هذه المرحلة الانتقالية.
-                        </p>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        رابعاً: جامع ابن يوسف – الحاضنة التاريخية للصراع والإنتاج العلمي
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p>
-                            كان جامع ابن يوسف مسرحاً لهذه التحولات. فمن خلال حلقاته العلمية، انتقلت كتب المالكية، ومن خلال مناظراته، طُرحت أفكار الموحدين. وهكذا لم يكن الجامع مجرد معلمة دينية، بل مؤسسة لإنتاج المعرفة وصياغة الشرعية.
-                        </p>
-                        <p>
-                            وعندما تحول سنة 1939 إلى "جامعة ابن يوسف"، ظل وفياً لهذا التقليد القائم على دراسة الفقه والحديث واللغة ضمن نظام الأسلاك الثلاثة، ومنح شهادة "العالمية"، مما حافظ على استمرارية الإرث الوسيط.
-                        </p>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        من جامع إلى جامعة
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p>
-                            لقد تحول جامع ابن يوسف في مراكش سنة 1939 من مؤسسة دينية تحمل اسم "الجامع" إلى مؤسسة تعليمية عليا "جامعة" تعنى بالدراسات الإسلامية المتخصصة في علوم القرآن والحديث والفقه والأصول وعلوم النحو والصرف، والبلاغة والعروض والتاريخ والجغرافية والرياضيات والمنطق والفلسفة، وفنون الآداب. ومنذ أن أصبحت هذه المؤسسة تحمل اسم "جامعة ابن يوسف" غدت تخضع في نظامها الدراسي إلى النظام الذي حدده المكلفون عن التعليم الأصلي في المغرب، والذي يجتاز فيه الطالب ثلاثة أسلاك، وهي:
-                        </p>
-
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-6 md:p-8 space-y-4">
-                            <h3 class="text-2xl font-bold text-amber-800">الأسلاك التعليمية الثلاثة</h3>
-                            <ul class="list-none space-y-3 pt-2">
-                                <li class="flex items-start">
-                                    <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm me-4 mt-1 flex-shrink-0">1</span>
-                                    <span><strong>سلك التعليم الأولي:</strong> ويتم خلاله قبول الطلاب المتمكنين من حفظ القرآن الكريم وبعض متون الفقه ومبادئ النحو والحساب وحفظ بعض روائع الشعر العربي يقضي الطالب في هذا السلك مدة ثلاث سنوات.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm me-4 mt-1 flex-shrink-0">2</span>
-                                    <span><strong>سلك التعليم الثانوي:</strong> يقبل في هذا السلك الطلاب الذين اجتازوا امتحانات السلك الأول بنجاح، ومدته ست سنوات. وتركز الدراسة خلال هذه السنوات على اكتساب مواد الفقه والفرائض والبلاغة والبيان وتاريخ الإسلام الديني والسياسي.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm me-4 mt-1 flex-shrink-0">3</span>
-                                    <span><strong>سلك التعليم العالي، النهائي:</strong> يقبل في هذا السلك الأخير الطلبة الناجحون في نهاية السلك السابق ونظامه الدراسي شبيه بما يتم في جامعة القرويين بفاس. يقضي الطالب مدة ثلاث سنوات في هذا السلك يعمق معارفه في الفقه والأصول وتفسير القرآن الكريم. وإذا تخصص الطالب في الآداب فإنه يركز على دراسة التاريخ والنقد الأدبي وعلم الاجتماع الخلدوني، في حين يركز على التعمق في الحديث إذا اختص في العلوم الشرعية. يحصل الطالب الناجح في امتحان التخرج على شهادة "العالمية"، كما تدعى، بعد النجاح في كتابي وآخر شفاهي وإلقاء محاضرة خاصة تحدد اللجنة موضوعها والشهادة التي يحصل عليها معترف بها.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        طرق التدريس
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-6 md:p-8 space-y-4">
-                            <p>
-                                لا تختلف طريقة التدريس في جامعة ابن يوسف عن غيرها من المعاهد العلمية الجامعات المغربية الأصيلة الأخرى، حيث كانت جل الحلقات الدراسية النهارية تعقد في جامع ابن يوسف ويشرف عليها كبار العلماء. في حين كانت الحلقات الدراسية الليلية تعقد في الزوايا والأضرحة والمساجد الصغيرة؛ وبما أنها كانت تقدم إلى عامة الناس فقد كانت تتعرض للمواضيع العامة. كانت تشغل من الأسبوع خمسة أيام، أي من يوم السبت إلى يوم الأربعاء، بينما تخصص حلقات يومي الخميس والجمعة صباحا للتعليق على مختلف النصوص، كما كان العلماء بهذه الجامعة يقتصرون أيام العطل والمناسبات الدينية على شرح كتب السيرة والحديث.
-                            </p>
-                            <p>
-                                أما بالنسبة لمواعيد الدرس، فقد كانت الحلقات الدراسية، تبدأ في الثامنة صباحا، وعادة ما كانت للفقه ثم النحو إلى منتصف النهار، لتبدأ بعد صلاة الظهر حلقات البلاغة والإعراب، أما بعد صلاة العصر، فقد كانت الحلقات العلمية تخصص للشروح والتفسير.
-                            </p>
-                        </div>
-
-                        <blockquote class="bg-stone-50 border-r-4 border-amber-500 pr-6 py-4 my-8 rounded-lg italic text-xl text-stone-700">
-                            <p>إن الصراع بين أنصار المهدي الموحدي وفقهاء المالكية لم يكن مجرد مواجهة سياسية، بل كان صراعاً حول طبيعة المعرفة الدينية وموقعها في المجتمع. وقد أفرز هذا الصراع تراثاً علمياً غنياً تجسد في مؤلفات فقهية وعقدية كبرى، احتضنها جامع ابن يوسف وشكلت أساس الهوية العلمية لمراكش. ومن هذا الإرث الوسيط، ولدت جامعة القاضي عياض باعتبارها امتداداً مؤسساتياً لذاكرة علمية متجذرة، تؤكد أن تاريخ الجامعة هو في جوهره تاريخ جدل فكري، وتجدد معرفي، واستمرارية حضارية عبر العصور.</p>
-                        </blockquote>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        خامساً: جامعة القاضي عياض وريثة جامعة ابن يوسف
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p>
-                            عندما تأسست جامعة القاضي عياض سنة 1978، لم تكن مجرد مؤسسة تعليمية حديثة، بل كانت استعادة واعية لذاكرة علمية تعود إلى العصرين المرابطي والموحدي...
-                        </p>
-                        <p>
-                            إن اختيار اسم القاضي عياض يرمز إلى:
-                        </p>
-                        <ul class="list-disc pr-8 space-y-2 text-stone-700">
-                            <li>الامتداد المالكي السني.</li>
-                            <li>الروح الموسوعية التي طبعت القرن السادس الهجري.</li>
-                            <li>التفاعل الخلاق بين الجدل الفكري والاستقرار المؤسسي.</li>
-                        </ul>
-                        <p>
-                            وقد واصلت كلية الآداب والعلوم الإنسانية، خاصة شعبة التاريخ والدراسات الإسلامية والأدب العربي والفلسفة..، إعادة قراءة تلك المرحلة من خلال تحقيق المخطوطات ودراسة البنيات الاجتماعية والسياسية للعصرين المرابطي والموحدي، مما أعاد إدماج تلك المؤلفات في البحث الأكاديمي الحديث.
-                        </p>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        السياق التاريخي لنشأة الجامعة
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p>
-                            إن الحديث عن تاريخ جامعة القاضي عياض يقتضي من المؤرخ التزام رؤية منهجية تتجاوز السرد الكرونولوجي للأحداث، لتغوص في عمق التحولات التي شهدها المغرب في فترة ما بعد الاستقلال. ففي سياق سياسة اللامركزية الأكاديمية التي انتهجتها الدولة المغربية خلال عقدي السبعينيات والثمانينيات من القرن العشرين، والتي هدفت إلى توزيع المؤسسات الجامعية على مختلف جهات المملكة لتقريب العلم من الطلبة وتخفيف الضغط على جامعات الرباط وفاس التاريخية، برزت الحاجة الماسة إلى إنشاء قطب جامعي كبير في جنوب البلاد لتلبية الطموحات التنموية والاجتماعية للمنطقة.
-                        </p>
-                        <p>
-                            لم يكن اختيار اسم "القاضي عياض" لهذا الصرح العلمي اختياراً اعتباطياً، بل كان فعلاً ثقافياً وسياسياً بليغاً، يهدف إلى تكريم أحد أعظم أعلام مراكش والعالم الإسلامي، القاضي أبو الفضل عياض بن موسى اليحصبي السبتي (ت. 544 هـ / 1149 م)، الذي جمع بين الفقه والحديث والتاريخ والأدب. وبهذا التكريم، تم ربط الجامعة الحديثة بإرث علمي عريق، وتأكيد على أن هذا الصرح الجديد هو امتداد طبيعي لمنارات العلم التاريخية التي اشتهرت بها مراكش عبر العصور، كجامع ابن يوسف، مما يمنح المؤسسة الفتية عمقاً تاريخياً وشرعية معرفية.
-                        </p>
-                    </div>
-                </div>
-
-                <div data-controller="reveal-animation">
-                    <h2 class="text-3xl font-bold text-amber-900 border-b-2 border-amber-500/50 pb-3 mb-8">
-                        الإصلاحات الجامعية بعد الاستقلال ودور الجامعة في التنمية الجهوية
-                    </h2>
-                    <div class="space-y-6 text-stone-800 leading-loose">
-                        <p>
-                            مع الاستقلال في 1956، أصبحت الدولة المغربية تواجه تحدياً كبيراً في بناء نظام تعليمي وطني يلبي احتياجات التنمية والحداثة. فقد كانت الجامعات الموجودة، مثل جامعة محمد الخامس في الرباط، غير قادرة على استيعاب الطلب المتزايد على التعليم العالي. لذلك، انتهجت الحكومة سياسة توسع جامعي، بدءاً بإنشاء جامعة الحسن الثاني في الدار البيضاء عام 1973، ثم جامعة القاضي عياض في 1978. هذه السياسة لم تكن مجرد توسع كمي، بل كانت تعكس رؤية استراتيجية للتنمية الجهوية، حيث رأت الحكومة في الجامعات أداة لتحقيق التوازن الإقليمي ومكافحة الهجرة نحو المدن الكبرى.
-                        </p>
-                        <p>
-                            في حالة مراكش، كانت الجامعة مدعوة للعب دور محوري في تنمية الجنوب، من خلال تكوين الكفاءات المحلية وإجراء البحوث التي تلبي احتياجات المنطقة، مثل دراسات الموارد المائية والزراعة والسياحة. هذا الدور التنموي انعكس في تخصصات الجامعة الأولى، التي ركزت على العلوم التطبيقية والإنسانيات، مما جعلها جسراً بين التراث المحلي والحداثة العلمية.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <section class="uc-sec" id="s11" aria-labelledby="h-s11">
+                <p class="uc-sec-code">11</p>
+                <h2 id="h-s11">الإصلاحات الجامعية بعد الاستقلال ودور الجامعة في التنمية الجهوية</h2>
+                <p>
+                    مع الاستقلال في 1956، أصبحت الدولة المغربية تواجه تحدياً كبيراً في بناء نظام تعليمي وطني يلبي احتياجات التنمية والحداثة. فقد كانت الجامعات الموجودة، مثل جامعة محمد الخامس في الرباط، غير قادرة على استيعاب الطلب المتزايد على التعليم العالي. لذلك، انتهجت الحكومة سياسة توسع جامعي، بدءاً بإنشاء جامعة الحسن الثاني في الدار البيضاء عام 1973، ثم جامعة القاضي عياض في 1978. هذه السياسة لم تكن مجرد توسع كمي، بل كانت تعكس رؤية استراتيجية للتنمية الجهوية، حيث رأت الحكومة في الجامعات أداة لتحقيق التوازن الإقليمي ومكافحة الهجرة نحو المدن الكبرى.
+                </p>
+                <p>
+                    في حالة مراكش، كانت الجامعة مدعوة للعب دور محوري في تنمية الجنوب، من خلال تكوين الكفاءات المحلية وإجراء البحوث التي تلبي احتياجات المنطقة، مثل دراسات الموارد المائية والزراعة والسياحة. هذا الدور التنموي انعكس في تخصصات الجامعة الأولى، التي ركزت على العلوم التطبيقية والإنسانيات، مما جعلها جسراً بين التراث المحلي والحداثة العلمية.
+                </p>
+            </section>
         </article>
     </div>
 </section>
+
+<section class="uc-timeline" id="timeline" aria-labelledby="h-timeline">
+    <div class="uc-wrap">
+        <div class="uc-band-head">
+            <h2 id="h-timeline">الخط الزمني</h2>
+            <p>514هـ — 1978</p>
+        </div>
+        <div class="uc-tl">
+            <div class="uc-tl-item">
+                <span class="uc-tl-date">494–544هـ</span>
+                <h3>حياة القاضي عياض</h3>
+                <p>1099–1149م، فقيه المالكية وقاضي مراكش.</p>
+            </div>
+            <div class="uc-tl-item">
+                <span class="uc-tl-date">514هـ</span>
+                <h3>جامع ابن يوسف</h3>
+                <p>أسسه الأمير علي بن يوسف بن تاشفين.</p>
+            </div>
+            <div class="uc-tl-item">
+                <span class="uc-tl-date">1939</span>
+                <h3>جامعة ابن يوسف</h3>
+                <p>تحوّل الجامع إلى مؤسسة تعليمية عليا.</p>
+            </div>
+            <div class="uc-tl-item">
+                <span class="uc-tl-date">1956</span>
+                <h3>الاستقلال</h3>
+                <p>بداية بناء نظام تعليمي وطني.</p>
+            </div>
+            <div class="uc-tl-item">
+                <span class="uc-tl-date">1973</span>
+                <h3>جامعة الحسن الثاني</h3>
+                <p>إنشاؤها بالدار البيضاء ضمن سياسة التوسع الجامعي.</p>
+            </div>
+            <div class="uc-tl-item">
+                <span class="uc-tl-date">1978</span>
+                <h3>جامعة القاضي عياض</h3>
+                <p>تأسيسها بمراكش، وريثةً لذاكرة علمية متجذرة.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="uc-next" aria-label="روابط ذات صلة">
+    <div class="uc-wrap uc-next-grid">
+        <p class="uc-next-label">RELATED</p>
+        <div class="uc-next-links">
+            <a href="{{ '/articles/' | relative_url }}">مدونة الدراسات التاريخية <span aria-hidden="true">←</span></a>
+            <a href="{{ '/services/' | relative_url }}">الخدمات البحثية <span aria-hidden="true">←</span></a>
+        </div>
+    </div>
+</nav>
+</div>
