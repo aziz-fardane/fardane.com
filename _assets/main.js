@@ -19,11 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleHeaderScroll() {
         if (window.scrollY > scrollThreshold) {
-            header.classList.add('bg-sand-50', 'shadow-sm');
-            header.classList.remove('bg-transparent');
+            header.classList.add('scrolled');
         } else {
-            header.classList.remove('bg-sand-50', 'shadow-sm');
-            header.classList.add('bg-transparent');
+            header.classList.remove('scrolled');
         }
     }
 
@@ -55,19 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 
-    // Active link indication
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('nav a');
-
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (linkPath === currentPath ||
-            (currentPath === '/' && linkPath === '/') ||
-            (currentPath.includes(linkPath) && linkPath !== '/')) {
-            link.classList.add('text-amber-600', 'font-bold');
-            link.classList.remove('text-stone-700');
-        }
-    });
+    // Active link indication is owned by header_controller.js
+    // (highlightCurrentPage), which knows about the masthead underline too.
 
     // Initialize any carousels using native JavaScript
     const carousels = document.querySelectorAll('.carousel');

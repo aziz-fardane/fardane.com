@@ -1,153 +1,61 @@
 <!-- Footer -->
-<footer class="bg-stone-900 text-white py-12 dir-rtl">
-    <!-- Pattern Background -->
-    <div class="absolute inset-0 bg-[url('{{ site.data.manifest['dist/images/patterns/arabic-water-pattern.svg'] | default: '/dist/images/patterns/arabic-water-pattern.svg' }}')] bg-center opacity-5 pointer-events-none"></div>
-
-    <div class="container mx-auto px-4 lg:px-6 relative z-10">
-        <!-- Top Footer Section -->
-        <div class="flex flex-col md:flex-row justify-between items-start gap-10">
-            <!-- About Section -->
-            <div class="mb-8 md:mb-0 md:w-2/5">
-                <div class="flex items-center mb-5">
-                    <div class="relative w-16 h-16 ml-4 shadow-xl">
-                        <!-- Decorative ring around the image -->
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-600 to-amber-400 p-0.5 animate-pulse-slow">
-                            <!-- Image container with border -->
-                            <div class="w-full h-full rounded-full border-2 border-white/30 overflow-hidden">
-                                <img src="{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}" alt="د. عزيز فردان" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                            </div>
-                        </div>
-                        <!-- Subtle glow effect -->
-                        <div class="absolute -inset-0.5 bg-amber-500/20 rounded-full blur-sm -z-10"></div>
-                    </div>
+<footer class="site-footer" dir="rtl">
+    <div class="site-shell site-footer-inner">
+        <div class="site-footer-top">
+            <div class="site-footer-about">
+                <div class="site-footer-id">
+                    <img src="{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}"
+                         alt="د. عزيز فردان" width="56" height="56" loading="lazy" decoding="async"
+                         class="site-footer-portrait">
                     <div>
-                        <h3 class="text-2xl font-bold font-maghrebi">د. عزيز فردان</h3>
-                        <p class="text-amber-400 text-sm">باحث في تاريخ النظم المائية والعمران</p>
+                        <p class="site-footer-name">د. عزيز فردان</p>
+                        <p class="site-footer-role">باحث في تاريخ النظم المائية والعمران</p>
                     </div>
                 </div>
-                <p class="text-stone-300 max-w-md leading-relaxed mb-5">
+
+                <p class="site-footer-text">
                     موقع أكاديمي متخصص في تاريخ النظم المائية والعمران في المغرب الوسيط، يهدف إلى توثيق وتحليل العلاقة بين الإنسان والماء في سياقها التاريخي والحضاري.
                 </p>
 
-                <!-- Enhanced Social Media Links with improved spacing -->
-                <div class="flex items-center gap-5 mt-4 mb-2">
-                    <!-- ORCID -->
-                    <a href="https://orcid.org/0009-0007-1033-7415" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-stone-800 hover:bg-green-700 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-green-600/30 hover:scale-105" aria-label="ORCID">
-                        <i class="fa-brands fa-orcid text-white"></i>
-                    </a>
-
-                    <!-- Academia.edu with custom styling since no FontAwesome icon exists -->
-                    <a href="https://independent.academia.edu/azizfardane" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-stone-800 hover:bg-amber-700 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-amber-600/30 hover:scale-105" aria-label="Academia.edu">
-                        <span class="text-white font-serif text-lg font-semibold">A</span>
-                    </a>
-                    
-                    <!-- Google Scholar with updated FontAwesome 6.5.1 class -->
-                    <a href="https://scholar.google.com/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-stone-800 hover:bg-amber-700 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-amber-600/30 hover:scale-105" aria-label="Google Scholar">
-                        <i class="fa-solid fa-graduation-cap text-white"></i>
-                    </a>
-                    
-                    <!-- LinkedIn with updated FontAwesome 6.5.1 class -->
-                    <a href="https://www.linkedin.com/in/aziz-fardane-gis1948/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-stone-800 hover:bg-amber-700 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-amber-600/30 hover:scale-105" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in text-white"></i>
-                    </a>
-                </div>
+                <ul class="site-footer-social">
+                    <li><a href="https://orcid.org/0009-0007-1033-7415" target="_blank" rel="noopener">ORCID</a></li>
+                    <li><a href="https://independent.academia.edu/azizfardane" target="_blank" rel="noopener">Academia.edu</a></li>
+                    <li><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a></li>
+                    <li><a href="https://www.linkedin.com/in/aziz-fardane-gis1948/" target="_blank" rel="noopener">LinkedIn</a></li>
+                </ul>
             </div>
 
-            <!-- Quick Links Grid - Adjusted to two columns -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 md:grid-cols-2 md:w-3/5">
-                <!-- Navigation Links -->
+            <div class="site-footer-cols">
                 <div>
-                    <h4 class="text-amber-400 font-bold mb-5 text-lg flex items-center">
-                        <i class="fas fa-compass ml-2 text-amber-500"></i>
-                        روابط سريعة
-                    </h4>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="/" class="text-stone-300 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                                <i class="fas fa-chevron-left text-xs text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity ml-2"></i>
-                                <span>الرئيسية</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/about" class="text-stone-300 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                                <i class="fas fa-chevron-left text-xs text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity ml-2"></i>
-                                <span>السيرة الذاتية</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/articles" class="text-stone-300 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                                <i class="fas fa-chevron-left text-xs text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity ml-2"></i>
-                                <span>أبحاث ومقالات</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/services" class="text-stone-300 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                                <i class="fas fa-chevron-left text-xs text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity ml-2"></i>
-                                <span>الخدمات البحثية</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/scientists" class="text-stone-300 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                                <i class="fas fa-chevron-left text-xs text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity ml-2"></i>
-                                <span>شخصيات تاريخية</span>
-                            </a>
-                        </li>
-                        <li class="hidden">
-                            <a href="/contact" class="text-stone-300 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                                <i class="fas fa-chevron-left text-xs text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity ml-2"></i>
-                                <span>اتصل بنا</span>
-                            </a>
-                        </li>
+                    <h2 class="site-footer-h">روابط سريعة</h2>
+                    <ul class="site-footer-list">
+                        <li><a href="/">الرئيسية</a></li>
+                        <li><a href="/about">السيرة الذاتية</a></li>
+                        <li><a href="/articles">أبحاث ومقالات</a></li>
+                        <li><a href="/services">الخدمات البحثية</a></li>
+                        <li><a href="/scientists">شخصيات تاريخية</a></li>
+                        <li class="hidden"><a href="/contact">اتصل بنا</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Information with updated details -->
                 <div>
-                    <h4 class="text-amber-400 font-bold mb-5 text-lg flex items-center">
-                        <i class="fas fa-envelope ml-2 text-amber-500"></i>
-                        معلومات التواصل
-                    </h4>
-                    <ul class="space-y-3">
-                        <!-- University Email -->
-                        <li class="flex items-start group">
-                            <i class="fas fa-envelope-open text-amber-500 ml-3 mt-1 group-hover:text-amber-400 transition-colors"></i>
-                            <a href="mailto:fardane.aziz@ced.uca.ma" class="text-stone-300 hover:text-amber-300 transition-colors duration-300">fardane.aziz@ced.uca.ma</a>
-                        </li>
-
-                        <!-- Personal Email -->
-                        <li class="flex items-start group">
-                            <i class="fas fa-envelope text-amber-500 ml-3 mt-1 group-hover:text-amber-400 transition-colors"></i>
-                            <a href="mailto:aziz.fardane@gmail.com" class="text-stone-300 hover:text-amber-300 transition-colors duration-300">aziz.fardane@gmail.com</a>
-                        </li>
-
-                        <!-- Phone with improved styling -->
-                        <li class="flex items-start group">
-                            <i class="fas fa-phone text-amber-500 ml-3 mt-1 group-hover:text-amber-400 transition-colors"></i>
-                            <a href="tel:+212641150123" class="text-stone-300 hover:text-amber-300 transition-colors duration-300" dir="ltr">+212 641 150 123</a>
-                        </li>
-
-                        <!-- WhatsApp link with greeting message -->
-                        <li class="flex items-start group">
-                            <i class="fab fa-whatsapp text-amber-500 ml-3 mt-1 group-hover:text-amber-400 transition-colors"></i>
-                            <a href="https://wa.me/212641150123?text=مرحبا%20د.%20عزيز،%20أود%20التواصل%20معكم%20بخصوص" target="_blank" class="text-stone-300 hover:text-amber-300 transition-colors duration-300">تواصل عبر واتساب</a>
-                        </li>
-
-                        <!-- ORCID -->
-                        <li class="flex items-start group">
-                            <i class="fa-brands fa-orcid text-amber-500 ml-3 mt-1 group-hover:text-amber-400 transition-colors"></i>
-                            <a href="https://orcid.org/0009-0007-1033-7415" target="_blank" class="text-stone-300 hover:text-amber-300 transition-colors duration-300" dir="ltr">0009-0007-1033-7415</a>
-                        </li>
+                    <h2 class="site-footer-h">معلومات التواصل</h2>
+                    <ul class="site-footer-list">
+                        <li><a href="mailto:fardane.aziz@ced.uca.ma">fardane.aziz@ced.uca.ma</a></li>
+                        <li><a href="mailto:aziz.fardane@gmail.com">aziz.fardane@gmail.com</a></li>
+                        <li><a href="tel:+212641150123" dir="ltr">+212 641 150 123</a></li>
+                        <li><a href="https://wa.me/212641150123?text=مرحبا%20د.%20عزيز،%20أود%20التواصل%20معكم%20بخصوص" target="_blank" rel="noopener">تواصل عبر واتساب</a></li>
+                        <li><a href="https://orcid.org/0009-0007-1033-7415" target="_blank" rel="noopener" dir="ltr">0009-0007-1033-7415</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Bottom Footer Section -->
-        <div class="border-t border-stone-700 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
-            <p class="text-stone-400 text-sm mb-4 sm:mb-0">
+        <div class="site-footer-bottom">
+            <p>
                 عزيز فردان، حاصل على درجة الدكتوراه من جامعة القاضي عياض، متخصص في التاريخ الوسيط.
             </p>
-            <p class="text-stone-400 text-sm" dir="ltr">
+            <p dir="ltr">
                 &copy; {{ 'now' | date: '%Y' }} Aziz Fardane. All rights reserved.
             </p>
         </div>

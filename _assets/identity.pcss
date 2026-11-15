@@ -1,0 +1,496 @@
+/* ==========================================================================
+   Visual identity — «الخطّ والمستوى»
+   --------------------------------------------------------------------------
+   The site borrows three things from Moroccan material culture and refuses
+   the fourth:
+
+     · from zellige  — the square grid, repetition, eight-fold symmetry;
+     · from manuscripts — the ruled line, the margin, the double rule;
+     · from the Maghrebi hand — silence and margin around the word;
+     · not the coloured tile, not the gradient, not the shadow.
+
+   Every colour below carries its measured contrast ratio. Nothing here is
+   decorative: each rule exists so a page can be built without inventing
+   another colour or another ornament.
+   ========================================================================== */
+
+@theme {
+    --color-plaster: #f4f1e9;
+    --color-paper: #faf8f2;
+    --color-paper-2: #f7f4ec;
+    --color-ink: #14201c;
+    --color-graphite: #2c3833;
+    --color-muted: #6f6a5c;
+    --color-brass: #a67a2e;
+    --color-brass-2: #c9a35f;
+    --color-brass-text: #8a6122;
+    --color-cobalt: #1f4f7a;
+    --color-clay: #a04a2e;
+    --color-night: #0b1c17;
+    --color-line: #ded7c5;
+    --color-line-strong: #cfc6b0;
+
+    --font-heading: "Reem Kufi", "Noto Kufi Arabic", system-ui, sans-serif;
+    --font-reading: "Noto Naskh Arabic", "Noto Kufi Arabic", serif;
+    --font-quote: "Aref Ruqaa", "Noto Naskh Arabic", serif;
+    --font-code: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* The identity owns its own namespace: --id-*.
+   The older pages still declare --paper, --ink, --line … on <body> or on their
+   own wrapper, and a page-level declaration wins over :root for everything
+   inside it — including the masthead and the footer. Prefixing keeps one
+   identity on every page instead of six slightly different ones.
+   The hex values below are the same ones @theme exposes to Tailwind
+   (bg-plaster, text-ink, ring-cobalt …); keep the two lists in step. */
+:root {
+    /* Ground and ink — plaster #f4f1e9 sits at 14.9:1 against ink #14201c. */
+    --id-plaster: #f4f1e9;
+    --id-paper: #faf8f2;
+    --id-paper-2: #f7f4ec;
+    --id-ink: #14201c;
+    --id-graphite: #2c3833; /* 11.5:1 — secondary text */
+    --id-muted: #6f6a5c; /* 5.1:1 — metadata */
+    --id-night: #0b1c17; /* dark bands, two per page at most */
+
+    /* Brass — the mark. 3.6:1 on paper: rules, numerals, large type only. */
+    --id-brass: #a67a2e;
+    --id-brass-2: #c9a35f; /* 7.5:1 on night */
+    --id-brass-text: #8a6122; /* 5.2:1 — the safe brass for small text */
+
+    /* Cobalt — the zellige of Fès, used only for interaction. 8.1:1. */
+    --id-cobalt: #1f4f7a;
+    --id-clay: #a04a2e; /* 5.6:1 — rare alert */
+
+    --id-line: #ded7c5;
+    --id-line-strong: #cfc6b0;
+
+    --font-heading: "Reem Kufi", "Noto Kufi Arabic", system-ui, sans-serif;
+    --font-reading: "Noto Naskh Arabic", "Noto Kufi Arabic", serif;
+    --font-quote: "Aref Ruqaa", "Noto Naskh Arabic", serif;
+    --font-code: "IBM Plex Mono", ui-monospace, monospace;
+
+    --id-shell: min(1120px, 100% - 2.4rem);
+}
+
+@layer base {
+    body {
+        background-color: var(--id-plaster);
+        color: var(--id-ink);
+        font-family: var(--font-reading);
+        line-height: 1.85;
+        text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        line-height: 1.45;
+        letter-spacing: 0;
+        text-wrap: balance;
+    }
+
+    ::selection {
+        background: var(--id-brass-2);
+        color: var(--id-ink);
+    }
+}
+
+@layer components {
+    /* Kept for the pages that already ask for the Maghrebi hand. */
+    .font-maghrebi {
+        font-family: var(--font-heading);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Shared measure — masthead, footer and editorial pages sit on one grid.
+   -------------------------------------------------------------------------- */
+.site-shell {
+    width: var(--id-shell);
+    margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Masthead
+   Transparent, so it takes the ground of whatever page it opens. One rule
+   underneath; brass when the page is scrolled, nothing else.
+   -------------------------------------------------------------------------- */
+.site-header {
+    border-bottom: 1px solid var(--id-line);
+    transition: border-color 0.25s ease;
+}
+
+.site-header.scrolled {
+    border-bottom-color: var(--id-brass-2);
+}
+
+.site-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    min-height: 4.4rem;
+    padding-block: 0.75rem;
+}
+
+.site-mark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    color: var(--id-ink);
+    text-decoration: none;
+}
+
+.site-mark-initial {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--id-brass-text);
+}
+
+.site-mark-name {
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 2.2vw, 1.26rem);
+    font-weight: 700;
+    line-height: 1.2;
+    transition: color 0.2s ease;
+}
+
+.site-mark:hover .site-mark-name,
+.site-mark:focus-visible .site-mark-name {
+    color: var(--id-cobalt);
+}
+
+.site-nav {
+    display: none;
+}
+
+.site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-nav-link {
+    display: block;
+    padding-block: 0.3rem;
+    font-family: var(--font-reading);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--id-graphite);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-nav-link:hover,
+.site-nav-link:focus-visible,
+.site-nav-link.active-nav {
+    color: var(--id-cobalt);
+}
+
+/* The rule under the link is the only underline in the masthead: 1px, brass,
+   drawn from the link's own colour so active and hover share one mechanism. */
+.site-nav-rule {
+    height: 1px;
+    margin-top: 0.15rem;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.site-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem;
+    border: 0;
+    background: none;
+    color: var(--id-ink);
+    cursor: pointer;
+}
+
+.site-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1.5rem;
+    height: 1.25rem;
+}
+
+.site-burger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mobile menu — an opaque sheet of paper, no blur, no shadow. */
+.site-mobile {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: block;
+    overflow-y: auto;
+    background: var(--id-paper);
+}
+
+.site-mobile-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    padding-block: 4.5rem 2rem;
+}
+
+.site-mobile-close {
+    position: absolute;
+    top: 1rem;
+    inset-inline-end: 1rem;
+    padding: 0.6rem;
+    border: 0;
+    background: none;
+    color: var(--id-graphite);
+    cursor: pointer;
+}
+
+.site-mobile-close:hover {
+    color: var(--id-cobalt);
+}
+
+.site-mobile-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-mobile-list a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.95rem 0;
+    border-bottom: 1px solid var(--id-line);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--id-ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-mobile-list a:hover,
+.site-mobile-list a:focus-visible {
+    color: var(--id-cobalt);
+}
+
+.site-mobile-num {
+    font-family: var(--font-code);
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--id-brass-text);
+}
+
+@media (min-width: 1024px) {
+    .site-nav {
+        display: block;
+    }
+
+    .site-menu-btn,
+    .site-mobile {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Footer — one dark band, one ornament, nothing else.
+   -------------------------------------------------------------------------- */
+.site-footer {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(2.4rem, 5vw, 3.4rem) 0 1.6rem;
+    border-top: 1px solid var(--id-brass);
+    background: var(--id-night);
+    color: rgba(244, 241, 233, 0.74);
+    font-family: var(--font-reading);
+    font-size: 0.88rem;
+    line-height: 1.9;
+}
+
+/* The khatam grid, at 5% — the only ornament in the page footer. */
+.site-footer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23c9a35f'%20stroke-width%3D'1'%3E%3Cpath%20d%3D'M12%2C0.6%20L13.88%2C7.47%20L20.06%2C3.94%20L16.53%2C10.12%20L23.4%2C12%20L16.53%2C13.88%20L20.06%2C20.06%20L13.88%2C16.53%20L12%2C23.4%20L10.12%2C16.53%20L3.94%2C20.06%20L7.47%2C13.88%20L0.6%2C12%20L7.47%2C10.12%20L3.94%2C3.94%20L10.12%2C7.47Z'%2F%3E%3Cpath%20d%3D'M12%2C0.6%20L13.88%2C7.47%20L20.06%2C3.94%20L16.53%2C10.12%20L23.4%2C12%20L16.53%2C13.88%20L20.06%2C20.06%20L13.88%2C16.53%20L12%2C23.4%20L10.12%2C16.53%20L3.94%2C20.06%20L7.47%2C13.88%20L0.6%2C12%20L7.47%2C10.12%20L3.94%2C3.94%20L10.12%2C7.47Z'%20transform%3D'translate(-12%20-12)'%2F%3E%3Cpath%20d%3D'M12%2C0.6%20L13.88%2C7.47%20L20.06%2C3.94%20L16.53%2C10.12%20L23.4%2C12%20L16.53%2C13.88%20L20.06%2C20.06%20L13.88%2C16.53%20L12%2C23.4%20L10.12%2C16.53%20L3.94%2C20.06%20L7.47%2C13.88%20L0.6%2C12%20L7.47%2C10.12%20L3.94%2C3.94%20L10.12%2C7.47Z'%20transform%3D'translate(12%20-12)'%2F%3E%3Cpath%20d%3D'M12%2C0.6%20L13.88%2C7.47%20L20.06%2C3.94%20L16.53%2C10.12%20L23.4%2C12%20L16.53%2C13.88%20L20.06%2C20.06%20L13.88%2C16.53%20L12%2C23.4%20L10.12%2C16.53%20L3.94%2C20.06%20L7.47%2C13.88%20L0.6%2C12%20L7.47%2C10.12%20L3.94%2C3.94%20L10.12%2C7.47Z'%20transform%3D'translate(-12%2012)'%2F%3E%3Cpath%20d%3D'M12%2C0.6%20L13.88%2C7.47%20L20.06%2C3.94%20L16.53%2C10.12%20L23.4%2C12%20L16.53%2C13.88%20L20.06%2C20.06%20L13.88%2C16.53%20L12%2C23.4%20L10.12%2C16.53%20L3.94%2C20.06%20L7.47%2C13.88%20L0.6%2C12%20L7.47%2C10.12%20L3.94%2C3.94%20L10.12%2C7.47Z'%20transform%3D'translate(12%2012)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-size: 24px 24px;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.site-footer-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.site-footer-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 2.4rem;
+    padding-bottom: 1.9rem;
+    border-bottom: 1px solid rgba(244, 241, 233, 0.16);
+}
+
+.site-footer-id {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.site-footer-portrait {
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(201, 163, 95, 0.55);
+    object-fit: cover;
+}
+
+.site-footer-name {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--id-plaster);
+}
+
+.site-footer-role {
+    margin: 0.15rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--id-brass-2);
+}
+
+.site-footer-text {
+    max-width: 46ch;
+    margin: 1rem 0 0;
+    color: rgba(244, 241, 233, 0.68);
+}
+
+.site-footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-footer-social li {
+    display: flex;
+    align-items: center;
+}
+
+.site-footer-social li + li::before {
+    content: "";
+    width: 1px;
+    height: 0.75rem;
+    margin-inline: 0.7rem;
+    background: rgba(244, 241, 233, 0.26);
+}
+
+.site-footer-social a {
+    font-family: var(--font-code);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+}
+
+.site-footer-cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem;
+}
+
+.site-footer-h {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--id-brass-2);
+}
+
+.site-footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-footer-list a {
+    color: rgba(244, 241, 233, 0.76);
+}
+
+.site-footer a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+    color: var(--id-brass-2);
+}
+
+.site-footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.6rem;
+    padding-top: 1.1rem;
+    font-size: 0.78rem;
+    color: rgba(244, 241, 233, 0.58);
+}
+
+.site-footer-bottom p {
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .site-footer-top {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.8rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .site-footer-cols {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.4rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Utilities toggled only from JavaScript (header_controller.js).
+   Declared here so the build can never tree-shake them away.
+   -------------------------------------------------------------------------- */
+@layer utilities {
+    .translate-y-2\.5 {
+        --tw-translate-y: calc(var(--spacing) * 2.5);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+
+    .-translate-y-2\.5 {
+        --tw-translate-y: calc(var(--spacing) * -2.5);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+}

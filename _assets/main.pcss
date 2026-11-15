@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./article.pcss";
 @import "./articles-index.pcss";
+@import "./identity.pcss";
 
 /* Minimal custom styles that can't be handled with Tailwind alone */
 @media (prefers-reduced-motion: no-preference) {
@@ -33,9 +34,9 @@ html[dir="rtl"] .space-x-12 {
     }
 }
 
-/* Global focus styles */
+/* Global focus styles — cobalt is the interaction colour of the identity */
 *:focus-visible {
-    @apply outline-none ring-2 ring-amber-500 ring-offset-2;
+    @apply outline-none ring-2 ring-cobalt ring-offset-2 ring-offset-plaster;
 }
 
 /* Refinements for Arabic text */
@@ -51,7 +52,7 @@ body {
 }
 
 :focus-visible {
-    @apply ring-2 ring-amber-500;
+    @apply ring-2 ring-cobalt;
 }
 
 /* Simple preloader animation */
@@ -164,7 +165,9 @@ body {
 
 /* Utility for disabling animation on user preference */
 @media (prefers-reduced-motion: reduce) {
-    * {
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -179,10 +182,10 @@ body {
    -------------------------------------------------------------------------- */
 .nl-band {
     padding: clamp(2.6rem, 5vw, 4rem) 0;
-    background: #f3f0e7;
-    border-top: 1px solid #ded7c5;
-    color: #131f1b;
-    font-family: 'Noto Naskh Arabic', serif;
+    background: var(--id-plaster);
+    border-top: 1px solid var(--id-line);
+    color: var(--id-ink);
+    font-family: var(--font-reading);
 }
 
 .nl-inner {
@@ -190,24 +193,24 @@ body {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 2rem;
     align-items: center;
-    width: min(1120px, 100% - 2.4rem);
+    width: var(--id-shell);
     margin-inline: auto;
 }
 
 .nl-code {
     margin: 0 0 0.8rem;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-code);
     font-size: 9px;
     letter-spacing: 0.22em;
-    color: #8f6524;
+    color: var(--id-brass-text);
 }
 
 .nl-title {
     margin: 0;
-    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-family: var(--font-heading);
     font-size: clamp(1.25rem, 2.4vw, 1.7rem);
     line-height: 1.4;
-    color: #131f1b;
+    color: var(--id-ink);
 }
 
 .nl-text {
@@ -215,7 +218,7 @@ body {
     margin: 0.6rem 0 0;
     font-size: 0.88rem;
     line-height: 1.9;
-    color: #6f6a5c;
+    color: var(--id-muted);
 }
 
 .nl-form {
@@ -225,10 +228,10 @@ body {
 .nl-label {
     display: block;
     margin-bottom: 0.45rem;
-    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-family: var(--font-heading);
     font-size: 0.72rem;
     font-weight: 700;
-    color: #2c3833;
+    color: var(--id-graphite);
 }
 
 .nl-row {
@@ -240,30 +243,30 @@ body {
     flex: 1;
     min-width: 0;
     padding: 0.8rem 1rem;
-    border: 1px solid #cfc6b0;
-    background: #faf8f2;
-    color: #131f1b;
-    font-family: 'IBM Plex Mono', monospace;
+    border: 1px solid var(--id-line-strong);
+    background: var(--id-paper);
+    color: var(--id-ink);
+    font-family: var(--font-code);
     font-size: 0.85rem;
 }
 
 .nl-input::placeholder {
-    color: #9a9284;
+    color: var(--id-muted);
 }
 
 .nl-input:focus {
     outline: none;
-    border-color: #8f6524;
-    box-shadow: 0 0 0 2px rgba(166, 122, 46, 0.18);
+    border-color: var(--id-cobalt);
+    box-shadow: 0 0 0 1px var(--id-cobalt);
 }
 
 .nl-btn {
     flex: 0 0 auto;
     padding: 0.8rem 1.4rem;
     border: 0;
-    background: #8f6524;
-    color: #fbf7ec;
-    font-family: 'Noto Kufi Arabic', sans-serif;
+    background: var(--id-brass-text);
+    color: var(--id-plaster);
+    font-family: var(--font-heading);
     font-size: 0.8rem;
     font-weight: 700;
     cursor: pointer;
@@ -271,24 +274,24 @@ body {
 }
 
 .nl-btn:hover {
-    background: #2e6f68;
+    background: var(--id-cobalt);
 }
 
 .nl-note {
     margin: 0.55rem 0 0;
     font-size: 0.7rem;
-    color: #6f6a5c;
+    color: var(--id-muted);
 }
 
 .nl-ok {
     margin: 0;
     padding: 0.85rem 1rem;
-    border: 1px solid var(--line-strong, #cfc6b0);
-    border-inline-start: 3px solid var(--water, #2e6f68);
-    background: var(--paper-2, #faf8f2);
+    border: 1px solid var(--id-line-strong);
+    border-inline-start: 3px solid var(--id-cobalt);
+    background: var(--id-paper-2);
     font-size: 0.86rem;
     line-height: 1.8;
-    color: var(--ink, #131f1b);
+    color: var(--id-ink);
 }
 
 @media (max-width: 820px) {
