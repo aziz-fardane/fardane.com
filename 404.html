@@ -1,25 +1,148 @@
 ---
 permalink: /404.html
-layout: page
+layout: default
+title: "الصفحة غير موجودة"
+description: "تعذّر العثور على هذه الصفحة. مسارات بديلة إلى أبحاث ومقالات الدكتور عزيز فردان وأرشيف الشخصيات التاريخية."
+noindex: true
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
+<style>
+    .nf {
+        padding: clamp(2.6rem, 7vw, 5rem) 0 clamp(3rem, 8vw, 6rem);
+    }
+
+    .nf-wrap {
+        width: var(--id-shell);
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .nf-rule {
+        width: 56px;
+        height: 2px;
+        margin: 0 auto 1.5rem;
+        background: var(--id-brass);
+    }
+
+    .nf-code {
+        margin: 0;
+        font-family: var(--font-code);
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        color: var(--id-brass-text);
+    }
+
+    .nf-title {
+        margin: 0.7rem 0 1rem;
+        font-size: clamp(1.9rem, 5vw, 3rem);
+        color: var(--id-ink);
+    }
+
+    .nf-title span {
+        color: var(--id-brass-text);
+    }
+
+    .nf-lede {
+        max-width: 46ch;
+        margin: 0 auto 2.2rem;
+        color: var(--id-graphite);
+        font-size: 1rem;
+    }
+
+    .nf-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.55rem;
+        margin: 0 0 2.2rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nf-links a {
+        display: inline-block;
+        padding: 0.5rem 0.95rem;
+        border: 1px solid var(--id-line-strong);
+        background: var(--id-paper);
+        color: var(--id-ink);
+        font-family: var(--font-heading);
+        font-size: 0.78rem;
+        text-decoration: none;
+        transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nf-links a:hover {
+        border-color: var(--id-cobalt);
+        color: var(--id-cobalt);
+    }
+
+    .nf-search {
+        display: flex;
+        gap: 0.5rem;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .nf-search input {
+        flex: 1;
+        min-width: 0;
+        padding: 0.6rem 0.8rem;
+        border: 1px solid var(--id-line-strong);
+        background: var(--id-paper);
+        color: var(--id-ink);
+        font-family: var(--font-reading);
+        font-size: 0.9rem;
+    }
+
+    .nf-search button {
+        padding: 0.6rem 1.2rem;
+        border: 1px solid var(--id-ink);
+        background: var(--id-ink);
+        color: var(--id-paper);
+        font-family: var(--font-heading);
+        font-size: 0.78rem;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nf-search button:hover {
+        background: var(--id-cobalt);
+        border-color: var(--id-cobalt);
+    }
+
+    .nf-search input:focus-visible,
+    .nf-search button:focus-visible,
+    .nf-links a:focus-visible {
+        outline: 2px solid var(--id-cobalt);
+        outline-offset: 2px;
+    }
 </style>
 
-<div class="container">
-  <h1>404</h1>
+<section class="nf" aria-labelledby="nf-title">
+    <div class="nf-wrap">
+        <div class="nf-rule" aria-hidden="true"></div>
+        <p class="nf-code">ERROR · 404 · ROUTE NOT FOUND</p>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+        <h1 class="nf-title" id="nf-title">الصفحة <span>غير موجودة</span></h1>
+
+        <p class="nf-lede">
+            الرابط الذي طلبته لم يعد قائماً أو تغيّر مساره. يمكنك المتابعة من أحد الأقسام أدناه،
+            أو البحث في الموقع عن دراسة أو شخصية بعينها.
+        </p>
+
+        <ul class="nf-links">
+            <li><a href="{{ '/' | relative_url }}">الرئيسية</a></li>
+            <li><a href="{{ '/articles/' | relative_url }}">أبحاث ومقالات</a></li>
+            <li><a href="{{ '/scientists/' | relative_url }}">شخصيات تاريخية</a></li>
+            <li><a href="{{ '/services/' | relative_url }}">الخدمات البحثية</a></li>
+            <li><a href="{{ '/about/' | relative_url }}">السيرة الذاتية</a></li>
+        </ul>
+
+        <form class="nf-search" action="{{ '/search/' | relative_url }}" method="get" role="search">
+            <label class="sr-only" for="nf-query">ابحث في الموقع</label>
+            <input type="search" id="nf-query" name="query" placeholder="ابحث في الموقع…" autocomplete="off">
+            <button type="submit">بحث</button>
+        </form>
+    </div>
+</section>

@@ -28,7 +28,7 @@ permalink: /articles/
 
     <div class="ar-main">
         <div class="ar-wrap">
-            <div class="ar-grid">
+            <div class="ar-grid" data-article-index>
 
                 <div class="ar-main-col">
                     <article class="ar-feature">
@@ -64,20 +64,23 @@ permalink: /articles/
                     <nav class="ar-filterbar" id="arFilterBar" aria-label="تصفية الدراسات حسب الموضوع">
                         <span class="ar-filterbar-label">تصفح حسب الموضوع</span>
                         <div class="ar-filterbar-chips">
-                            <a class="ar-chip is-active" href="{{ '/articles/' | relative_url }}">الكل</a>
+                            <a class="ar-chip is-active" href="{{ '/articles/' | relative_url }}" aria-controls="arList">الكل</a>
                             {% assign filter_cats = site.categories | sort %}
                             {% for category in filter_cats %}
-                            <a class="ar-chip" href="{{ '/articles/' | relative_url }}?cat={{ category[0] | uri_escape }}">{{ category[0] | replace: "-", " " }}</a>
+                            <a class="ar-chip" href="{{ '/articles/' | relative_url }}?cat={{ category[0] | uri_escape }}" aria-controls="arList">{{ category[0] | replace: "-", " " }}</a>
                             {% endfor %}
                         </div>
-                        <p class="ar-filter-status" id="arFilterStatus" hidden></p>
+                        <p class="ar-filter-status" id="arFilterStatus" role="status"></p>
+                        <noscript>
+                            <p class="ar-filter-status">التصفية الفورية تتطلّب تفعيل JavaScript؛ جميع الدراسات معروضة أدناه.</p>
+                        </noscript>
                     </nav>
 
                     {% comment %}Fall back to every post when pagination is not configured.{% endcomment %}
                     {% assign ar_posts = paginator.posts %}
                     {% unless ar_posts %}{% assign ar_posts = site.posts %}{% endunless %}
 
-                    <div class="ar-list">
+                    <div class="ar-list" id="arList">
                         {% for post in ar_posts %}
                         {% assign _cat = post.categories | first | default: post.category %}
                         {% assign _rt = post.reading_time %}
@@ -178,7 +181,7 @@ permalink: /articles/
                         <img src="{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}" alt="د. عزيز فردان" loading="lazy">
                         <h3 class="ar-author-name">د. عزيز فردان</h3>
                         <p class="ar-author-role">باحث في تاريخ النظم المائية والعمران — جامعة القاضي عياض</p>
-                        <a class="ar-author-link" href="{{ '/about' | relative_url }}">
+                        <a class="ar-author-link" href="{{ '/about/' | relative_url }}">
                             السيرة العلمية
                             <i class="fas fa-arrow-left" aria-hidden="true"></i>
                         </a>
@@ -263,59 +266,109 @@ permalink: /articles/
 
 <script>
 (function () {
-    var params = new URLSearchParams(window.location.search);
-    var tag = params.get('tag');
-    var cat = params.get('cat');
-    var active = tag || cat;
-    if (!active) return;
+    var root = document.querySelector('[data-article-index]');
+    if (!root) return;
 
-    document.querySelectorAll('.ar-feature').forEach(function (feature) {
-        feature.hidden = true;
-    });
-
-    var items = Array.prototype.slice.call(document.querySelectorAll('.ar-item'));
-    var shown = 0;
-
-    items.forEach(function (item) {
-        var raw = (tag ? item.getAttribute('data-tags') : item.getAttribute('data-cats')) || '';
-        var values = raw.split('|');
-        var match = values.indexOf(active) !== -1;
-        item.hidden = !match;
-        if (match) {
-            shown += 1;
-            var num = item.querySelector('.ar-num');
-            if (num) num.textContent = (shown < 10 ? '0' : '') + shown;
-        }
-    });
-
-    var label = active.replace(/-/g, ' ');
-
-    document.querySelectorAll('.ar-chip').forEach(function (chip) {
-        var url = new URL(chip.getAttribute('href'), window.location.origin);
-        var chipTag = url.searchParams.get('tag');
-        var chipCat = url.searchParams.get('cat');
-        var isActive = (tag && chipTag === tag) || (cat && chipCat === cat);
-        chip.classList.toggle('is-active', !!isActive);
-        if (isActive) chip.setAttribute('aria-current', 'true');
-    });
-
+    var feature = root.querySelector('.ar-feature');
+    var items = Array.prototype.slice.call(root.querySelectorAll('.ar-item'));
+    var chips = Array.prototype.slice.call(root.querySelectorAll('.ar-chip'));
+    var bar = document.getElementById('arFilterBar');
     var status = document.getElementById('arFilterStatus');
-    if (status) {
-        status.hidden = false;
-        status.textContent = 'الموضوع: ' + label + ' — ' + shown + ' دراسة';
-    }
-
     var empty = document.getElementById('arEmpty');
-    if (empty) empty.hidden = shown !== 0;
+    var title = root.querySelector('.ar-section-title');
+    var code = root.querySelector('.ar-section-code');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    var title = document.querySelector('.ar-section-title');
-    if (title) title.textContent = 'دراسات في: ' + label;
+    var initialTitle = title ? title.textContent : '';
+    var initialCode = code ? code.textContent : '';
 
-    var list = document.querySelector('.ar-list');
-    var scrollTarget = document.getElementById('arFilterBar') || list;
-    if (scrollTarget) {
-        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        scrollTarget.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    function readParams(url) {
+        var parsed = new URL(url, window.location.origin);
+        return { cat: parsed.searchParams.get('cat'), tag: parsed.searchParams.get('tag') };
     }
+
+    function apply(state, options) {
+        var opts = options || {};
+        var active = state.tag || state.cat || '';
+        var label = active ? active.replace(/-/g, ' ') : '';
+        var shown = 0;
+
+        items.forEach(function (item) {
+            var key = state.tag ? 'data-tags' : 'data-cats';
+            var values = (item.getAttribute(key) || '').split('|');
+            var match = !active || values.indexOf(active) !== -1;
+
+            item.hidden = !match;
+
+            if (match) {
+                shown += 1;
+                var num = item.querySelector('.ar-num');
+                if (num) num.textContent = (shown < 10 ? '0' : '') + shown;
+            }
+        });
+
+        if (feature) feature.hidden = !!active;
+
+        chips.forEach(function (chip) {
+            var chipParams = readParams(chip.getAttribute('href'));
+            var isActive = active
+                ? (state.tag && chipParams.tag === state.tag) || (state.cat && chipParams.cat === state.cat)
+                : !chipParams.cat && !chipParams.tag;
+
+            chip.classList.toggle('is-active', !!isActive);
+            if (isActive) {
+                chip.setAttribute('aria-current', 'true');
+            } else {
+                chip.removeAttribute('aria-current');
+            }
+        });
+
+        if (status) {
+            status.textContent = active ? 'الموضوع: ' + label + ' — ' + shown + ' دراسة' : '';
+        }
+        if (empty) empty.hidden = shown !== 0;
+        if (title) title.textContent = active ? 'دراسات في: ' + label : initialTitle;
+        if (code) code.textContent = active ? 'PL. 05 · ' + shown + (shown === 1 ? ' STUDY' : ' STUDIES') : initialCode;
+
+        if (opts.scroll && bar) {
+            bar.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+        }
+    }
+
+    function commit(state, scroll) {
+        var query = new URLSearchParams();
+        if (state.cat) query.set('cat', state.cat);
+        if (state.tag) query.set('tag', state.tag);
+
+        var search = query.toString();
+        var next = window.location.pathname + (search ? '?' + search : '');
+        var current = window.location.pathname + window.location.search;
+
+        if (next !== current) {
+            window.history.pushState({ articleFilter: search }, '', next);
+        }
+        apply(state, { scroll: scroll });
+    }
+
+    root.addEventListener('click', function (event) {
+        if (event.defaultPrevented || event.button !== 0) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+        var link = event.target.closest ? event.target.closest('a[href]') : null;
+        if (!link || !root.contains(link)) return;
+
+        var target = new URL(link.getAttribute('href'), window.location.origin);
+        if (target.pathname !== window.location.pathname) return;
+
+        event.preventDefault();
+        commit(readParams(target.href), true);
+    });
+
+    window.addEventListener('popstate', function () {
+        apply(readParams(window.location.href), { scroll: false });
+    });
+
+    // Deep links such as ?cat=... and ?tag=... filter on load without moving the page.
+    apply(readParams(window.location.href), { scroll: false });
 })();
 </script>
