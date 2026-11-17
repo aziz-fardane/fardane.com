@@ -11,14 +11,27 @@ export default class extends Controller {
 
   connect() {
     this.animated = false;
+    this.reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // The markup ships with the final values so the section stays readable
+    // without JavaScript. Only reset to zero when we are going to animate.
+    if (this.reduce) {
+      this.animated = true;
+      return;
+    }
+
     this.barTargets.forEach(bar => { bar.style.width = "0%"; });
     this.pctTargets.forEach(el => { el.textContent = "0٪"; });
 
-    ScrollTrigger.create({
+    this.trigger = ScrollTrigger.create({
       trigger: this.element,
       start: "top 80%",
       onEnter: () => this.animate()
     });
+  }
+
+  disconnect() {
+    if (this.trigger) this.trigger.kill();
   }
 
   animate() {

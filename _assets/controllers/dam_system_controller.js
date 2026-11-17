@@ -36,6 +36,17 @@ export default class extends Controller {
   connect() {
     this._started = false;
     this._activeEraYear = null;
+    this._reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Keyboard support for the interactive SVG dam nodes
+    this._onKey = (event) => {
+      if (event.key !== "Enter" && event.key !== " " && event.key !== "Spacebar") return;
+      const node = event.target.closest ? event.target.closest("[data-dam-id]") : null;
+      if (!node) return;
+      event.preventDefault();
+      this.selectDam({ target: node, currentTarget: node });
+    };
+    this.element.addEventListener("keydown", this._onKey);
 
     // Lazy-init on scroll-into-view
     this._observer = new IntersectionObserver(
@@ -47,6 +58,7 @@ export default class extends Controller {
 
   disconnect() {
     if (this._observer) this._observer.disconnect();
+    if (this._onKey) this.element.removeEventListener("keydown", this._onKey);
   }
 
   // Called when a decade button is clicked
@@ -80,28 +92,33 @@ export default class extends Controller {
     // Animate water level: reset to 0 then animate to fill%
     if (this.hasWaterBodyTarget) {
       const wb = this.waterBodyTarget;
-      wb.style.transition = "none";
-      wb.style.height = "0%";
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        wb.style.transition = "height 1.2s ease-out";
+      if (this._reduce) {
+        wb.style.transition = "none";
         wb.style.height = dam.fill + "%";
-      }));
+      } else {
+        wb.style.transition = "none";
+        wb.style.height = "0%";
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          wb.style.transition = "height 1.2s ease-out";
+          wb.style.height = dam.fill + "%";
+        }));
+      }
     }
 
     // Update fill-% color
     if (this.hasFillPctTarget) {
       const fp = this.fillPctTarget;
-      fp.style.color = dam.fill >= 80 ? "#92400e" : dam.fill >= 50 ? "#78350f" : "#57534e";
+      fp.style.color = dam.fill >= 80 ? "#1f534e" : dam.fill >= 50 ? "#2e6f68" : "#6f6a5c";
     }
 
     // Highlight selected dam ring on SVG, reset others
     this.element.querySelectorAll(".ds-ring").forEach(ring => {
-      ring.setAttribute("stroke", "#92400e");
+      ring.setAttribute("stroke", "#2e6f68");
       ring.setAttribute("stroke-width", "1.5");
     });
     const selectedRing = this.element.querySelector(`[data-dam-id="${dam.id}"] .ds-ring`);
     if (selectedRing) {
-      selectedRing.setAttribute("stroke", "#fbbf24");
+      selectedRing.setAttribute("stroke", "#a67a2e");
       selectedRing.setAttribute("stroke-width", "3.5");
     }
   }
@@ -112,6 +129,12 @@ export default class extends Controller {
     if (this._started) return;
     this._started = true;
     this._observer.disconnect();
+
+    if (this._reduce) {
+      this._activateEra(1967);
+      return;
+    }
+
     // Stagger the first reveal slightly so the element is fully visible
     setTimeout(() => this._activateEra(1967), 350);
   }
@@ -124,6 +147,7 @@ export default class extends Controller {
     // Decade button active states
     this.decadeBtnTargets.forEach(btn => {
       const active = parseInt(btn.dataset.year, 10) === year;
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
       btn.classList.toggle("bg-amber-700",   active);
       btn.classList.toggle("text-white",     active);
       btn.classList.toggle("ring-2",         active);
@@ -153,7 +177,10 @@ export default class extends Controller {
         node.dataset.dsRevealed = "1";
         node.style.opacity = "1";
 
-        if (isNew) {
+        if (this._reduce) {
+          node.style.transition = "none";
+          node.style.transform = "scale(1)";
+        } else if (isNew) {
           // Pop-in bounce: scale 0 → 1 with spring
           node.style.transition = "none";
           node.style.transform  = "scale(0)";
@@ -167,7 +194,7 @@ export default class extends Controller {
         }
       } else {
         node.dataset.dsRevealed = "";
-        node.style.transition = "opacity 0.4s, transform 0.4s";
+        node.style.transition = this._reduce ? "none" : "opacity 0.4s, transform 0.4s";
         node.style.opacity = "0.1";
         node.style.transform = "scale(0.5)";
       }
@@ -177,6 +204,12 @@ export default class extends Controller {
   // Smooth numeric counter animation
   _countTo(el, target, decimals, duration) {
     if (!el) return;
+
+    if (this._reduce) {
+      el.textContent = decimals ? target.toFixed(decimals) : Math.round(target);
+      return;
+    }
+
     const start = parseFloat(el.textContent.replace(/[^\d.]/g, "")) || 0;
     const t0 = performance.now();
     const ms = duration * 1000;
