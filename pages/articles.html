@@ -94,8 +94,10 @@ permalink: /articles/
                         <article class="ar-item" data-tags="{{ post.tags | join: '|' | escape }}" data-cats="{{ post.categories | join: '|' | escape }}">
                             <div class="ar-num" aria-hidden="true">{% if _n < 10 %}0{% endif %}{{ _n }}</div>
 
-                            <a class="ar-thumb" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
-                                <img src="{{ site.data.manifest[_key] | default: post.thumbnail | default: '/dist/images/articles/default.jpg' }}" alt="" loading="lazy">
+                            <a class="ar-thumb{% unless post.thumbnail %} is-plain{% endunless %}" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+                                {% if post.thumbnail %}
+                                <img src="{{ site.data.manifest[_key] | default: post.thumbnail }}" alt="" loading="lazy">
+                                {% endif %}
                             </a>
 
                             <div class="ar-item-body">
@@ -236,8 +238,10 @@ permalink: /articles/
                             {% assign _lkey = post.thumbnail | remove_first: '/' %}
                             <li>
                                 <a href="{{ post.url | relative_url }}">
-                                    <span class="ar-latest-thumb">
-                                        <img src="{{ site.data.manifest[_lkey] | default: post.thumbnail | default: '/dist/images/articles/default-small.jpg' }}" alt="" loading="lazy">
+                                    <span class="ar-latest-thumb{% unless post.thumbnail %} is-plain{% endunless %}">
+                                        {% if post.thumbnail %}
+                                        <img src="{{ site.data.manifest[_lkey] | default: post.thumbnail }}" alt="" loading="lazy">
+                                        {% endif %}
                                     </span>
                                     <span>
                                         <span class="ar-latest-title">{{ post.title }}</span>
