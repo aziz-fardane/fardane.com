@@ -144,7 +144,7 @@ permalink: /search/
       "description": {{ post.description | jsonify }},
       "content": {{ post.content | strip_html | strip_newlines | jsonify }},
       {% assign _sq_key = post.thumbnail | remove_first: '/' %}
-      "thumbnail": {{ site.data.manifest[_sq_key] | default: post.thumbnail | default: "/dist/images/articles/default.jpg" | jsonify }},
+      "thumbnail": {{ site.data.manifest[_sq_key] | default: post.thumbnail | default: "" | jsonify }},
       "tags": {{ post.tags | jsonify }},
       "categories": {{ post.categories | jsonify }}
     }{% unless forloop.last %},{% endunless %}
@@ -233,8 +233,14 @@ permalink: /search/
 
         // Set thumbnail
         const thumbnailElement = resultElement.querySelector('.post-thumbnail');
-        thumbnailElement.src = post.thumbnail || '/dist/images/articles/default.jpg';
-        thumbnailElement.alt = post.title;
+        if (post.thumbnail) {
+          thumbnailElement.src = post.thumbnail;
+          thumbnailElement.alt = post.title;
+          thumbnailElement.hidden = false;
+        } else {
+          thumbnailElement.removeAttribute('src');
+          thumbnailElement.hidden = true;
+        }
 
         // Add tags
         const tagsContainer = resultElement.querySelector('.post-tags');
