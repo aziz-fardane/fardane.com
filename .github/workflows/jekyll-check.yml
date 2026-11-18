@@ -1,18 +1,18 @@
 name: Jekyll Check
 
-# تشخيصي مؤقّت: يبني الموقع بـJekyll ويكتب سجل البناء في ملف داخل المستودع،
-# لأن سجلات Actions لا تُقرأ بلا توثيق. يُشغَّل فقط برسالة فيها [ci-log].
+# بناء تشخيصي على فرع فقط (لا يمسّ main ولا النشر):
+# يبني الموقع، ثم يحفظ نسخاً من الصفحات الناتجة + تقرير فحص في مجلد preview/
+# لأن سجلات Actions لا تُقرأ بلا توثيق.
 on:
   push:
     branches:
-      - main
+      - ci-jekyll
 
 permissions:
   contents: write
 
 jobs:
   check:
-    if: contains(github.event.head_commit.message, '[ci-log]')
     runs-on: ubuntu-latest
 
     steps:
@@ -24,15 +24,12 @@ jobs:
         with:
           ruby-version: '3.3'
 
-      - name: Build with Jekyll (capture log)
+      - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
-          PAGES_REPO_NWO: aziz-fardane/fardane.com
         run: |
           set +e
           {
-            echo "=== ruby ==="
-            ruby -v
             echo "=== bundle install ==="
             bundle install --jobs 4
             echo "install_exit=$?"
@@ -46,10 +43,42 @@ jobs:
           cat ci-jekyll.log
           exit 0
 
-      - name: Commit log
+      - name: Collect preview and checks
+        run: |
+          mkdir -p preview
+          cp ci-jekyll.log preview/ci-jekyll.log
+          for f in index.html services/index.html consultation/index.html manuscripts/index.html sitemap.xml; do
+            if [ -f "_site/$f" ]; then
+              cp "_site/$f" "preview/$(echo "$f" | tr '/' '_')"
+            else
+              echo "missing $f" >> preview/missing.txt
+            fi
+          done
+          art=$(find _site/articles -name index.html 2>/dev/null | sort | head -1)
+          if [ -n "$art" ]; then cp "$art" preview/article.html; fi
+          {
+            echo "html_files=$(find _site -name '*.html' | wc -l)"
+            echo "liquid_leftover_files=$(grep -rl '{%' _site --include='*.html' 2>/dev/null | wc -l)"
+            echo "articles_total=$(find _site/articles -name index.html 2>/dev/null | wc -l)"
+            echo "articles_with_cta=$(grep -rl 'data-cta=\"consultation\"' _site/articles --include='*.html' 2>/dev/null | wc -l)"
+            echo "services_proof_cards=$(grep -o 'data-cta=\"article-proof\"' _site/services/index.html 2>/dev/null | wc -l)"
+            echo "consultation_proof_cards=$(grep -o 'data-cta=\"article-proof\"' _site/consultation/index.html 2>/dev/null | wc -l)"
+            echo "manuscripts_robots=$(grep -o '<meta name=\"robots\"[^>]*>' _site/manuscripts/index.html 2>/dev/null | head -1)"
+            echo "manuscripts_links_in_home=$(grep -c 'href=\"/manuscripts/\"' _site/index.html 2>/dev/null || true)"
+            echo "manuscripts_in_sitemap=$(grep -c 'manuscripts' _site/sitemap.xml 2>/dev/null || true)"
+            echo "cta_titles:"
+            for f in $(find _site/articles -name index.html 2>/dev/null | sort); do
+              t=$(grep -o 'class="ed-cta-title">[^<]*' "$f" | head -1 | sed 's/.*>//')
+              echo "  $(basename "$(dirname "$f")") => $t"
+            done
+          } > preview/verify.txt
+          echo "----- verify -----"
+          cat preview/verify.txt
+
+      - name: Commit preview
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f ci-jekyll.log
-          git commit -m "chore: jekyll build log [skip ci]" || echo "no changes"
+          git add -f preview ci-jekyll.log
+          git commit -m "chore: preview build [skip ci]" || echo "no changes"
           git push
