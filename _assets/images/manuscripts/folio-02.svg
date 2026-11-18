@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1300" width="900" height="1300" role="img" aria-label="لوحة نموذجية: صفحة مخطوط تحمل رسمًا هندسيًا لساعة مائية">
+  <rect width="900" height="1300" fill="#f7f1df"/>
+  <rect x="34" y="34" width="832" height="1232" fill="none" stroke="#b08a4a" stroke-width="1.4" opacity=".7"/>
+  <rect x="46" y="46" width="808" height="1208" fill="none" stroke="#b08a4a" stroke-width=".6" opacity=".45"/>
+
+  <g stroke="#2a241c" stroke-width="1.7" stroke-linecap="butt" opacity=".5">
+    <line x1="826" y1="120" x2="240" y2="120"/>
+    <line x1="826" y1="154" x2="128" y2="154"/>
+    <line x1="826" y1="188" x2="128" y2="188"/>
+    <line x1="826" y1="222" x2="318" y2="222"/>
+  </g>
+
+  <!-- instrument drawing -->
+  <g fill="none" stroke="#8a6122" stroke-width="1.6" opacity=".8">
+    <circle cx="470" cy="620" r="196"/>
+    <circle cx="470" cy="620" r="168" opacity=".55"/>
+    <circle cx="470" cy="620" r="42"/>
+    <circle cx="470" cy="620" r="6" fill="#8a6122" stroke="none"/>
+    <g opacity=".7">
+      <line x1="470" y1="424" x2="470" y2="816"/>
+      <line x1="274" y1="620" x2="666" y2="620"/>
+      <line x1="332" y1="482" x2="608" y2="758"/>
+      <line x1="608" y1="482" x2="332" y2="758"/>
+    </g>
+    <g opacity=".55">
+      <path d="M470 424 l-12 22 h24 Z"/>
+      <path d="M608 482 l-22 11 11 22 Z"/>
+      <path d="M666 620 l-24 14 v-28 Z"/>
+      <path d="M608 758 l-11 22 -22 -11 Z"/>
+      <path d="M470 816 l12 -22 h-24 Z"/>
+      <path d="M332 758 l22 -11 -11 -22 Z"/>
+      <path d="M274 620 l24 -14 v28 Z"/>
+      <path d="M332 482 l11 -22 22 11 Z"/>
+    </g>
+    <circle cx="470" cy="620" r="212" stroke-dasharray="2 7" opacity=".5"/>
+  </g>
+
+  <!-- water line + level ticks -->
+  <g stroke="#2e6f68" stroke-width="1.4" opacity=".65">
+    <path d="M274 700 q 49 -10 98 0 t 98 0 t 98 0 t 98 0"/>
+    <path d="M274 716 q 49 -10 98 0 t 98 0 t 98 0 t 98 0" opacity=".5"/>
+  </g>
+  <g stroke="#2a241c" stroke-width="1.1" opacity=".45">
+    <line x1="690" y1="600" x2="714" y2="600"/>
+    <line x1="690" y1="640" x2="706" y2="640"/>
+    <line x1="690" y1="680" x2="714" y2="680"/>
+    <line x1="690" y1="720" x2="706" y2="720"/>
+  </g>
+
+  <!-- caption block -->
+  <g stroke="#2a241c" stroke-width="1.5" stroke-linecap="round" opacity=".45">
+    <line x1="826" y1="960" x2="300" y2="960"/>
+    <line x1="826" y1="992" x2="128" y2="992"/>
+    <line x1="826" y1="1024" x2="196" y2="1024"/>
+  </g>
+  <g stroke="#6f6a5c" stroke-width="1.1" stroke-linecap="round" opacity=".4">
+    <line x1="826" y1="1058" x2="286" y2="1058"/>
+    <line x1="826" y1="1084" x2="404" y2="1084"/>
+  </g>
+
+  <text x="450" y="1218" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#6f6a5c" opacity=".55">٢</text>
+</svg>
