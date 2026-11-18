@@ -132,14 +132,10 @@ permalink: /publications/
                     <h3 class="text-xl font-bold text-amber-800 mb-3">الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة</h3>
                     <p class="text-stone-600 text-sm mb-4 flex-grow">دراسة مستفيضة تتناول العلاقة بين الموارد المائية والتشكيلات العمرانية، مع التركيز على النظم المائية التقليدية وتأثيرها الاجتماعي والاقتصادي.</p>
                     <div class="mt-auto pt-4 border-t border-stone-200">
-                        <div class="flex justify-between items-center text-sm text-stone-500 mb-4">
+                        <div class="flex justify-between items-center text-sm text-stone-500">
                             <span><i class="far fa-calendar-alt ml-2 text-amber-600"></i>2023</span>
                             <span><i class="fas fa-university ml-2 text-amber-600"></i>منشورات جامعة القاضي عياض</span>
                         </div>
-                        <a href="/publications/water-and-urbanization.pdf" class="inline-flex items-center text-amber-700 hover:text-amber-600 font-medium group">
-                            <span class="ml-2">تحميل ملخص البحث</span>
-                            <i class="fas fa-arrow-left text-xs group-hover:-translate-x-1 transition-transform"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -157,10 +153,10 @@ permalink: /publications/
                             <span><i class="far fa-calendar-alt ml-2 text-amber-600"></i>2021</span>
                             <span><i class="fas fa-book-open ml-2 text-amber-600"></i>مجلة دراسات تاريخية</span>
                         </div>
-                        <a href="/publications/water-clocks.pdf" class="inline-flex items-center text-amber-700 hover:text-amber-600 font-medium group">
+                        {% assign _pdf = site.data.manifest['dist/pdf/water-clocks.pdf'] %}{% if _pdf %}<a href="{{ _pdf }}" class="inline-flex items-center text-amber-700 hover:text-amber-600 font-medium group">
                             <span class="ml-2">تحميل ملخص البحث</span>
                             <i class="fas fa-arrow-left text-xs group-hover:-translate-x-1 transition-transform"></i>
-                        </a>
+                        </a>{% endif %}
                     </div>
                 </div>
             </div>
@@ -178,10 +174,10 @@ permalink: /publications/
                             <span><i class="far fa-calendar-alt ml-2 text-amber-600"></i>2023</span>
                             <span><i class="fas fa-university ml-2 text-amber-600"></i>منشورات جامعة محمد الخامس</span>
                         </div>
-                        <a href="/dist/pdf/unusual-foods-maghreb-oases-summary.pdf" class="inline-flex items-center text-amber-700 hover:text-amber-600 font-medium group">
+                        {% assign _pdf = site.data.manifest['dist/pdf/unusual-foods-maghreb-oases-summary.pdf'] %}{% if _pdf %}<a href="{{ _pdf }}" class="inline-flex items-center text-amber-700 hover:text-amber-600 font-medium group">
                             <span class="ml-2">تحميل ملخص البحث</span>
                             <i class="fas fa-arrow-left text-xs group-hover:-translate-x-1 transition-transform"></i>
-                        </a>
+                        </a>{% endif %}
                     </div>
                 </div>
             </div>
