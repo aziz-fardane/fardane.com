@@ -37,7 +37,8 @@ jobs:
             bundle install --jobs 4
             echo "install_exit=$?"
             echo "=== jekyll build ==="
-            bundle exec jekyll build --trace
+            printf 'repository: aziz-fardane/fardane.com\n' > /tmp/_ci.yml
+            bundle exec jekyll build --trace --config _config.yml,/tmp/_ci.yml
             echo "build_exit=$?"
           } > /tmp/jekyll.log 2>&1
           tail -c 30000 /tmp/jekyll.log > ci-jekyll.log
