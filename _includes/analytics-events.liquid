@@ -68,6 +68,16 @@
             });
         }
 
+        var cta = el.closest('[data-cta]');
+        if (cta) {
+            gtag('event', 'cta_click', {
+                cta: cta.getAttribute('data-cta'),
+                target_path: cta.getAttribute('href') || '',
+                page_path: pagePath,
+                page_title: title
+            });
+        }
+
         if (el.closest('[data-comments-load]')) {
             gtag('event', 'comments_load', { page_path: pagePath });
         }

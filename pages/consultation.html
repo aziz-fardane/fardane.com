@@ -111,11 +111,21 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
 
     .cs-page a:focus-visible,.cs-page button:focus-visible,.cs-page input:focus-visible,.cs-page select:focus-visible,.cs-page textarea:focus-visible{outline:2px solid var(--water);outline-offset:2px}
 
+    /* ---------- PROOF (published work) ---------- */
+    .cs-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+    .cs-proof a{display:flex;flex-direction:column;gap:.5rem;padding:1.4rem 1.3rem;background:var(--paper-2);text-decoration:none;transition:background .2s ease}
+    .cs-proof a:hover{background:#f7f1e3}
+    .cs-proof-cat{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--brass-text)}
+    .cs-proof-title{font-family:var(--kufi);font-size:.9rem;font-weight:700;line-height:1.8;color:var(--ink)}
+    .cs-proof-meta{margin-top:auto;font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--muted)}
+    .cs-proof-lede{margin:0 0 1.3rem;max-width:62ch;font-size:.9rem;line-height:1.95;color:var(--muted)}
+
     /* ---------- RESPONSIVE ---------- */
     @media (max-width:980px){
         .cs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
         .cs-levels{grid-template-columns:1fr}
         .cs-book{grid-template-columns:1fr}
+        .cs-proof{grid-template-columns:1fr}
     }
     @media (max-width:680px){
         .cs-grid,.cs-steps{grid-template-columns:1fr}
@@ -136,7 +146,7 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
             وما الخطوة التالية. تخرج بملخص مكتوب وخطة عمل، لا بانطباعات.
         </p>
         <div class="cs-actions">
-            <a class="cs-btn" href="#book">احجز جلستك <span aria-hidden="true">←</span></a>
+            <a class="cs-btn" href="#book" data-cta="book">احجز جلستك <span aria-hidden="true">←</span></a>
             <a class="cs-btn cs-btn-ghost" href="{{ '/services/' | relative_url }}">الخدمات البحثية</a>
         </div>
         <ul class="cs-meta">
@@ -255,6 +265,28 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
                 <h3>الجلسة والملخص</h3>
                 <p>المدة التي اخترتها، عبر Zoom أو Google Meet، ثم ملخص مكتوب وقائمة مهام.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section alt" id="published">
+    <div class="cs-wrap">
+        <div class="cs-head">
+            <h2>اقرأ قبل أن تحجز</h2>
+            <p>PUBLISHED</p>
+        </div>
+        <p class="cs-proof-lede">
+            الجلسة تقوم على المنهج نفسه الذي بُنيت به هذه الأعمال. اقرأ واحداً منها لتعرف طريقة العمل قبل أي التزام.
+        </p>
+        {%- assign proof_posts = site.posts | where_exp: "p", "p.category == 'تاريخ-الماء' or p.category == 'الموارد-المائية' or p.category == 'التاريخ-البيئي'" -%}
+        <div class="cs-proof">
+            {%- for post in proof_posts limit:3 %}
+            <a href="{{ post.url | relative_url }}" data-cta="article-proof">
+                <span class="cs-proof-cat">{{ post.category | replace: '-', ' ' }}</span>
+                <span class="cs-proof-title">{{ post.title }}</span>
+                <span class="cs-proof-meta">{{ post.date | date: "%Y" }} · {{ post.content | strip_html | number_of_words | plus: 179 | divided_by: 180 | at_least: 1 }} دقيقة قراءة</span>
+            </a>
+            {%- endfor %}
         </div>
     </div>
 </section>
