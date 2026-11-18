@@ -36,8 +36,11 @@ jobs:
             echo "install_exit=$?"
             echo "=== jekyll build ==="
             printf 'repository: aziz-fardane/fardane.com\nurl: "https://fardane.com"\nbaseurl: ""\n' > /tmp/_ci.yml
+            printf 'newsletter_provider: "buttondown"\nnewsletter_user: "demo"\n' > /tmp/_ci_bt.yml
             bundle exec jekyll build --trace --config _config.yml,/tmp/_ci.yml
             echo "build_exit=$?"
+            bundle exec jekyll build --trace --config _config.yml,/tmp/_ci.yml,/tmp/_ci_bt.yml --destination _site_bt
+            echo "build_bt_exit=$?"
           } > /tmp/jekyll.log 2>&1
           tail -c 30000 /tmp/jekyll.log > ci-jekyll.log
           echo "----- log -----"
@@ -55,8 +58,15 @@ jobs:
               echo "missing $f" >> preview/missing.txt
             fi
           done
-          art=$(find _site/articles -mindepth 2 -name index.html 2>/dev/null | sort | head -1)
-          if [ -n "$art" ]; then cp "$art" preview/article.html; fi
+          art=$(ls -d _site/articles/*/index.html 2>/dev/null | sort | head -1)
+          if [ -n "$art" ]; then
+            cp "$art" preview/article.html
+            sed -n '/<form class="nl-form"/,/<\/form>/p' "$art" > preview/newsletter-form-formsubmit.html
+            slug_dir=$(basename "$(dirname "$art")")
+            if [ -f "_site_bt/articles/$slug_dir/index.html" ]; then
+              sed -n '/<form class="nl-form"/,/<\/form>/p' "_site_bt/articles/$slug_dir/index.html" > preview/newsletter-form-buttondown.html
+            fi
+          fi
           {
             echo "html_files=$(find _site -name '*.html' | wc -l)"
             echo "liquid_leftover_files=$(grep -rl '{%' _site --include='*.html' 2>/dev/null | wc -l)"
@@ -70,10 +80,14 @@ jobs:
             echo "newsletter_forms=$(grep -rl 'id=\"nl-form\"' _site --include='*.html' 2>/dev/null | wc -l)"
             echo "newsletter_provider=$(grep -o 'data-nl-provider=\"[^\"]*\"' _site/index.html 2>/dev/null | head -1)"
             echo "newsletter_tag_home=$(grep -o 'data-nl-tag=\"[^\"]*\"' _site/index.html 2>/dev/null | head -1)"
-            echo "newsletter_tag_article=$(grep -o 'data-nl-tag=\"[^\"]*\"' \"$art\" 2>/dev/null | head -1)"
-            echo "article_has_newsletter=$(grep -c 'id=\"nl-form\"' \"$art\" 2>/dev/null || true)"
+            echo "article_newsletter_tag=$(grep -o 'data-nl-tag="[^"]*"' preview/article.html 2>/dev/null | head -1)"
+            echo "article_hidden_next=$(grep -o 'name="_next" value="[^"]*"' preview/newsletter-form-formsubmit.html 2>/dev/null | head -1)"
+            echo "bt_build_exit=$(grep -o 'build_bt_exit=[0-9]*' ci-jekyll.log | head -1)"
+            echo "bt_form_action=$(grep -o 'action="[^"]*"' preview/newsletter-form-buttondown.html 2>/dev/null | head -1)"
+            echo "bt_tag_field=$(grep -o 'name="tag" value="[^"]*"' preview/newsletter-form-buttondown.html 2>/dev/null | head -1)"
+            echo "bt_embed_field=$(grep -o 'name="embed" value="[^"]*"' preview/newsletter-form-buttondown.html 2>/dev/null | head -1)"
+            echo "bt_formsubmit_fields=$(grep -c '_next' preview/newsletter-form-buttondown.html 2>/dev/null || true)"
             echo "preview_in_sitemap=$(grep -c 'preview/' _site/sitemap.xml 2>/dev/null || true)"
-            echo "newsletter_hidden_fields=$(grep -o 'name=\"_next\" value=\"[^\"]*\"' \"$art\" 2>/dev/null | head -1)"
             echo "newsletter_policy_link=$(grep -c 'href=\"/privacy-policy/\"' _site/index.html 2>/dev/null || true)"
             echo "analytics_events=$(grep -o 'newsletter_submit\|outbound_click\|cta_click' _site/index.html 2>/dev/null | sort -u | tr '\n' ' ')"
             echo "privacy_provider_line=$(grep -c 'Buttondown' _site/privacy-policy/index.html 2>/dev/null || true)"
