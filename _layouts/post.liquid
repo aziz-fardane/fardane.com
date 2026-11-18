@@ -6,7 +6,7 @@ layout: default
 {% unless pf_minutes %}{% assign pf_minutes = pf_words | plus: 179 | divided_by: 180 | at_least: 1 %}{% endunless %}
 
 {% assign pf_thumb_key = page.thumbnail | remove_first: '/' %}
-{% assign pf_cover = site.data.manifest[pf_thumb_key] | default: page.thumbnail | default: '/dist/images/articles/default.jpg' %}
+{% assign pf_cover = site.data.manifest[pf_thumb_key] | default: page.thumbnail %}
 {% assign pf_author_img = site.data.manifest['dist/images/author.jpg'] | default: '/dist/images/author.jpg' %}
 {% assign pf_category = page.categories | first | default: page.category %}
 {% assign pf_category_label = pf_category | replace: '-', ' ' %}
@@ -74,7 +74,7 @@ layout: default
     "name": "{{ site.title }}",
     "url": "{{ site.url }}"
   },
-  "image": "{{ pf_cover | absolute_url }}",
+  {% if pf_cover %}"image": "{{ pf_cover | absolute_url }}",{% endif %}
   "url": "{{ page.url | absolute_url }}",
   "inLanguage": "ar",
   "genre": "{{ pf_category_label }}",
@@ -117,11 +117,13 @@ layout: default
         </div>
     </header>
 
+    {% if pf_cover %}
     <div class="ed-cover">
         <div class="ed-container">
             <img class="ed-cover-img" src="{{ pf_cover }}" alt="{{ page.title | escape }}" loading="eager" fetchpriority="high">
         </div>
     </div>
+    {% endif %}
 
     <div class="ed-main">
         <div class="ed-container">
@@ -142,7 +144,7 @@ layout: default
                     </nav>
                     {% endif %}
 
-                    <article class="ed-body">
+                    <article class="ed-body" id="article-body">
                         <h2 class="sr-only" style="counter-increment:none">متن المقال</h2>
                         {{ content }}
                     </article>
