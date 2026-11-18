@@ -1,0 +1,76 @@
+{% comment %}
+    قياس سلوك القراءة عبر GA4 الموجود أصلاً — بلا أي مكتبة خارجية.
+    الأحداث:
+      read_depth      : 25 / 50 / 75 / 100 (% من عمق التمرير، مرة واحدة لكل عتبة)
+      pdf_download    : نقر أي رابط ملخص PDF (اسم الملف + نص الرابط)
+      related_click   : نقر بطاقة من «اقرأ أيضاً»
+      comments_load   : ضغط زر «عرض التعليقات»
+    تُرسَل مع page_path ليمكن تحليل كل مقال على حدة.
+{% endcomment %}
+<script>
+(function () {
+    if (typeof window.gtag !== 'function') return;
+
+    var pagePath = {{ page.url | jsonify }};
+    var title = {{ page.title | default: site.title | jsonify }};
+
+    /* ---------- عمق التمرير ---------- */
+    var marks = [25, 50, 75, 100];
+    var fired = {};
+
+    function trackDepth() {
+        var doc = document.documentElement;
+        var scrollable = doc.scrollHeight - window.innerHeight;
+        var pct = scrollable > 0 ? Math.round((window.scrollY / scrollable) * 100) : 100;
+        for (var i = 0; i < marks.length; i++) {
+            var m = marks[i];
+            if (pct >= m && !fired[m]) {
+                fired[m] = true;
+                gtag('event', 'read_depth', {
+                    depth: m,
+                    page_path: pagePath,
+                    page_title: title
+                });
+            }
+        }
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(function () {
+            ticking = false;
+            trackDepth();
+        });
+    }, { passive: true });
+
+    /* ---------- النقرات ---------- */
+    document.addEventListener('click', function (e) {
+        var el = e.target;
+        if (!el || !el.closest) return;
+
+        var pdf = el.closest('a[href]');
+        if (pdf && /\.pdf(\?|#|$)/i.test(pdf.getAttribute('href') || '')) {
+            gtag('event', 'pdf_download', {
+                file_name: (pdf.getAttribute('href') || '').split('/').pop(),
+                link_text: (pdf.textContent || '').trim().slice(0, 90),
+                page_path: pagePath
+            });
+        }
+
+        var card = el.closest('.ed-related-card');
+        if (card) {
+            gtag('event', 'related_click', {
+                target_path: card.getAttribute('href'),
+                target_title: (card.querySelector('.ed-related-name') || {}).textContent || '',
+                page_path: pagePath
+            });
+        }
+
+        if (el.closest('[data-comments-load]')) {
+            gtag('event', 'comments_load', { page_path: pagePath });
+        }
+    }, true);
+})();
+</script>
