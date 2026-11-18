@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "السدود في المغرب: من الرؤية الحسنية إلى آفاق الألفية الثالثة"
-date: 2026-01-05
+date: 2026-11-18
 description: >-
   قراءة تاريخية في سياسة السدود بالمغرب منذ الخطاب التأسيسي للملك الحسن الثاني بطنجة في 18 شتنبر 1967 حتى اليوم: من 13 سداً موروثاً عن الاستعمار إلى أكثر من 150 سداً بطاقة استيعابية تتجاوز 20 مليار متر مكعب.
 type: تحليلات تاريخية
@@ -17,7 +17,7 @@ tags:
 category: الموارد المائية
 theme: water
 redirect_from:
-  - "/الموارد المائية/2026/01/05/السدود-في-المغرب-تاريخ-وآفاق.html"
+  - "/الموارد المائية/2026/11/18/السدود-في-المغرب-تاريخ-وآفاق.html"
 toc:
   - level: 2
     id: ma-qabla-1967
@@ -52,6 +52,8 @@ toc:
     --dams-mist: #8ea39b;
     --dams-deep: #0b1c17;
     --dams-wash: #eef1ea;
+    /* درجة أغمق من --muted لتبقى فوق الخلفية التيلية الفاتحة بتباين ≥ 5.5:1 */
+    --dams-muted-deep: #5f5b4c;
 }
 
 .ed-body .dams-hero {
@@ -673,7 +675,7 @@ toc:
     كانت الطاقةُ الاستيعابية الإجمالية لهذه المنظومة الهزيلة لا تتجاوز 2.4 مليار متر مكعب، في حين كانت احتياجات بلد بالغ عدد سكانه نحو 12 مليون نسمة آنذاك تستوجب ضعف ذلك على أقل تقدير. وفي غياب البنية التحتية المائية الكافية، كانت التساقطاتُ تتقلب بشدة بين أعوام فيضانات مدمّرة وأعوام جفاف قاسية يُجاهر فيها المغربُ بفقرِه الهيدروليكي.
 </p>
 
-<aside class="essay-note" dir="rtl">
+<div class="essay-note" dir="rtl">
     <h3>
         <i class="fas fa-history" aria-hidden="true"></i>
         ميراث الحماية المائي (1912-1956)
@@ -684,7 +686,7 @@ toc:
         <li>غلبةُ الزراعة البورية (البعلية) المعتمدة على مجازفة الأمطار — مما يجعل الاقتصاد الزراعي رهيناً بالمناخ</li>
         <li>غيابُ منظومة وطنية للتخطيط المائي — توزيعٌ عشوائي لمواقع السدود بدوافع استغلالية لا تنموية</li>
     </ul>
-</aside>
+</div>
 
 <h2 id="khatab-tanja-1967" class="text-2xl font-bold text-amber-900 mb-6 border-b-2 border-amber-500/50 pb-3">ثانياً: خطاب طنجة 1967 — الميثاق التأسيسي للسياسة الهيدروليكية</h2>
 
@@ -1125,7 +1127,7 @@ toc:
             </svg>
         </div>
 
-        <aside class="dams-map-panel" aria-live="polite">
+        <div class="dams-map-panel" aria-live="polite" role="region" aria-label="تفاصيل السد المحدد">
             <div class="dams-map-hintbox" data-dam-system-target="hint">
                 <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
                     <polygon points="24,4 44,40 4,40" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/>
@@ -1176,7 +1178,7 @@ toc:
                     </div>
                 </div>
             </div>
-        </aside>
+        </div>
     </div>
 </div>
 
@@ -1457,14 +1459,14 @@ toc:
     gap: 0.3rem;
     margin-top: 0.15rem;
     font-size: 0.72rem;
-    color: var(--muted);
+    color: var(--dams-muted-deep);
 }
 
 .ed-body .dams-map-gauge-k {
     margin: 0 0 0.3rem;
-    font-size: 0.7rem;
+    font-size: 0.74rem;
     font-weight: 700;
-    color: var(--muted);
+    color: var(--dams-muted-deep);
 }
 
 /* مقياس الماء */
@@ -1491,9 +1493,9 @@ toc:
 
 .ed-body .ds-gauge-ticks span {
     font-family: var(--font-latin-display);
-    font-size: 0.6rem;
+    font-size: 0.66rem;
     line-height: 1;
-    color: var(--muted);
+    color: var(--dams-muted-deep);
 }
 
 .ed-body .ds-gauge-body {
@@ -1544,6 +1546,11 @@ toc:
     font-size: 1.6rem;
     font-weight: 800;
     color: var(--ink);
+    /* شريحة ورقية أسفل الرقم: تضمن التباين مهما ارتفع منسوب الماء */
+    padding: 0.06em 0.4em;
+    border-radius: 2px;
+    background: var(--surface);
+    box-shadow: 0 1px 2px rgba(11, 28, 23, 0.14);
 }
 
 @keyframes dams-wave-x {
@@ -1577,8 +1584,8 @@ toc:
 
 .ed-body .dams-map-fact-k {
     margin-bottom: 0.15rem !important;
-    font-size: 0.64rem;
-    color: var(--muted);
+    font-size: 0.7rem;
+    color: var(--dams-muted-deep);
 }
 
 .ed-body .dams-map-fact-v {
@@ -1813,6 +1820,81 @@ toc:
     .ed-body .dams-chart .dams-axis-note {
         font-size: 11px;
     }
+}
+
+/* ───────────────────────── تنسيق النص ─────────────────────────
+   نسخ عربي للنص والتسميات النثرية، وكوفي للعناوين البنيوية فقط.
+   ضبط المقاس والتباعد لقراءة طويلة بلا إجهاد: سطر 1.95، فقرة 1.3em،
+   وتوازن العناوين مع تقليل حجمها قليلاً عن تدرّج القالب العام. */
+.ed-body {
+    font-size: clamp(1.13rem, 1.08rem + 0.18vw, 1.2rem);
+    line-height: 1.95;
+    font-kerning: normal;
+    word-spacing: 0.02em;
+    hyphens: manual;
+}
+
+.ed-body p {
+    margin-bottom: 1.3em;
+    line-height: 1.95;
+    text-wrap: pretty;
+}
+
+/* الفقرة الافتتاحية لكل قسم: أكبر قليلاً وأثقل، بإيقاع سطري متّسق مع المتن */
+.design-a .ed-body h2 + p {
+    font-size: 1.06em;
+    font-weight: 500;
+    line-height: 1.9;
+    color: var(--ink);
+}
+
+.design-a .ed-body h2 {
+    margin: 2.9rem 0 1.1rem;
+    padding-top: 1.2rem;
+    font-size: clamp(1.42rem, 1.15rem + 1vw, 1.78rem);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+.design-a .ed-body h3 {
+    margin: 2.1rem 0 0.7rem;
+    font-size: clamp(1.14rem, 1.03rem + 0.5vw, 1.32rem);
+    font-weight: 700;
+    line-height: 1.65;
+    letter-spacing: 0;
+}
+
+.ed-body strong {
+    font-weight: 700;
+}
+
+.ed-body a {
+    text-underline-offset: 0.28em;
+    text-decoration-thickness: 1px;
+}
+
+.ed-body ul,
+.ed-body ol {
+    padding-inline-start: 1.4em;
+}
+
+.ed-body li {
+    margin-bottom: 0.55em;
+    line-height: 1.9;
+}
+
+/* الشروح والاقتباسات نثرٌ يُقرأ، فتُعرض بالنسخ لا بالكوفي،
+   وبدرجة أغمق من --muted لتبقى فوق خلفية المقال بتباين ≥ 5:1 */
+.ed-body .dams-hero-cap,
+.ed-body .dams-chart-cap,
+.ed-body .dams-cite,
+.ed-body .essay-figure figcaption,
+.ed-body .dams-map-hint {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: var(--dams-muted-deep);
 }
 </style>
 
