@@ -31,6 +31,9 @@ jobs:
         env:
           JEKYLL_ENV: production
         run: |
+          # GitHub Pages ignores the site Gemfile and uses its own bundle,
+          # so drop the local one to reproduce the Pages build faithfully.
+          rm -f Gemfile Gemfile.lock
           set +e
           jekyll build --safe --trace > /tmp/jekyll.log 2>&1
           code=$?
