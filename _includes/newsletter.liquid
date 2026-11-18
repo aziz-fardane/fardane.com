@@ -1,10 +1,37 @@
 {% comment %}
-    شريط الاشتراك البريدي.
-    لا يظهر إلا عند ضبط site.newsletter_action في _config.yml
-    (حالياً: FormSubmit، فتُجمَع العناوين في بريد الباحث).
-    يمكن استبداله لاحقاً برابط Buttondown أو Mailchimp دون تعديل القالب.
+    شريط الاشتراك البريدي — مستقل عن مزوّد الخدمة.
+    لا يظهر إلا عند ضبط site.newsletter_action في _config.yml.
+
+    الإعداد في _config.yml:
+      newsletter_provider : formsubmit (الحالي) | buttondown | custom
+      newsletter_user     : اسم حساب Buttondown (يُبنى الرابط تلقائياً)
+      newsletter_action   : رابط النموذج كما هو (يُستعمل في formsubmit/custom)
+
+    لكل مقال وسم مصدر (tag) يُرسَل مع الاشتراك، فيُعرف أي مقال جلب المشترك:
+      newsletter_tag في الـfront matter، وإلا صفحة المقال (slug)، وإلا التصنيف، وإلا مسار الصفحة.
 {% endcomment %}
-{% if site.newsletter_action %}
+{%- assign nl_provider = site.newsletter_provider | default: 'formsubmit' -%}
+{%- assign nl_action = site.newsletter_action -%}
+{%- if nl_provider == 'buttondown' and site.newsletter_user and site.newsletter_user != '' -%}
+    {%- assign nl_action = 'https://buttondown.email/api/emails/embed-subscribe/' | append: site.newsletter_user -%}
+{%- endif -%}
+
+{%- assign nl_tag = page.newsletter_tag -%}
+{%- if nl_tag == nil or nl_tag == empty -%}
+    {%- assign nl_tag = page.slug -%}
+{%- endif -%}
+{%- if nl_tag == nil or nl_tag == empty -%}
+    {%- assign nl_tag = page.categories | first -%}
+{%- endif -%}
+{%- if nl_tag == nil or nl_tag == empty -%}
+    {%- assign nl_tag = page.url -%}
+{%- endif -%}
+{%- assign nl_tag = nl_tag | remove_first: '/' | remove: '/' -%}
+{%- if nl_tag == nil or nl_tag == empty -%}
+    {%- assign nl_tag = 'home' -%}
+{%- endif -%}
+
+{% if nl_action %}
 <section class="nl-band" dir="rtl" aria-labelledby="nl-title">
     <div class="nl-inner">
         <div class="nl-copy">
@@ -13,19 +40,33 @@
             <p class="nl-text">ملخصات ومصادر وخرائط من أرشيف البحث، دون إزعاج. يمكنك إلغاء الاشتراك في أي وقت.</p>
         </div>
 
-        <form class="nl-form" id="nl-form" action="{{ site.newsletter_action }}" method="post">
+        <form class="nl-form" id="nl-form" action="{{ nl_action }}" method="post"
+              data-nl-provider="{{ nl_provider }}" data-nl-tag="{{ nl_tag | escape }}">
+            {% if nl_provider == 'formsubmit' %}
             <input type="hidden" name="_subject" value="اشتراك جديد في نشرة fardane.com">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://fardane.com/?subscribed=1">
+            <input type="hidden" name="source" value="{{ nl_tag | escape }}">
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+            {% elsif nl_provider == 'buttondown' %}
+            <input type="hidden" name="tag" value="{{ nl_tag | escape }}">
+            <input type="hidden" name="embed" value="1">
+            {% else %}
+            <input type="hidden" name="tag" value="{{ nl_tag | escape }}">
+            {% endif %}
 
             <label class="nl-label" for="nl-email">البريد الإلكتروني</label>
             <div class="nl-row">
-                <input class="nl-input" id="nl-email" type="email" name="email" required autocomplete="email" placeholder="name@example.com" dir="ltr">
-                <button class="nl-btn" type="submit">اشترك</button>
+                <input class="nl-input" id="nl-email" type="email" name="email" required
+                       autocomplete="email" inputmode="email" placeholder="name@example.com" dir="ltr"
+                       aria-describedby="nl-note">
+                <button class="nl-btn" id="nl-btn" type="submit">اشترك</button>
             </div>
-            <p class="nl-note">بالاشتراك، أنت توافق على استلام رسائل من fardane.com فقط.</p>
+            <p class="nl-note" id="nl-note">
+                رسائل من fardane.com فقط. لا نشارك بريدك مع أي جهة، ويمكنك إلغاء الاشتراك بنقرة واحدة.
+                <a class="underline" href="/privacy-policy/">سياسة الخصوصية</a>.
+            </p>
         </form>
 
         <p class="nl-ok" id="nl-ok" role="status" hidden>تم تسجيل بريدك. شكراً لثقتك — تصلك أول دراسة قريباً.</p>
@@ -34,11 +75,62 @@
 
 <script>
 (function () {
-    if (new URLSearchParams(window.location.search).get('subscribed') !== '1') return;
     var form = document.getElementById('nl-form');
+    if (!form) return;
+
+    var btn = document.getElementById('nl-btn');
     var ok = document.getElementById('nl-ok');
-    if (form) form.hidden = true;
-    if (ok) ok.hidden = false;
+    var provider = form.getAttribute('data-nl-provider');
+    var sending = false;
+
+    function showOk() {
+        form.hidden = true;
+        if (ok) ok.hidden = false;
+    }
+
+    function reset() {
+        sending = false;
+        if (btn) {
+            btn.disabled = false;
+            btn.style.opacity = '';
+            btn.textContent = 'اشترك';
+        }
+    }
+
+    /* عودة من FormSubmit بعد الاشتراك */
+    if (new URLSearchParams(window.location.search).get('subscribed') === '1') {
+        showOk();
+    }
+
+    form.addEventListener('submit', function (e) {
+        /* منع الإرسال المزدوج: نقرة ثانية لا تُرسل مرة أخرى */
+        if (sending) {
+            e.preventDefault();
+            return;
+        }
+
+        if (form.checkValidity && !form.checkValidity()) return;
+
+        sending = true;
+        if (btn) {
+            btn.disabled = true;
+            btn.style.opacity = '0.65';
+            btn.textContent = 'جارٍ التسجيل…';
+        }
+
+        /* Buttondown: إرسال في الخلفية وإظهار التأكيد في الصفحة نفسها */
+        if (provider === 'buttondown' && window.fetch && window.URLSearchParams) {
+            e.preventDefault();
+            fetch(form.action, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: new URLSearchParams(new FormData(form))
+            }).then(showOk).catch(function () {
+                reset();
+                form.submit();
+            });
+        }
+    });
 })();
 </script>
 {% endif %}

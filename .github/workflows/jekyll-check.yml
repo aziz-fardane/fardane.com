@@ -34,7 +34,7 @@ jobs:
             bundle install --jobs 4
             echo "install_exit=$?"
             echo "=== jekyll build ==="
-            printf 'repository: aziz-fardane/fardane.com\n' > /tmp/_ci.yml
+            printf 'repository: aziz-fardane/fardane.com\nurl: "https://fardane.com"\nbaseurl: ""\n' > /tmp/_ci.yml
             bundle exec jekyll build --trace --config _config.yml,/tmp/_ci.yml
             echo "build_exit=$?"
           } > /tmp/jekyll.log 2>&1
@@ -47,7 +47,7 @@ jobs:
         run: |
           mkdir -p preview
           cp ci-jekyll.log preview/ci-jekyll.log
-          for f in index.html services/index.html consultation/index.html manuscripts/index.html sitemap.xml; do
+          for f in index.html services/index.html consultation/index.html manuscripts/index.html privacy-policy/index.html sitemap.xml; do
             if [ -f "_site/$f" ]; then
               cp "_site/$f" "preview/$(echo "$f" | tr '/' '_')"
             else
@@ -66,6 +66,14 @@ jobs:
             echo "manuscripts_robots=$(grep -o '<meta name=\"robots\"[^>]*>' _site/manuscripts/index.html 2>/dev/null | head -1)"
             echo "manuscripts_links_in_home=$(grep -c 'href=\"/manuscripts/\"' _site/index.html 2>/dev/null || true)"
             echo "manuscripts_in_sitemap=$(grep -c 'manuscripts' _site/sitemap.xml 2>/dev/null || true)"
+            echo "newsletter_forms=$(grep -rl 'id=\"nl-form\"' _site --include='*.html' 2>/dev/null | wc -l)"
+            echo "newsletter_provider=$(grep -o 'data-nl-provider=\"[^\"]*\"' _site/index.html 2>/dev/null | head -1)"
+            echo "newsletter_tag_home=$(grep -o 'data-nl-tag=\"[^\"]*\"' _site/index.html 2>/dev/null | head -1)"
+            echo "newsletter_tag_article=$(grep -o 'data-nl-tag=\"[^\"]*\"' \"$art\" 2>/dev/null | head -1)"
+            echo "newsletter_hidden_fields=$(grep -o 'name=\"_next\" value=\"[^\"]*\"' \"$art\" 2>/dev/null | head -1)"
+            echo "newsletter_policy_link=$(grep -c 'href=\"/privacy-policy/\"' _site/index.html 2>/dev/null || true)"
+            echo "analytics_events=$(grep -o 'newsletter_submit\|outbound_click\|cta_click' _site/index.html 2>/dev/null | sort -u | tr '\n' ' ')"
+            echo "privacy_provider_line=$(grep -c 'Buttondown' _site/privacy-policy/index.html 2>/dev/null || true)"
             echo "cta_titles:"
             for f in $(find _site/articles -name index.html 2>/dev/null | sort); do
               t=$(grep -o 'class="ed-cta-title">[^<]*' "$f" | head -1 | sed 's/.*>//')

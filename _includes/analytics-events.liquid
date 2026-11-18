@@ -5,6 +5,9 @@
       pdf_download    : نقر أي رابط ملخص PDF (اسم الملف + نص الرابط)
       related_click   : نقر بطاقة من «اقرأ أيضاً»
       comments_load   : ضغط زر «عرض التعليقات»
+      cta_click       : نقر أي دعوة (data-cta) نحو الخدمات أو الاستشارة
+      outbound_click  : نقر رابط يخرج من الموقع (مصدر، كتاب، مؤسسة)
+      newsletter_submit : إرسال نموذج الاشتراك البريدي (+ المصدر: أي مقال)
     تُرسَل مع page_path ليمكن تحليل كل مقال على حدة.
 {% endcomment %}
 <script>
@@ -78,9 +81,41 @@
             });
         }
 
+        /* روابط الخروج: تُقاس مرة واحدة لكل نقرة، وتُستثنى روابط الموقع نفسه */
+        var out = el.closest('a[href]');
+        if (out) {
+            var href = out.getAttribute('href') || '';
+            if (/^https?:\/\//i.test(href)) {
+                var host = '';
+                try { host = new URL(href, window.location.href).hostname; } catch (err) { host = ''; }
+                if (host && host !== window.location.hostname && !/(^|\.)fardane\.com$/i.test(host)) {
+                    gtag('event', 'outbound_click', {
+                        link_url: href,
+                        link_domain: host,
+                        link_text: (out.textContent || '').trim().slice(0, 90),
+                        page_path: pagePath
+                    });
+                }
+            }
+        }
+
         if (el.closest('[data-comments-load]')) {
             gtag('event', 'comments_load', { page_path: pagePath });
         }
     }, true);
+
+    /* ---------- الاشتراك البريدي ---------- */
+    var nlForm = document.getElementById('nl-form');
+    if (nlForm) {
+        nlForm.addEventListener('submit', function () {
+            gtag('event', 'newsletter_submit', {
+                transport_type: 'beacon',
+                source: nlForm.getAttribute('data-nl-tag') || '',
+                provider: nlForm.getAttribute('data-nl-provider') || '',
+                page_path: pagePath,
+                page_title: title
+            });
+        });
+    }
 })();
 </script>

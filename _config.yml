@@ -54,11 +54,13 @@ email: "aziz.fardane@gmail.com"
 image: https://fardane.com/dist/images/profile.jpg
 
 # Newsletter
-# ضع هنا رابط نموذج الاشتراك (Buttondown / Mailchimp / ...) لتفعيل شريط النشرة
-# في جميع صفحات الموقع. اتركه معطّلاً فلا يظهر أي نموذج.
-# newsletter_action: "https://buttondown.email/api/emails/embed-subscribe/..."
-# مفعّلة مؤقتاً عبر FormSubmit: كل اشتراك يصل إلى بريد الباحث.
-# لاستبدالها بخدمة نشرة حقيقية (Buttondown/Mailchimp) غيّر الرابط فقط.
+# newsletter_provider: formsubmit (الحالي) | buttondown | custom
+#   formsubmit : يرسل كل اشتراك إلى بريد الباحث (لا يبني قائمة قابلة للإرسال الجماعي)
+#   buttondown : قائمة حقيقية — يكفي وضع اسم الحساب في newsletter_user
+#   custom     : أي مزوّد آخر — يُستعمل newsletter_action كما هو مع حقل email
+# اترك newsletter_action فارغاً فلا يظهر أي نموذج في الموقع.
+newsletter_provider: "formsubmit"
+newsletter_user: ""
 newsletter_action: "https://formsubmit.co/aziz.fardane@gmail.com"
 
 # Contact form (FormSubmit.co)
