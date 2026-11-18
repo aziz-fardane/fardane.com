@@ -278,7 +278,10 @@ keywords: استشارة بحثية, تشخيص الإشكالية, منهجية
         <p class="cs-proof-lede">
             الجلسة تقوم على المنهج نفسه الذي بُنيت به هذه الأعمال. اقرأ واحداً منها لتعرف طريقة العمل قبل أي التزام.
         </p>
-        {%- assign proof_posts = site.posts | where_exp: "p", "p.category == 'تاريخ-الماء' or p.category == 'الموارد-المائية' or p.category == 'التاريخ-البيئي'" -%}
+        {%- assign proof_water = site.posts | where: "category", "تاريخ-الماء" -%}
+        {%- assign proof_res = site.posts | where: "category", "الموارد-المائية" -%}
+        {%- assign proof_env = site.posts | where: "category", "التاريخ-البيئي" -%}
+        {%- assign proof_posts = proof_water | concat: proof_res | concat: proof_env | sort: "date" | reverse -%}
         <div class="cs-proof">
             {%- for post in proof_posts limit:3 %}
             <a href="{{ post.url | relative_url }}" data-cta="article-proof">
