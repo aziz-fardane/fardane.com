@@ -35,7 +35,7 @@ jobs:
           # so drop the local one to reproduce the Pages build faithfully.
           rm -f Gemfile Gemfile.lock
           set +e
-          jekyll build --safe --trace > /tmp/jekyll.log 2>&1
+          jekyll build --trace > /tmp/jekyll.log 2>&1
           code=$?
           echo "exit_code=$code" >> /tmp/jekyll.log
           tail -c 30000 /tmp/jekyll.log > ci-jekyll.log
