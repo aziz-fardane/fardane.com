@@ -61,10 +61,9 @@ image: https://fardane.com/dist/images/profile.jpg
 # لاستبدالها بخدمة نشرة حقيقية (Buttondown/Mailchimp) غيّر الرابط فقط.
 newsletter_action: "https://formsubmit.co/aziz.fardane@gmail.com"
 
-# Contact form (FormSubmit.co)
-# أول إرسال يرسل رابط تفعيل إلى البريد؛ بعد التفعيل تصل كل الرسائل مباشرة.
-# بعد التفعيل يمكن استبدال البريد بالمعرّف المشفّر الذي ترسله الخدمة.
-contact_action: "https://formsubmit.co/aziz.fardane@gmail.com"
+
+# Contact: email only (FormSubmit was never activated).
+# aziz.fardane@gmail.com
 
 # WhatsApp — رقم دولي بلا + ولا مسافات، مثل: "212612345678"
 # اتركه فارغاً فلا يظهر أي زر واتساب في الموقع.
