@@ -27,6 +27,7 @@ jobs:
       - name: Build with Jekyll (capture log)
         env:
           JEKYLL_ENV: production
+          PAGES_REPO_NWO: aziz-fardane/fardane.com
         run: |
           set +e
           {
