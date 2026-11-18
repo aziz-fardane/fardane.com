@@ -1,4 +1,4 @@
-html_files=59
+html_files=54
 liquid_leftover_files=0
 articles_total=11
 articles_with_cta=10
@@ -6,11 +6,13 @@ services_proof_cards=3
 consultation_proof_cards=3
 manuscripts_robots=<meta name="robots" content="noindex, nofollow">
 manuscripts_links_in_home=0
-manuscripts_in_sitemap=1
-newsletter_forms=49
+manuscripts_in_sitemap=0
+newsletter_forms=44
 newsletter_provider=data-nl-provider="formsubmit"
 newsletter_tag_home=data-nl-tag="home"
 newsletter_tag_article=
+article_has_newsletter=
+preview_in_sitemap=0
 newsletter_hidden_fields=
 newsletter_policy_link=1
 analytics_events=cta_click newsletter_submit outbound_click 
