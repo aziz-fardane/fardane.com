@@ -1,0 +1,39 @@
+{% comment %}
+    مقالات ذات صلة — تُبقي القارئ في الموقع بعد نهاية المقال.
+    المنطق: تقاسم الوسوم (4 ثم 3 ثم 2 ثم 1 وسم مشترك)، ثم تُكمَّل البقية بالأحدث.
+    تُدرَج في قالبَي المقال (post وpost-feature).
+{% endcomment %}
+{%- assign rel_urls = '' -%}
+{%- assign rel_count = 0 -%}
+{%- for pass in (1..4) -%}
+    {%- assign rel_threshold = 4 | minus: pass -%}
+    {%- for post in site.posts -%}
+        {%- if rel_count >= 3 -%}{%- break -%}{%- endif -%}
+        {%- if post.url == page.url -%}{%- continue -%}{%- endif -%}
+        {%- if rel_urls contains post.url -%}{%- continue -%}{%- endif -%}
+        {%- assign rel_common = 0 -%}
+        {%- for tag in post.tags -%}
+            {%- if page.tags contains tag -%}{%- assign rel_common = rel_common | plus: 1 -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if rel_common >= rel_threshold -%}
+            {%- if rel_count == 0 -%}
+<section class="ed-related" aria-labelledby="ed-related-title">
+    <h2 class="ed-related-title" id="ed-related-title">اقرأ أيضاً</h2>
+    <div class="ed-related-grid">
+            {%- endif -%}
+            {%- assign rel_minutes = post.content | strip_html | number_of_words | plus: 179 | divided_by: 180 | at_least: 1 -%}
+        <a class="ed-related-card" href="{{ post.url | relative_url }}">
+            <span class="ed-related-kicker">{{ post.category | default: 'مقال' | replace: '-', ' ' }}</span>
+            <span class="ed-related-name">{{ post.title }}</span>
+            <span class="ed-related-meta">{{ post.date | date: "%Y" }} · {{ rel_minutes }} دقيقة</span>
+        </a>
+            {%- assign rel_count = rel_count | plus: 1 -%}
+            {%- assign rel_urls = rel_urls | append: post.url | append: '|' -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor -%}
+{%- if rel_count > 0 -%}
+    </div>
+    <a class="ed-related-all" href="{{ '/articles/' | relative_url }}">تصفّح كل المقالات <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+</section>
+{%- endif -%}

@@ -1800,6 +1800,107 @@ html[dir="ltr"] .essay-quote p {
     color: var(--accent);
 }
 
+/* --------------------------------------------------------------------------
+   Related articles — keep the reader moving
+   -------------------------------------------------------------------------- */
+.ed-related {
+    margin-top: 2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
+}
+
+.ed-related-title {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.ed-related-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+}
+
+@media (min-width: 720px) {
+    .ed-related-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.ed-related-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.95rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-decoration: none;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.ed-related-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.ed-related-kicker {
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+}
+
+.ed-related-name {
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.7;
+    color: var(--ink);
+}
+
+.ed-related-meta {
+    margin-top: auto;
+    font-family: var(--font-display);
+    font-size: 0.64rem;
+    color: var(--muted);
+}
+
+.ed-related-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.ed-related-all:hover {
+    color: var(--accent-ink);
+}
+
+.ed-related-card:focus-visible,
+.ed-related-all:focus-visible,
+.ed-comments-load:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ed-related-card {
+        transition: none;
+    }
+
+    .ed-related-card:hover {
+        transform: none;
+    }
+}
+
 .ed-comments {
     margin-top: 2.4rem;
     padding-top: 1.6rem;
@@ -1819,6 +1920,35 @@ html[dir="ltr"] .essay-quote p {
 
 .ed-comments .fb-comments {
     margin-bottom: 2rem;
+}
+
+.ed-comments-note {
+    margin: 0 0 0.8rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.ed-comments-load {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+.ed-comments-load:hover {
+    background: var(--accent);
+    color: var(--surface);
 }
 
 .ed-side-author + .ed-side-share {

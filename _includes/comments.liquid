@@ -1,0 +1,64 @@
+{% comment %}
+    تعليقات فيسبوك — تُحمَّل عند الطلب فقط.
+    لا يُحمَّل SDK ولا أي سكربت خارجي قبل ضغط الزائر على الزر،
+    حفاظاً على سرعة الصفحة ومؤشرات Core Web Vitals.
+{% endcomment %}
+{% if page.comments %}
+<section class="ed-comments" dir="rtl" id="comments">
+    <h2 class="ed-comments-title">
+        <i class="fas fa-comments" aria-hidden="true"></i>
+        التعليقات
+    </h2>
+    <p class="ed-comments-note">تُحمَّل التعليقات عند الطلب فقط، حتى تبقى الصفحة سريعة.</p>
+    <button type="button" class="ed-comments-load" data-comments-load>
+        <i class="fas fa-comment-dots" aria-hidden="true"></i>
+        عرض التعليقات
+    </button>
+    <div class="ed-comments-box" id="ed-comments-box"></div>
+    <noscript><p class="ed-comments-note">لعرض التعليقات يلزم تفعيل JavaScript.</p></noscript>
+</section>
+<script>
+(function () {
+    var btn = document.querySelector('[data-comments-load]');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+        var box = document.getElementById('ed-comments-box');
+        if (!box || box.getAttribute('data-loaded')) return;
+        box.setAttribute('data-loaded', '1');
+        btn.remove();
+
+        var root = document.getElementById('fb-root');
+        if (!root) {
+            root = document.createElement('div');
+            root.id = 'fb-root';
+            document.body.appendChild(root);
+        }
+
+        var holder = document.createElement('div');
+        holder.className = 'fb-comments';
+        holder.setAttribute('data-href', '{{ site.url }}{{ page.url }}');
+        holder.setAttribute('data-width', '100%');
+        holder.setAttribute('data-numposts', '10');
+        holder.setAttribute('data-order-by', 'reverse_time');
+        box.appendChild(holder);
+
+        if (window.FB && window.FB.XFBML) {
+            window.FB.XFBML.parse(box);
+            return;
+        }
+
+        window.fbAsyncInit = function () {
+            if (window.FB && window.FB.XFBML) window.FB.XFBML.parse(box);
+        };
+
+        var s = document.createElement('script');
+        s.id = 'facebook-jssdk';
+        s.async = true;
+        s.defer = true;
+        s.crossOrigin = 'anonymous';
+        s.src = 'https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v21.0{% if site.facebook_app_id %}&appId={{ site.facebook_app_id }}{% endif %}';
+        document.body.appendChild(s);
+    });
+})();
+</script>
+{% endif %}
