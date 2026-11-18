@@ -1,0 +1,2231 @@
+---
+layout: post
+title: "الساعة المائية في المغرب الوسيط: عندما صار الماء مقياساً للزمن"
+date: 2026-11-18
+description: >-
+  من واحات فجيج إلى منار جامع القرويين: قراءة في الساعة المائية بالمغرب الوسيط، أصولها وأنواعها ودلالاتها الاجتماعية والدينية والاقتصادية.
+type: دراسات تقنية
+thumbnail: /dist/images/news/islamic-water-clock-medieval.jpg
+image: /dist/images/news/islamic-water-clock-medieval.jpg
+tags:
+  - الساعة المائية
+  - تاريخ التقنيات
+  - الماء والمدينة
+  - فاس
+  - مراكش
+  - ابن الحباك
+  - الموحدون
+  - المرينيون
+category: تاريخ-الماء
+theme: water
+toc:
+  - level: 2
+    id: al-muthallath
+    title: "الماء والإنسان والمجال: علاقة سببية أم نتيجة حتمية؟"
+  - level: 2
+    id: al-taqniyat
+    title: "التقنيات المائية: المقاصد والأهداف"
+  - level: 2
+    id: al-dalalat
+    title: "دلالات الساعة المائية: الدين والمجتمع والاقتصاد"
+  - level: 2
+    id: al-usul
+    title: "الأصول: من الإسكندرية إلى فاس ومراكش"
+  - level: 2
+    id: al-anwa
+    title: "الأنواع: الخروبة والمنجانة"
+  - level: 2
+    id: al-intishar
+    title: "مسارات الانتقال: من المشرق إلى الغرب الإسلامي"
+  - level: 2
+    id: khulasa
+    title: "خاتمة: الماء والزمن والحضارة"
+---
+
+<style>
+/* ==========================================================================
+   دفتر المِنْجانة — نظام بصري بديل لمقال الساعة المائية
+   لوحة آلة: حبر داكن، نحاس، ورق، ومساطر مدرّجة.
+   ========================================================================== */
+
+.ed-body {
+    --wc-deep: #0c2724;
+    --wc-deep-2: #123b37;
+    --wc-brass: #a97c2f;
+    --wc-brass-ink: #7d5a1e;
+    --wc-brass-2: #c9a35f;
+    --wc-paper: #f4f0e4;
+    --wc-paper-2: #eee7d6;
+    --wc-wash: #e5efe9;
+    --wc-mist: #8fb3ad;
+    --wc-muted: #5b6a63;
+    --wc-rule: rgba(12, 39, 36, 0.16);
+    --wc-rule-soft: rgba(12, 39, 36, 0.09);
+    font-size: clamp(1.13rem, 1.08rem + 0.18vw, 1.2rem);
+    line-height: 1.95;
+    font-kerning: normal;
+    word-spacing: 0.02em;
+    hyphens: manual;
+}
+
+.ed-body p {
+    margin-bottom: 1.3em;
+    line-height: 1.95;
+    text-wrap: pretty;
+}
+
+.ed-body strong {
+    font-weight: 700;
+}
+
+.ed-body [id] {
+    scroll-margin-top: 6rem;
+}
+
+/* ---------- عناوين الألواح ---------- */
+.design-a .ed-body > h2[id] {
+    display: grid;
+    grid-template-columns: 3.1rem 1fr;
+    column-gap: 1rem;
+    align-items: start;
+    margin: 3.6rem 0 1.3rem;
+    padding: 1.35rem 0 0;
+    border: 0;
+    background-image: repeating-linear-gradient(
+        to left,
+        var(--wc-brass) 0 1px,
+        transparent 1px 14px
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 5px;
+    background-position: top right;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.22rem + 1vw, 1.92rem);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+.design-a .ed-body > h2[id]::before {
+    content: counter(ed-section, arabic-indic);
+    grid-row: 1;
+    grid-column: 1;
+    margin: 0.12rem 0 0;
+    font-family: var(--font-latin-display);
+    font-size: 2.15rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--wc-brass);
+}
+
+.design-a .ed-body > h2[id] + p {
+    font-size: 1.06em;
+    font-weight: 500;
+    line-height: 1.9;
+    color: var(--ink);
+}
+
+.design-a .ed-body h3 {
+    margin: 2.2rem 0 0.7rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.12rem, 1.02rem + 0.45vw, 1.3rem);
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 0;
+}
+
+/* عناوين المكوّنات الصغيرة تبقى على مقاساتها */
+.ed-body .essay-timeline-body h3 {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.7;
+}
+
+.ed-body .essay-cards h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.65;
+}
+
+.ed-body .essay-note h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.design-a .ed-body .essay-source-group h3 {
+    margin: 0 0 0.65rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--wc-rule);
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--wc-brass-ink);
+}
+
+/* ---------- فهرس المحتويات: مسطرة مدرّجة ---------- */
+.ed-main-col .ed-toc-inline {
+    margin: 0 0 2.6rem;
+    padding: 1rem 1.1rem 1.15rem;
+    border: 1px solid var(--wc-rule);
+    border-radius: 2px;
+    background:
+        linear-gradient(180deg, rgba(169, 124, 47, 0.06), transparent 55%),
+        var(--wc-paper-2);
+}
+
+.ed-main-col .ed-toc-title {
+    margin: 0 0 0.7rem;
+    font-family: var(--font-latin-display);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--wc-brass-ink);
+}
+
+.ed-main-col .ed-toc-list {
+    columns: 1;
+    counter-reset: toc;
+    display: grid;
+    gap: 0;
+}
+
+.ed-main-col .ed-toc-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0.34rem 0;
+    border-bottom: 1px dotted var(--wc-rule);
+}
+
+.ed-main-col .ed-toc-list li:last-child {
+    border-bottom: 0;
+}
+
+.ed-main-col .ed-toc-list li::before {
+    counter-increment: toc;
+    content: counter(toc, arabic-indic);
+    min-width: 1.3rem;
+    font-family: var(--font-latin-display);
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--wc-brass-ink);
+    letter-spacing: 0;
+}
+
+.ed-main-col .ed-toc-list a {
+    padding: 0;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    text-decoration: none;
+}
+
+.ed-main-col .ed-toc-list a:hover {
+    color: var(--accent-ink);
+    text-decoration: underline;
+}
+
+/* ---------- البسملة ---------- */
+.ed-body .wc-basmala {
+    margin: 0 0 1.8rem;
+    font-family: var(--font-quote);
+    font-size: 1.14rem;
+    line-height: 2;
+    color: var(--accent-ink);
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+
+/* ---------- بطاقة الأرشيف ---------- */
+.ed-body .wc-stamp {
+    position: relative;
+    margin: 0 0 2.4rem;
+    padding: 1.1rem 1.25rem 1.1rem 1.4rem;
+    border: 1px dashed var(--wc-brass);
+    border-radius: 2px;
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            rgba(169, 124, 47, 0.055) 0 6px,
+            transparent 6px 12px
+        ),
+        var(--wc-paper-2);
+}
+
+.ed-body .wc-stamp-k {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-latin-display);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: var(--wc-brass-ink);
+}
+
+.ed-body .wc-stamp p:not(.wc-stamp-k) {
+    margin: 0 0 0.4rem;
+    font-size: 0.87rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+}
+
+.ed-body .wc-stamp p:last-child {
+    margin-bottom: 0;
+}
+
+.ed-body .wc-stamp strong {
+    color: var(--ink);
+}
+
+/* ---------- لوحة الافتتاح ---------- */
+.ed-body .wc-plate {
+    margin: 0 0 2.4rem;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 3px;
+    background: var(--wc-deep);
+    color: #eef3ef;
+}
+
+.ed-body .wc-plate-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem 1rem;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid rgba(201, 163, 95, 0.3);
+    font-family: var(--font-latin-display);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--wc-brass-2);
+}
+
+.ed-body .wc-plate-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ed-body .wc-plate figcaption {
+    padding: 0.7rem 1rem 0.85rem;
+    border-top: 1px solid rgba(201, 163, 95, 0.3);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    line-height: 1.85;
+    color: #c9d8d2;
+    text-align: center;
+}
+
+/* ---------- بطاقة الحقائق ---------- */
+.ed-body .wc-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0 0 2.6rem;
+    border: 1px solid var(--wc-rule);
+    background: var(--wc-paper-2);
+}
+
+.ed-body .wc-fact {
+    padding: 0.75rem 0.85rem;
+    border-bottom: 1px dotted var(--wc-rule);
+    border-inline-end: 1px dotted var(--wc-rule);
+}
+
+.ed-body .wc-fact:nth-child(2n) {
+    border-inline-end: 0;
+}
+
+.ed-body .wc-fact:nth-child(n + 3) {
+    border-bottom: 0;
+}
+
+.ed-body .wc-fact-k {
+    margin: 0 0 0.15rem;
+    font-family: var(--font-latin-display);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--wc-brass-ink);
+}
+
+.ed-body .wc-fact-v {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.7;
+    color: var(--ink);
+}
+
+@media (min-width: 760px) {
+    .ed-body .wc-facts {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .ed-body .wc-fact {
+        border-bottom: 0;
+        border-inline-end: 1px dotted var(--wc-rule);
+    }
+
+    .ed-body .wc-fact:nth-child(2n) {
+        border-inline-end: 1px dotted var(--wc-rule);
+    }
+
+    .ed-body .wc-fact:last-child {
+        border-inline-end: 0;
+    }
+}
+
+.ed-body .wc-facts + p {
+    font-size: 1.05em;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+/* ---------- معادلة الماء/الإنسان/المجال ---------- */
+.ed-body .wc-eq {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin: 2rem 0;
+    padding: 1.35rem 1rem;
+    border: 1px solid var(--wc-rule);
+    border-radius: 2px;
+    background:
+        radial-gradient(circle at 50% 0, rgba(46, 111, 104, 0.1), transparent 70%),
+        var(--wc-wash);
+}
+
+.ed-body .wc-eq-node {
+    padding: 0.42rem 0.9rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: var(--surface);
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--accent-ink);
+}
+
+.ed-body .wc-eq-op {
+    font-family: var(--font-latin-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--wc-brass-ink);
+}
+
+.ed-body .wc-eq-out {
+    padding: 0.42rem 0.95rem;
+    border: 1px solid var(--wc-deep);
+    border-radius: 999px;
+    background: var(--wc-deep);
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #f2eee2;
+}
+
+.ed-body .wc-eq-note {
+    flex-basis: 100%;
+    margin: 0.5rem 0 0;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    line-height: 1.8;
+    color: var(--wc-muted);
+    text-align: center;
+}
+
+/* ---------- شروط المدينة الخمسة ---------- */
+.ed-body .wc-conditions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 1.9rem 0;
+}
+
+@media (min-width: 780px) {
+    .ed-body .wc-conditions {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+.ed-body .wc-cond {
+    padding: 0.85rem 0.6rem;
+    border: 1px dashed var(--wc-brass);
+    border-radius: 2px;
+    background: var(--wc-paper-2);
+    text-align: center;
+}
+
+.ed-body .wc-cond p {
+    margin: 0;
+}
+
+.ed-body .wc-cond-ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 0.4rem;
+    border-radius: 999px;
+    background: var(--wc-deep);
+    color: var(--wc-brass-2);
+    font-size: 0.8rem;
+}
+
+.ed-body .wc-cond-name {
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--ink);
+}
+
+/* ---------- الدلالات الثلاث ---------- */
+.ed-body .wc-meanings {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+@media (min-width: 760px) {
+    .ed-body .wc-meanings {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+    }
+
+    .ed-body .wc-meaning:nth-child(2) {
+        margin-top: 1.2rem;
+    }
+
+    .ed-body .wc-meaning:nth-child(3) {
+        margin-top: 2.4rem;
+    }
+}
+
+.ed-body .wc-meaning {
+    position: relative;
+    padding: 1.15rem 1.1rem 1.2rem;
+    border: 1px solid var(--wc-rule);
+    background: var(--surface);
+}
+
+.ed-body .wc-meaning::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 3px;
+    background: var(--wc-brass);
+}
+
+.ed-body .wc-meaning .wc-meaning-num {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-latin-display);
+    font-size: 1.9rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--wc-brass-ink);
+}
+
+.ed-body .wc-meaning h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.ed-body .wc-meaning p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.95;
+}
+
+/* ---------- الشريط الداكن ---------- */
+.ed-body .wc-band {
+    position: relative;
+    margin: 2.6rem 0;
+    padding: 2.2rem 1.3rem;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--wc-deep);
+    color: #f2eee2;
+    text-align: center;
+}
+
+.ed-body .wc-band::before,
+.ed-body .wc-band::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--wc-brass-2);
+    opacity: 0.55;
+}
+
+.ed-body .wc-band::before {
+    top: 9px;
+    inset-inline-start: 9px;
+    border-inline-end: 0;
+    border-bottom: 0;
+}
+
+.ed-body .wc-band::after {
+    bottom: 9px;
+    inset-inline-end: 9px;
+    border-inline-start: 0;
+    border-top: 0;
+}
+
+.ed-body .wc-band-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.ed-body .wc-wave {
+    fill: none;
+    stroke: var(--wc-mist);
+    stroke-width: 1;
+}
+
+.ed-body .wc-wave-2 {
+    opacity: 0.5;
+}
+
+.ed-body .wc-wave-1 {
+    animation: wcWaveShift 22s linear infinite;
+}
+
+.ed-body .wc-wave-2 {
+    animation: wcWaveShift 34s linear infinite reverse;
+}
+
+@keyframes wcWaveShift {
+    from { transform: translateX(0); }
+    to { transform: translateX(360px); }
+}
+
+.ed-body .wc-band-in {
+    position: relative;
+}
+
+.ed-body .wc-band-k {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-latin-display);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--wc-brass-2);
+}
+
+.ed-body .wc-band-v {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-latin-display);
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #faf7ee;
+}
+
+.ed-body .wc-band-v span {
+    margin-inline-start: 0.35rem;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #d9e3df;
+}
+
+.ed-body .wc-band-t {
+    max-width: 46ch;
+    margin: 0 auto;
+    font-size: 0.86rem;
+    line-height: 1.95;
+    color: #dbe6e2;
+}
+
+/* ---------- محاكاة القرص ---------- */
+.ed-body .wc-clock {
+    margin: 2.6rem 0;
+    padding: 1.3rem 1.2rem 1.1rem;
+    border: 1px solid var(--wc-rule);
+    border-radius: 2px;
+    background: var(--surface);
+}
+
+.ed-body .wc-clock-head {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.ed-body .wc-clock-kicker {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-latin-display);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--wc-brass-ink);
+}
+
+.ed-body .wc-clock-head h3 {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.ed-body .wc-clock-head p:not(.wc-clock-kicker) {
+    margin: 0 auto;
+    max-width: 46ch;
+    font-size: 0.82rem;
+    line-height: 1.85;
+    color: var(--wc-muted);
+}
+
+.ed-body .wc-clock-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+}
+
+.ed-body .wc-dial {
+    display: block;
+    width: min(100%, 258px);
+    height: auto;
+}
+
+.ed-body .wc-dial-ring {
+    fill: none;
+    stroke: var(--wc-rule);
+    stroke-width: 1;
+}
+
+.ed-body .wc-dial-track {
+    fill: none;
+    stroke: var(--wc-rule-soft);
+    stroke-width: 10;
+}
+
+.ed-body .wc-dial-arc {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-box: view-box;
+    transform-origin: 130px 130px;
+    transition: stroke-dashoffset 0.2s linear;
+}
+
+.ed-body .wc-dial-tick {
+    stroke: var(--wc-rule);
+    stroke-width: 1.4;
+}
+
+.ed-body .wc-dial-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    fill: var(--wc-muted);
+}
+
+.ed-body .wc-dial-hand {
+    stroke: var(--wc-brass);
+    stroke-width: 2;
+    transform-box: view-box;
+    transform-origin: 130px 130px;
+    transition: transform 0.2s linear;
+}
+
+.ed-body .wc-clock-side {
+    min-width: 10rem;
+    text-align: center;
+}
+
+.ed-body .wc-clock-time {
+    margin: 0;
+    font-family: var(--font-latin-display);
+    font-size: 2.1rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--accent-ink);
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+.ed-body .wc-clock-lbl {
+    margin: 0.1rem 0 0.65rem;
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    color: var(--wc-muted);
+}
+
+.ed-body .wc-clock-pct {
+    margin: 0;
+    font-family: var(--font-latin-display);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.ed-body .wc-clock-bar {
+    height: 3px;
+    margin: 1.1rem 0 0.9rem;
+    overflow: hidden;
+    background: var(--wc-rule-soft);
+}
+
+.ed-body .wc-clock-bar span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.2s linear;
+}
+
+.ed-body .wc-clock-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--wc-rule);
+    border-radius: 999px;
+    background: var(--wc-paper-2);
+    color: var(--accent-ink);
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ed-body .wc-clock-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+}
+
+.ed-body .wc-clock-act {
+    margin: 1.05rem 0 0;
+    text-align: center;
+}
+
+.ed-body .wc-clock-btn[hidden] {
+    display: none;
+}
+
+.ed-body .wc-clock figcaption {
+    margin-top: 0.9rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    line-height: 1.9;
+    color: var(--wc-muted);
+    text-align: center;
+}
+
+/* ---------- مسطرة الأجزاء ---------- */
+.ed-body .wc-ruler {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin: 1.2rem 0 0;
+    border: 1px solid var(--wc-rule);
+    background: var(--wc-paper-2);
+}
+
+@media (min-width: 700px) {
+    .ed-body .wc-ruler {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+.ed-body .wc-ruler-btn {
+    display: block;
+    padding: 0.55rem 0.3rem;
+    border: 0;
+    border-inline-end: 1px dotted var(--wc-rule);
+    border-bottom: 1px dotted var(--wc-rule);
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ed-body .wc-ruler-btn:hover,
+.ed-body .wc-ruler-btn:focus-visible {
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+}
+
+.ed-body .wc-ruler-btn[aria-pressed="true"] {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.ed-body .wc-ruler-btn:nth-child(3n) {
+    border-inline-end: 0;
+}
+
+.ed-body .wc-ruler-btn:nth-child(n + 4) {
+    border-bottom: 0;
+}
+
+@media (min-width: 700px) {
+    .ed-body .wc-ruler-btn:nth-child(3n) {
+        border-inline-end: 1px dotted var(--wc-rule);
+    }
+
+    .ed-body .wc-ruler-btn:nth-child(n + 4) {
+        border-bottom: 0;
+    }
+
+    .ed-body .wc-ruler-btn:last-child {
+        border-inline-end: 0;
+    }
+}
+
+.ed-body .wc-ruler-t {
+    display: block;
+    margin-top: 0.1rem;
+    font-family: var(--font-latin-display);
+    font-size: 0.64rem;
+    font-weight: 400;
+    color: var(--wc-muted);
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+.ed-body .wc-ruler-btn[aria-pressed="true"] .wc-ruler-t {
+    color: #eaf1ed;
+}
+
+.ed-body .wc-ruler-k {
+    margin: 1.3rem 0 0.45rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.7;
+    color: var(--wc-muted);
+    text-align: center;
+}
+
+/* ---------- وحدات القياس ---------- */
+.ed-body .wc-units {
+    display: grid;
+    gap: 0.9rem;
+    margin: 1.8rem 0;
+}
+
+@media (min-width: 700px) {
+    .ed-body .wc-units {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.ed-body .wc-unit {
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--wc-rule);
+    background: var(--surface);
+}
+
+.ed-body .wc-unit p {
+    margin: 0;
+}
+
+.ed-body .wc-unit-name {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.ed-body .wc-unit-v {
+    margin: 0.3rem 0 0.55rem !important;
+    font-family: var(--font-latin-display);
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--accent-ink);
+}
+
+.ed-body .wc-unit-v small {
+    margin-inline-start: 0.25rem;
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--wc-muted);
+}
+
+.ed-body .wc-unit-bar {
+    height: 5px;
+    overflow: hidden;
+    background: var(--wc-rule-soft);
+}
+
+.ed-body .wc-unit-bar span {
+    display: block;
+    width: var(--v, 100%);
+    height: 100%;
+    background: var(--accent);
+}
+
+.ed-body .wc-unit-note {
+    margin-top: 0.5rem !important;
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--wc-muted);
+}
+
+/* ---------- الجدول ---------- */
+.ed-body .wc-table-wrap {
+    margin: 1.8rem 0 2.4rem;
+    overflow-x: auto;
+}
+
+.ed-body .wc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    line-height: 1.8;
+}
+
+.ed-body .wc-table caption {
+    caption-side: top;
+    margin-bottom: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    color: var(--wc-muted);
+    text-align: start;
+}
+
+.ed-body .wc-table th,
+.ed-body .wc-table td {
+    padding: 0.62rem 0.7rem;
+    border-bottom: 1px solid var(--wc-rule-soft);
+    text-align: start;
+    vertical-align: top;
+}
+
+.ed-body .wc-table thead th {
+    padding: 0.5rem 0.7rem;
+    border-bottom: 0;
+    background: var(--wc-deep);
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #f2eee2;
+    white-space: nowrap;
+}
+
+.ed-body .wc-table tbody tr:nth-child(even) {
+    background: rgba(169, 124, 47, 0.05);
+}
+
+.ed-body .wc-table tbody th {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.ed-body .wc-table td {
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 700px) {
+    .ed-body .wc-table-wrap {
+        overflow-x: visible;
+    }
+
+    .ed-body .wc-table thead {
+        display: none;
+    }
+
+    .ed-body .wc-table,
+    .ed-body .wc-table tbody,
+    .ed-body .wc-table tr,
+    .ed-body .wc-table th,
+    .ed-body .wc-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .ed-body .wc-table tr {
+        margin-bottom: 0.8rem;
+        padding: 0.8rem 0.9rem;
+        border: 1px solid var(--wc-rule);
+        background: var(--surface) !important;
+    }
+
+    .ed-body .wc-table th,
+    .ed-body .wc-table td {
+        padding: 0.15rem 0;
+        border: 0;
+    }
+
+    .ed-body .wc-table tbody th {
+        margin-bottom: 0.3rem;
+        padding-bottom: 0.35rem;
+        border-bottom: 1px solid var(--wc-rule);
+        font-size: 0.92rem;
+    }
+
+    .ed-body .wc-table td::before {
+        content: attr(data-l) " · ";
+        font-family: var(--font-display);
+        font-size: 0.68rem;
+        color: var(--wc-muted);
+    }
+}
+
+/* ---------- مسار الانتقال ---------- */
+.ed-body .wc-route {
+    margin: 2rem 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: wc-stop;
+}
+
+@media (min-width: 820px) {
+    .ed-body .wc-route {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+}
+
+.ed-body .wc-stop {
+    position: relative;
+    padding: 0.9rem 0.6rem 0.9rem 2.4rem;
+    border-inline-start: 1px dashed var(--wc-mist);
+    counter-increment: wc-stop;
+}
+
+@media (min-width: 820px) {
+    .ed-body .wc-stop {
+        padding: 2.3rem 0.4rem 0.4rem;
+        border-inline-start: 0;
+        border-top: 1px dashed var(--wc-mist);
+        text-align: center;
+    }
+}
+
+.ed-body .wc-stop::before {
+    content: counter(wc-stop, arabic-indic);
+    position: absolute;
+    top: 0.75rem;
+    inset-inline-start: -0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border: 1px solid var(--wc-brass);
+    border-radius: 999px;
+    background: var(--surface);
+    font-family: var(--font-latin-display);
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--wc-brass-ink);
+}
+
+@media (min-width: 820px) {
+    .ed-body .wc-stop::before {
+        top: -0.95rem;
+        inset-inline-start: 50%;
+        transform: translateX(50%);
+    }
+}
+
+.ed-body .wc-stop:first-child::before {
+    background: var(--wc-deep);
+    border-color: var(--wc-deep);
+    color: var(--wc-brass-2);
+}
+
+.ed-body .wc-stop p {
+    margin: 0;
+}
+
+.ed-body .wc-stop-name {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--ink);
+}
+
+.ed-body .wc-stop-note {
+    margin-top: 0.15rem !important;
+    font-size: 0.7rem;
+    line-height: 1.7;
+    color: var(--wc-muted);
+}
+
+/* ---------- الاقتباسات ---------- */
+.ed-body .essay-quote {
+    margin: 2rem 0;
+    padding: 1.15rem 1.3rem;
+    border: 0;
+    border-inline-start: 3px solid var(--wc-brass);
+    border-radius: 0;
+    background: var(--wc-paper-2);
+}
+
+.ed-body .essay-quote p {
+    margin: 0;
+    font-size: 1.04rem;
+    font-weight: 500;
+    line-height: 1.95;
+    color: var(--ink);
+}
+
+.ed-body .wc-cite {
+    margin-top: 0.7rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    line-height: 1.8;
+    color: var(--wc-muted);
+}
+
+.ed-body .wc-ref {
+    margin-inline-start: 0.15em;
+    color: var(--wc-brass-ink);
+    font-weight: 700;
+}
+
+/* ---------- الخاتمة/الاقتباس الختامي ---------- */
+.ed-body .wc-quote {
+    margin: 2.4rem 0;
+    padding: 0 0 0 1.3rem;
+    border-inline-start: 2px solid var(--wc-brass);
+}
+
+.ed-body .wc-quote p {
+    margin: 0;
+    font-family: var(--font-quote);
+    font-size: 1.14rem;
+    line-height: 2;
+    color: var(--ink);
+}
+
+.ed-body .wc-quote footer {
+    margin-top: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    line-height: 1.8;
+    color: var(--wc-muted);
+}
+
+/* ---------- المصادر ---------- */
+.design-a .ed-body .essay-sources {
+    margin-top: 3.2rem;
+    padding-top: 1.6rem;
+    border-top: 2px solid var(--ink);
+}
+
+.design-a .ed-body .essay-sources h2 {
+    margin: 0 0 1.3rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: var(--font-display);
+    font-size: 1.12rem;
+    font-weight: 800;
+    line-height: 1.6;
+    color: var(--ink);
+}
+
+.ed-body .essay-sources-grid {
+    display: grid;
+    gap: 1.4rem;
+}
+
+@media (min-width: 700px) {
+    .ed-body .essay-sources-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.ed-body .essay-source-group ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.76rem;
+    line-height: 1.9;
+}
+
+.ed-body .essay-source-group li {
+    margin-bottom: 0.55rem;
+    padding-inline-start: 0.8rem;
+    text-indent: -0.8rem;
+}
+
+.ed-body .essay-source-group li::before {
+    content: "•";
+    margin-inline-end: 0.4rem;
+    color: var(--wc-brass-ink);
+}
+
+/* ---------- بطاقات التقنيات ---------- */
+.ed-body .essay-cards > div {
+    padding: 1rem 1.05rem;
+    border: 1px solid var(--wc-rule);
+    border-top: 3px solid var(--wc-brass);
+    background: var(--surface);
+}
+
+/* ---------- الخيط الزمني ---------- */
+.ed-body .essay-timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.ed-body .essay-timeline::before {
+    content: "";
+    position: absolute;
+    inset-block: 0.4rem;
+    inset-inline-start: 0;
+    width: 1px;
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        var(--wc-brass),
+        transparent
+    );
+    background-size: 1px 200%;
+    animation: wcThread 7s linear infinite;
+}
+
+@keyframes wcThread {
+    from { background-position: 0 0; }
+    to { background-position: 0 200%; }
+}
+
+.ed-body .essay-timeline-item {
+    position: relative;
+    padding-inline-start: 1.7rem;
+    padding-bottom: 1.5rem;
+    border: 0;
+}
+
+.ed-body .essay-timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.ed-body .essay-timeline-item::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -0.28rem;
+    top: 0.55rem;
+    width: 0.56rem;
+    height: 0.56rem;
+    border: 2px solid var(--wc-brass);
+    border-radius: 999px;
+    background: var(--surface);
+}
+
+.ed-body .essay-timeline-date {
+    display: inline-block;
+    margin-bottom: 0.3rem;
+    padding: 0.08rem 0.45rem;
+    border: 1px solid var(--wc-rule);
+    border-radius: 999px;
+    background: var(--wc-paper-2);
+    font-family: var(--font-latin-display);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--wc-brass-ink);
+}
+
+.ed-body .essay-timeline-body p {
+    margin-bottom: 0;
+    font-size: 0.94rem;
+    line-height: 1.95;
+}
+
+/* ---------- تنبيه منهجي ---------- */
+.ed-body .essay-note {
+    margin: 2.4rem 0 0;
+    padding: 1.1rem 1.2rem;
+    border: 1px dashed var(--wc-brass);
+    border-radius: 2px;
+    background: var(--wc-paper-2);
+}
+
+/* ---------- الحركات ---------- */
+.wc-anim {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.wc-drip {
+    animation: wcDrip 2.8s cubic-bezier(0.4, 0, 0.7, 1) infinite;
+}
+
+.wc-ripple {
+    animation: wcRipple 2.8s ease-out infinite;
+}
+
+.wc-ripple-2 {
+    animation-delay: 1.4s;
+}
+
+.wc-level {
+    animation: wcLevel 7s ease-in-out infinite;
+}
+
+.wc-bubble {
+    animation: wcBubble 4s ease-in infinite;
+}
+
+.wc-bubble-2 {
+    animation-delay: 1.3s;
+}
+
+.wc-bubble-3 {
+    animation-delay: 2.6s;
+}
+
+.wc-drift {
+    animation: wcDrift 22s linear infinite;
+}
+
+.wc-pulse {
+    animation: wcPulse 3.2s ease-in-out infinite;
+}
+
+.wc-hand {
+    animation: wcHand 60s linear infinite;
+}
+
+.wc-arc-loop {
+    animation: wcArcLoop 18s linear infinite;
+}
+
+@keyframes wcDrip {
+    0% { transform: translateY(0); opacity: 0; }
+    12% { opacity: 1; }
+    78% { opacity: 1; }
+    100% { transform: translateY(52px); opacity: 0; }
+}
+
+@keyframes wcRipple {
+    0% { transform: scale(0.35); opacity: 0.55; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes wcLevel {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@keyframes wcBubble {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 0.75; }
+    100% { transform: translateY(-40px); opacity: 0; }
+}
+
+@keyframes wcDrift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-120px); }
+}
+
+@keyframes wcPulse {
+    0%, 100% { transform: scale(1); opacity: 0.45; }
+    50% { transform: scale(1.18); opacity: 0.9; }
+}
+
+@keyframes wcHand {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes wcArcLoop {
+    from { stroke-dashoffset: 552; }
+    to { stroke-dashoffset: 0; }
+}
+
+/* ---------- احترام تقليل الحركة ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .ed-body .wc-anim,
+    .ed-body .wc-anim *,
+    .ed-body .wc-drip,
+    .ed-body .wc-ripple,
+    .ed-body .wc-level,
+    .ed-body .wc-bubble,
+    .ed-body .wc-drift,
+    .ed-body .wc-pulse,
+    .ed-body .wc-hand,
+    .ed-body .wc-arc-loop,
+    .ed-body .wc-wave-1,
+    .ed-body .wc-wave-2,
+    .ed-body .essay-timeline::before {
+        animation: none !important;
+    }
+}
+</style>
+
+<p class="wc-basmala">بسم الله الرحمن الرحيم</p>
+
+<div class="wc-stamp" dir="rtl">
+    <p class="wc-stamp-k">ARCHIVE · بطاقة العرض الأصل</p>
+    <p><strong>عرض نهاية التكوين</strong> أُنجز في إطار ماستر «الماء في تاريخ المغرب»، مادة «الماء والمدينة».</p>
+    <p><strong>من إنجاز:</strong> عزيز فردان وعبد الله امجهادي.</p>
+    <p>هذا المقال تحريرٌ موسّع للعرض المذكور: أُعيدت صياغته وتبويبه لهذا الموقع، مع الحفاظ على بنيته العلمية ومصادره.</p>
+</div>
+
+<div class="wc-facts" dir="rtl">
+    <div class="wc-fact">
+        <p class="wc-fact-k">الإطار</p>
+        <p class="wc-fact-v">ماستر الماء في تاريخ المغرب</p>
+    </div>
+    <div class="wc-fact">
+        <p class="wc-fact-k">المادة</p>
+        <p class="wc-fact-v">الماء والمدينة</p>
+    </div>
+    <div class="wc-fact">
+        <p class="wc-fact-k">نوع النص</p>
+        <p class="wc-fact-v">عرض نهاية التكوين</p>
+    </div>
+    <div class="wc-fact">
+        <p class="wc-fact-k">المدى الزمني</p>
+        <p class="wc-fact-v">ق3 ق.م — ق8هـ/14م</p>
+    </div>
+</div>
+
+<p>
+    يكتسي الماء أهمية محورية في الحياة البشرية: منه نستقي موارد العيش، وبه نتحكم في المجال ونخطط لأماكن الاستقرار، وخاصة منها المدن، التي تختلف باختلاف وظائفها وظروف إنشائها ومواقعها والمؤثرات التي تساهم في نموها وتطورها. وقد أشار المفكرون في التراث الإسلامي إلى ضرورة الأخذ بشروط عند اختيار مواقع المدن وتخطيط مواضعها، ومنها سعة المياه المستعذبة، واعتدال المكان، وجودة الهواء، والقرب من المرعى والاحتطاب.
+</p>
+
+<p>
+    وقبل الدخول في صلب الموضوع، لا بد من التوقف عند العلاقة الجدلية بين ثلاثة مفاهيم أساسية: <strong>الماء</strong> و<strong>الإنسان</strong> و<strong>المجال</strong>. علاقة تتفاعل فيما بينها وتُفرز ابتكارات عدة، تتجلى أهمها في ظهور تقنيات ارتبطت أساساً باستغلال هذه المادة الحيوية من طرف الإنسان في مجال ومكان معين. فالإنسان يتحكم في مجال استقراره من خلال تحكمه في الموارد المائية، لكن بدون هذا المورد لا يمكن الحديث عن وجود بشري: حالتا النذرة والوفرة تشكلان هاجساً طارداً للكائن البشري منذ بداية التعاطي مع هذه المادة الحيوية.
+</p>
+
+<p>
+    والنتيجة الحتمية لذلك إما الترحال والهجرة بحثاً عن مصادر الماء في وقت النذرة وفي حالات الفيضانات والسيول، أو العمل على ابتكار طرق للتكيف مع الحالتين. ومن هنا يدخل موضوعنا الذي يركز على التقنيات التي طوّرها الإنسان في هذا الصدد، والتي تخدم أغراضاً عملية. على أن البساطة التي تبدو ظاهرياً على العديد من هذه الإنشاءات يجب ألا تحجب حقيقة أن عدداً من الأفكار والمكونات والأساليب الفنية المتضمنة فيها كان بالغ الأهمية والدلالة في تطور التقنيات والآلات.
+</p>
+
+<p>
+    ولا يخفى ما يعترض الباحث في تاريخ التقنيات، وخاصة في المجال المغربي، من صعوبة: فرغم حساسية الموضوع وتهافت المؤرخين والباحثين عليه من كل التخصصات، فإن البحث فيه يتطلب الإحاطة بظروف الظهور وتحديد مجالات الانتشار. ويصعب الأمر أكثر عند البحث في تقنية بدأت في الانقراض في شكلها التقليدي وبدأ تعويضها بتقنيات حديثة، والحديث هنا عن <strong>الساعة المائية</strong>، التي تطرح أسئلة من قبيل: كيف ظهرت هذه التقنية؟ وكيف انتشرت في المجال المغربي؟ ولماذا أمست ضرورة ملحّة في المجتمع في مرحلة من المراحل؟
+</p>
+
+<p>
+    إن الإجابة عن هذه الإشكالات تقتضي الركون إلى مادة مصدرية قليلة جداً ومتناثرة هنا وهناك، والحرص على رصد كل الإشارات التي قد تفيد البحث بشكل مباشر أو غير مباشر، والاعتماد على منهج حولياتي يوسّع مفهوم الوثيقة ويشتغل في الغالب على الزمن الطويل. وذلك في محاولة تركيبية تدرس العلاقات التفاعلية بين مجموعة من المكونات، التي يأتي كنتيجة لها ظهور تقنية من التقنيات، تتطور بدورها مع تعاقب الأزمنة وتسارعها.
+</p>
+
+<figure class="wc-plate">
+    <div class="wc-plate-top">
+        <span>PLATE 01 · المِنْجانة</span>
+        <span>مقطع تخييلي</span>
+    </div>
+    <svg class="wc-plate-svg" viewBox="0 0 720 330" role="img" aria-labelledby="wcHeroT wcHeroD" focusable="false">
+        <title id="wcHeroT">مقطع تخييلي لساعة مائية تقليدية</title>
+        <desc id="wcHeroD">إناء نحاسي نصف دائري مثقوب من الأسفل، موضوع داخل صهريج مملوء بالماء، مع علامات تقسيم الحجم على جداره ومسطرة زمنية إلى جانبه.</desc>
+        <defs>
+            <linearGradient id="wcHeroWater" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3f8b82" stop-opacity="0.55"/>
+                <stop offset="1" stop-color="#2e6f68" stop-opacity="0.95"/>
+            </linearGradient>
+            <clipPath id="wcHeroJar">
+                <rect x="228" y="106" width="264" height="186" rx="10"/>
+            </clipPath>
+        </defs>
+
+        <rect x="18" y="14" width="684" height="302" fill="none" stroke="#c9a35f" stroke-width="1" opacity="0.35"/>
+
+        <!-- خلفية محفورة: قوس وأرضية -->
+        <path d="M120 292V188c0-66 54-120 120-120h240c66 0 120 54 120 120v104" fill="none" stroke="#7d9a93" stroke-width="1"/>
+        <line x1="80" y1="292" x2="640" y2="292" stroke="#7d9a93" stroke-width="1"/>
+        <path d="M96 292h528" stroke="#c9a35f" stroke-width="2" stroke-dasharray="2 8" opacity="0.55"/>
+
+        <!-- الصهريج -->
+        <rect x="228" y="106" width="264" height="186" rx="10" fill="#f4f0e4" stroke="#a9c2ba" stroke-width="2"/>
+        <rect x="234" y="132" width="252" height="154" fill="url(#wcHeroWater)" clip-path="url(#wcHeroJar)" class="wc-anim wc-level"/>
+
+        <!-- خطوط الماء -->
+        <g clip-path="url(#wcHeroJar)" opacity="0.5">
+            <path d="M234 170c40-8 70 8 110 0s70-8 112 0" fill="none" stroke="#e9f2ee" stroke-width="2" class="wc-anim wc-drift"/>
+            <path d="M234 202c40-8 70 8 110 0s70-8 112 0" fill="none" stroke="#e9f2ee" stroke-width="2" class="wc-anim wc-drift" style="animation-duration:30s"/>
+        </g>
+
+        <!-- حامل الإناء -->
+        <path d="M300 106V76h120v30" fill="none" stroke="#c9a35f" stroke-width="3"/>
+        <line x1="360" y1="76" x2="360" y2="54" stroke="#c9a35f" stroke-width="2"/>
+
+        <!-- الإناء النحاسي -->
+        <g class="wc-anim wc-level" style="animation-duration:9s">
+            <path d="M284 132a76 76 0 0 0 152 0Z" fill="#f6ead8" stroke="#c9a35f" stroke-width="3"/>
+            <path d="M290 132a70 70 0 0 0 140 0Z" fill="none" stroke="#a97c2f" stroke-width="1"/>
+            <line x1="292" y1="156" x2="308" y2="156" stroke="#7d5a1e" stroke-width="1.5"/>
+            <line x1="294" y1="172" x2="312" y2="172" stroke="#7d5a1e" stroke-width="1.5"/>
+            <line x1="300" y1="186" x2="316" y2="186" stroke="#7d5a1e" stroke-width="1.5"/>
+            <text x="286" y="159" text-anchor="end" font-size="9" fill="#7d5a1e">½</text>
+            <text x="288" y="175" text-anchor="end" font-size="9" fill="#7d5a1e">⅓</text>
+            <text x="294" y="189" text-anchor="end" font-size="9" fill="#7d5a1e">¼</text>
+        </g>
+
+        <!-- ثقب الإناء والقطرات -->
+        <circle cx="360" cy="208" r="2.6" fill="#7d5a1e"/>
+        <circle cx="360" cy="212" r="2.2" fill="#2e6f68" class="wc-anim wc-drip"/>
+        <circle cx="360" cy="212" r="2.2" fill="#2e6f68" class="wc-anim wc-drip" style="animation-delay:1.4s"/>
+
+        <!-- تموجات سطح الصهريج -->
+        <g transform="translate(360 132)">
+            <ellipse cx="0" cy="0" rx="26" ry="5" fill="none" stroke="#9fc4bc" stroke-width="1.2" class="wc-anim wc-ripple"/>
+            <ellipse cx="0" cy="0" rx="26" ry="5" fill="none" stroke="#9fc4bc" stroke-width="1.2" class="wc-anim wc-ripple wc-ripple-2"/>
+        </g>
+
+        <!-- مسطرة زمنية جانبية -->
+        <g stroke="#c9a35f" stroke-width="1" opacity="0.75">
+            <line x1="556" y1="106" x2="556" y2="292"/>
+            <line x1="550" y1="106" x2="562" y2="106"/>
+            <line x1="550" y1="137" x2="562" y2="137"/>
+            <line x1="550" y1="168" x2="562" y2="168"/>
+            <line x1="550" y1="199" x2="562" y2="199"/>
+            <line x1="550" y1="230" x2="562" y2="230"/>
+            <line x1="550" y1="261" x2="562" y2="261"/>
+            <line x1="550" y1="292" x2="562" y2="292"/>
+        </g>
+        <text x="574" y="112" font-family="IBM Plex Mono, monospace" font-size="9" fill="#c9d8d2">45</text>
+        <text x="574" y="295" font-family="IBM Plex Mono, monospace" font-size="9" fill="#c9d8d2">00</text>
+        <text x="574" y="150" font-family="IBM Plex Mono, monospace" font-size="8" letter-spacing="1.5" fill="#c9a35f">MIN</text>
+
+        <text x="360" y="322" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="3" fill="#c9a35f">WATER CLOCK · الساعة المائية</text>
+    </svg>
+    <figcaption>إناء نصف دائري به ثقب في أسفله، يوضع في صهريج مملوء، فتدخل الماء إلى جوفه حتى يغوص إلى القعر مسجلاً وحدة زمنية كاملة.</figcaption>
+</figure>
+
+<h2 id="al-muthallath">الماء والإنسان والمجال: علاقة سببية أم نتيجة حتمية؟</h2>
+
+<p>
+    إن حتمية العلاقة بين الإنسان والماء تدخل في إطار تنظيمي محكم، خاصة في المناطق التي يتسم فيها الماء بالنذرة، «حيث يرقى هذا الأخير إلى مستوى همّ سامٍ يكاد يغطي مفهوم السيادة إن لم يضاهيه». فيضطر الإنسان بذلك إلى اختراع مجموعة من التقنيات لمحاولة تنظيمه وتقنينه، «فسعى السكان لخلق مجموعة من الأنظمة في غاية الدقة والضبط تولدت عن العرف والواقع السوسيو-اقتصادي». وعلى هذا الأساس فالماء فاعل أساسي في المدن الإسلامية، وأنماط تدبيره وأشكاله ترتكز على مخيال المجتمع الذي تأسس من خلال ترسبات ذهنية وخطاب حضاري له قسماته الخاصة.
+</p>
+
+<p>
+    لقد عمل الإنسان منذ القديم على التحكم في الثروة المائية، خاصة مع استقراره بجانب الوديان والأنهار، وبدأ في تخطيط أولى المدن وطوّرها مع مرور الزمن. فقد احتاج فترات طويلة لتطوير معارفه ومداركه في كيفية تدبير هذه المادة الحيوية، وتطوير تقنيات نقل الماء وتجميعه ثم توزيعه. وكانت التجمعات السكانية في أمسّ الحاجة لتزويد مرافقها بالماء، حيث أصبحت المدن تأخذ بعين الاعتبار البعد أو القرب من مصادر المياه.
+</p>
+
+<p>
+    وقد حدد ابن أبي زرع في كتابه <em>روض القرطاس</em> خمسة شروط ضرورية في تشييد المدن:
+</p>
+
+<blockquote class="essay-quote" dir="rtl">
+    <p>«وقالت الحكماء إن أحسن مواضع المدن تجمع خمسة أشياء: النهر الجاري، والمحرث الطيب، والمحطب القريب، والسور الحصين، والسلطان إذا به صلاح حالها وأمن سبلها وكفّ جبابرتها».</p>
+    <footer class="wc-cite">ابن أبي زرع الفاسي — <em>الأنيس المطرب بروض القرطاس</em></footer>
+</blockquote>
+
+<div class="wc-conditions" dir="rtl">
+    <div class="wc-cond">
+        <span class="wc-cond-ico" aria-hidden="true"><i class="fas fa-water"></i></span>
+        <p class="wc-cond-name">النهر الجاري</p>
+    </div>
+    <div class="wc-cond">
+        <span class="wc-cond-ico" aria-hidden="true"><i class="fas fa-seedling"></i></span>
+        <p class="wc-cond-name">المحرث الطيب</p>
+    </div>
+    <div class="wc-cond">
+        <span class="wc-cond-ico" aria-hidden="true"><i class="fas fa-tree"></i></span>
+        <p class="wc-cond-name">المحطب القريب</p>
+    </div>
+    <div class="wc-cond">
+        <span class="wc-cond-ico" aria-hidden="true"><i class="fas fa-shield-alt"></i></span>
+        <p class="wc-cond-name">السور الحصين</p>
+    </div>
+    <div class="wc-cond">
+        <span class="wc-cond-ico" aria-hidden="true"><i class="fas fa-crown"></i></span>
+        <p class="wc-cond-name">السلطان العادل</p>
+    </div>
+</div>
+
+<p>
+    ومن هنا جاءت البوادر الأولى لتطور العلاقة بين الإنسان والماء وتأكيد أهمية كل مكوّن. إذ تتجلى أهمية العامل البشري في تغطية حاجيات المدينة من الماء وتأمينها، وتحقيق التوازن بين الطلب والإمكانيات في أغلب الأحوال مع الحفاظ على دوامه. ومن مظاهر ذلك قيمة المنشآت المعمارية التي استُخدمت لنقل الماء وتجميعه وتخزينه وإعادة توزيعه، واشتهرت منها تقنيات الخطارة والسواقي.
+</p>
+
+<div class="wc-eq" dir="rtl" role="group" aria-label="معادلة الماء والإنسان والمجال">
+    <span class="wc-eq-node">الماء</span>
+    <span class="wc-eq-op" aria-hidden="true">×</span>
+    <span class="wc-eq-node">الإنسان</span>
+    <span class="wc-eq-op" aria-hidden="true">×</span>
+    <span class="wc-eq-node">المجال</span>
+    <span class="wc-eq-op" aria-hidden="true">=</span>
+    <span class="wc-eq-out">تقنية</span>
+    <p class="wc-eq-note">تفاعل الأضلاع الثلاثة كان نواةً لظهور التقنيات وتطورها، ثم لظهور الساعة المائية كنتيجة لضرورة تدبير الثروة المائية وإعطاء كل ذي حق حقه.</p>
+</div>
+
+<p>
+    وهنا يمكن القول إن التفاعل الحاصل بين هذه الأضلاع الثلاثة كان نواةً لظهور مجموعة من التقنيات وتطورها، حتى أصبحت لها مكانة أساسية في المجتمع، لضمان التوازن الطبيعي والمساواة في استغلال هذه المادة الحيوية. فقبل استعمال الساعة الزمنية والتكنولوجيا الحديثة، ابتدع سكان الأرياف وسائل تقليدية تقوم بالحساب الدقيق لتوزيع الحصص المائية. ومن هنا يدخل موضوع الساعة المائية كنتيجة للتطور الحاصل في العلاقة بين الإنسان والماء، حيث وجب تدبير هذه الثروة وإعطاء كل ذي حق حقه.
+</p>
+
+<h2 id="al-taqniyat">التقنيات المائية: المقاصد والأهداف</h2>
+
+<p>
+    لقد تعددت أهداف التقنيات المائية باختلاف المجال الجغرافي، وكذلك الرغبة في الاستفادة من مردودية فلاحية أكبر بمجهود أقل. فإذا كان السبب الأول في ظهور هذه التقنيات هو مدّ قنوات الري وشقّ الترع لسقي المزروعات، «حيث إن السقي يعني تجنيد طاقات تقنية وبشرية هائلة، ويعني أيضاً تنظيماً اجتماعياً محكماً، ذلك أن توزيع الماء بين الجماعات لم يكن بالأمر الهين»، فقد ساهم ذلك في ظهور أعراف وتقاليد تنظيمية محكمة.
+</p>
+
+<p>
+    وفي محاولة لإيجاد حلول للصعوبات التي واجهت المسلمين في توزيع الماء واستخراجه، ظهر <strong>علم الحيل النافعة</strong> أو الميكانيكا تحقيقاً لمنفعة الإنسان وإحلال القوة محل العضلات، حيث ظهرت في هذا الباب تقنية الناعورة والأرحية المائية. فساهم ذلك في توفير إنتاج كبير بمجهودات بسيطة، وارتبطت هذه التقنيات بنسيج حضاري نسقي فتح الباب لظهور حرف متنوعة: النواعرية، الرحايوية، وغيرها.
+</p>
+
+<p>
+    إن اعتماد السكان على تقنيات معينة كان، بلا شك، وفق ما تقتضيه الطبيعة الجغرافية للمنطقة. فالمناطق الصحراوية تتجه في الغالب إلى حفر الآبار وتشييد الخطارات، في حين تعتمد المناطق المحادية للأنهار تقنيات أخرى مثل النواعير والأرحية، وفرضت الحاجة الملحة للماء بناء صهاريج وخزانات لتنظيم توزيعه.
+</p>
+
+<div class="essay-cards" data-cols="3" dir="rtl">
+    <div>
+        <h3><i class="fas fa-grip-lines-vertical" aria-hidden="true"></i> الخطارة</h3>
+        <p>قناة باطنية تجمع المياه الجوفية وتنقلها بانحدار محسوب نحو الواحات والحقول. تقنية صحراوية بامتياز، تقوم على معرفة دقيقة بميل الطبقات وبمستوى الماء الباطني.</p>
+    </div>
+    <div>
+        <h3><i class="fas fa-water" aria-hidden="true"></i> الساقية</h3>
+        <p>شريان المدينة والحقل: تنقل الماء من المنبع إلى الأحياء والبساتين، وتخضع لتدبير جماعي وأعراف صارمة في الحصص والمواعيد.</p>
+    </div>
+    <div>
+        <h3><i class="fas fa-circle-notch" aria-hidden="true"></i> الناعورة</h3>
+        <p>عجلة مائية ترفع الماء إلى مستويات عليا بقوة التيار، وتُعدّ من أوضح تجليات «الحيل النافعة» في خدمة السقي والمدينة.</p>
+    </div>
+    <div>
+        <h3><i class="fas fa-cog" aria-hidden="true"></i> الرحى المائية</h3>
+        <p>تحويل طاقة الماء إلى حركة دوران لطحن الحبوب، بما يعنيه ذلك من ربح في الوقت والجهد وتوسّع في الإنتاج.</p>
+    </div>
+    <div>
+        <h3><i class="fas fa-database" aria-hidden="true"></i> الصهريج</h3>
+        <p>خزان لتجميع الماء وتنظيم توزيعه، يوفر الأمن المائي اليومي للمدينة ومرافقها، ويسمح بانتظام التزويد بين المواسم.</p>
+    </div>
+    <div>
+        <h3><i class="fas fa-clock" aria-hidden="true"></i> الساعة المائية</h3>
+        <p>تحويل الزمن نفسه إلى أداة توزيع: بدل تقدير الحصص بالنظر أو بالاتفاق، صار للماء مقياس زمني دقيق قابل للتكرار.</p>
+    </div>
+</div>
+
+<p>
+    وقد شكل الاعتماد على الزمن شكلاً من أشكال التعبير الأصيل عن التوزيع المحكم للماء. وقد تعددت عند المؤلفين الميقاتيين الأعمال التي يتوصلون بها إلى معرفة أوقات الصلاة والصوم، وساروا في ذلك على ثلاث طرق: الأولى اعتمد أصحابها على الأخذ بالظل أقداماً أو غيرها نهاراً، وعلى توسط المنازل وطلوعها ليلاً؛ والثانية تأخذ بحسب الظلال من غير آلة لتحقيق الشمس نهاراً والكواكب ليلاً؛ والثالثة الأخذ بالآلات مثل الربع المجيب والربع المقنطر والكرة والأسطرلاب. وقد انتشرت كذلك في الأندلس تقنيات تعتمد على الزمن، والتي أطلق عليها المقري «غرائب الأندلس» في <em>نفح الطيب</em>.
+</p>
+
+<h2 id="al-dalalat">دلالات الساعة المائية: الدين والمجتمع والاقتصاد</h2>
+
+<p>
+    الساعة المائية، في شكلها المعقد، نتاجٌ لتطور نوعي في المعارف والعلوم، اعتُمد كنظام لقياس توزيع الماء حسب الساعات لتحقيق العدالة الاجتماعية. ولم يكن الاهتداء إليه بحكم الصدفة، بل كان ثمرة تراكم كمي لمجموعة من التقنيات التي شكلت نسقاً عبّر عن نوازل الحياة في فترات زمنية متفرقة. ولكي نفهم السياق العام، يجب أن نعرف أن الساعة المائية مرتبطة بالتقسيم الزمني لحصص استغلال الماء، وهي تبرز مجموعة من السلوكات التي ارتبطت بالساكنة، وخاصة في المجال الصحراوي وشبه الصحراوي حيث يصبح الماء من المشاغل الأولى.
+</p>
+
+<div class="wc-meanings" dir="rtl">
+    <div class="wc-meaning">
+        <p class="wc-meaning-num">01</p>
+        <h3>الدلالة الاجتماعية</h3>
+        <p>
+            في المجال الواحي، الماء ملكية خاصة يُتصرف فيها حسب الحاجة: سقياً أو كراءً أو بيعاً. و«أرباب الماء» هم أولى بتدبير شؤون توزيعه، وغالبهم كبار الملاكين، وغالباً ما يكون بعضهم ممثلاً في جماعة القصر. والجماعة هي التي توكل على الجميع متصرفاً يباشر عملية توزيع الماء والسهر على حسن تنظيمه، يُطلق عليه اسم <strong>السرايفي</strong>، وغالباً ما تتدخل اعتبارات أخرى في اختياره، منها المركز الاجتماعي وحجم الثروة المائية التي تملكها عائلته.
+        </p>
+    </div>
+    <div class="wc-meaning">
+        <p class="wc-meaning-num">02</p>
+        <h3>الدلالة الدينية</h3>
+        <p>
+            تحوّل الماء من همّ يومي إلى همّ ديني، يتجلى في قيمته الحاسمة في خصوبة الأرض والإنسان. وقد ارتبطت تقنية الساعة المائية بمواقيت الصلاة أولاً، ثم بمكان اجتماع الساكنة في المساجد للتشاور في توزيع النوبات المائية والبيع والشراء وإصدار الأحكام فيمن تجاوز حقه. وفي غالب الأحيان كانت هذه الاجتماعات تتم داخل المساجد أو بعد الصلاة، وخاصة صلاة الجمعة.
+        </p>
+    </div>
+    <div class="wc-meaning">
+        <p class="wc-meaning-num">03</p>
+        <h3>الدلالة الاقتصادية</h3>
+        <p>
+            في المناطق المتاخمة للصحراء، تظهر ملكية الماء أكثر أهمية من ملكية الأرض: فما فائدة الأرض بدون التوفر على نوبات للسقي؟ وهكذا تنطوي ملكية الماء على نظام معقد، فحصص الماء تنقسم إلى ملكية تامة جعلت السلطة تسنّ سياسة جبائية خاصة، إذ اعتُبر الماء منتوجاً أكثر منه وسيلة إنتاج، فخضع للضريبة.
+        </p>
+    </div>
+</div>
+
+<p>
+    وتُختصر الدلالة الاجتماعية في تراتبية دقيقة: فأصحاب الحصص الكثيرة والأراضي الواسعة تكون لهم مكانة واضحة في المجتمع، في حين تتراجع هذه المكانة بتراجع عدد الحصص، إلى أن نصل إلى أقل فئة وهي التي لا تملك أية حصة فتضطر لكرائها أو شرائها، كفئة «الحراطين». وتُختصر الدلالة الاقتصادية في عبارة بليغة نقلها محمد بن الطيب القادري في <em>نشر المثاني</em>، حيث قيل لصاحب الأرض: «إن أحييت لنا هذه الساقية، فلك هذه الأرض». فهذه الدلالة الإيحائية تطرح أسئلة حول الدور الذي يلعبه الماء، حيث يرقى إلى مستوى أكبر من امتلاك الأرض نفسها.
+</p>
+
+<blockquote class="essay-quote" dir="rtl">
+    <p>«فمنذ سنة 960م في مدينة فلنسيا بإسبانيا، وكل يوم في الأسبوع، تنعقد بباب الكنيسة الرئيسية — وكانت مسجداً أيام المسلمين — محكمة شعبية مكوّنة من ثمانية أشخاص، منتخبين من ملاك الأراضي التي ترويها ثمانية سواقٍ متفرعة عن نهر ثورية، ليبثّوا شفوياً في كل النزاعات المتعلقة بالمياه في المنطقة. لا توجد أية مسطرة كتابية، فالمرافعة شفوية ومختصرة، والمداولة شفوية وبحضور الأطراف، والحكم يصدر أمام الجمهور، وبنفس السرعة يتم التنفيذ».</p>
+    <footer>إدريس الضحاك — <em>الماء عالمياً ووطنياً: موارده ونظامه القانوني</em></footer>
+</blockquote>
+
+<p>
+    فهذه الأمثلة وغيرها خير دليل على الأهمية البالغة التي لعبها الماء في الجانب الديني، وخاصة في إصدار الأحكام في طرق توزيع هذه المادة الحيوية وتنظيمها، وضمان العدل المائي لكافة المستفيدين.
+</p>
+
+<h2 id="al-usul">الأصول: من الإسكندرية إلى فاس ومراكش</h2>
+
+<p>
+    الساعة المائية ليست موضوعاً في ذاتها، بل وسيلة نعبّر بها عن الأشياء: الماء هو المادة، واستغلاله هو الفعل ذو المرجعية ذات البعد النفعي. ولذلك فإن التحكم العادي ليس له القدرة على التنظيم والإخضاع في المجال، وهو ما دفع الإنسان المفكر إلى البحث باتجاه الواقع، فأبدع تقنية الساعة المائية.
+</p>
+
+<p>
+    وأقدم المعلومات عن أصول هذه التقنيات موجودة في كتابات <strong>فتروفيوس</strong> (Vitruvius)، الذي نسب اختراع الأرغن والساعة المائية الأثرية الضخمة إلى مهندس مصري يدعى <strong>قطيسيبوس</strong> (Ctesibius)، عمل في الإسكندرية في القرن الثالث قبل الميلاد<span class="wc-ref" aria-hidden="true">*</span>. كما أُعيد إحياء مؤلفات من الفترة الهلنستية لاثنين من الكتاب المعروفين: الأول <strong>فيلون البيزنطي</strong> الذي تألق حوالي عام 230 قبل الميلاد، والثاني مؤلف حول تركيب الساعات المائية يحمل اسم <strong>أرشميدس</strong> (212 قبل الميلاد)، ولا توجد منه إلا نسخة مترجمة إلى العربية.
+</p>
+
+<p>
+    ويُحتمل أن يكون الفصلان الأولان من تأليف أرشميدس والباقي إضافات هلنستية وبيزنطية وإسلامية. وأول دليل مادي وجوهري على تطور التقنيات الدقيقة في العالم الإسلامي ما قدّمه <strong>بنو موسى بن شاكر</strong> في كتابهم <em>الحيل</em>. وهناك كتاب ضخم صنّفه <strong>ابن الساعاتي</strong> سنة 1203م لوصف الإصلاحات التي أجراها للساعات المائية التي أنشأها والده عند بوابة جيرون بدمشق حوالي سنة 1100م. كما شيّد الفلكي المشهور <strong>الزرقالي</strong> ساعتين مائيتين كبيرتين على ضفاف نهر تاجة عند طليطلة، وهما لا تدلان فقط على الوقت بل تبيّنان أيضاً طور القمر. ولا تزال بقايا آثار ساعتين مائيتين أُنشئتا في القرن الرابع عشر الميلادي في فاس ومراكش.
+</p>
+
+<div class="essay-timeline" dir="rtl">
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">ق3 ق.م · الإسكندرية</span>
+        <div class="essay-timeline-body">
+            <h3>قطيسيبوس وبداية الآلة</h3>
+            <p>ينسب فتروفيوس إلى المهندس المصري قطيسيبوس اختراع الساعة المائية الضخمة والأرغن، في سياق ازدهار الميكانيكا الهلنستية.</p>
+        </div>
+    </div>
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">230 ق.م · بيزنطة</span>
+        <div class="essay-timeline-body">
+            <h3>فيلون البيزنطي</h3>
+            <p>مؤلفات في تركيب الساعات المائية، ستبقى مرجعاً للمهندسين المسلمين في نقل الآلات وتطويرها.</p>
+        </div>
+    </div>
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">212 ق.م · سرقوسة</span>
+        <div class="essay-timeline-body">
+            <h3>أرشميدس</h3>
+            <p>نصّ حول تركيب الساعات المائية يُنسب إليه، لم يصل إلا في ترجمة عربية، ما يدل على استمرار التداول عبر الوسائط اللغوية.</p>
+        </div>
+    </div>
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">ق3هـ/9م · بغداد</span>
+        <div class="essay-timeline-body">
+            <h3>بنو موسى بن شاكر</h3>
+            <p>كتاب <em>الحيل</em> يقدّم أول دليل مادي وجوهري على تطور التقنيات الدقيقة في العالم الإسلامي.</p>
+        </div>
+    </div>
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">1203م · دمشق</span>
+        <div class="essay-timeline-body">
+            <h3>ابن الساعاتي وبوابة جيرون</h3>
+            <p>وصف الإصلاحات التي أجراها للساعات المائية التي أنشأها والده عند بوابة جيرون حوالي 1100م.</p>
+        </div>
+    </div>
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">ق5هـ/11م · طليطلة</span>
+        <div class="essay-timeline-body">
+            <h3>الزرقالي على نهر تاجة</h3>
+            <p>ساعتان مائيتان كبيرتان تدلان على الوقت وتبيّنان طور القمر، في أقصى الغرب الإسلامي.</p>
+        </div>
+    </div>
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">685هـ/1286م · فاس</span>
+        <div class="essay-timeline-body">
+            <h3>ساعة ابن الحباك</h3>
+            <p>ساعة مائية بالقبة العليا من منار جامع القرويين، تُعرف الناس بأوقات الليل والنهار.</p>
+        </div>
+    </div>
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">717هـ/1317م · فاس</span>
+        <div class="essay-timeline-body">
+            <h3>المنجانة والصنهاجي</h3>
+            <p>ساعة الشيخ أبي عبد الله محمد الصنهاجي، وضع تصميمها ورسم خطوطها عبد الله الفرسطوني في عهد السلطان المريني أبي سعيد عثمان.</p>
+        </div>
+    </div>
+    <div class="essay-timeline-item">
+        <span class="essay-timeline-date">747هـ/1346م · فاس</span>
+        <div class="essay-timeline-body">
+            <h3>تجديد ابن العربي</h3>
+            <p>الفقيه أبو عبد الله محمد بن العربي يجدّد «المكانة» على وجه متقن، ويزاوج بين الأسطرلاب والساعة المائية.</p>
+        </div>
+    </div>
+</div>
+
+<h2 id="al-anwa">الأنواع: الخروبة والمنجانة</h2>
+
+<p>
+    يمكن رصد نوعين من الساعات المائية التي انتشرت في المغرب الوسيط، وهما نتاج للاستغلال الجماعي للماء، إما بالآلات أو بالفترات الزمنية: الساعات التقليدية والساعات العصرية.
+</p>
+
+<h3>أولاً: الساعة في شكلها التقليدي</h3>
+
+<p>
+    انتشرت الساعات المائية التقليدية في المغرب منذ القديم، حيث ارتبطت بأولى التجمعات البشرية (كالقبيلة)، التي كانت تتدخل باستمرار لضمان تنظيم الاستفادة من الماء بشكل متساوٍ بين الأفراد، وطوّرت أعرافاً وتقاليد عدة لا تزال مستمرة إلى الآن. فإذا رجعنا إلى الواحة الفجيجية نجد وحدة قياس زمنية أساسية مشابهة لتوزيع الماء على المستفيدين: إناء نحاسي على شكل نصف دائرة به ثقب بأسفله، يوضع في صهريجة صغيرة أو خابية مليئة بالماء، لينفذ الماء إلى الإناء عبر الثقب، وعند امتلائه تماماً يغوص إلى القعر مسجلاً بذلك وحدة قياس أساسية يطلق عليها اسم <strong>الخروبة</strong>، ويستغرق امتلاؤها 45 دقيقة. وبداخل الإناء دوائر أو علامات محسوبة بدقة، وكل منها يؤشر إلى جزء من أجزاء الخروبة: نصف الخروبة والثلث والربع والخمس والسدس والثمن.
+</p>
+
+<figure class="wc-clock" id="wc-clock" dir="rtl">
+    <div class="wc-clock-head">
+        <p class="wc-clock-kicker">SIMULATION · محاكاة توضيحية</p>
+        <h3>كيف تُقاس «الخروبة»؟</h3>
+        <p>قرص مُدرَّج على خمس وأربعين دقيقة: يمتلئ الإناء قطرةً قطرة، فيتحرك المؤشر، حتى يغوص إلى القعر عند اكتمال الوحدة.</p>
+    </div>
+
+    <div class="wc-clock-body">
+        <svg class="wc-dial" viewBox="0 0 260 260" role="img" aria-labelledby="wcDialT wcDialD" focusable="false">
+            <title id="wcDialT">قرص محاكاة الخروبة</title>
+            <desc id="wcDialD">قرص مدرّج يمثل خمساً وأربعين دقيقة، يتحرك مؤشره مع امتلاء الإناء.</desc>
+            <circle class="wc-dial-ring" cx="130" cy="130" r="120"/>
+            <circle class="wc-dial-track" cx="130" cy="130" r="88"/>
+            <circle class="wc-dial-arc" data-wc-arc cx="130" cy="130" r="88" stroke-dasharray="553" stroke-dashoffset="553"/>
+            <g>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(30 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(60 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(90 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(120 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(150 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(180 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(210 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(240 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(270 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(300 130 130)"/>
+                <line class="wc-dial-tick" x1="130" y1="14" x2="130" y2="22" transform="rotate(330 130 130)"/>
+            </g>
+            <text class="wc-dial-num" x="130" y="38" text-anchor="middle">0</text>
+            <text class="wc-dial-num" x="222" y="134" text-anchor="middle">15</text>
+            <text class="wc-dial-num" x="130" y="230" text-anchor="middle">30</text>
+            <text class="wc-dial-num" x="38" y="134" text-anchor="middle">45</text>
+            <line class="wc-dial-hand" data-wc-hand x1="130" y1="130" x2="130" y2="42"/>
+            <circle cx="130" cy="130" r="4.5" fill="#a97c2f"/>
+        </svg>
+
+        <div class="wc-clock-side">
+            <p class="wc-clock-time" data-wc-time>45:00</p>
+            <p class="wc-clock-lbl">الزمن المتبقي للوحدة</p>
+            <p class="wc-clock-pct" data-wc-pct>0٪</p>
+            <p class="wc-clock-lbl">امتلاء الإناء</p>
+        </div>
+    </div>
+
+    <div class="wc-clock-bar" aria-hidden="true"><span data-wc-bar></span></div>
+
+    <p class="wc-ruler-k">أجزاء الخروبة — اضغط على جزء لتثبيت المحاكاة عليه</p>
+    <div class="wc-ruler" role="group" aria-label="أجزاء الخروبة الستة وزمن كل جزء">
+        <button type="button" class="wc-ruler-btn" data-wc-frac="0.5" aria-pressed="false">نصف الخروبة<span class="wc-ruler-t">22:30</span></button>
+        <button type="button" class="wc-ruler-btn" data-wc-frac="0.3333" aria-pressed="false">الثلث<span class="wc-ruler-t">15:00</span></button>
+        <button type="button" class="wc-ruler-btn" data-wc-frac="0.25" aria-pressed="false">الربع<span class="wc-ruler-t">11:15</span></button>
+        <button type="button" class="wc-ruler-btn" data-wc-frac="0.2" aria-pressed="false">الخمس<span class="wc-ruler-t">09:00</span></button>
+        <button type="button" class="wc-ruler-btn" data-wc-frac="0.1667" aria-pressed="false">السدس<span class="wc-ruler-t">07:30</span></button>
+        <button type="button" class="wc-ruler-btn" data-wc-frac="0.125" aria-pressed="false">الثمن<span class="wc-ruler-t">05:38</span></button>
+    </div>
+
+    <p class="wc-clock-act">
+        <button type="button" class="wc-clock-btn" data-wc-toggle>
+            <i class="fas fa-pause" aria-hidden="true"></i>
+            <span class="wc-btn-t">إيقاف الحركة</span>
+        </button>
+    </p>
+
+    <figcaption>محاكاة تعليمية مبسّطة لآلية الخروبة كما وصفها المصدر؛ الدورة مُسرّعة (24 ثانية) ولا تعبّر عن الزمن الحقيقي (45 دقيقة).</figcaption>
+</figure>
+
+<p>
+    وأشار دانييل مولياس (D. Moulias) إلى آلة قياس مشابهة في واحات تولكة والأغواط، تسمى <strong>المشكودة</strong>، وهي إناء نحاسي مخروطي الشكل وبه ثقب في الأسفل، عندما يمتلئ يفرغ في مدة 46 دقيقة و26 ثانية مسجلاً وحدة قياس. ويمكن القول إن الساعة المائية التقليدية خلقت إطاراً جديداً لأسباب التعاون والتآزر، وفتحت باب الحرية للاستفادة الممكنة حسب التصور العقلاني والمعقول للماء.
+</p>
+
+<div class="wc-units" dir="rtl">
+    <div class="wc-unit">
+        <p class="wc-unit-name">الخروبة — واحة فجيج</p>
+        <p class="wc-unit-v">45 <small>دقيقة</small></p>
+        <div class="wc-unit-bar"><span style="--v:97%"></span></div>
+        <p class="wc-unit-note">الوحدة المرجعية الأكثر توثيقاً في المصدر، وتُقسَّم داخلياً إلى نصف وثلث وربع وخمس وسدس وثمن.</p>
+    </div>
+    <div class="wc-unit">
+        <p class="wc-unit-name">المشكودة — تولكة والأغواط</p>
+        <p class="wc-unit-v">46:26 <small>دقيقة:ثانية</small></p>
+        <div class="wc-unit-bar"><span style="--v:100%"></span></div>
+        <p class="wc-unit-note">إناء مخروطي الشكل، يؤدي نفس وظيفة القياس بفارق دقيقة و26 ثانية عن الخروبة.</p>
+    </div>
+</div>
+
+<h3>ثانياً: الساعة في شكلها العصري</h3>
+
+<p>
+    عندما كانت بعض العواصم في العالم الأوروبي تعيش ظروفها الصعبة مع العصور الوسطى، كانت ديار الإسلام تعيش أيام نهضتها في ميدان العلم والتكنولوجيا، وفي ميدان التحكم في الماء واستغلال طاقته في عدد من المنشآت الحضارية. ويكون تاريخ المغرب على ذلك عنصراً مهماً في تاريخ العلوم العربية الإسلامية، كما يعبر عن ارتباط العلم والتكنولوجيا بالحياة اليومية في شتى الميادين.
+</p>
+
+<p>
+    وهكذا، وفي نطاق الاستفادة من الماء كطاقة هامة، وجدنا المهندسين المغاربة المتخصصين في شؤون الري يقومون بنصب عدد من النواعير والدواليب الكبرى على مقربة من الأودية لرفع الماء إلى مستويات عليا. ونجد عدداً من الساعات المائية التي تعددت بمختلف الأحجام وشتى الأشكال، والتي كانت تُعتبر في عصرها مخترعات رائدة لا تبعد في روح تصميمها عن ما وصل إليه العالم الإغريقي هيرون وما خلفه الروماني فتروفيوس وما خلفه لنا الفلكي المعروف بابن الساعاتي والجزري. وليس فقط في المدن الصغرى، بل وحتى في المناطق الصحراوية، حيث نجد عدداً من الساعات المائية تُستعمل لضبط توزيع المياه على الواحات.
+</p>
+
+<p>
+    وإذا كانت دار المشرق عرفت هي الأخرى عدداً من الساعات المائية، سواء في بغداد أو دمشق أو غزة، فإنه لم يبقَ أي أثر منها، على عكس ما كان عليه الحال في الحاضرة المغربية. ولقد كان المغاربة كمسلمين منتشين بالعقيدة يتحمسون لكل ما من شأنه أن يضمن لهم أداء العبادات في أوقاتها المضبوطة. ومن هنا فُتح باب الاجتهاد على مصراعيه للذين يتوسلون للوصول إلى معرفة الأوقات، سواء بالساعات الرملية أو الشمسية أو المائية.
+</p>
+
+<p>
+    وقد تحدث ابن فضل الله العمري (749هـ/1349م) في <em>مسالك الأبصار في ممالك الأمصار</em> عن ساعات كانت منتصبة بباب جامع الكتبية: «ارتفاعها في السماء خمسون ذراعاً»، تحدث في كل ساعة ضجة، وزنها مائة درهم فتحدث رنة، ولها أجراس يُسمع وقعها من بعد، وتسمى «بالمنجانة».
+</p>
+
+<div class="wc-band">
+    <svg class="wc-band-bg" viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wc-wave wc-wave-1" d="M-720 150c60-26 120-26 180 0s120 26 180 0 120-26 180 0 120 26 180 0 120-26 180 0 120 26 180 0 120-26 180 0 120 26 180 0" />
+        <path class="wc-wave wc-wave-2" d="M-720 180c60-26 120-26 180 0s120 26 180 0 120-26 180 0 120 26 180 0 120-26 180 0 120 26 180 0 120-26 180 0 120 26 180 0" />
+    </svg>
+    <div class="wc-band-in">
+        <p class="wc-band-k">منجانة الكتبية</p>
+        <p class="wc-band-v">50 <span>ذراعاً</span></p>
+        <p class="wc-band-t">ارتفاع الساعة كما وصفه العمري، بوزن مائة درهم وأجراس يُسمع وقعها من بعيد — دليل على أن التقنية كانت جزءاً من المشهد الحضري لمراكش الموحدية.</p>
+    </div>
+</div>
+
+<p>
+    وبعد وصول أخبار الساعة المائية التي شُيّدت بظاهر الجامع الأموي بدمشق أواسط القرن السادس، وبظاهر المدرسة المستنصرية ببغداد (630–640هـ/1232–1240م)، يسهل علينا أن نتصور حجم الساعة المائية للكتبية بمراكش، سيما ونحن نعلم أن البلاطين المشرقي والمغربي عاشا ظروف تنافس فيما بينهما، وخاصة في عهد الدولة الموحدية التي كانت تتخذ من مدينة مراكش عاصمة لها.
+</p>
+
+<p>
+    أما في فاس، العاصمة الأولى للدولة الإدريسية، فقد عرفت سلسلة من الساعات المائية كانت تتطور بمرور الزمن من أبسطها إلى أعقدها، وفي قلب العاصمة بالذات، في القبة العليا من منار الجامع الأعظم الذي يقع شرقي المدينة في الضفة التي تسمى عدوة القرويين، نُصبت الساعة المائية الأولى التي عرفتها مدينة فاس. وكانت الساعات المائية نوعين: نوع قابل للنقل يقال له «صندوق الساعات»، وهو النوع الذي كان الملوك يهدونه إلى ملوك آخرين، كالساعة التي أهداها هارون الرشيد لشارلمان ملك فرنسا.
+</p>
+
+<div class="wc-table-wrap" dir="rtl">
+    <table class="wc-table">
+        <caption>أبرز الساعات المائية في المغرب الوسيط — بحسب ما ورد في العرض والمصادر</caption>
+        <thead>
+            <tr>
+                <th scope="col">الساعة</th>
+                <th scope="col">التاريخ</th>
+                <th scope="col">المكان</th>
+                <th scope="col">الآلية / الدلالة</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">ساعة ابن الحباك</th>
+                <td data-l="التاريخ">685هـ / 1286م</td>
+                <td data-l="المكان">القبة العليا، منار جامع القرويين — فاس</td>
+                <td data-l="الآلية">صحن من الفخار مملوء بالماء، ومجرى نحاسي فيه خطوط وثقب يتسرب منه الماء بقدر معلوم؛ تُعرف أوقات الليل والنهار حتى في أوقات الغيم.</td>
+            </tr>
+            <tr>
+                <th scope="row">منجانة الصنهاجي</th>
+                <td data-l="التاريخ">717هـ / 1317م</td>
+                <td data-l="المكان">فاس — عهد أبي سعيد عثمان المريني</td>
+                <td data-l="الآلية">تصميم أبي عبد الله محمد الصنهاجي ورسم عبد الله الفرسطوني؛ جناح من خشب الأرز، ويدان من فخار، وأنبوب نحاسي مموّه بالذهب، ومسطرة للساعات والدقائق.</td>
+            </tr>
+            <tr>
+                <th scope="row">تجديد ابن العربي</th>
+                <td data-l="التاريخ">747هـ / 1346م</td>
+                <td data-l="المكان">فاس — بداية عهد أبي عنان المريني</td>
+                <td data-l="الآلية">تجديد «المكانة» على وجه متقن، ونصب «المسقبل» على الواجهة، ومزاوجة بين الأسطرلاب والساعة المائية.</td>
+            </tr>
+            <tr>
+                <th scope="row">منجانة الكتبية</th>
+                <td data-l="التاريخ">ق6هـ / 12م</td>
+                <td data-l="المكان">باب جامع الكتبية — مراكش</td>
+                <td data-l="الآلية">ارتفاعها خمسون ذراعاً، بوزن مائة درهم وأجراس يُسمع وقعها من بعد، بحسب وصف العمري.</td>
+            </tr>
+            <tr>
+                <th scope="row">ساعتا الزرقالي</th>
+                <td data-l="التاريخ">ق5هـ / 11م</td>
+                <td data-l="المكان">ضفاف نهر تاجة — طليطلة</td>
+                <td data-l="الآلية">ساعتان كبيرتان تدلان على الوقت وتبيّنان طور القمر، في أقصى الغرب الإسلامي.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>
+    وقد أشار أبو الحسن علي الجزنائي في كتابه <em>جنى زهرة الآس في بناء مدينة فاس</em> إلى المنجانة قائلاً: «والمدرسة والساعة من مآثر السلطان أبي عنان المريني… وتفنن المهندسون في بنائها وزخرفتها فجاءت آية في الفن المعماري». ولم يبقَ منها الآن إلا كاسات على الجدار الذي كانت به، وهي ملتقى السائحين والسائحات كل صباح ومساء حيث يزورون مآثر فاس.
+</p>
+
+<h2 id="al-intishar">مسارات الانتقال: من المشرق إلى الغرب الإسلامي</h2>
+
+<p>
+    لم تكن مراكش بعيدة عن دمشق وبغداد اللتين كانتا تتوفران على ساعة مائية. وبالرغم من طول المسافة بين الجانبين، فقد ظلت الصلات بين جناح المشرق وجناح المغرب قائمة منذ أن وجّه السلطان يوسف بن تاشفين سفارته إلى البلاط العباسي برئاسة الإمام ابن العربي. ومن هنا يمكن تتبع مسار التقنية كسلسلة محطات، لا كخط مستقيم:
+</p>
+
+<ol class="wc-route" dir="rtl">
+    <li class="wc-stop">
+        <p class="wc-stop-name">الإسكندرية</p>
+        <p class="wc-stop-note">قطيسيبوس · ق3 ق.م</p>
+    </li>
+    <li class="wc-stop">
+        <p class="wc-stop-name">دمشق</p>
+        <p class="wc-stop-note">بوابة جيرون · ق6هـ/12م</p>
+    </li>
+    <li class="wc-stop">
+        <p class="wc-stop-name">بغداد</p>
+        <p class="wc-stop-note">بنو موسى والمستنصرية</p>
+    </li>
+    <li class="wc-stop">
+        <p class="wc-stop-name">طليطلة</p>
+        <p class="wc-stop-note">الزرقالي · ق5هـ/11م</p>
+    </li>
+    <li class="wc-stop">
+        <p class="wc-stop-name">فاس</p>
+        <p class="wc-stop-note">ابن الحباك · 685هـ</p>
+    </li>
+    <li class="wc-stop">
+        <p class="wc-stop-name">مراكش</p>
+        <p class="wc-stop-note">الكتبية · العهد الموحدي</p>
+    </li>
+</ol>
+
+<p>
+    إن هذا المسار لا يعني انتقالاً ميكانيكياً للآلة من الشرق إلى الغرب، بل يعني انتقالاً للمعرفة الهندسية والتصور الزمني، ثم إعادة توطينها في سياقات محلية مختلفة: واحة تُقاس حصصها بالخروبة، ومدينة تُضبط أوقاتها بالمنجانة، ومسجد يصبح مكاناً للقرار في توزيع الماء. وهو ما يفسر تعدد الأشكال وتنوع المواد (الفخار، النحاس، خشب الأرز) باختلاف الموارد والحرف المحلية.
+</p>
+
+<h2 id="khulasa">خاتمة: الماء والزمن والحضارة</h2>
+
+<p>
+    يلعب الماء دوراً محورياً في بلورة الشخصية الحضارية لأي بلد، فمن خلال الوقوف عند ارتكاز هذه الشخصية على الماء في التمدن، واعتباره الهيكل الأساسي للنظم والبنى الاجتماعية والاقتصادية والسياسية والفنية في المجالين الحضري والقروي، استنتج ابن خلدون أن «رسوخ الصنائع في الأمصار إنما هو برسوخ الحضارة»، بمعنى أن حضارة الترف أحد العوامل الفاعلة في الحياة الاجتماعية بالمدن الوسيطة، حسب التحليل الخلدوني الذي يعطي للحضارة معنى تطورياً من مظاهر خشونة العيش إلى رقته، والتي تجد تعبيراتها في التقنيات المائية على سبيل التمثيل لا الحصر. ولذلك ربط ابن خلدون بين الماء والحضارة، فاعتبر أن «إجراء المياه… من توابع الحضارة».
+</p>
+
+<blockquote class="wc-quote">
+    <p>«إجراء المياه… من توابع الحضارة».</p>
+    <footer>ابن خلدون — <em>المقدمة</em></footer>
+</blockquote>
+
+<p>
+    فالمسألة تكتسي بعداً يفترض منهجياً التنبه إلى حتمية الربط بين التقنية والمحددات الجغرافية والتاريخية، لتتضح الصلة بين الشكل الجمالي والوظيفة. غير أن هذا الموضوع لم تتجاوزه الدراسات إلا قليلاً: فالوصف الخارجي للتقنيات المائية يظل ناقصاً إن لم يُبحث في أصولها الهندسية والتقنية، عبر الانفتاح على علوم جديدة ومتنوعة، ومن بينها البحث الأركيولوجي، لاستنطاق البقايا التي لا تزال شاهدة على أوج الحضارة الإسلامية في الغرب الإسلامي.
+</p>
+
+<p>
+    وهذا العرض محاولة تركيبية لإعادة الاعتبار لجزء من تراثنا، عبر إحياء موضوع الساعات المائية، وفتح الباب للباحثين والمؤرخين لسبر أغوار هذه التقنية.
+</p>
+
+<div class="essay-note" dir="rtl">
+    <h3><i class="fas fa-info-circle" aria-hidden="true"></i> تنبيه منهجي</h3>
+    <p>
+        هذا النص عرضٌ تركيبي تعليمي، لا بحثٌ محكّم. بعض التواريخ الواردة فيه تقديرية أو متداولة في المصادر الثانوية، وقد أُبقيت كما وردت في العرض الأصلي ما لم يكن في تحريرها تصحيحٌ بيّن. ويبقى الرجوع إلى المصادر المذكورة أدناه شرطاً لاستعماله في سياق أكاديمي.
+    </p>
+    <p>
+        <span class="wc-ref" aria-hidden="true">*</span> ورد في العرض الأصلي أن قطيسيبوس عمل «حوالي ثلاثة آلاف قبل الميلاد»، والمتعارف عليه أنه ازدهر في القرن الثالث قبل الميلاد؛ أُثبت التصحيح في المتن.
+    </p>
+</div>
+
+<section class="essay-sources" dir="rtl">
+    <h2>المصادر والمراجع</h2>
+
+    <div class="essay-sources-grid">
+        <div class="essay-source-group">
+            <h3>أولاً: المصادر</h3>
+            <ul>
+                <li>ابن أبي زرع الفاسي. <em>الأنيس المطرب بروض القرطاس في أخبار ملوك المغرب وتاريخ مدينة فاس</em>. الرباط: دار المنصور للطباعة، 1972.</li>
+                <li>ابن خلدون، عبد الرحمن بن محمد. <em>المقدمة</em>. القاهرة: دار ابن الهيثم، 2005.</li>
+                <li>الجزنائي، أبو الحسن علي. <em>جنى زهرة الآس في بناء مدينة فاس</em>. تحقيق عبد الوهاب بن منصور. ط2. الرباط، 1411هـ/1991م.</li>
+                <li>العمري، أحمد بن يحيى بن فضل الله. <em>مسالك الأبصار في ممالك الأمصار</em>. تحقيق كامل سلمان الجبوري. بيروت: دار الكتب العلمية.</li>
+                <li>المقري، أحمد بن محمد التلمساني. <em>نفح الطيب من غصن الأندلس الرطيب</em>. تحقيق إحسان عباس. بيروت، 1988.</li>
+            </ul>
+        </div>
+
+        <div class="essay-source-group">
+            <h3>ثانياً: المراجع</h3>
+            <ul>
+                <li>التازي، عبد الهادي. «الساعات المائية بالمغرب»، ضمن <em>مذكرات من التراث المغربي</em>، الجزء الثالث (646–1076هـ/1248–1666م)، 1985.</li>
+                <li>الضحاك، إدريس. <em>الماء عالمياً ووطنياً: موارده ونظامه القانوني</em>. مطبوعات أكاديمية المملكة المغربية، 2016.</li>
+                <li>المنوني، محمد. <em>ورقات عن حضارة المرينيين</em>. كلية الآداب بالرباط، 1420هـ/2001م.</li>
+                <li>هيل، دونالد. <em>العلوم والهندسة في الحضارة</em>. ترجمة أحمد فؤاد باشا. عالم المعرفة، العدد 304، الكويت، 2004.</li>
+                <li>رابطة الدين، محمد. <em>مراكش زمن حكم الموحدين: جوانب من تاريخ المجال والإنسان</em>. تقديم مصطفى الشابي. ج1، ط2، 2016.</li>
+            </ul>
+        </div>
+
+        <div class="essay-source-group">
+            <h3>ثالثاً: أبحاث ودراسات</h3>
+            <ul>
+                <li>أيت أو مغار، سمير. «الماء والمجتمع في تاريخ المغرب: أنظمة التوزيع، الأعراف والنزاع حول الماء». <em>المجلة الثقافية: مراكش الآن</em>، العدد 17، يوليوز 2011.</li>
+                <li>حبيدة، محمد. «الماء في المغرب: التقنية والتنظيم، ملاحظات حول القرنين 17 و18م»، ضمن أعمال ندوة <em>الماء في تاريخ المغرب</em>. جامعة الحسن الثاني، عين الشق، دجنبر 1996.</li>
+                <li>مزيان، أحمد. «استغلال الماء في الواحات، نموذج فيجيج (فيكيك)»، ضمن أعمال ندوة <em>الماء في تاريخ المغرب</em>. جامعة الحسن الثاني، عين الشق، دجنبر 1996.</li>
+                <li>سراج، أحمد. «حول استمرار مظاهر الديانات المائية القديمة بمغرب العصر الوسيط»، ضمن أعمال ندوة <em>الماء في تاريخ المغرب</em>. جامعة الحسن الثاني، عين الشق، دجنبر 1996.</li>
+                <li><bdi dir="ltr">Science et technique en islam, 3: géographie, navigation, horloges, géométrie, optique.</bdi></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var fig = document.getElementById('wc-clock');
+    if (!fig) return;
+
+    var arc = fig.querySelector('[data-wc-arc]');
+    var hand = fig.querySelector('[data-wc-hand]');
+    var timeEl = fig.querySelector('[data-wc-time]');
+    var pctEl = fig.querySelector('[data-wc-pct]');
+    var barEl = fig.querySelector('[data-wc-bar]');
+    var btn = fig.querySelector('[data-wc-toggle]');
+    var label = btn ? btn.querySelector('.wc-btn-t') : null;
+    var icon = btn ? btn.querySelector('i') : null;
+    var fracs = fig.querySelectorAll('[data-wc-frac]');
+
+    if (!arc || !hand || !timeEl || !pctEl || !barEl) return;
+
+    var CIRC = 553;
+    var DURATION = 24000;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var t = reduce ? 0.58 : 0;
+    var running = !reduce;
+    var last = 0;
+
+    function draw() {
+        arc.setAttribute('stroke-dashoffset', (CIRC * (1 - t)).toFixed(1));
+        hand.style.transform = 'rotate(' + (t * 360).toFixed(2) + 'deg)';
+
+        var left = Math.round(45 * 60 * (1 - t));
+        var m = Math.floor(left / 60);
+        var s = left % 60;
+        timeEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+        pctEl.textContent = Math.round(t * 100) + '٪';
+        barEl.style.width = (t * 100).toFixed(1) + '%';
+    }
+
+    function setBtn(state) {
+        if (!btn) return;
+        if (label) label.textContent = state ? 'إيقاف الحركة' : 'تشغيل الحركة';
+        if (icon) icon.className = state ? 'fas fa-pause' : 'fas fa-play';
+    }
+
+    function tick(ts) {
+        if (!running) return;
+        if (!last) last = ts;
+        t += (ts - last) / DURATION;
+        last = ts;
+        if (t >= 1) t = 0;
+        draw();
+        window.requestAnimationFrame(tick);
+    }
+
+    draw();
+
+    if (reduce && btn) btn.hidden = true;
+    if (!reduce) window.requestAnimationFrame(tick);
+
+    for (var i = 0; i < fracs.length; i++) {
+        fracs[i].addEventListener('click', function () {
+            var v = parseFloat(this.getAttribute('data-wc-frac'));
+            if (isNaN(v)) return;
+            running = false;
+            last = 0;
+            t = v;
+            setBtn(false);
+            for (var k = 0; k < fracs.length; k++) {
+                fracs[k].setAttribute('aria-pressed', fracs[k] === this ? 'true' : 'false');
+            }
+            draw();
+        });
+    }
+
+    if (!btn) return;
+
+    btn.addEventListener('click', function () {
+        running = !running;
+        setBtn(running);
+        if (running) {
+            for (var k = 0; k < fracs.length; k++) {
+                fracs[k].setAttribute('aria-pressed', 'false');
+            }
+            last = 0;
+            window.requestAnimationFrame(tick);
+        }
+    });
+})();
+</script>
