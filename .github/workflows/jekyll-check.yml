@@ -29,6 +29,7 @@ jobs:
           JEKYLL_ENV: production
         run: |
           set +e
+          rm -rf preview ci-jekyll.log
           {
             echo "=== bundle install ==="
             bundle install --jobs 4
@@ -54,7 +55,7 @@ jobs:
               echo "missing $f" >> preview/missing.txt
             fi
           done
-          art=$(find _site/articles -name index.html 2>/dev/null | sort | head -1)
+          art=$(find _site/articles -mindepth 2 -name index.html 2>/dev/null | sort | head -1)
           if [ -n "$art" ]; then cp "$art" preview/article.html; fi
           {
             echo "html_files=$(find _site -name '*.html' | wc -l)"
@@ -70,6 +71,8 @@ jobs:
             echo "newsletter_provider=$(grep -o 'data-nl-provider=\"[^\"]*\"' _site/index.html 2>/dev/null | head -1)"
             echo "newsletter_tag_home=$(grep -o 'data-nl-tag=\"[^\"]*\"' _site/index.html 2>/dev/null | head -1)"
             echo "newsletter_tag_article=$(grep -o 'data-nl-tag=\"[^\"]*\"' \"$art\" 2>/dev/null | head -1)"
+            echo "article_has_newsletter=$(grep -c 'id=\"nl-form\"' \"$art\" 2>/dev/null || true)"
+            echo "preview_in_sitemap=$(grep -c 'preview/' _site/sitemap.xml 2>/dev/null || true)"
             echo "newsletter_hidden_fields=$(grep -o 'name=\"_next\" value=\"[^\"]*\"' \"$art\" 2>/dev/null | head -1)"
             echo "newsletter_policy_link=$(grep -c 'href=\"/privacy-policy/\"' _site/index.html 2>/dev/null || true)"
             echo "analytics_events=$(grep -o 'newsletter_submit\|outbound_click\|cta_click' _site/index.html 2>/dev/null | sort -u | tr '\n' ' ')"
