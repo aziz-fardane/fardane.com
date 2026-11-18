@@ -1,7 +1,7 @@
 name: Jekyll Check
 
-# تشخيصي مؤقّت: يبني الموقع بـJekyll (نسخة GitHub Pages نفسها) ويكتب سجل
-# البناء في ملف داخل المستودع، لأن سجلات Actions لا تُقرأ بلا توثيق.
+# تشخيصي مؤقّت: يبني الموقع بـJekyll ويكتب سجل البناء في ملف داخل المستودع،
+# لأن سجلات Actions لا تُقرأ بلا توثيق. يُشغَّل فقط برسالة فيها [ci-log].
 on:
   push:
     branches:
@@ -22,22 +22,23 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
-
-      - name: Install github-pages gem
-        run: gem install github-pages -v 232 --no-document
+          ruby-version: '3.3'
 
       - name: Build with Jekyll (capture log)
         env:
           JEKYLL_ENV: production
         run: |
-          # GitHub Pages ignores the site Gemfile and uses its own bundle,
-          # so drop the local one to reproduce the Pages build faithfully.
-          rm -f Gemfile Gemfile.lock
           set +e
-          jekyll build --trace > /tmp/jekyll.log 2>&1
-          code=$?
-          echo "exit_code=$code" >> /tmp/jekyll.log
+          {
+            echo "=== ruby ==="
+            ruby -v
+            echo "=== bundle install ==="
+            bundle install --jobs 4
+            echo "install_exit=$?"
+            echo "=== jekyll build ==="
+            bundle exec jekyll build --trace
+            echo "build_exit=$?"
+          } > /tmp/jekyll.log 2>&1
           tail -c 30000 /tmp/jekyll.log > ci-jekyll.log
           echo "----- log -----"
           cat ci-jekyll.log
