@@ -1,0 +1,46 @@
+<header class="site-header site-header-en relative z-50" data-controller="header">
+    <div class="site-shell">
+        <div class="site-header-bar">
+            <a href="/en/" class="site-mark" hreflang="en">
+                <span class="site-mark-initial">A.</span>
+                <span class="site-mark-name">Aziz Fardane</span>
+            </a>
+
+            <nav class="site-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="/en/" class="site-nav-link{% if page.url == '/en/' %} active-nav{% endif %}"><span>Home</span><div class="site-nav-rule w-0"></div></a></li>
+                    <li><a href="/en/expertise/" class="site-nav-link{% if page.url == '/en/expertise/' %} active-nav{% endif %}"><span>Expertise</span><div class="site-nav-rule w-0"></div></a></li>
+                    <li><a href="/en/publications/" class="site-nav-link{% if page.url == '/en/publications/' %} active-nav{% endif %}"><span>Publications</span><div class="site-nav-rule w-0"></div></a></li>
+                    <li><a href="/" class="site-nav-link" hreflang="ar" lang="ar" aria-label="النسخة العربية"><span>العربية</span><div class="site-nav-rule w-0"></div></a></li>
+                </ul>
+            </nav>
+
+            <button type="button" class="site-menu-btn" data-action="click->header#toggleMenu" aria-label="Menu" data-header-target="menuButton">
+                <span class="site-burger">
+                    <span class="site-burger-line" data-header-target="hamburgerLine"></span>
+                    <span class="site-burger-line" data-header-target="hamburgerLine"></span>
+                    <span class="site-burger-line" data-header-target="hamburgerLine"></span>
+                </span>
+            </button>
+        </div>
+
+        <div class="site-mobile invisible opacity-0 -translate-y-full transition-all duration-500" data-header-target="mobileMenu">
+            <div class="site-shell site-mobile-body">
+                <button type="button" class="site-mobile-close" data-action="click->header#closeMenu" aria-label="Close menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <nav aria-label="Main navigation — mobile">
+                    <ul class="site-mobile-list">
+                        <li><a href="/en/" data-action="click->header#closeMenu"><span class="site-mobile-num">01</span><span>Home</span></a></li>
+                        <li><a href="/en/expertise/" data-action="click->header#closeMenu"><span class="site-mobile-num">02</span><span>Expertise</span></a></li>
+                        <li><a href="/en/publications/" data-action="click->header#closeMenu"><span class="site-mobile-num">03</span><span>Publications</span></a></li>
+                        <li><a href="/" hreflang="ar" lang="ar" data-action="click->header#closeMenu"><span class="site-mobile-num">04</span><span>النسخة العربية</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

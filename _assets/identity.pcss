@@ -206,6 +206,35 @@
     transition: width 0.3s ease;
 }
 
+/* English pages keep the masthead and footer structure, with the Latin
+   reading face of the English section instead of the Arabic one. */
+.site-header-en .site-nav-link {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+.site-footer-en {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+.site-footer-en .site-footer-h,
+.site-footer-en .site-footer-name {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+/* Language switch: the one item set in the code face, so it reads as a
+   control rather than as another section of the site. */
+.site-nav-lang span {
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    color: var(--id-brass-text);
+}
+
+.site-nav-lang:hover span,
+.site-nav-lang:focus-visible span {
+    color: var(--id-cobalt);
+}
+
 .site-menu-btn {
     display: inline-flex;
     align-items: center;
