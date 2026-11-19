@@ -1,0 +1,36 @@
+html_files=56
+liquid_leftover_files=0
+articles_total=12
+articles_with_cta=11
+services_proof_cards=3
+consultation_proof_cards=3
+manuscripts_robots=<meta name="robots" content="noindex, nofollow">
+manuscripts_links_in_home=0
+manuscripts_in_sitemap=0
+newsletter_forms=46
+newsletter_provider=
+newsletter_tag_home=
+article_newsletter_tag=
+article_hidden_next=name="_next" value="https://fardane.com/?subscribed=1"
+bt_build_exit=build_bt_exit=0
+bt_form_action=action="https://formsubmit.co/aziz.fardane@gmail.com"
+bt_tag_field=
+bt_embed_field=
+bt_formsubmit_fields=1
+preview_in_sitemap=0
+newsletter_policy_link=0
+analytics_events=cta_click 
+privacy_provider_line=0
+cta_titles:
+  articles => 
+  أكبر-محطة-تحلية-مياه-في-أفريقيا-الدار-البيضاء-سطات => أرقام الماء تحتاج توثيقاً
+  استراتيجيات-التكيف-مع-الأزمات-المناخية => الجفاف والمناخ في بحثك؟
+  الإدريسي-الماء-والعمران => قراءة المجال تحتاج خرائط
+  التصوف-والطرق-الدينية-بالمغرب => نصوص وتراجم تحتاج ضبطاً
+  الجفاف-الكبير-بالمغرب-2019-2025 => أرقام الماء تحتاج توثيقاً
+  الحرف-المائية-في-المغرب-الوسيط => الاقتصاد القديم يحتاج أرقاماً ومصادر
+  الخطارة-ضمن-حضارة-الماء => هل تعمل على الماء والمدينة؟
+  الدباغون-ومهنة-الدباغة-في-مراكش => حرفة تدرسها وتبحث عن مادتها؟
+  السدود-في-المغرب-من-الرؤية-الحسنية-إلى-آفاق-الألفية-الثالثة => أرقام الماء تحتاج توثيقاً
+  صناعة-الدباغة-المغربية => ملف تراثي يحتاج محتوى علمياً؟
+  قراءة-في-المنهج-الخلدوني => نص فكري يحتاج تحريراً دقيقاً
