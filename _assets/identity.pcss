@@ -665,6 +665,13 @@
     border: 1px solid var(--id-line-strong);
 }
 
+/* The existing articles index already has a fine zellige-like wash; give it
+   the same slow drift as the rest of the identity so the pages feel related. */
+.ar-hero::before {
+    animation: id-water-drift 48s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
 /* Archive hero — a dark editorial band with a slow water wash, matching the
    new homepage cover without copying its dossier plate. */
 .ar-archive-hero {
