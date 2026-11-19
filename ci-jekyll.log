@@ -5,19 +5,19 @@ Fetching bigdecimal 4.0.1
 Fetching concurrent-ruby 1.3.6
 Fetching connection_pool 3.0.2
 Installing base64 0.3.0
-Fetching drb 2.2.3
-Installing bigdecimal 4.0.1 with native extensions
-Installing concurrent-ruby 1.3.6
 Installing connection_pool 3.0.2
+Installing bigdecimal 4.0.1 with native extensions
+Fetching drb 2.2.3
 Fetching json 2.19.3
 Installing drb 2.2.3
-Fetching logger 1.7.0
-Fetching prism 1.9.0
 Installing json 2.19.3 with native extensions
+Fetching logger 1.7.0
+Installing concurrent-ruby 1.3.6
 Installing logger 1.7.0
+Fetching prism 1.9.0
+Installing prism 1.9.0 with native extensions
 Fetching securerandom 0.4.1
 Installing securerandom 0.4.1
-Installing prism 1.9.0 with native extensions
 Fetching uri 1.1.1
 Installing uri 1.1.1
 Fetching public_suffix 5.1.1
@@ -51,9 +51,9 @@ Installing liquid 4.0.4
 Fetching mercenary 0.3.6
 Installing mercenary 0.3.6
 Fetching rouge 3.30.0
-Installing rouge 3.30.0
 Fetching safe_yaml 1.0.5
 Installing safe_yaml 1.0.5
+Installing rouge 3.30.0
 Fetching webrick 1.9.2
 Installing webrick 1.9.2
 Fetching racc 1.8.1
@@ -73,54 +73,54 @@ Installing tzinfo 2.0.6
 Fetching net-http 0.9.1
 Installing net-http 0.9.1
 Fetching addressable 2.8.9
-Fetching coffee-script 2.4.1
 Installing addressable 2.8.9
-Fetching dnsruby 1.73.1
+Fetching coffee-script 2.4.1
 Installing coffee-script 2.4.1
+Fetching dnsruby 1.73.1
+Installing dnsruby 1.73.1
 Fetching jekyll-commonmark 1.4.0
 Installing jekyll-commonmark 1.4.0
+Fetching pathutil 0.16.2
+Installing pathutil 0.16.2
+Fetching kramdown 2.4.0
+Installing kramdown 2.4.0
 Fetching ethon 0.18.0
-Installing dnsruby 1.73.1
 Installing ethon 0.18.0
 Fetching rb-inotify 0.11.1
-Fetching pathutil 0.16.2
 Installing rb-inotify 0.11.1
-Fetching kramdown 2.4.0
-Installing pathutil 0.16.2
 Fetching terminal-table 1.8.0
-Installing kramdown 2.4.0
 Installing terminal-table 1.8.0
 Fetching faraday-net_http 3.4.2
 Installing faraday-net_http 3.4.2
-Fetching nokogiri 1.19.2 (x86_64-linux-gnu)
 Fetching jekyll-coffeescript 1.2.2
 Installing jekyll-coffeescript 1.2.2
+Fetching kramdown-parser-gfm 1.1.0
+Installing kramdown-parser-gfm 1.1.0
 Fetching typhoeus 1.6.0
 Installing typhoeus 1.6.0
 Fetching sass-listen 4.0.0
 Installing sass-listen 4.0.0
 Fetching listen 3.10.0
-Installing nokogiri 1.19.2 (x86_64-linux-gnu)
-Installing listen 3.10.0
 Fetching faraday 2.14.1
+Installing listen 3.10.0
 Installing faraday 2.14.1
-Fetching kramdown-parser-gfm 1.1.0
-Installing kramdown-parser-gfm 1.1.0
+Fetching nokogiri 1.19.2 (x86_64-linux-gnu)
 Fetching sass 3.7.4
 Installing sass 3.7.4
 Fetching jekyll-watch 2.2.1
 Installing jekyll-watch 2.2.1
 Fetching faraday-retry 2.4.0
-Fetching sawyer 0.9.3
 Installing faraday-retry 2.4.0
-Fetching jekyll-sass-converter 1.5.2
+Fetching sawyer 0.9.3
 Installing sawyer 0.9.3
-Fetching octokit 4.25.1
+Fetching jekyll-sass-converter 1.5.2
 Installing jekyll-sass-converter 1.5.2
+Fetching octokit 4.25.1
 Installing octokit 4.25.1
 Fetching github-pages-health-check 1.18.2
-Fetching jekyll-gist 1.5.0
 Installing github-pages-health-check 1.18.2
+Installing nokogiri 1.19.2 (x86_64-linux-gnu)
+Fetching jekyll-gist 1.5.0
 Installing jekyll-gist 1.5.0
 Fetching em-websocket 0.5.3
 Installing em-websocket 0.5.3
@@ -130,61 +130,61 @@ Fetching jekyll-avatar 0.8.0
 Fetching jekyll-commonmark-ghpages 0.5.1
 Fetching jekyll-default-layout 0.1.5
 Installing jekyll-avatar 0.8.0
-Fetching jekyll-feed 0.17.0
 Installing jekyll-commonmark-ghpages 0.5.1
-Fetching jekyll-github-metadata 2.16.1
+Fetching jekyll-feed 0.17.0
 Installing jekyll-default-layout 0.1.5
-Fetching jekyll-include-cache 0.2.1
+Fetching jekyll-github-metadata 2.16.1
 Installing jekyll-feed 0.17.0
-Fetching jekyll-optional-front-matter 0.3.2
 Installing jekyll-github-metadata 2.16.1
-Fetching jekyll-readme-index 0.3.0
+Fetching jekyll-include-cache 0.2.1
+Fetching jekyll-optional-front-matter 0.3.2
 Installing jekyll-include-cache 0.2.1
-Fetching jekyll-redirect-from 0.16.0
 Installing jekyll-optional-front-matter 0.3.2
+Fetching jekyll-readme-index 0.3.0
+Fetching jekyll-redirect-from 0.16.0
 Fetching jekyll-relative-links 0.6.1
 Installing jekyll-readme-index 0.3.0
-Fetching jekyll-remote-theme 0.4.3
 Installing jekyll-redirect-from 0.16.0
-Fetching jekyll-seo-tag 2.8.0
 Installing jekyll-relative-links 0.6.1
-Fetching jekyll-sitemap 1.4.0
+Fetching jekyll-remote-theme 0.4.3
+Fetching jekyll-seo-tag 2.8.0
 Installing jekyll-remote-theme 0.4.3
-Fetching jekyll-titles-from-headings 0.5.3
+Fetching jekyll-sitemap 1.4.0
 Installing jekyll-seo-tag 2.8.0
-Fetching jekyll-archives 2.2.1
 Installing jekyll-sitemap 1.4.0
-Fetching jekyll-theme-architect 0.2.0
+Fetching jekyll-titles-from-headings 0.5.3
 Installing jekyll-titles-from-headings 0.5.3
-Fetching jekyll-theme-cayman 0.2.0
+Fetching jekyll-archives 2.2.1
+Fetching jekyll-theme-architect 0.2.0
 Installing jekyll-archives 2.2.1
-Fetching jekyll-theme-dinky 0.2.0
+Fetching jekyll-theme-cayman 0.2.0
 Installing jekyll-theme-architect 0.2.0
-Fetching jekyll-theme-hacker 0.2.0
 Installing jekyll-theme-cayman 0.2.0
+Fetching jekyll-theme-dinky 0.2.0
+Fetching jekyll-theme-hacker 0.2.0
 Fetching jekyll-theme-leap-day 0.2.0
 Installing jekyll-theme-dinky 0.2.0
-Fetching jekyll-theme-merlot 0.2.0
 Installing jekyll-theme-hacker 0.2.0
+Fetching jekyll-theme-merlot 0.2.0
 Fetching jekyll-theme-midnight 0.2.0
 Installing jekyll-theme-leap-day 0.2.0
-Fetching jekyll-theme-minimal 0.2.0
 Installing jekyll-theme-merlot 0.2.0
+Fetching jekyll-theme-minimal 0.2.0
 Fetching jekyll-theme-modernist 0.2.0
-Installing jekyll-theme-minimal 0.2.0
 Installing jekyll-theme-modernist 0.2.0
 Fetching jekyll-theme-primer 0.6.0
-Fetching jekyll-theme-slate 0.2.0
+Installing jekyll-theme-minimal 0.2.0
 Installing jekyll-theme-primer 0.6.0
+Fetching jekyll-theme-slate 0.2.0
 Installing jekyll-theme-slate 0.2.0
-Installing jekyll-theme-midnight 0.2.0
 Fetching jekyll-theme-tactile 0.2.0
-Fetching jekyll-theme-time-machine 0.2.0
-Fetching minima 2.5.1
 Installing jekyll-theme-tactile 0.2.0
-Fetching minitest 6.0.2
+Fetching jekyll-theme-time-machine 0.2.0
 Installing jekyll-theme-time-machine 0.2.0
+Fetching minima 2.5.1
+Installing jekyll-theme-midnight 0.2.0
 Installing minima 2.5.1
+Fetching minitest 6.0.2
 Installing minitest 6.0.2
 Fetching activesupport 8.1.3
 Installing activesupport 8.1.3
@@ -255,7 +255,7 @@ Configuration file: /tmp/_ci.yml
  Incremental build: disabled. Enable with --incremental
       Generating... 
        Jekyll Feed: Generating feed for posts
-                    done in 1.459 seconds.
+                    done in 2.204 seconds.
  Auto-regeneration: disabled. Use --watch to enable.
 build_exit=0
 Configuration file: _config.yml
@@ -266,6 +266,6 @@ Configuration file: /tmp/_ci_bt.yml
  Incremental build: disabled. Enable with --incremental
       Generating... 
        Jekyll Feed: Generating feed for posts
-                    done in 1.485 seconds.
+                    done in 2.161 seconds.
  Auto-regeneration: disabled. Use --watch to enable.
 build_bt_exit=0
