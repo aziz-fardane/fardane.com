@@ -85,9 +85,6 @@
         <meta name="twitter:site" content="@{{ site.twitter.username }}">
         {% endif %}
 
-        <!-- Meta tags for social sharing -->
-        {% seo %}
-
         <!-- Structured Data -->
         {% if page.url == "/" or page.url == "/index.html" %}
         <script type="application/ld+json">
@@ -98,6 +95,7 @@
               "@type": "Person",
               "@id": "{{ site.url }}/#person",
               "name": "د. عزيز فردان",
+              "alternateName": ["Aziz Fardane", "عزيز فردان"],
               "jobTitle": "باحث مستقل في تاريخ النظم المائية والعمران",
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
@@ -118,17 +116,21 @@
               ],
               "knowsAbout": [
                 "تاريخ المياه",
+                "تاريخ الماء في المغرب",
                 "تاريخ المغرب الوسيط",
                 "حضارة إسلامية",
                 "نظم مائية تقليدية",
                 "واحات مغربية",
-                "طوبونيميا"
+                "طوبونيميا",
+                "Water history in Morocco",
+                "Historical hydraulics",
+                "Histoire de l'eau au Maroc"
               ]
             },
             {
               "@type": "Organization",
               "name": "جامعة القاضي عياض",
-              "url": "http://www.uca.ma",
+              "url": "https://www.uca.ma",
               "logo": "{{ site.url }}{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}",
               "description": "جامعة القاضي عياض هي جامعة مغربية تقع في مدينة مراكش",
               "address": {
@@ -137,8 +139,26 @@
                 "addressCountry": "المغرب"
               },
               "sameAs": [
-                "http://www.uca.ma"
+                "https://www.uca.ma"
               ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "{{ site.url }}/#website",
+              "url": "{{ site.url }}/",
+              "name": "تاريخ الماء في المغرب — الدكتور عزيز فردان",
+              "alternateName": [
+                "Water History in Morocco — Aziz Fardane",
+                "Histoire de l'eau au Maroc — Aziz Fardane"
+              ],
+              "description": "مرجع أكاديمي متخصص في تاريخ الماء والنظم المائية والعمران والمصادر التاريخية في المغرب الوسيط",
+              "inLanguage": ["ar", "en", "fr"],
+              "publisher": { "@id": "{{ site.url }}/#person" },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "{{ site.url }}/search/?query={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
             }
           ]
         }
@@ -153,7 +173,7 @@
           "@graph": [
             {
               "@type": "Person",
-              "@id": "{{ site.url }}/#person",
+              "@id": "{{ site.url }}/en/#person",
               "name": "Aziz Fardane",
               "alternateName": "د. عزيز فردان",
               "jobTitle": "Historian of the medieval Maghrib — Arabic manuscript sources",
@@ -191,52 +211,10 @@
               "description": "{{ page.description | escape }}",
               "inLanguage": "en",
               "about": {
-                "@id": "{{ site.url }}/#person"
+                "@id": "{{ site.url }}/en/#person"
               }
             }
           ]
-        }
-        </script>
-        {% endif %}
-
-        <!-- Article Structured Data for Posts -->
-        {% if page.layout == "post" %}
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "{{ page.title | escape }}",
-          "description": "{{ page.description | default: page.excerpt | strip_html | truncate: 160 | escape }}",
-          {% assign _ld_thumb_key = page.thumbnail | remove_first: '/' %}
-          "image": {
-            "@type": "ImageObject",
-            "url": "{{ site.data.manifest[_ld_thumb_key] | default: page.thumbnail | default: '/dist/images/articles/default.jpg' | absolute_url }}"
-          },
-          "datePublished": "{{ page.date | date_to_xmlschema }}",
-          "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-          "author": {
-            "@type": "Person",
-            "name": "د. عزيز فردان",
-            "url": "{{ site.url }}",
-            "image": "{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "{{ site.title }}",
-            "url": "{{ site.url }}",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "{{ site.url }}{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}"
-            }
-          },
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "{{ page.url | absolute_url }}"
-          },
-          "url": "{{ page.url | absolute_url }}",
-          "keywords": "{{ page.tags | join: ', ' | escape }}",
-          "articleSection": "{{ page.categories | first | escape }}",
-          "inLanguage": "ar"
         }
         </script>
         {% endif %}

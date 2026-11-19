@@ -528,11 +528,11 @@ layout: default
 {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "{{ page.name }}",
-    "description": "{{ content | strip_html | truncatewords: 50 }}",
-    "image": "{{ site.url }}{{ _sci_url }}",
-    "url": "{{ site.url }}{{ page.url }}",
-    "birthDate": "{{ page.dates | split: '-' | first | strip }}",
+    "name": {{ page.name | jsonify }},
+    "description": {{ content | strip_html | truncatewords: 50 | jsonify }},
+    "image": {{ site.url | append: _sci_url | jsonify }},
+    "url": {{ site.url | append: page.url | jsonify }},
+    "birthDate": {{ page.dates | split: '-' | first | strip | jsonify }},
     "jobTitle": "{% case page.category %}{% when 'engineering' %}مهندس مائي{% when 'geography' %}جغرافي{% when 'medicine' %}طبيب{% when 'agriculture' %}عالم زراعة{% else %}عالم{% endcase %}"
 }
 </script>

@@ -177,7 +177,7 @@ layout: default
       "url": "{{ page.url | absolute_url }}",
       "inLanguage": "ar",
       "genre": "{{ pf_category_label }}",
-      "keywords": "{{ page.tags | join: ', ' | replace: '-', ' ' }}"
+      "keywords": "{{ page.tags | join: ', ' | replace: '-', ' ' | escape }}"
     }
     </script>
 
