@@ -140,21 +140,21 @@ permalink: /publications/
                 </div>
             </div>
 
-            <div class="publication-card flex flex-col bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-lg hover:-translate-y-1 border border-stone-100" data-category="article">
+            <div class="publication-card flex flex-col bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-lg hover:-translate-y-1 border border-stone-100" data-category="book">
                 <div class="relative h-64">
-                    <img src="{{ site.data.manifest['dist/images/publications/journal-cover-1.jpg'] | default: '/dist/images/publications/journal-cover-1.jpg' }}" alt="غلاف مجلة" class="w-full h-full object-cover">
-                    <div class="absolute top-3 right-3 bg-teal-600/90 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm">مقال</div>
+                    <img src="{{ site.data.manifest['dist/images/publications/journal-cover-1.jpg'] | default: '/dist/images/publications/journal-cover-1.jpg' }}" alt="غلاف البحث" class="w-full h-full object-cover">
+                    <div class="absolute top-3 right-3 bg-amber-600/90 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm">أطروحة ماستر</div>
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-xl font-bold text-amber-800 mb-3">الساعات المائية في المغرب الإسلامي: دراسة تاريخية وتقنية</h3>
-                    <p class="text-stone-600 text-sm mb-4 flex-grow">بحث يتناول تاريخ وتقنيات الساعات المائية، مع تحليل لأنواعها وأساليب صناعتها واستخداماتها في الحياة اليومية والعبادات.</p>
+                    <h3 class="text-xl font-bold text-amber-800 mb-3">الساعات المائية بالمغرب الوسيط</h3>
+                    <p class="text-stone-600 text-sm mb-4 flex-grow">أطروحة ماستر غير منشورة تتناول تاريخ وتقنيات الساعات المائية بالمغرب الوسيط، مع تحليل لأنواعها وأساليب صناعتها واستخداماتها في الحياة اليومية والعبادات.</p>
                     <div class="mt-auto pt-4 border-t border-stone-200">
                         <div class="flex justify-between items-center text-sm text-stone-500 mb-4">
-                            <span><i class="far fa-calendar-alt ml-2 text-amber-600"></i>2021</span>
-                            <span><i class="fas fa-book-open ml-2 text-amber-600"></i>مجلة دراسات تاريخية</span>
+                            <span><i class="far fa-calendar-alt ml-2 text-amber-600"></i>2019</span>
+                            <span><i class="fas fa-university ml-2 text-amber-600"></i>جامعة القاضي عياض — كلية الآداب والعلوم الإنسانية</span>
                         </div>
                         {% assign _pdf = site.data.manifest['dist/pdf/water-clocks.pdf'] %}{% if _pdf %}<a href="{{ _pdf }}" class="inline-flex items-center text-amber-700 hover:text-amber-600 font-medium group">
-                            <span class="ml-2">تحميل ملخص البحث</span>
+                            <span class="ml-2">تحميل ملخص الأطروحة</span>
                             <i class="fas fa-arrow-left text-xs group-hover:-translate-x-1 transition-transform"></i>
                         </a>{% endif %}
                     </div>
