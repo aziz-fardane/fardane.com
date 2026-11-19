@@ -51,7 +51,7 @@
             <div class="h-full overflow-hidden">
               {% assign _ct_key = post.thumbnail | remove_first: '/' %}
               {% if post.thumbnail %}
-              <img src="{{ site.data.manifest[_ct_key] | default: post.thumbnail }}" alt="{{ post.title }}" class="w-full h-full object-cover min-h-[200px] transition-transform duration-500 hover:scale-105">
+              {% include picture.html src=post.thumbnail alt=post.title class="w-full h-full object-cover min-h-[200px] transition-transform duration-500 hover:scale-105" %}
               {% else %}
               <div class="w-full min-h-[200px] bg-amber-50" aria-hidden="true"></div>
               {% endif %}

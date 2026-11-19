@@ -1,0 +1,18 @@
+{%- comment -%}
+  Renders an image with a WebP source when the build produced one.
+  Params: src (required), alt, class, loading, width, height, fetchpriority, style.
+  The manifest lookup keeps versioned filenames; if no WebP exists we fall back to the original.
+{%- endcomment -%}
+{%- assign _pic_key = include.src | remove_first: '/' -%}
+{%- assign _pic_webp_key = _pic_key | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.png', '.webp' -%}
+{%- assign _pic_webp = site.data.manifest[_pic_webp_key] -%}
+{%- assign _pic_src = site.data.manifest[_pic_key] | default: include.src -%}
+{%- assign _pic_loading = include.loading | default: 'lazy' -%}
+{%- if _pic_webp -%}
+<picture>
+  <source srcset="{{ _pic_webp }}" type="image/webp">
+  <img src="{{ _pic_src }}" alt="{{ include.alt | escape }}"{% if include.class %} class="{{ include.class }}"{% endif %} loading="{{ _pic_loading }}" decoding="async"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %}{% if include.fetchpriority %} fetchpriority="{{ include.fetchpriority }}"{% endif %}{% if include.style %} style="{{ include.style }}"{% endif %}>
+</picture>
+{%- else -%}
+<img src="{{ _pic_src }}" alt="{{ include.alt | escape }}"{% if include.class %} class="{{ include.class }}"{% endif %} loading="{{ _pic_loading }}" decoding="async"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %}{% if include.fetchpriority %} fetchpriority="{{ include.fetchpriority }}"{% endif %}{% if include.style %} style="{{ include.style }}"{% endif %}>
+{%- endif -%}

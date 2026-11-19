@@ -15,6 +15,11 @@
     direction: rtl;
 }
 
+/* <picture> must not create a box: the inner <img> keeps sizing from its container */
+picture {
+    display: contents;
+}
+
 /* RTL specific fixes */
 .rtl\:space-x-reverse {
     --tw-space-x-reverse: 1 !important;

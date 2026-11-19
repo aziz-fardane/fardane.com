@@ -56,7 +56,7 @@ layout: default
       {% if page.thumbnail %}
       {% assign _thumb_key = page.thumbnail | remove_first: '/' %}
       <div class="rounded-xl overflow-hidden mb-10 shadow-md">
-        <img src="{{ site.data.manifest[_thumb_key] | default: page.thumbnail }}" alt="{{ page.title }}" class="w-full h-auto" loading="lazy">
+        {% include picture.html src=page.thumbnail alt=page.title class="w-full h-auto" %}
       </div>
       {% endif %}
       <article class="prose prose-lg prose-stone max-w-none rtl text-right">

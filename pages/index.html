@@ -870,7 +870,7 @@ permalink: /
                 <a class="hp-study" href="{{ post.url | relative_url }}">
                     <div class="hp-study-thumb{% unless post.thumbnail %} is-plain{% endunless %}">
                         {% if post.thumbnail %}
-                        <img src="{{ site.data.manifest[_skey] | default: post.thumbnail }}" alt="" loading="lazy">
+                        {% include picture.html src=post.thumbnail alt="" %}
                         {% endif %}
                     </div>
                     <div class="hp-study-body">
