@@ -117,7 +117,7 @@ layout: default
         </div>
     </header>
 
-    {% if pf_cover %}
+    {% if pf_cover and page.hide_cover != true %}
     <div class="ed-cover">
         <div class="ed-container">
             <img class="ed-cover-img" src="{{ pf_cover }}" alt="{{ page.title | escape }}" loading="eager" fetchpriority="high">
