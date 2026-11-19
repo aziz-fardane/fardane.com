@@ -113,6 +113,31 @@ jobs:
           echo "----- verify -----"
           cat preview/verify.txt
 
+      - name: Build self-contained visual previews
+        run: |
+          python3 - <<'PY'
+          import glob, pathlib, re
+          css_files = sorted(glob.glob('_site/dist/main*.css'))
+          css = pathlib.Path(css_files[0]).read_text(encoding='utf-8') if css_files else ''
+          def inline(src, dst):
+              p = pathlib.Path(src)
+              if not p.exists():
+                  return False
+              html = p.read_text(encoding='utf-8', errors='ignore')
+              html = re.sub(r'<link rel="stylesheet"[^>]*dist/main[^>]*>', '<style>' + css + '</style>', html)
+              html = html.replace('src="/dist/', 'src="https://fardane.com/dist/')
+              html = html.replace('href="/dist/', 'href="https://fardane.com/dist/')
+              pathlib.Path(dst).write_text(html, encoding='utf-8')
+              return True
+          inline('_site/index.html', 'preview/home.html')
+          hits = [p for p in glob.glob('_site/**/*.html', recursive=True)
+                  if 'ar-archive-hero' in pathlib.Path(p).read_text(encoding='utf-8', errors='ignore')]
+          for i, p in enumerate(hits[:2]):
+              inline(p, 'preview/archive%d.html' % i)
+          pathlib.Path('preview/preview-index.txt').write_text('\n'.join(hits[:10]), encoding='utf-8')
+          print('visual previews:', len(hits))
+          PY
+
       - name: Commit preview
         run: |
           git config user.name "github-actions[bot]"
