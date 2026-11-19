@@ -1,2072 +1,1976 @@
 ---
 layout: post
-title: "السدود في المغرب: من الرؤية الحسنية إلى آفاق الألفية الثالثة"
-date: 2026-11-18
+title: "أكبر محطة لتحلية المياه في أفريقيا: الدار البيضاء-سطات والثورة المائية المغربية"
+date: 2026-11-18 18:00:00 +0100
 description: >-
-  قراءة تاريخية في سياسة السدود بالمغرب منذ الخطاب التأسيسي للملك الحسن الثاني بطنجة في 18 شتنبر 1967 حتى اليوم: من 13 سداً موروثاً عن الاستعمار إلى أكثر من 150 سداً بطاقة استيعابية تتجاوز 20 مليار متر مكعب.
-type: تحليلات تاريخية
-thumbnail: /dist/images/news/morocco-dams-barrages.jpg
-image: /dist/images/news/morocco-dams-barrages.jpg
+  عند اكتمال مرحلتها الثانية في 2028، ستبلغ محطة الدار البيضاء-سطات 822 ألف م³ يومياً، لتصبح الأكبر في أفريقيا. قراءة في الأرقام والهندسة والرهانات البيئية لتحوّل المغرب نحو المياه غير التقليدية.
+type: مشاريع كبرى
+thumbnail: /dist/images/news/casablanca-desalination-plant-2026.jpg
+hide_cover: true
 tags:
-  - السدود
-  - سياسة الماء
-  - الحسن الثاني
-  - التاريخ
+  - تحلية المياه
+  - الدار البيضاء
+  - الماء الصالح للشرب
+  - البنية التحتية
   - المغرب
   - الأمن المائي
 category: الموارد-المائية
 theme: water
-redirect_from:
-  - "/الموارد المائية/2026/11/18/السدود-في-المغرب-تاريخ-وآفاق.html"
 toc:
   - level: 2
-    id: ma-qabla-1967
-    title: "أولاً: ما قبل 1967 — إرثٌ استعماري هزيل"
+    id: jugrafiya-al-atash
+    title: "أولاً: جغرافيا العطش — لماذا البحر؟"
   - level: 2
-    id: khatab-tanja-1967
-    title: "ثانياً: خطاب طنجة 1967 — الميثاق التأسيسي"
+    id: bitala-al-mashru
+    title: "ثانياً: بطاقة المشروع — الأرقام والهندسة"
   - level: 2
-    id: marahil-al-bina
-    title: "ثالثاً: مراحل البناء الكبرى (1967-1999)"
+    id: kayfa-taalum
+    title: "ثالثاً: كيف تُحوَّل مياه البحر إلى ماء شروب؟"
   - level: 2
-    id: ahd-mohammed-al-sadis
-    title: "رابعاً: عهد محمد السادس — البُعد الجديد"
+    id: barnamaj-watani
+    title: "رابعاً: من محطة إلى منظومة وطنية"
   - level: 2
-    id: al-tawzi-al-jughrafi
-    title: "خامساً: التوزيع الجغرافي وأبرز السدود"
+    id: rahanat-biiya
+    title: "خامساً: الرهانات البيئية والحوكمة"
   - level: 2
-    id: al-wazaif-al-istratijiya
-    title: "سادساً: الوظائف الاستراتيجية للسدود"
+    id: dalala-tarikhiya
+    title: "سادساً: الدلالة التاريخية — نموذج ثالث"
   - level: 2
-    id: afaq-2050
-    title: "سابعاً: الجيل الجديد وآفاق 2050"
+    id: khulasa
+    title: "خاتمة: من الندرة إلى الوفرة المُدارة"
 ---
 
 <style>
 /* ==========================================================================
-   ملف السدود — العناصر البصرية الخاصة بالمقال
-   الألوان مشتقّة من ثيم الماء (--accent) ومن لوحة الموقع.
+   محطة الدار البيضاء-سطات — طبقة تحريرية فوق أنماط الموقع
+   المبدأ: نظام واحد للأرقام والرسوم والتعليقات، وتدرّج طباعي واحد،
+   بلا زخرفة زائدة. كل القيم مشتقّة من رموز الموقع (الخطوط والألوان).
    ========================================================================== */
-.ed-body {
-    --dams-brass: #a67a2e;
-    --dams-mist: #8ea39b;
-    --dams-deep: #0b1c17;
-    --dams-wash: #eef1ea;
-    /* درجة أغمق من --muted لتبقى فوق الخلفية التيلية الفاتحة بتباين ≥ 5.5:1 */
-    --dams-muted-deep: #5f5b4c;
+
+#article-body {
+    --dsl-deep: #082a33;
+    --dsl-sea: #0d6570;
+    --dsl-aqua: #2f9e9a;
+    --dsl-sand: #a8792a;
+    --dsl-sand-soft: #d8b25f;
+    --dsl-foam: #eff7f5;
+    --dsl-soft: #f8fbfa;
+    --dsl-line: #dbe6e2;
+    --dsl-line-2: #c3d6d1;
+    --dsl-ink: #0f2f34;
+    --dsl-muted: #557175;
+    --dsl-r: 10px;
+    counter-reset: ed-section dsl-fig;
 }
 
-.ed-body .dams-hero {
-    margin: 0 0 2.6rem;
+/* ---------- إيقاع النص ---------- */
+#article-body > p {
+    margin-bottom: 1.4em;
 }
 
-.ed-body .dams-hero svg {
+/* يلغي زيادة الحجم التي يمنحها قالب design-a لأول فقرة بعد كل عنوان */
+#article-body > h2 + p {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* ---------- إطار موحّد لكل رسم ---------- */
+#article-body .dsl-hero,
+#article-body .dsl-chart,
+#article-body .dsl-gauge-fig,
+#article-body .dsl-mem,
+#article-body .dsl-split-fig {
+    counter-increment: dsl-fig;
+}
+
+#article-body .dsl-chart,
+#article-body .dsl-gauge-fig,
+#article-body .dsl-split-fig {
+    margin: 2.5rem 0;
+    padding: 1.35rem 1.25rem 1.1rem;
+    border: 1px solid var(--dsl-line);
+    border-radius: var(--dsl-r);
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(8, 42, 51, 0.03), 0 16px 36px -32px rgba(8, 42, 51, 0.55);
+}
+
+#article-body .dsl-hero {
+    margin: 0 0 2.1rem;
+}
+
+#article-body .dsl-hero svg {
     display: block;
     width: 100%;
     height: auto;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--dams-wash);
+    border: 1px solid var(--dsl-line);
+    border-radius: var(--dsl-r);
+    background: var(--dsl-soft);
 }
 
-.ed-body .dams-hero-cap {
-    margin: 0.7rem 0 0;
-    font-family: var(--font-display);
-    font-size: 0.71rem;
-    line-height: 1.9;
-    color: var(--muted);
-    text-align: center;
+/* ---------- التعليقات: نمط واحد لكل الأشكال ---------- */
+#article-body .dsl-cap {
+    margin: 0.8rem 0 0;
+    padding-inline-start: 0.8rem;
+    border-inline-start: 2px solid var(--dsl-line-2);
+    font-family: var(--font-body);
+    font-size: 0.93rem;
+    line-height: 1.95;
+    color: var(--dsl-muted);
 }
 
-/* ---------- بطاقات الأرقام ---------- */
-.ed-body .dams-stats {
+#article-body .dsl-cap::before {
+    content: "شكل " counter(dsl-fig) " —";
+    margin-inline-end: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--dsl-sea);
+    white-space: nowrap;
+}
+
+#article-body .dsl-chart .dsl-cap,
+#article-body .dsl-gauge-fig .dsl-cap,
+#article-body .dsl-split-fig .dsl-cap {
+    margin-top: 1.15rem;
+    padding: 0.9rem 0 0;
+    border-inline-start: 0;
+    border-top: 1px solid var(--dsl-line);
+}
+
+#article-body .dsl-cap b {
+    color: var(--dsl-ink);
+}
+
+/* ---------- عناوين الرسوم ---------- */
+#article-body .dsl-chart-h {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    line-height: 1.65;
+    color: var(--dsl-deep);
+}
+
+#article-body .dsl-chart-sub {
+    margin: 0 0 1.4rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: var(--dsl-muted);
+}
+
+/* ---------- شريط الأرقام المفتاحية ---------- */
+#article-body .dsl-kpis {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.9rem;
-    margin: 2rem 0 2.6rem;
+    gap: 1px;
+    margin: 0 0 2.5rem;
+    overflow: hidden;
+    border: 1px solid var(--dsl-line);
+    border-radius: var(--dsl-r);
+    background: var(--dsl-line);
 }
 
-@media (min-width: 820px) {
-    .ed-body .dams-stats {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-}
-
-.ed-body .dams-stat {
-    padding: 1.1rem 0.9rem;
-    border: 1px solid var(--line);
-    border-top: 2px solid var(--accent);
-    border-radius: 3px;
-    background: var(--surface);
-    text-align: center;
-}
-
-.ed-body .dams-stat p {
-    margin: 0;
-}
-
-.ed-body .dams-stat-ico {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.35rem;
-    height: 2.35rem;
-    margin-bottom: 0.55rem;
-    border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent-ink);
-    font-size: 0.9rem;
-}
-
-.ed-body .dams-stat .dams-stat-k {
-    margin-bottom: 0.25rem;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 700;
-    line-height: 1.6;
-    color: var(--muted);
-}
-
-.ed-body .dams-stat .dams-stat-v {
-    margin-bottom: 0.3rem;
-    font-family: var(--font-latin-display);
-    font-size: 1.45rem;
-    font-weight: 800;
-    line-height: 1.25;
-    color: var(--accent-ink);
-    direction: ltr;
-    unicode-bidi: isolate;
-}
-
-.ed-body .dams-stat .dams-stat-s {
-    font-size: 0.72rem;
-    line-height: 1.7;
-    color: var(--muted);
-}
-
-/* ---------- اقتباس ---------- */
-.ed-body .dams-cite {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: 0.72rem;
-    line-height: 1.9;
-    color: var(--muted);
-    text-align: center;
-}
-
-/* ---------- الرسوم البيانية ---------- */
-.ed-body .dams-chart {
-    margin: 2.4rem 0;
-    padding: 1.3rem 1.2rem 1rem;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--surface);
-}
-
-.ed-body .dams-chart-h {
-    margin: 0 0 0.35rem;
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.7;
-    color: var(--ink);
-}
-
-.ed-body .dams-chart-sub {
-    margin: 0 0 1rem;
-    font-size: 0.78rem;
-    line-height: 1.8;
-    color: var(--muted);
-}
-
-.ed-body .dams-chart svg {
-    display: block;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-}
-
-.ed-body .dams-chart text {
-    font-family: var(--font-latin-display);
-}
-
-.ed-body .dams-chart-cap {
-    margin: 0.9rem 0 0;
-    font-size: 0.73rem;
-    line-height: 1.9;
-    color: var(--muted);
-    text-align: center;
-}
-
-.ed-body .dams-grid-line {
-    stroke: var(--line);
-    stroke-width: 1;
-}
-
-.ed-body .dams-axis-text {
-    fill: var(--muted);
-    font-size: 10px;
-}
-
-.ed-body .dams-axis-note {
-    font-size: 9px;
-}
-
-.ed-body .dams-value-text {
-    fill: var(--accent-ink);
-    font-size: 12px;
-    font-weight: 700;
-}
-
-/* ---------- الشريط الداكن ---------- */
-.ed-body .dams-band {
-    margin: 2.4rem 0;
-    padding: 1.5rem 1.4rem;
-    border-radius: 3px;
-    background: var(--dams-deep);
-    color: #f7f1e2;
-}
-
-.ed-body .dams-band-h {
-    margin: 0 0 1.1rem;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.7;
-    color: #f7f1e2;
-}
-
-.ed-body .dams-band-grid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 0.9rem;
-}
-
-@media (min-width: 720px) {
-    .ed-body .dams-band-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-.ed-body .dams-band-item {
-    padding: 0.9rem 0.8rem;
-    border: 1px solid rgba(247, 241, 226, 0.18);
-    border-radius: 3px;
-    background: rgba(247, 241, 226, 0.05);
-    text-align: center;
-}
-
-.ed-body .dams-band-item p {
-    margin: 0;
-}
-
-.ed-body .dams-band .dams-band-v {
-    margin-bottom: 0.35rem;
-    font-family: var(--font-latin-display);
-    font-size: 1.4rem;
-    font-weight: 800;
-    line-height: 1.3;
-    color: #e9d9b4;
-    direction: ltr;
-    unicode-bidi: isolate;
-}
-
-.ed-body .dams-band .dams-band-k {
-    font-size: 0.76rem;
-    line-height: 1.8;
-    color: rgba(247, 241, 226, 0.82);
-}
-
-/* ---------- عدّاد حلقي ---------- */
-.ed-body .dams-gauge-wrap {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.2rem;
-    align-items: center;
-    margin: 2.2rem 0;
-    padding: 1.4rem 1.2rem;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--surface);
-}
-
-@media (min-width: 700px) {
-    .ed-body .dams-gauge-wrap {
-        grid-template-columns: 200px minmax(0, 1fr);
-    }
-}
-
-.ed-body .dams-gauge {
+#article-body .dsl-kpi {
     position: relative;
-    width: 100%;
-    max-width: 190px;
-    margin: 0 auto;
-}
-
-.ed-body .dams-gauge svg {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.ed-body .dams-gauge-num {
-    position: absolute;
-    inset: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.1rem;
-    pointer-events: none;
+    padding: 1.05rem 1rem 1.05rem;
+    background: #fff;
+    box-shadow: inset 0 2px 0 var(--dsl-sea);
 }
 
-.ed-body .dams-gauge-num b {
-    font-family: var(--font-latin-display);
-    font-size: 1.7rem;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--accent-ink);
-    direction: ltr;
-    unicode-bidi: isolate;
+#article-body .dsl-kpi.is-sand {
+    box-shadow: inset 0 2px 0 var(--dsl-sand);
 }
 
-.ed-body .dams-gauge-num small {
-    font-family: var(--font-display);
-    font-size: 0.66rem;
-    font-weight: 700;
-    color: var(--muted);
-}
-
-.ed-body .dams-gauge-facts {
+#article-body .dsl-kpi p {
     margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 0.9rem;
-    line-height: 1.9;
 }
 
-.ed-body .dams-gauge-facts li {
+#article-body .dsl-kpi-ico {
+    position: absolute;
+    inset-block-start: 0.95rem;
+    inset-inline-end: 0.95rem;
+    font-size: 0.78rem;
+    color: var(--dsl-line-2);
+}
+
+#article-body .dsl-kpi-k {
+    margin-bottom: 0.1rem !important;
+    padding-inline-end: 1.1rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-kpi-v {
+    font-family: var(--font-body);
+    font-size: clamp(1.45rem, 4.2vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--dsl-deep);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+#article-body .dsl-kpi-s {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--dsl-muted);
+}
+
+/* ---------- بطاقة المشروع ---------- */
+#article-body .dsl-specs {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 1.9rem 0 2.2rem;
+    overflow: hidden;
+    border: 1px solid var(--dsl-line);
+    border-radius: var(--dsl-r);
+    background: #fff;
+}
+
+#article-body .dsl-spec {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
-    gap: 0.8rem;
-    padding: 0.55rem 0;
-    border-bottom: 1px dotted var(--line);
+    gap: 0.15rem 0.9rem;
+    padding: 0.72rem 1rem;
+    border-bottom: 1px solid var(--dsl-line);
 }
 
-.ed-body .dams-gauge-facts li:last-child {
+#article-body .dsl-spec:last-child {
     border-bottom: 0;
 }
 
-.ed-body .dams-gauge-facts span {
-    color: var(--muted);
-    font-size: 0.82rem;
+#article-body .dsl-spec p {
+    margin: 0;
 }
 
-.ed-body .dams-gauge-facts b {
-    font-family: var(--font-latin-display);
+#article-body .dsl-spec-k {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-spec-v {
     font-size: 0.95rem;
-    color: var(--accent-ink);
-    direction: ltr;
-    unicode-bidi: isolate;
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--dsl-ink);
+    text-align: end;
 }
 
-/* ---------- دروس تاريخية ---------- */
-.ed-body .dams-lesson {
-    margin: 1.8rem 0;
+/* ---------- الأشرطة الأفقية ---------- */
+#article-body .dsl-bars {
+    display: grid;
+    gap: 1.15rem;
+}
+
+#article-body .dsl-bar-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.2rem 0.75rem;
+    margin-bottom: 0.45rem;
+}
+
+#article-body .dsl-bar-name,
+#article-body .dsl-hbar-name {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--dsl-ink);
+}
+
+#article-body .dsl-hbar-name span {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-bar-val,
+#article-body .dsl-hbar-val {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--dsl-sea);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+#article-body .dsl-bar-val.is-low {
+    color: var(--dsl-sand);
+}
+
+#article-body .dsl-bar-val.is-ref {
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-track {
+    position: relative;
+    height: 0.55rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--dsl-foam);
+}
+
+#article-body .dsl-hbars .dsl-track {
+    height: 0.7rem;
+}
+
+#article-body .dsl-track-ref {
+    background: transparent;
+    border: 1px dashed var(--dsl-line-2);
+}
+
+#article-body .dsl-fill {
+    display: block;
+    width: var(--w, 100%);
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--dsl-sea), var(--dsl-aqua));
+    transform-origin: right center;
+}
+
+#article-body .dsl-fill.is-low {
+    background: linear-gradient(90deg, var(--dsl-sand), var(--dsl-sand-soft));
+}
+
+#article-body .dsl-fill.is-deep {
+    background: linear-gradient(90deg, var(--dsl-deep), var(--dsl-sea));
+}
+
+#article-body .dsl-ref {
+    display: block;
+    width: var(--w, 39%);
+    height: 100%;
+    background: repeating-linear-gradient(-45deg, var(--dsl-line-2) 0 3px, transparent 3px 7px);
+}
+
+/* ---------- شبكة النقاط ---------- */
+#article-body .dsl-dots {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    gap: 0.45rem;
+    max-width: 19rem;
+    margin: 0.3rem auto 0;
+}
+
+#article-body .dsl-dot {
+    aspect-ratio: 1;
+    border: 1px solid var(--dsl-line);
+    border-radius: 3px;
+    background: #fff;
+}
+
+#article-body .dsl-dot.is-on {
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--dsl-sea), var(--dsl-aqua));
+}
+
+#article-body .dsl-dot.is-target {
+    border: 1px dashed var(--dsl-sand-soft);
+    background: #fdf9f0;
+}
+
+/* ---------- الأشرطة النسبية ---------- */
+#article-body .dsl-stack,
+#article-body .dsl-split {
+    display: flex;
+    height: 2.2rem;
+    overflow: hidden;
+    border: 1px solid var(--dsl-line);
+    border-radius: 999px;
+    background: var(--dsl-foam);
+    direction: ltr;
+}
+
+#article-body .dsl-stack span,
+#article-body .dsl-split span {
+    display: block;
+    height: 100%;
+}
+
+#article-body .dsl-stack-drink {
+    width: 83.3%;
+    background: linear-gradient(90deg, var(--dsl-sea), var(--dsl-aqua));
+    transform-origin: left center;
+}
+
+#article-body .dsl-stack-irr {
+    width: 16.7%;
+    background: linear-gradient(90deg, var(--dsl-sand-soft), var(--dsl-sand));
+    transform-origin: right center;
+}
+
+#article-body .dsl-split-fresh {
+    width: 45%;
+    background: linear-gradient(90deg, var(--dsl-sea), var(--dsl-aqua));
+    transform-origin: left center;
+}
+
+#article-body .dsl-split-brine {
+    width: 55%;
+    background: linear-gradient(90deg, var(--dsl-sand-soft), var(--dsl-sand));
+    transform-origin: right center;
+}
+
+#article-body .dsl-split-labels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.3rem 1rem;
+    margin-top: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-split-labels b {
+    color: var(--dsl-ink);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- الخط الزمني ---------- */
+#article-body .dsl-timeline {
+    display: grid;
+    margin: 0.2rem 0 0;
+}
+
+#article-body .dsl-tl {
+    position: relative;
+    margin-inline-start: 0.3rem;
+    padding-inline-start: 1.55rem;
+    padding-bottom: 1.25rem;
+    border-inline-start: 1px solid var(--dsl-line-2);
+}
+
+#article-body .dsl-tl::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -0.45rem;
+    inset-block-start: 0.5rem;
+    width: 0.62rem;
+    height: 0.62rem;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: var(--dsl-aqua);
+    box-shadow: 0 0 0 1px var(--dsl-line-2);
+}
+
+#article-body .dsl-tl.is-key::before {
+    background: var(--dsl-sand);
+}
+
+#article-body .dsl-tl:last-child {
+    padding-bottom: 0;
+    border-inline-start-color: transparent;
+}
+
+#article-body .dsl-tl-date {
+    display: inline-block;
+    margin-bottom: 0.15rem;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--dsl-sea);
+}
+
+#article-body .dsl-tl.is-key .dsl-tl-date {
+    color: var(--dsl-sand);
+}
+
+#article-body .dsl-tl-title {
+    margin: 0 0 0.1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.7;
+    color: var(--dsl-ink);
+}
+
+#article-body .dsl-tl-text {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: var(--dsl-muted);
+}
+
+/* ---------- مراحل المعالجة ---------- */
+#article-body .dsl-flow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    margin: 1.7rem 0 2.2rem;
+    counter-reset: dsl-step;
+}
+
+#article-body .dsl-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.15rem 0.8rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--dsl-line);
+    border-radius: 8px;
+    background: #fff;
+}
+
+#article-body .dsl-step::before {
+    content: counter(dsl-step, decimal-leading-zero);
+    counter-increment: dsl-step;
+    grid-row: 1 / span 2;
+    align-self: start;
+    padding: 0.3rem 0.42rem;
+    border-radius: 5px;
+    background: var(--dsl-foam);
+    font-family: var(--font-body);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.74rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--dsl-sea);
+}
+
+#article-body .dsl-step h4 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.7;
+    color: var(--dsl-ink);
+}
+
+#article-body .dsl-step p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-step.is-brine {
+    border-color: var(--dsl-line-2);
+    background: var(--dsl-soft);
+}
+
+#article-body .dsl-step.is-brine::before {
+    background: #fbf3e2;
+    color: var(--dsl-sand);
+}
+
+/* ---------- رسم الغشاء ---------- */
+#article-body .dsl-mem {
+    margin: 2rem 0;
+}
+
+#article-body .dsl-mem svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--dsl-line);
+    border-radius: var(--dsl-r);
+    background: #fbfdfc;
+}
+
+#article-body .dsl-mem text {
+    font-family: var(--font-body);
+}
+
+#article-body .dsl-mem .dsl-mem-badge {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+#article-body .dsl-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.1rem;
+    margin: 0.7rem 0 0;
     padding: 0;
     list-style: none;
-    counter-reset: dams-lesson;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--dsl-muted);
 }
 
-.ed-body .dams-lesson > li {
-    position: relative;
-    margin-bottom: 1.1rem;
-    padding-inline-start: 2.4rem;
-    font-size: 0.96rem;
+#article-body .dsl-legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+}
+
+#article-body .dsl-legend li::before {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 2px;
+    background: var(--c, var(--dsl-sea));
+}
+
+/* ---------- المقياس الدائري ---------- */
+#article-body .dsl-gauge-wrap {
+    display: grid;
+    gap: 1.3rem;
+    align-items: center;
+}
+
+#article-body .dsl-gauge {
+    max-width: 220px;
+    margin-inline: auto;
+}
+
+#article-body .dsl-gauge svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#article-body .dsl-gauge-facts h3 {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.65;
+    color: var(--dsl-deep);
+}
+
+#article-body .dsl-gauge-facts p {
+    margin: 0 0 0.9rem;
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-gauge-facts ul {
+    display: grid;
+    gap: 0.3rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#article-body .dsl-gauge-facts li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px dashed var(--dsl-line);
+    font-size: 0.88rem;
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-gauge-facts li::before {
+    content: none;
+}
+
+#article-body .dsl-gauge-facts li:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+#article-body .dsl-gauge-facts b {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--dsl-deep);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- ملاحظة منهجية ---------- */
+#article-body .dsl-method {
+    margin: 1.6rem 0 2.2rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--dsl-line);
+    border-inline-start: 3px solid var(--dsl-aqua);
+    border-radius: 8px;
+    background: var(--dsl-soft);
+    font-size: 0.86rem;
     line-height: 1.95;
+    color: var(--dsl-muted);
 }
 
-.ed-body .dams-lesson > li:last-child {
+#article-body .dsl-method b {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--dsl-ink);
+}
+
+/* ---------- الاقتباس ---------- */
+#article-body .dsl-quote {
+    margin: 2.2rem 0;
+    padding: 0.2rem 0 0.2rem 0;
+    padding-inline-start: 1.2rem;
+    border-inline-start: 3px solid var(--dsl-sand);
+    font-family: var(--font-body);
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: 1.95;
+    color: var(--dsl-ink);
+}
+
+#article-body .dsl-quote cite {
+    display: block;
+    margin-top: 0.55rem;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--dsl-muted);
+}
+
+/* ---------- صندوق الخلاصة ---------- */
+#article-body .dsl-key {
+    margin: 2.2rem 0;
+    padding: 1.35rem 1.3rem;
+    border-radius: var(--dsl-r);
+    background: var(--dsl-deep);
+    color: #e9f3f0;
+}
+
+#article-body .dsl-key p {
+    margin: 0 0 0.6rem;
+    color: inherit;
+}
+
+#article-body .dsl-key p:last-child {
     margin-bottom: 0;
 }
 
-.ed-body .dams-lesson > li::before {
-    counter-increment: dams-lesson;
-    content: counter(dams-lesson);
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0.15rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.6rem;
-    height: 1.6rem;
-    border-radius: 999px;
-    background: var(--accent);
-    color: #fff;
-    font-family: var(--font-latin-display);
-    font-size: 0.7rem;
+#article-body .dsl-key-k {
+    font-family: var(--font-body);
+    font-size: 0.74rem;
     font-weight: 700;
+    color: var(--dsl-sand-soft);
 }
 
-.ed-body .dams-lesson strong {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    color: var(--accent-ink);
-}
-
-/* ---------- ضبط العناوين داخل الكتل المخصّصة ---------- */
-.ed-body .essay-timeline-body h3 {
-    margin: 0 0 0.35rem;
-    font-family: var(--font-display);
-    font-size: 1rem;
+#article-body .dsl-key-t {
+    font-family: var(--font-body);
+    font-size: 1.06rem;
     font-weight: 700;
     line-height: 1.7;
+    color: #fff;
 }
 
-.ed-body .essay-source-group h3 {
-    margin: 0 0 0.65rem;
-    padding-bottom: 0.45rem;
-    border-bottom: 1px solid var(--line);
-    font-family: var(--font-display);
-    font-size: 0.78rem;
+#article-body .dsl-key-s {
+    font-size: 0.88rem;
+    line-height: 1.95;
+    color: rgba(233, 243, 240, 0.85);
+}
+
+#article-body .dsl-key b {
+    color: var(--dsl-sand-soft);
+}
+
+/* ---------- بطاقات الرهانات ---------- */
+#article-body .dsl-risks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin: 1.6rem 0 2.2rem;
+}
+
+#article-body .dsl-risk {
+    padding: 1rem 1.05rem;
+    border: 1px solid var(--dsl-line);
+    border-inline-start: 3px solid var(--dsl-sand);
+    border-radius: 8px;
+    background: #fff;
+}
+
+#article-body .dsl-risk.is-sea {
+    border-inline-start-color: var(--dsl-sea);
+}
+
+#article-body .dsl-risk.is-energy {
+    border-inline-start-color: var(--dsl-aqua);
+}
+
+#article-body .dsl-risk.is-gov {
+    border-inline-start-color: #7a8f6b;
+}
+
+#article-body .dsl-risk h4 {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
     font-weight: 700;
-    color: var(--accent-ink);
+    line-height: 1.7;
+    color: var(--dsl-ink);
+}
+
+#article-body .dsl-risk p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.9;
+    color: var(--dsl-muted);
+}
+
+/* ---------- النماذج الثلاثة ---------- */
+#article-body .dsl-paradigms {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin: 1.6rem 0 2.2rem;
+}
+
+#article-body .dsl-paradigm {
+    padding: 1.05rem;
+    border: 1px solid var(--dsl-line);
+    border-top: 3px solid var(--dsl-sea);
+    border-radius: 8px;
+    background: #fff;
+}
+
+#article-body .dsl-paradigm.is-dam {
+    border-top-color: var(--dsl-aqua);
+}
+
+#article-body .dsl-paradigm.is-sea {
+    border-top-color: var(--dsl-sand);
+}
+
+#article-body .dsl-paradigm p {
+    margin: 0;
+}
+
+#article-body .dsl-paradigm-k {
+    margin-bottom: 0.3rem !important;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--dsl-muted);
+}
+
+#article-body .dsl-paradigm h4 {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.7;
+    color: var(--dsl-ink);
+}
+
+#article-body .dsl-paradigm-s {
+    font-size: 0.88rem;
+    line-height: 1.9;
+    color: var(--dsl-muted);
+}
+
+/* ---------- المراجع ---------- */
+#article-body .essay-sources-grid {
+    gap: 1.6rem;
+}
+
+#article-body .essay-source-group h4 {
+    font-family: var(--font-body);
+}
+
+#article-body .essay-source-group li {
+    font-size: 0.78rem;
+    line-height: 1.9;
 }
 
 /* ---------- الحركات ---------- */
-@keyframes dams-rise {
-    from { transform: translateY(52px); }
-    to   { transform: translateY(0); }
+@keyframes dsl-rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes dams-wave-slide {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-120px); }
+@keyframes dsl-grow-x {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
 }
 
-@keyframes dams-flow {
-    to { stroke-dashoffset: -48; }
+@keyframes dsl-flow {
+    to { stroke-dashoffset: -40; }
 }
 
-@keyframes dams-spin {
+@keyframes dsl-wave {
+    to { transform: translateX(-80px); }
+}
+
+@keyframes dsl-spin {
     to { transform: rotate(360deg); }
 }
 
-@keyframes dams-drift {
-    0%, 100% { transform: translateX(0); }
-    50%      { transform: translateX(-14px); }
-}
-
-@keyframes dams-pulse {
+@keyframes dsl-pulse {
     0%, 100% { opacity: 0.55; }
     50%      { opacity: 1; }
 }
 
-@keyframes dams-bar {
-    from { transform: scaleY(0); }
-    to   { transform: scaleY(1); }
+@keyframes dsl-bubble {
+    0%   { opacity: 0; transform: translateY(0); }
+    30%  { opacity: 0.85; }
+    100% { opacity: 0; transform: translateY(-34px); }
 }
 
-@keyframes dams-draw {
-    from { stroke-dashoffset: 1; }
-    to   { stroke-dashoffset: 0; }
-}
-
-@keyframes dams-pop {
+@keyframes dsl-pop {
     from { transform: scale(0); }
     to   { transform: scale(1); }
 }
 
-@keyframes dams-ring {
-    from { stroke-dashoffset: 1; }
-    to   { stroke-dashoffset: 0.284; }
+@keyframes dsl-ring-60 {
+    from { stroke-dashoffset: 100; }
+    to   { stroke-dashoffset: 40; }
 }
 
-/* الحالة الساكنة (بما فيها تقليل الحركة): 71.6٪ مرسومة مسبقاً */
-.dams-ring {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 0.284;
+@keyframes dsl-ring-25 {
+    from { stroke-dashoffset: 100; }
+    to   { stroke-dashoffset: 75; }
+}
+
+@keyframes dsl-split-fresh {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+@keyframes dsl-split-brine {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+@keyframes dsl-drift-left {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(-16px); }
+}
+
+@keyframes dsl-permeate {
+    0%   { opacity: 0; transform: translateX(0); }
+    12%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { opacity: 0; transform: translateX(-170px); }
+}
+
+@keyframes dsl-brine {
+    0%   { opacity: 0; transform: translateX(0); }
+    12%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { opacity: 0; transform: translateX(90px); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .dams-res {
-        animation: dams-rise 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    #article-body .dsl-rise {
+        animation: dsl-rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        animation-delay: var(--d, 0s);
     }
 
-    .dams-wave {
-        animation: dams-wave-slide 3.2s linear infinite;
+    #article-body .dsl-fill {
+        animation: dsl-grow-x 1.05s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        animation-delay: var(--d, 0s);
     }
 
-    .dams-flow {
-        animation: dams-flow 1.5s linear infinite;
+    #article-body .dsl-split-fresh,
+    #article-body .dsl-stack-drink {
+        animation: dsl-split-fresh 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
 
-    .dams-spin {
+    #article-body .dsl-split-brine,
+    #article-body .dsl-stack-irr {
+        animation: dsl-split-brine 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s both;
+    }
+
+    #article-body .dsl-flow {
+        animation: dsl-flow 1.4s linear infinite;
+    }
+
+    #article-body .dsl-wave {
+        animation: dsl-wave 3.4s linear infinite;
+    }
+
+    #article-body .dsl-spin {
         transform-box: fill-box;
         transform-origin: center;
-        animation: dams-spin 5s linear infinite;
+        animation: dsl-spin 6s linear infinite;
     }
 
-    .dams-cloud {
-        animation: dams-drift 14s ease-in-out infinite;
+    #article-body .dsl-pulse {
+        animation: dsl-pulse 3.2s ease-in-out infinite;
     }
 
-    .dams-pulse {
-        animation: dams-pulse 3s ease-in-out infinite;
+    #article-body .dsl-bubble {
+        animation: dsl-bubble 3.6s ease-in-out infinite;
     }
 
-    .dams-bar {
-        transform-box: fill-box;
-        transform-origin: bottom;
-        animation: dams-bar 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    }
-
-    .dams-line {
-        stroke-dasharray: 1;
-        stroke-dashoffset: 1;
-        animation: dams-draw 1.7s ease-out 0.25s both;
-    }
-
-    .dams-dot {
+    #article-body .dsl-tl::before {
         transform-box: fill-box;
         transform-origin: center;
-        animation: dams-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        animation: dsl-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     }
 
-    .dams-ring {
-        stroke-dasharray: 1;
-        stroke-dashoffset: 1;
-        animation: dams-ring 1.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+    #article-body .dsl-ring-60 {
+        animation: dsl-ring-60 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both;
+    }
+
+    #article-body .dsl-ring-25 {
+        animation: dsl-ring-25 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s both;
+    }
+
+    #article-body .dsl-dot.is-on {
+        animation: dsl-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        animation-delay: var(--d, 0s);
+    }
+
+    #article-body .dsl-ion {
+        animation: dsl-drift-left 4.2s ease-in-out infinite;
+        animation-delay: var(--d, 0s);
+    }
+
+    #article-body .dsl-molecule {
+        animation: dsl-permeate 3.4s linear infinite;
+        animation-delay: var(--d, 0s);
+    }
+
+    #article-body .dsl-brine-ion {
+        animation: dsl-brine 3.8s linear infinite;
+        animation-delay: var(--d, 0s);
+    }
+}
+
+/* تقليل الحركة: كل شيء في حالته النهائية، بلا حركة ولا وميض */
+@media (prefers-reduced-motion: reduce) {
+    #article-body .dsl-rise,
+    #article-body .dsl-fill,
+    #article-body .dsl-split-fresh,
+    #article-body .dsl-split-brine,
+    #article-body .dsl-stack-drink,
+    #article-body .dsl-stack-irr,
+    #article-body .dsl-flow,
+    #article-body .dsl-wave,
+    #article-body .dsl-spin,
+    #article-body .dsl-pulse,
+    #article-body .dsl-bubble,
+    #article-body .dsl-tl::before,
+    #article-body .dsl-ring-60,
+    #article-body .dsl-ring-25,
+    #article-body .dsl-dot.is-on,
+    #article-body .dsl-ion,
+    #article-body .dsl-molecule,
+    #article-body .dsl-brine-ion {
+        animation: none !important;
+    }
+}
+
+/* ---------- الاستجابة ---------- */
+@media (min-width: 640px) {
+    #article-body .dsl-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #article-body .dsl-risks {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 720px) {
+    #article-body .dsl-specs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--dsl-line);
+    }
+
+    #article-body .dsl-spec {
+        border-bottom: 0;
+        background: #fff;
+    }
+}
+
+@media (min-width: 820px) {
+    #article-body .dsl-kpis {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    #article-body .dsl-gauge-wrap {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 1.8rem;
+    }
+
+    #article-body .dsl-paradigms {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 900px) {
+    #article-body .dsl-flow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    #article-body .dsl-step.is-brine {
+        grid-column: 1 / -1;
+    }
+}
+
+/* نصوص الرسوم على الهاتف: تُكبَّر لتعويض تصغير الرسم */
+@media (max-width: 640px) {
+    #article-body .dsl-hero text {
+        font-size: 28px;
+    }
+
+    #article-body .dsl-hero .dsl-hero-badge-text {
+        font-size: 26px;
+    }
+
+    #article-body .dsl-hero .dsl-hero-badge {
+        transform: translateY(-16px);
+    }
+
+    #article-body .dsl-chart-h,
+    #article-body .dsl-gauge-facts h3 {
+        font-size: 0.98rem;
+    }
+
+    #article-body .dsl-mem text {
+        font-size: 28px;
+    }
+
+    #article-body .dsl-mem .dsl-mem-sea {
+        font-size: 30px;
+    }
+
+    #article-body .dsl-mem .dsl-mem-small {
+        font-size: 26px;
+    }
+
+    #article-body .dsl-mem .dsl-mem-badge {
+        transform: scale(1.8);
+    }
+
+    #article-body .dsl-mem .dsl-mem-badge text {
+        font-size: 15px;
+    }
+
+    #article-body .dsl-kpis {
+        margin-bottom: 2.2rem;
     }
 }
 </style>
 
-<!-- ═══════════════ الشريط الافتتاحي: مقطع سدّ متحرك ═══════════════ -->
-<figure class="dams-hero" dir="rtl">
-    <svg viewBox="0 0 800 320" role="img" aria-labelledby="damsHeroT damsHeroD">
-        <title id="damsHeroT">مقطع تخطيطي متحرك لسدّ مائي</title>
-        <desc id="damsHeroD">رسم تخطيطي يُظهر حاجزاً ترابياً يفصل خزاناً مائياً عن مجرى سفلي، مع تدفّق الماء من الخزان نحو الوادي.</desc>
+<!-- ═══════════════ الشكل الافتتاحي: من البحر إلى المدينة ═══════════════ -->
+<figure class="dsl-hero" dir="rtl">
+    <svg viewBox="0 0 800 360" role="img" aria-labelledby="dslHeroT dslHeroD">
+        <title id="dslHeroT">مقطع تخطيطي لمحطة تحلية الدار البيضاء-سطات</title>
+        <desc id="dslHeroD">منظر تخطيطي: مياه المحيط الأطلسي تدخل المحطة عبر أنابيب، فتُحوَّل بالتناضح العكسي إلى ماء صالح للشرب يُنقل إلى الدار البيضاء، فيما تُعاد المياه الأجاجة إلى البحر عبر مخرج بعيد.</desc>
         <defs>
-            <linearGradient id="damsSky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#e4ece6"/>
-                <stop offset="1" stop-color="#f2f0e6"/>
+            <linearGradient id="dslSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#eaf5f2"/>
+                <stop offset="1" stop-color="#d7ebe7"/>
             </linearGradient>
-            <linearGradient id="damsWater" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="var(--accent)" stop-opacity="0.62"/>
-                <stop offset="1" stop-color="var(--accent)" stop-opacity="0.9"/>
+            <linearGradient id="dslSea" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#b7dfdb"/>
+                <stop offset="1" stop-color="#8ec9c5"/>
             </linearGradient>
-            <clipPath id="damsResClip">
-                <rect x="440" y="104" width="360" height="186"/>
-            </clipPath>
+            <linearGradient id="dslPlant" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0f7480"/>
+                <stop offset="1" stop-color="#0a4d56"/>
+            </linearGradient>
         </defs>
 
-        <!-- السماء والشمس -->
-        <rect width="800" height="320" fill="url(#damsSky)"/>
-        <circle class="dams-pulse" cx="694" cy="58" r="23" fill="#e3d3a8"/>
+        <rect width="800" height="360" fill="url(#dslSky)"/>
 
-        <!-- السحاب -->
-        <g class="dams-cloud" fill="#ffffff" opacity="0.75">
-            <ellipse cx="238" cy="56" rx="34" ry="14"/>
-            <ellipse cx="212" cy="62" rx="22" ry="10"/>
-            <ellipse cx="264" cy="63" rx="20" ry="9"/>
+        <!-- الشمس -->
+        <circle class="dsl-pulse" cx="690" cy="60" r="25" fill="#f0d08a"/>
+        <g stroke="#e3bd6d" stroke-width="2" stroke-linecap="round" opacity="0.7">
+            <line x1="690" y1="20" x2="690" y2="10"/>
+            <line x1="690" y1="100" x2="690" y2="110"/>
+            <line x1="650" y1="60" x2="640" y2="60"/>
+            <line x1="730" y1="60" x2="740" y2="60"/>
+            <line x1="662" y1="32" x2="655" y2="25"/>
+            <line x1="718" y1="88" x2="725" y2="95"/>
+            <line x1="718" y1="32" x2="725" y2="25"/>
+            <line x1="662" y1="88" x2="655" y2="95"/>
         </g>
-        <g class="dams-cloud" fill="#ffffff" opacity="0.6" style="animation-delay:-7s">
-            <ellipse cx="520" cy="38" rx="26" ry="10"/>
-            <ellipse cx="500" cy="44" rx="16" ry="8"/>
+
+        <!-- الأرض والبحر -->
+        <path d="M0 228 H430 C420 270 400 310 380 360 H0 Z" fill="#f2f7f3"/>
+        <path d="M430 228 H800 V360 H380 C400 310 420 270 430 228 Z" fill="url(#dslSea)"/>
+
+        <!-- الأمواج المتحركة -->
+        <g class="dsl-wave" fill="none" stroke="#5fb0ab" stroke-width="2.4" stroke-linecap="round" opacity="0.55">
+            <path d="M-120 252 q 30 -9 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0"/>
+            <path d="M-120 292 q 30 -9 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0"/>
+            <path d="M-120 332 q 30 -9 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0"/>
         </g>
 
-        <!-- الجبال -->
-        <path d="M430 172 L560 84 L648 146 L722 66 L800 172 Z" fill="#dde3d7"/>
-        <path d="M470 172 L586 116 L676 172 Z" fill="#cfd7ca"/>
-        <path d="M352 172 L436 122 L502 172 Z" fill="#e3e7dc"/>
+        <!-- فقاعات -->
+        <g fill="#eaf7f4">
+            <circle class="dsl-bubble" cx="610" cy="326" r="3.2"/>
+            <circle class="dsl-bubble" cx="652" cy="338" r="2.6" style="animation-delay:1.1s"/>
+            <circle class="dsl-bubble" cx="704" cy="322" r="3.6" style="animation-delay:2.2s"/>
+            <circle class="dsl-bubble" cx="742" cy="340" r="2.4" style="animation-delay:0.6s"/>
+        </g>
 
-        <!-- الضفة السفلى -->
-        <rect x="0" y="196" width="470" height="124" fill="#e8e4d5"/>
-        <rect x="38" y="232" width="74" height="30" rx="2" fill="#d7e1cf"/>
-        <rect x="126" y="248" width="62" height="26" rx="2" fill="#cfdcc6"/>
+        <!-- المدينة -->
+        <g fill="#0b3a42">
+            <rect x="58" y="222" width="34" height="78" rx="2"/>
+            <rect x="98" y="202" width="28" height="98" rx="2"/>
+            <rect x="132" y="234" width="36" height="66" rx="2"/>
+            <rect x="174" y="214" width="24" height="86" rx="2"/>
+            <rect x="204" y="198" width="14" height="102" rx="2"/>
+            <path d="M211 182 l 10 16 h -20 z" fill="#b3862f"/>
+        </g>
+        <g fill="#d9efe9" opacity="0.85">
+            <rect x="66" y="232" width="6" height="8" rx="1"/>
+            <rect x="78" y="232" width="6" height="8" rx="1"/>
+            <rect x="66" y="248" width="6" height="8" rx="1"/>
+            <rect x="78" y="248" width="6" height="8" rx="1"/>
+            <rect x="106" y="212" width="6" height="8" rx="1"/>
+            <rect x="116" y="212" width="6" height="8" rx="1"/>
+            <rect x="106" y="228" width="6" height="8" rx="1"/>
+            <rect x="140" y="244" width="6" height="8" rx="1"/>
+            <rect x="152" y="244" width="6" height="8" rx="1"/>
+            <rect x="182" y="226" width="6" height="8" rx="1"/>
+            <rect x="182" y="242" width="6" height="8" rx="1"/>
+            <rect x="208" y="214" width="6" height="8" rx="1"/>
+        </g>
 
-        <!-- الخزان -->
-        <g clip-path="url(#damsResClip)">
-            <g class="dams-res">
-                <rect x="440" y="168" width="360" height="122" fill="url(#damsWater)"/>
-                <g class="dams-wave" fill="none" stroke="#9ed0c5" stroke-width="2.2" opacity="0.75">
-                    <path transform="translate(320,168)" d="M0,0 q15,-8 30,0 t30,0 t30,0 t30,0"/>
-                    <path transform="translate(440,168)" d="M0,0 q15,-8 30,0 t30,0 t30,0 t30,0"/>
-                    <path transform="translate(560,168)" d="M0,0 q15,-8 30,0 t30,0 t30,0 t30,0"/>
-                    <path transform="translate(680,168)" d="M0,0 q15,-8 30,0 t30,0 t30,0 t30,0"/>
-                    <path transform="translate(800,168)" d="M0,0 q15,-8 30,0 t30,0 t30,0 t30,0"/>
-                    <path transform="translate(920,168)" d="M0,0 q15,-8 30,0 t30,0 t30,0 t30,0"/>
-                    <path transform="translate(1040,168)" d="M0,0 q15,-8 30,0 t30,0 t30,0 t30,0"/>
-                    <path transform="translate(1160,168)" d="M0,0 q15,-8 30,0 t30,0 t30,0 t30,0"/>
-                </g>
+        <!-- المحطة -->
+        <g>
+            <rect x="268" y="190" width="156" height="62" rx="4" fill="url(#dslPlant)"/>
+            <rect x="280" y="176" width="44" height="76" rx="3" fill="#0a4d56"/>
+            <rect x="334" y="166" width="30" height="86" rx="3" fill="#0f7480"/>
+            <rect x="374" y="182" width="34" height="70" rx="3" fill="#0a4d56"/>
+            <g fill="#bfe6e1" opacity="0.9">
+                <rect x="288" y="186" width="7" height="10" rx="1"/>
+                <rect x="300" y="186" width="7" height="10" rx="1"/>
+                <rect x="288" y="204" width="7" height="10" rx="1"/>
+                <rect x="300" y="204" width="7" height="10" rx="1"/>
+                <rect x="342" y="178" width="7" height="10" rx="1"/>
+                <rect x="354" y="178" width="7" height="10" rx="1"/>
+                <rect x="342" y="196" width="7" height="10" rx="1"/>
+                <rect x="382" y="192" width="7" height="10" rx="1"/>
+                <rect x="394" y="192" width="7" height="10" rx="1"/>
+            </g>
+            <rect x="420" y="210" width="34" height="30" rx="3" fill="#0a4d56"/>
+            <ellipse cx="437" cy="210" rx="17" ry="6" fill="#0f7480"/>
+        </g>
+
+        <!-- الطاقتان الشمسية والريحية -->
+        <g transform="translate(470 206)">
+            <rect x="0" y="0" width="44" height="22" rx="2" fill="#0d6570"/>
+            <g stroke="#9fd8d2" stroke-width="1.2">
+                <line x1="11" y1="0" x2="11" y2="22"/>
+                <line x1="22" y1="0" x2="22" y2="22"/>
+                <line x1="33" y1="0" x2="33" y2="22"/>
+                <line x1="0" y1="11" x2="44" y2="11"/>
             </g>
         </g>
-
-        <!-- الحاجز الترابي -->
-        <path d="M360 120 L440 120 L468 290 L332 290 Z" fill="#cfc6b0" stroke="#2c3833" stroke-width="1.6"/>
-        <rect x="352" y="113" width="96" height="9" rx="2" fill="#2c3833"/>
-        <path d="M440 120 L468 290" stroke="#b3a88f" stroke-width="1.2"/>
-        <rect x="392" y="196" width="34" height="20" rx="2" fill="#0b1c17"/>
-
-        <!-- المفرّغ والتوربين -->
-        <path d="M409 216 L409 246" stroke="#2c3833" stroke-width="3"/>
-        <g class="dams-spin">
-            <circle cx="409" cy="262" r="12" fill="none" stroke="#2c3833" stroke-width="1.6"/>
-            <path d="M409 250 L409 274 M397 262 L421 262 M400 253 L418 271 M418 253 L400 271" stroke="#2c3833" stroke-width="1.4"/>
+        <g transform="translate(530 142)">
+            <line x1="0" y1="0" x2="0" y2="58" stroke="#0a4d56" stroke-width="3" stroke-linecap="round"/>
+            <g class="dsl-spin" fill="#0a4d56">
+                <path d="M0 0 L-4 -30 L4 -30 Z"/>
+                <path d="M0 0 L26 14 L22 20 Z"/>
+                <path d="M0 0 L-26 14 L-22 20 Z"/>
+            </g>
+            <circle cx="0" cy="0" r="4" fill="#b3862f"/>
         </g>
-        <rect x="392" y="276" width="34" height="14" rx="2" fill="#e8e4d5" stroke="#2c3833" stroke-width="1.2"/>
+        <g transform="translate(590 166) scale(0.8)">
+            <line x1="0" y1="0" x2="0" y2="46" stroke="#0a4d56" stroke-width="3" stroke-linecap="round"/>
+            <g class="dsl-spin" fill="#0a4d56" style="animation-delay:-2s">
+                <path d="M0 0 L-4 -30 L4 -30 Z"/>
+                <path d="M0 0 L26 14 L22 20 Z"/>
+                <path d="M0 0 L-26 14 L-22 20 Z"/>
+            </g>
+            <circle cx="0" cy="0" r="4" fill="#b3862f"/>
+        </g>
 
-        <!-- المجرى السفلي -->
-        <path d="M332 290 C 250 297 180 286 110 292 C 70 295 40 298 8 296"
-              fill="none" stroke="var(--accent)" stroke-width="9" stroke-opacity="0.42" stroke-linecap="round"/>
-        <path class="dams-flow" d="M332 290 C 250 297 180 286 110 292 C 70 295 40 298 8 296"
-              fill="none" stroke="#9ed0c5" stroke-width="2.6" stroke-linecap="round"
-              stroke-dasharray="9 15"/>
-        <path d="M232 292 L196 258" fill="none" stroke="var(--accent)" stroke-width="2" stroke-opacity="0.45"/>
+        <!-- الأنابيب -->
+        <path class="dsl-flow" d="M760 300 C 700 300 620 270 470 250"
+              fill="none" stroke="#2f9e9a" stroke-width="4"
+              stroke-dasharray="10 8" stroke-linecap="round"/>
+        <path class="dsl-flow" d="M268 246 C 246 246 232 248 214 248"
+              fill="none" stroke="#b3862f" stroke-width="4"
+              stroke-dasharray="10 8" stroke-linecap="round"/>
+        <path class="dsl-flow" d="M430 246 C 510 266 610 322 700 336"
+              fill="none" stroke="#c9a24a" stroke-width="3.4"
+              stroke-dasharray="8 9" stroke-linecap="round" opacity="0.85"/>
+        <g fill="#b3862f">
+            <circle cx="700" cy="336" r="4"/>
+            <circle cx="716" cy="338" r="3"/>
+            <circle cx="730" cy="340" r="2.4"/>
+        </g>
 
         <!-- التسميات -->
-        <g fill="#1f534e" font-family="Noto Kufi Arabic, sans-serif" font-size="12" opacity="0.9">
-            <text x="596" y="152">الخزان</text>
-            <text x="196" y="272">المجرى السفلي</text>
+        <text x="148" y="172" text-anchor="middle" font-size="24" font-weight="700" fill="#103238">الدار البيضاء</text>
+        <text x="346" y="146" text-anchor="middle" font-size="24" font-weight="700" fill="#082a33">محطة التحلية</text>
+        <text x="632" y="206" text-anchor="middle" font-size="24" font-weight="700" fill="#0a4d56">المحيط الأطلسي</text>
+
+        <g class="dsl-hero-badge">
+            <rect x="250" y="84" width="220" height="40" rx="20" fill="#082a33"/>
+            <text class="dsl-hero-badge-text" x="360" y="111" text-anchor="middle" font-size="21" font-weight="700" fill="#f4e3b8">822,000 م³/يوم</text>
         </g>
-        <text x="400" y="106" fill="#2c3833" font-family="Noto Kufi Arabic, sans-serif" font-size="11" text-anchor="middle">الحاجز</text>
     </svg>
-    <figcaption class="dams-hero-cap">مقطع تخطيطي لسدٍّ خزاني: حاجزٌ يعترض الوادي، وخزانٌ خلفه، ومجرى سفلي تتغذّى منه الواحات والمدن — رسم توضيحي.</figcaption>
+    <figcaption class="dsl-cap">مقطع تخطيطي: مياه المحيط تدخل المحطة، فتُحوَّل بالتناضح العكسي إلى ماء صالح للشرب يُنقل إلى الدار البيضاء، فيما تُعاد المياه الأجاجة إلى البحر عبر مخرج بعيد — رسم توضيحي.</figcaption>
 </figure>
 
-<!-- ═══════════════ بطاقات الأرقام ═══════════════ -->
-<div class="dams-stats" dir="rtl">
-    <div class="dams-stat">
-        <span class="dams-stat-ico" aria-hidden="true"><i class="fas fa-calendar"></i></span>
-        <p class="dams-stat-k">الخطاب التأسيسي</p>
-        <p class="dams-stat-v">1967</p>
-        <p class="dams-stat-s">18 شتنبر — طنجة</p>
+<div class="dsl-kpis" dir="rtl">
+    <div class="dsl-kpi dsl-rise" style="--d:0s">
+        <span class="dsl-kpi-ico" aria-hidden="true"><i class="fas fa-tint"></i></span>
+        <p class="dsl-kpi-k">القدرة النهائية (2028)</p>
+        <p class="dsl-kpi-v">822,000</p>
+        <p class="dsl-kpi-s">م³/يوم — 300 مليون م³/سنة</p>
     </div>
-    <div class="dams-stat">
-        <span class="dams-stat-ico" aria-hidden="true"><i class="fas fa-water"></i></span>
-        <p class="dams-stat-k">السدود الكبرى (2026)</p>
-        <p class="dams-stat-v">+150 سد</p>
-        <p class="dams-stat-s">من 13 سداً موروثاً</p>
+    <div class="dsl-kpi dsl-rise" style="--d:.08s">
+        <span class="dsl-kpi-ico" aria-hidden="true"><i class="fas fa-flag-checkered"></i></span>
+        <p class="dsl-kpi-k">المرحلة الأولى (2027)</p>
+        <p class="dsl-kpi-v">548,000</p>
+        <p class="dsl-kpi-s">م³/يوم — 200 مليون م³/سنة</p>
     </div>
-    <div class="dams-stat">
-        <span class="dams-stat-ico" aria-hidden="true"><i class="fas fa-chart-bar"></i></span>
-        <p class="dams-stat-k">الطاقة الاستيعابية</p>
-        <p class="dams-stat-v">20.8 مليار م³</p>
-        <p class="dams-stat-s">من 2.4 مليار م³ سنة 1967</p>
+    <div class="dsl-kpi is-sand dsl-rise" style="--d:.16s">
+        <span class="dsl-kpi-ico" aria-hidden="true"><i class="fas fa-users"></i></span>
+        <p class="dsl-kpi-k">السكان المستفيدون</p>
+        <p class="dsl-kpi-v">7.5 م</p>
+        <p class="dsl-kpi-s">الدار البيضاء الكبرى، سطات، برشيد وبير الجديد</p>
     </div>
-    <div class="dams-stat">
-        <span class="dams-stat-ico" aria-hidden="true"><i class="fas fa-tint"></i></span>
-        <p class="dams-stat-k">نسبة الملء (مارس 2026)</p>
-        <p class="dams-stat-v">71.6٪</p>
-        <p class="dams-stat-s">12.4 مليار م³ مخزّنة</p>
+    <div class="dsl-kpi is-sand dsl-rise" style="--d:.24s">
+        <span class="dsl-kpi-ico" aria-hidden="true"><i class="fas fa-bolt"></i></span>
+        <p class="dsl-kpi-k">الكهرباء المتجددة</p>
+        <p class="dsl-kpi-v">100%</p>
+        <p class="dsl-kpi-s">حسب التصميم المعلن — ربط بشبكة 400 كيلوفولط</p>
     </div>
 </div>
 
-<h2 id="ma-qabla-1967" class="text-2xl font-bold text-amber-900 mb-6 border-b-2 border-amber-500/50 pb-3">أولاً: ما قبل 1967 — إرثٌ استعماري هزيل</h2>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    لا يمكن استيعابُ ضخامة الثورة الهيدروليكية التي أطلقها الملك الحسن الثاني دون استحضار الوضع المائي الذي ورثه المغربُ المستقل. فعند الاستقلال سنة 1956، لم يتجاوز عدد السدود الكبرى المُشيَّدة في كامل التراب المغربي <strong>13 سداً</strong>، معظمها بُني بمنطق الاستغلال الاستعماري: سقي المزارع الأوروبية وتوليد الطاقة لصالح الصناعة الاستخراجية، لا التنمية الشاملة للبلاد وأهلها.
+<p>
+    في جماعة لمهارزة الساحل (سيدي رحال)، على الساحل الأطلسي جنوب غرب الدار البيضاء، ينتظم ورشٌ يتجاوز حجمه المألوف. عند اكتمال مرحلته الثانية في منتصف 2028، ستبلغ محطة تحلية مياه البحر للدار البيضاء-سطات <strong>822 ألف متر مكعب في اليوم</strong>، أي نحو 300 مليون متر مكعب سنوياً؛ منها 250 مليوناً لماء الشرب و50 مليوناً للري. وبذلك تكون أكبر محطة لتحلية المياه في أفريقيا، وواحدة من أكبر المنشآت في حوض البحر الأبيض المتوسط.
 </p>
 
-<p class="text-stone-700 leading-relaxed mb-4">
-    كانت الطاقةُ الاستيعابية الإجمالية لهذه المنظومة الهزيلة لا تتجاوز 2.4 مليار متر مكعب، في حين كانت احتياجات بلد بالغ عدد سكانه نحو 12 مليون نسمة آنذاك تستوجب ضعف ذلك على أقل تقدير. وفي غياب البنية التحتية المائية الكافية، كانت التساقطاتُ تتقلب بشدة بين أعوام فيضانات مدمّرة وأعوام جفاف قاسية يُجاهر فيها المغربُ بفقرِه الهيدروليكي.
+<p>
+    لكن الرقم لا يختصر القصة. فالمشروع ليس مجرّد منشأة صناعية على حافة المحيط؛ إنه إعلانٌ عن تحوّل في نموذج السياسة المائية المغربية: من <strong>تدبير ندرة</strong> السدود والفرشات الباطنية، إلى <strong>إنتاج وفرة</strong> من البحر. وفي نونبر 2026، تجاوزت الأشغال 80%، بعدما رُبطت المحطة بالشبكة الكهربائية الوطنية عبر خط 400 كيلوفولط في يوليوز 2026. المرحلة الأولى تدخل الخدمة في فبراير 2027 بسعة 548 ألف م³/يوم.
 </p>
 
-<div class="essay-note" dir="rtl">
-    <h3>
-        <i class="fas fa-history" aria-hidden="true"></i>
-        ميراث الحماية المائي (1912-1956)
-    </h3>
-    <ul>
-        <li><strong>13 سداً كبيراً</strong> بطاقة إجمالية 2.4 مليار م³ — مُصمَّمة في معظمها لخدمة الزراعة الاستعمارية الأوروبية</li>
-        <li><strong>150 ألف هكتار</strong> فحسب كانت مسقية عند الاستقلال — أي أقل من 15% مما سيُستهدف بعد عقد</li>
-        <li>غلبةُ الزراعة البورية (البعلية) المعتمدة على مجازفة الأمطار — مما يجعل الاقتصاد الزراعي رهيناً بالمناخ</li>
-        <li>غيابُ منظومة وطنية للتخطيط المائي — توزيعٌ عشوائي لمواقع السدود بدوافع استغلالية لا تنموية</li>
-    </ul>
-</div>
+<h2 id="jugrafiya-al-atash">أولاً: جغرافيا العطش — لماذا البحر؟</h2>
 
-<h2 id="khatab-tanja-1967" class="text-2xl font-bold text-amber-900 mb-6 border-b-2 border-amber-500/50 pb-3">ثانياً: خطاب طنجة 1967 — الميثاق التأسيسي للسياسة الهيدروليكية</h2>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    في الثامن عشر من شتنبر 1967، وقف الملك الحسن الثاني أمام جمهور من المهندسين والمسؤولين والفلاحين بمدينة طنجة ليُطلق صيحتَه التاريخية: تحقيقُ مليون هكتار مسقي قبل انقضاء القرن العشرين. لم يكن ذلك وعداً انتخابياً عابراً، بل كان تدشيناً لنظرية دولة واضحة المعالم: <em>الماءُ هو شرط السيادة الغذائية، والسدُّ هو شرط الماء.</em>
+<p>
+    يقتضي استيعاب حجم المشروع استحضار الحقيقة الهيدرولوجية للمملكة. فقد تراجع النصيب الفردي من الماء من نحو <strong>2,560 م³/ساكن/سنة</strong> في الستينيات إلى <strong>565 م³</strong> في 2025، أي بانخفاض يقارب 78%. وهو مستوى يقع دون عتبة «الفقر المائي» التي يحدّدها البنك الدولي في 1,000 م³/ساكن/سنة، ودون عتبة «الندرة المطلقة» في 500 م³.
 </p>
 
-<p class="text-stone-700 leading-relaxed mb-4">
-    أسندت الرؤيةُ الملكية موقعَها في التحليل التاريخي والاقتصادي على ثلاث مُسلَّمات متكاملة: أولاها أن المغرب بلدٌ شبه جاف طبيعياً لا تكفي أمطاره وحدها لتأمين احتياجاته الغذائية والصناعية؛ وثانيتها أن احتواءَ مياه الأمطار بدلاً من تركها تضيع في البحر أو تتبخر فوق الصحراء هو استثمارٌ في صميم السيادة الوطنية؛ وثالثتها أن الفلاحة المسقية وحدها قادرةٌ على كسر تبعية الزراعة للمناخ وضمان استقرار الغذاء الوطني.
-</p>
-
-<blockquote class="essay-quote" dir="rtl">
-    <p>«لقد أطلقنا تحدياً للزمن ولأنفسنا وقرّرنا تحقيق المليون هكتار المسقي»</p>
-    <footer class="dams-cite">الملك الحسن الثاني — عند تدشين السد العاشر بالمغرب، 1974</footer>
-</blockquote>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    ترجمت الحكومةُ هذه الرؤية فوراً إلى برنامج استثماري طموح: خصّص <strong>المخطط الخماسي 1968-1972</strong> ما نسبته <strong>41% من الاستثمارات العمومية</strong> (أي 2.088 مليار درهم) لقطاع الري، بواقع 400 مليون درهم سنوياً لبناء السدود. كانت أرقاماً ضخمة بمقاييس تلك الحقبة، تُعبّر عن قناعة راسخة بأن الاستثمار في الماء هو الاستثمار الأجدى والأبقى.
-</p>
-
-<figure class="essay-figure">
-    <img src="/dist/images/news/atlas-mountains-water-morocco.jpg"
-         alt="سلسلة جبال الأطلس المغربية وقد غطّاها الثلج، مع وادٍ ينحدر من سفوحها"
-         width="1600" height="1064" loading="lazy" decoding="async">
-    <figcaption>جبال الأطلس: المجال الذي تنحدر منه معظم أودية المغرب الكبرى، ومنه يبدأ كل حساب هيدرولوجي وطني — صورة توضيحية.</figcaption>
+<figure class="dsl-chart" dir="rtl">
+    <h3 class="dsl-chart-h">النصيب الفردي من الماء: انهيار ستة عقود</h3>
+    <p class="dsl-chart-sub">بالمتر المكعب للفرد سنوياً — المغرب</p>
+    <div class="dsl-bars" role="img" aria-label="تراجع النصيب الفردي من الماء من 2560 متراً مكعباً في الستينيات إلى 565 متراً مكعباً في 2025، مقابل عتبة فقر مائي عند 1000 متر مكعب.">
+        <div class="dsl-bar">
+            <div class="dsl-bar-top">
+                <span class="dsl-bar-name">الستينيات</span>
+                <span class="dsl-bar-val">2,560 م³</span>
+            </div>
+            <div class="dsl-track"><span class="dsl-fill" style="--w:100%;--d:0s"></span></div>
+        </div>
+        <div class="dsl-bar">
+            <div class="dsl-bar-top">
+                <span class="dsl-bar-name">2025</span>
+                <span class="dsl-bar-val is-low">565 م³</span>
+            </div>
+            <div class="dsl-track"><span class="dsl-fill is-low" style="--w:22.1%;--d:.15s"></span></div>
+        </div>
+        <div class="dsl-bar is-ref">
+            <div class="dsl-bar-top">
+                <span class="dsl-bar-name">عتبة الفقر المائي (البنك الدولي)</span>
+                <span class="dsl-bar-val is-ref">1,000 م³</span>
+            </div>
+            <div class="dsl-track dsl-track-ref"><span class="dsl-ref" style="--w:39.1%"></span></div>
+        </div>
+    </div>
+    <figcaption class="dsl-cap">الانخفاض ليس مفاجئاً: إنه حصيلة ضغط ديمغرافي واقتصادي متراكم، وتغيّر مناخي يضرب تساقطاتٍ كانت أصلاً هزيلة. <b>565 م³</b> تعني أن المغرب يعيش تحت عتبة الفقر المائي بنحو 44%.</figcaption>
 </figure>
 
-<h2 id="marahil-al-bina" class="text-2xl font-bold text-amber-900 mb-6 border-b-2 border-amber-500/50 pb-3">ثالثاً: مراحل البناء الكبرى تحت القيادة الحسنية (1967-1999)</h2>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    سارت الاستراتيجيةُ الهيدروليكية الحسنية في مراحل متعاقبة، تصاعدت وتيرتُها وتوسّعت رقعتها وتنوّعت أهدافها:
+<p>
+    وتزيد سبع سنوات متتالية من الجفاف (2019-2025) حدّةَ هذا الوضع. فقد هبطت نسبة ملء السدود في بعض السنوات إلى نحو 23%، وتراجعت الفرشات الباطنية في عدة أحواض، وارتفع الطلب في المدن الكبرى. وجهة الدار البيضاء-سطات، التي تحتضن أكبر تجمّع سكاني واقتصادي في البلاد، تعتمد أساساً على حوض أم الربيع، وبدرجة أقل على أبي رقراق؛ وهما موردان سطحياان يتأثران مباشرة بتقلّبات التساقطات وبالضغط الفلاحي.
 </p>
 
-<div class="essay-timeline" dir="rtl">
-    <div class="essay-timeline-item">
-        <span class="essay-timeline-date">1967 — 1974 · الموجة الأولى</span>
-        <div class="essay-timeline-body">
-            <h3>سدود التأسيس</h3>
-            <p>أمر الملكُ الحسن الثاني بإطلاق أولى السدود الكبرى الحاملة للأسماء التاريخية: <strong>مولاي يوسف</strong> على وادي تساوت، و<strong>الحسن الداخل</strong> على وادي الزيز، و<strong>يوسف بن تاشفين</strong> على وادي ماسة، و<strong>منصور الذهبي</strong> على وادي درعة، و<strong>إدريس الأول</strong> على وادي إناون، و<strong>سيدي محمد بن عبد الله</strong> على وادي أبي رقراق. شُيّد في هذه الفترة ما يزيد على ثمانية سدود كبرى، لتبلغ القدرةُ الاستيعابية ضعفَها في أقل من عقد.</p>
-        </div>
-    </div>
-    <div class="essay-timeline-item">
-        <span class="essay-timeline-date">1974 — 1986 · الموجة الثانية</span>
-        <div class="essay-timeline-body">
-            <h3>التسارع المائي</h3>
-            <p>بعد جفاف 1980-1984 الذي كشف بجلاء مدى هشاشة الاقتصاد الزراعي المائي، تضاعفت الوتيرة: بُني في الفترة 1985-1986 وحدها <strong>21 سداً</strong>. وسعت الاستراتيجيةُ إلى تغطية كافة الأحواض الهيدرولوجية الكبرى دون استثناء، لتعزيز التوازن الجهوي في توزيع الثروة المائية.</p>
-        </div>
-    </div>
-    <div class="essay-timeline-item">
-        <span class="essay-timeline-date">1986 — 1999 · الموجة الثالثة</span>
-        <div class="essay-timeline-body">
-            <h3>الاكتمال والإنجاز</h3>
-            <p>في مشهدٍ استثنائي، تجاوز المغربُ عتبةَ السد المائة في التسعينيات، وبلغت مساحة الأراضي المسقية مليون هكتار سنة <strong>1997</strong> — أي قبل ثلاث سنوات من الأجل الذي حدّده الملك بنفسه! وكان آخر إنجاز جوهري في هذه المرحلة تدشين <strong>سد الوحدة</strong> على وادي ورغة سنة 1997، وهو أكبر سدود المغرب اليوم وثاني أكبر سدود أفريقيا.</p>
-        </div>
-    </div>
-</div>
-
-<figure class="essay-figure">
-    <img src="/dist/images/news/morocco-floods-history.jpg"
-         alt="مياه الفيضانات تتدفق في وادٍ مغربي بعد أمطار غزيرة"
-         width="1200" height="800" loading="lazy" decoding="async">
-    <figcaption>الوجه الآخر لدورة الماء: سنواتُ الفيضانات التي كانت تجرف مياه الأمطار إلى البحر قبل أن تكتمل منظومة الاحتواء — صورة توضيحية.</figcaption>
-</figure>
-
-<!-- ═══════════════ الرسم البياني الأول: عدد السدود ═══════════════ -->
-<figure class="dams-chart" dir="rtl">
-    <h3 class="dams-chart-h">عدد السدود الكبرى عبر المحطات الخمس</h3>
-    <p class="dams-chart-sub">عدد السدود المُنجَزة في كل محطة زمنية (سدّاً)</p>
-    <svg viewBox="0 0 560 250" aria-hidden="true" focusable="false">
-        <line class="dams-grid-line" x1="60" y1="200" x2="540" y2="200"/>
-        <line class="dams-grid-line" x1="60" y1="143.75" x2="540" y2="143.75"/>
-        <line class="dams-grid-line" x1="60" y1="87.5" x2="540" y2="87.5"/>
-        <line class="dams-grid-line" x1="60" y1="31.25" x2="540" y2="31.25"/>
-        <text class="dams-axis-text" x="52" y="203" text-anchor="end">0</text>
-        <text class="dams-axis-text" x="52" y="147" text-anchor="end">50</text>
-        <text class="dams-axis-text" x="52" y="91" text-anchor="end">100</text>
-        <text class="dams-axis-text" x="52" y="35" text-anchor="end">150</text>
-
-        <rect class="dams-bar" x="70" y="185.4" width="58" height="14.6" rx="2" fill="var(--accent)" opacity="0.55"/>
-        <rect class="dams-bar" x="168" y="175.3" width="58" height="24.7" rx="2" fill="var(--accent)" opacity="0.7" style="animation-delay:0.12s"/>
-        <rect class="dams-bar" x="266" y="138.1" width="58" height="61.9" rx="2" fill="var(--accent)" opacity="0.85" style="animation-delay:0.24s"/>
-        <rect class="dams-bar" x="364" y="87.5" width="58" height="112.5" rx="2" fill="var(--accent)" style="animation-delay:0.36s"/>
-        <rect class="dams-bar" x="462" y="27.9" width="58" height="172.1" rx="2" fill="var(--dams-brass)" style="animation-delay:0.48s"/>
-
-        <text class="dams-value-text" x="99" y="178" text-anchor="middle">13</text>
-        <text class="dams-value-text" x="197" y="168" text-anchor="middle">22</text>
-        <text class="dams-value-text" x="295" y="131" text-anchor="middle">55</text>
-        <text class="dams-value-text" x="393" y="80" text-anchor="middle">100</text>
-        <text class="dams-value-text" x="491" y="21" text-anchor="middle">153</text>
-
-        <text class="dams-axis-text" x="99" y="220" text-anchor="middle">1967</text>
-        <text class="dams-axis-text" x="197" y="220" text-anchor="middle">1974</text>
-        <text class="dams-axis-text" x="295" y="220" text-anchor="middle">1986</text>
-        <text class="dams-axis-text" x="393" y="220" text-anchor="middle">1997</text>
-        <text class="dams-axis-text" x="491" y="220" text-anchor="middle">2026</text>
-        <text class="dams-axis-text dams-axis-note" x="491" y="238" text-anchor="middle">مارس</text>
-    </svg>
-    <figcaption class="dams-chart-cap">من 13 سداً سنة 1967 إلى 153 سداً في مارس 2026: تضاعفٌ يفوق أحد عشر ضعفاً، وثلاثة أرباع الرصيد تحقّق بعد 1974.</figcaption>
-</figure>
-
-<!-- ═══════════════ الرسم البياني الثاني: الطاقة الاستيعابية ═══════════════ -->
-<figure class="dams-chart" dir="rtl">
-    <h3 class="dams-chart-h">تطوّر الطاقة الاستيعابية</h3>
-    <p class="dams-chart-sub">الطاقة الإجمالية للسدود الكبرى (مليار متر مكعب)</p>
-    <svg viewBox="0 0 560 250" aria-hidden="true" focusable="false">
-        <defs>
-            <linearGradient id="damsArea" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="var(--accent)" stop-opacity="0.22"/>
-                <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
-            </linearGradient>
-        </defs>
-
-        <line class="dams-grid-line" x1="60" y1="200" x2="540" y2="200"/>
-        <line class="dams-grid-line" x1="60" y1="115" x2="540" y2="115"/>
-        <line class="dams-grid-line" x1="60" y1="30" x2="540" y2="30"/>
-        <text class="dams-axis-text" x="52" y="203" text-anchor="end">0</text>
-        <text class="dams-axis-text" x="52" y="118" text-anchor="end">10</text>
-        <text class="dams-axis-text" x="52" y="33" text-anchor="end">20</text>
-
-        <path d="M80 183 L185 150.4 L290 115 L395 93.75 L500 52.7 L500 200 L80 200 Z" fill="url(#damsArea)"/>
-        <path class="dams-line" pathLength="1" d="M80 183 L185 150.4 L290 115 L395 93.75 L500 52.7"
-              fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
-
-        <circle class="dams-dot" cx="80" cy="183" r="4.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.4"/>
-        <circle class="dams-dot" cx="185" cy="150.4" r="4.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.4" style="animation-delay:0.25s"/>
-        <circle class="dams-dot" cx="290" cy="115" r="4.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.4" style="animation-delay:0.5s"/>
-        <circle class="dams-dot" cx="395" cy="93.75" r="4.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.4" style="animation-delay:0.75s"/>
-        <circle class="dams-dot" cx="500" cy="52.7" r="5" fill="var(--dams-brass)" stroke="var(--surface)" stroke-width="2" style="animation-delay:1s"/>
-
-        <text class="dams-value-text" x="80" y="173" text-anchor="middle">2.4</text>
-        <text class="dams-value-text" x="185" y="140" text-anchor="middle">7.0</text>
-        <text class="dams-value-text" x="290" y="105" text-anchor="middle">12.0</text>
-        <text class="dams-value-text" x="395" y="84" text-anchor="middle">15.0</text>
-        <text class="dams-value-text" x="500" y="40" text-anchor="middle">20.8</text>
-
-        <text class="dams-axis-text" x="80" y="220" text-anchor="middle">1967</text>
-        <text class="dams-axis-text" x="185" y="220" text-anchor="middle">1974</text>
-        <text class="dams-axis-text" x="290" y="220" text-anchor="middle">1986</text>
-        <text class="dams-axis-text" x="395" y="220" text-anchor="middle">1997</text>
-        <text class="dams-axis-text" x="500" y="220" text-anchor="middle">2026</text>
-        <text class="dams-axis-text dams-axis-note" x="500" y="238" text-anchor="middle">مارس</text>
-    </svg>
-    <figcaption class="dams-chart-cap">من 2.4 إلى 20.8 مليار متر مكعب: نموّ بنحو 8.7 أضعاف، مع قفزة نوعية بعد 1997 بفضل السدود الكبرى ومشاريع الربط بين الأحواض.</figcaption>
-</figure>
-
-<div class="dams-band" dir="rtl">
-    <h3 class="dams-band-h">
-        <i class="fas fa-award" aria-hidden="true"></i>
-        الحصيلة الحسنية: أرقامٌ ناطقة
-    </h3>
-    <div class="dams-band-grid">
-        <div class="dams-band-item">
-            <p class="dams-band-v">16 → 100+</p>
-            <p class="dams-band-k">عدد السدود: من 16 سدًّا إلى أكثر من 100 سد سنة 1999</p>
-        </div>
-        <div class="dams-band-item">
-            <p class="dams-band-v">2.4 → 15 مليار م³</p>
-            <p class="dams-band-k">تضاعفت الطاقة الاستيعابية 6 أضعاف خلال ثلاثة عقود</p>
-        </div>
-        <div class="dams-band-item">
-            <p class="dams-band-v">1997</p>
-            <p class="dams-band-k">الوصول إلى مليون هكتار مسقي — 3 سنوات قبل الموعد!</p>
-        </div>
-    </div>
-</div>
-
-<h2 id="ahd-mohammed-al-sadis" class="text-2xl font-bold text-amber-900 mb-6 border-b-2 border-amber-500/50 pb-3">رابعاً: عهد محمد السادس — البُعد الجديد والتحولات الهيكلية</h2>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    توارث الملكُ محمد السادس عند اعتلائه العرش سنة 1999 منظومةً هيدروليكية متينة، وعليه استكمالُها وتحديثُها في مواجهة تحديات مستجدة لم يعرفها سلفه بالحدة ذاتها: الضغطُ الديموغرافي المتصاعد، والتغيرُ المناخي المُتسارع، والطلبُ الصناعي والسياحي المتنامي.
+<p>
+    في هذا السياق، لم تعد التحلية خياراً تكميلياً، بل أصبحت ركيزةً في استراتيجية التنويع. ويستهدف المغرب أن تُغطّي المياه غير التقليدية <strong>60% من احتياجات ماء الشرب بحلول 2030</strong>، مقابل نحو 25% اليوم، أي ما يعادل 1.7 مليار متر مكعب سنوياً من المياه المحلّاة، ورفع عدد المحطات من نحو 17-20 محطة إلى 36 محطة.
 </p>
 
-<p class="text-stone-700 leading-relaxed mb-4">
-    شُيِّد في عهده <strong>أربعون سداً إضافياً</strong> على الأقل، مما رفع الرصيد الإجمالي إلى ما يزيد على 140 سداً بطاقة استيعابية تجاوزت 18.6 مليار متر مكعب بحلول منتصف العقد الثاني من الألفية الثالثة. ولم تتوقف عجلةُ البناء عند هذا الحد؛ إذ استُكمل في سنة 2025 ملءُ <strong>سد غيس</strong> بإقليم الحسيمة (بطاقة 93 مليون م³) وانطلق ملءُ <strong>سد الساقية الحمراء</strong> بإقليم العيون (بطاقة 113 مليون م³)، مما رفع الطاقة الإجمالية إلى حدود <strong>20.8 مليار متر مكعب</strong>.
-</p>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    والأهم أن الاستراتيجيةَ المحمدية وسّعت مفهوم سياسة السدود ليشمل أبعاداً لم تكن في الحسبان في مرحلة التأسيس: <strong>الترابط بين الأحواض</strong> (مشروع الطريق السريع للماء شمال-جنوب)، وتكاملُ السدود مع <strong>محطات التحلية</strong> (أكبرها محطة الدار البيضاء-عين عاتق المرتقبة سنة 2028)، والتوجّهُ نحو <strong>السدود التلية الصغيرة</strong> لإعادة شحن الفرشات الجوفية.
-</p>
-
-<figure class="essay-figure">
-    <img src="/dist/images/news/morocco-water-highway-transfer-2026.jpg"
-         alt="قناة مائية مفتوحة تمتد عبر هضبة جافة لنقل المياه بين الأحواض"
-         width="1200" height="800" loading="lazy" decoding="async">
-    <figcaption>الطريق السريع للماء: تحويل الفائض من الأحواض الرطبة شمالاً نحو مناطق العجز جنوباً — صورة توضيحية.</figcaption>
-</figure>
-
-<figure class="essay-figure">
-    <img src="/dist/images/news/casablanca-desalination-plant-2026.jpg"
-         alt="منشأة لتحلية مياه البحر على الساحل، بأحواض وخزانات وأنابيب"
-         width="1200" height="800" loading="lazy" decoding="async">
-    <figcaption>محطات التحلية: رافدٌ جديد يُكمّل السدود في تأمين ماء الشرب للمدن الساحلية الكبرى — صورة توضيحية.</figcaption>
-</figure>
-
-<h2 id="al-tawzi-al-jughrafi" class="text-2xl font-bold text-amber-900 mb-6 border-b-2 border-amber-500/50 pb-3">خامساً: التوزيع الجغرافي — أكبر الأحواض وأبرز السدود</h2>
-
-<div class="dams-basins" dir="rtl">
-    <div class="dams-basin">
-        <div class="dams-basin-head">
-            <span class="dams-basin-tag">سبو</span>
-            <p class="dams-basin-name">حوض سبو — سد الوحدة</p>
-            <span class="dams-basin-pct" style="--pct:66">66%</span>
-        </div>
-        <p class="dams-basin-text">سد الوحدة على وادي ورغة (طاقة 3.8 مليار م³) — ثاني أكبر سدود أفريقيا، يُشكّل العمودَ الفقري للأمن المائي في الشمال الغربي.</p>
-    </div>
-    <div class="dams-basin">
-        <div class="dams-basin-head">
-            <span class="dams-basin-tag">أبي رقراق</span>
-            <p class="dams-basin-name">حوض أبي رقراق — سد سيدي محمد بن عبد الله</p>
-            <span class="dams-basin-pct" style="--pct:99">96%+</span>
-        </div>
-        <p class="dams-basin-text">يضمن هذا الخزانُ العملاق الأمنَ المائي للمحور الرباط-الدار البيضاء، وقد سجّل في مارس 2026 نسبة ملء بلغت 99% في لحظة تاريخية استثنائية.</p>
-    </div>
-    <div class="dams-basin">
-        <div class="dams-basin-head">
-            <span class="dams-basin-tag">لوكوس</span>
-            <p class="dams-basin-name">حوض اللوكوس — ابن بطوطة، وادي المخازن، النخلة</p>
-            <span class="dams-basin-pct" style="--pct:100">100%</span>
-        </div>
-        <p class="dams-basin-text">بلغت سدودُ هذا الحوض طاقتها الاستيعابية القصوى في شتاء 2025-2026، مُسجّلةً واحداً من أعلى معدلات الملء في تاريخ رصد المنظومة المائية.</p>
-    </div>
-    <div class="dams-basin">
-        <div class="dams-basin-head">
-            <span class="dams-basin-tag">ملوية</span>
-            <p class="dams-basin-name">حوض ملوية — محمد الخامس، الحسن الثاني</p>
-            <span class="dams-basin-pct" style="--pct:32">32%</span>
-        </div>
-        <p class="dams-basin-text">يبقى الشرق المغربي الحلقةَ الأضعف في المنظومة؛ إذ لم تتجاوز نسبة ملء سدي محمد الخامس والحسن الثاني 37% و16% على التوالي، مما يستدعي توجيهاً استراتيجياً خاصاً في الخطط القادمة.</p>
-    </div>
-</div>
-
-<!-- ═══════════════ خريطة السدود التفاعلية ═══════════════ -->
-<div class="dams-map" dir="rtl" data-controller="dam-system">
-    <div class="dams-map-head">
-        <h3>نشأة المنظومة الهيدروليكية المغربية عبر الزمن</h3>
-        <p>مخطط تفاعلي — اختر حقبةً لمشاهدة السدود تظهر على الخريطة</p>
-    </div>
-
-    <div class="dams-map-eras" role="group" aria-label="اختيار الحقبة الزمنية">
-        <button type="button" data-action="click->dam-system#selectEra" data-year="1967" data-dam-system-target="decadeBtn" aria-pressed="true" class="dams-era">1967</button>
-        <button type="button" data-action="click->dam-system#selectEra" data-year="1974" data-dam-system-target="decadeBtn" aria-pressed="false" class="dams-era">1974</button>
-        <button type="button" data-action="click->dam-system#selectEra" data-year="1986" data-dam-system-target="decadeBtn" aria-pressed="false" class="dams-era">1986</button>
-        <button type="button" data-action="click->dam-system#selectEra" data-year="1997" data-dam-system-target="decadeBtn" aria-pressed="false" class="dams-era">1997</button>
-        <button type="button" data-action="click->dam-system#selectEra" data-year="2026" data-dam-system-target="decadeBtn" aria-pressed="false" class="dams-era">2026</button>
-    </div>
-
-    <div class="dams-map-stats">
-        <div class="dams-map-stat">
-            <i class="fas fa-water" aria-hidden="true"></i>
-            <span>السدود الكبرى:</span>
-            <b data-dam-system-target="damCount">13</b>
-        </div>
-        <div class="dams-map-stat">
-            <i class="fas fa-chart-bar" aria-hidden="true"></i>
-            <span>الطاقة الاستيعابية:</span>
-            <b data-dam-system-target="capacity">2.4</b>
-            <span>مليار م³</span>
-        </div>
-        <div class="dams-map-stat">
-            <i class="fas fa-tag" aria-hidden="true"></i>
-            <b data-dam-system-target="eraDesc">الإرث الاستعماري</b>
-        </div>
-    </div>
-
-    <div class="dams-map-body">
-        <div class="dams-map-canvas">
-            <p class="dams-map-hint">اختر حقبة من الشريط أعلاه، ثم انقر على أي موقع سدّ لعرض تفاصيله.</p>
-
-            <svg viewBox="0 0 400 430" class="dams-map-svg" role="group" aria-labelledby="damsMapT damsMapD">
-                <title id="damsMapT">خريطة تخطيطية لمواقع السدود الكبرى بالمغرب</title>
-                <desc id="damsMapD">خريطة مبسّطة تُظهر مواقع عشرة سدود كبرى موزّعة على الأحواض: ملوية، سبو، أبي رقراق، أم الربيع، الزيز، درعة، سوس واللوكوس.</desc>
-
-                <rect width="400" height="430" fill="#eef1ea"/>
-
-                <path d="M 220,14 L 244,8 L 270,34 L 292,28 L 322,62
-                         L 345,118 L 358,182 L 352,258 L 334,308
-                         L 298,368 L 252,406 L 194,416 L 145,396
-                         L 98,365  L 62,298  L 46,240  L 42,194
-                         L 48,155  L 66,124  L 90,94   L 110,78
-                         L 140,52  L 172,26  Z"
-                      fill="#e9e6da" stroke="#b9b3a2" stroke-width="1.2"/>
-
-                <path d="M 105,275 C 135,255 165,238 195,225 C 225,212 255,200 280,186"
-                      fill="none" stroke="#c9bfa6" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
-
-                <g opacity="0.4" stroke="var(--accent)" fill="none" stroke-linecap="round">
-                    <path d="M 295,148 C 260,138 232,130 212,124 C 190,117 164,112 132,108 C 112,105 92,94 92,94" stroke-width="1.8"/>
-                    <path d="M 190,165 C 172,148 154,132 110,94" stroke-width="1"/>
-                    <path d="M 198,228 C 170,218 140,208 95,200 C 75,195 58,190 55,188" stroke-width="1.2"/>
-                    <path d="M 285,148 C 296,128 302,96 298,30" stroke-width="1"/>
-                    <path d="M 238,272 C 236,312 228,358 226,405" stroke-width="1"/>
-                    <path d="M 132,280 C 106,275 80,291 66,298" stroke-width="1"/>
-                    <path d="M 272,182 C 275,232 278,288 280,325" stroke-width="0.9"/>
-                </g>
-
-                <g fill="none" stroke-linecap="round">
-                    <path class="ds-river-flow"
-                          d="M 210,118 C 185,112 158,108 125,108 C 108,107 92,94 92,94"
-                          stroke="var(--accent)" stroke-width="2.4" stroke-opacity="0.5"
-                          stroke-dasharray="5 5"/>
-                    <path class="ds-river-flow"
-                          d="M 158,122 C 138,118 115,108 92,94"
-                          stroke="var(--accent)" stroke-width="2" stroke-opacity="0.45"
-                          stroke-dasharray="5 5" style="animation-delay:0.4s"/>
-                    <path class="ds-river-flow"
-                          d="M 165,215 C 140,215 108,214 80,215"
-                          stroke="var(--accent)" stroke-width="2" stroke-opacity="0.45"
-                          stroke-dasharray="5 5" style="animation-delay:0.8s"/>
-                </g>
-
-                <g class="dams-basin-label" font-size="9" fill="var(--accent-ink)" font-family="Noto Kufi Arabic, sans-serif" opacity="0.6" text-anchor="middle">
-                    <text x="230" y="82">حوض سبو</text>
-                    <text x="318" y="82">حوض ملوية</text>
-                    <text x="148" y="170">حوض أم الربيع</text>
-                    <text x="235" y="250">حوض درعة</text>
-                    <text x="88"  y="258">حوض سوس</text>
-                </g>
-
-                <g class="dams-map-legend" transform="translate(8, 8)">
-                    <rect x="0" y="0" width="124" height="62" rx="4" fill="#faf8f2" fill-opacity="0.9" stroke="#d8d2c2" stroke-width="0.8"/>
-                    <circle cx="13" cy="14" r="5" fill="var(--dams-brass)"/>
-                    <circle cx="13" cy="32" r="5" fill="var(--accent)"/>
-                    <circle cx="13" cy="50" r="5" fill="var(--dams-mist)"/>
-                    <text x="24" y="17" font-size="8" fill="#44403c">ملء مرتفع (80٪+)</text>
-                    <text x="24" y="35" font-size="8" fill="#44403c">ملء متوسط (50-79٪)</text>
-                    <text x="24" y="53" font-size="8" fill="#44403c">ملء منخفض (&lt;50٪)</text>
-                </g>
-
-                <!-- سد محمد الخامس — ملوية — 1967 -->
-                <g transform="translate(310,112)">
-                    <g class="ds-dam-node" data-dam-id="mohV" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد محمد الخامس، حوض ملوية، نسبة الملء 37 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="11" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="7.5" fill="var(--dams-mist)"/>
-                        <text y="21" text-anchor="middle" font-size="7" fill="var(--accent-ink)" font-weight="700">محمد الخامس</text>
-                    </g>
-                </g>
-
-                <!-- سد إدريس الأول — سبو — 1974 -->
-                <g transform="translate(240,105)">
-                    <g class="ds-dam-node" data-dam-id="idris" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد إدريس الأول، حوض سبو، نسبة الملء 71 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="11" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="7.5" fill="var(--accent)"/>
-                        <text y="21" text-anchor="middle" font-size="7" fill="var(--accent-ink)" font-weight="700">إدريس الأول</text>
-                    </g>
-                </g>
-
-                <!-- سد سيدي محمد بن عبد الله — أبي رقراق — 1974 -->
-                <g transform="translate(158,122)">
-                    <g class="ds-dam-node" data-dam-id="smba" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد سيدي محمد بن عبد الله، حوض أبي رقراق، نسبة الملء 99 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="13" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="9.5" fill="var(--dams-brass)"/>
-                        <text y="24" text-anchor="middle" font-size="6.6" fill="var(--accent-ink)" font-weight="700">ابن عبد الله</text>
-                    </g>
-                </g>
-
-                <!-- سد مولاي يوسف — أم الربيع — 1974 -->
-                <g transform="translate(165,215)">
-                    <g class="ds-dam-node" data-dam-id="moulay" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد مولاي يوسف، حوض أم الربيع، نسبة الملء 58 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="8" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="5" fill="var(--accent)"/>
-                        <text y="18" text-anchor="middle" font-size="7" fill="var(--accent-ink)" font-weight="700">مولاي يوسف</text>
-                    </g>
-                </g>
-
-                <!-- سد الحسن الداخل — الزيز — 1974 -->
-                <g transform="translate(272,208)">
-                    <g class="ds-dam-node" data-dam-id="hassanD" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد الحسن الداخل، حوض الزيز، نسبة الملء 38 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="11" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="7.5" fill="var(--dams-mist)"/>
-                        <text y="21" text-anchor="middle" font-size="7" fill="var(--accent-ink)" font-weight="700">الحسن الداخل</text>
-                    </g>
-                </g>
-
-                <!-- سد منصور الذهبي — درعة — 1974 -->
-                <g transform="translate(228,275)">
-                    <g class="ds-dam-node" data-dam-id="mansour" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد منصور الذهبي، حوض درعة، نسبة الملء 45 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="9" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="6" fill="var(--dams-mist)"/>
-                        <text y="19" text-anchor="middle" font-size="7" fill="var(--accent-ink)" font-weight="700">منصور الذهبي</text>
-                    </g>
-                </g>
-
-                <!-- سد يوسف بن تاشفين — سوس — 1974 -->
-                <g transform="translate(95,300)">
-                    <g class="ds-dam-node" data-dam-id="ibnyoussef" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد يوسف بن تاشفين، حوض سوس، نسبة الملء 62 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="9" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="6" fill="var(--accent)"/>
-                        <text y="19" text-anchor="middle" font-size="6.6" fill="var(--accent-ink)" font-weight="700">ابن تاشفين</text>
-                    </g>
-                </g>
-
-                <!-- سد ابن بطوطة — اللوكوس — 1986 -->
-                <g transform="translate(182,72)">
-                    <g class="ds-dam-node" data-dam-id="ibnbattouta" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد ابن بطوطة، حوض اللوكوس، نسبة الملء 100 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="9" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="6" fill="var(--dams-brass)"/>
-                        <text y="19" text-anchor="middle" font-size="7" fill="var(--accent-ink)" font-weight="700">ابن بطوطة</text>
-                    </g>
-                </g>
-
-                <!-- سد الوحدة — سبو — 1997 -->
-                <g transform="translate(210,118)">
-                    <g class="ds-dam-node" data-dam-id="wahda" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد الوحدة، حوض سبو، نسبة الملء 66 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="14" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="10.5" fill="var(--accent)"/>
-                        <text y="26" text-anchor="middle" font-size="7.4" fill="var(--accent-ink)" font-weight="700">الوحدة</text>
-                    </g>
-                </g>
-
-                <!-- سد غيس — ملوية — 2026 -->
-                <g transform="translate(268,52)">
-                    <g class="ds-dam-node" data-dam-id="ghiss" data-action="click->dam-system#selectDam"
-                       tabindex="0" role="button" aria-label="سد غيس، حوض ملوية، نسبة الملء 80 بالمئة"
-                       style="cursor:pointer">
-                        <circle r="7" fill="#faf8f2" stroke="var(--accent)" stroke-width="1.5" class="ds-ring"/>
-                        <circle r="4.5" fill="var(--dams-brass)"/>
-                        <text y="16" text-anchor="middle" font-size="7" fill="var(--accent-ink)" font-weight="700">غيس</text>
-                    </g>
-                </g>
+<figure class="dsl-gauge-fig" dir="rtl">
+    <div class="dsl-gauge-wrap">
+        <div class="dsl-gauge">
+            <svg viewBox="0 0 220 220" role="img" aria-labelledby="dslGaugeT dslGaugeD">
+                <title id="dslGaugeT">هدف تغطية التحلية لاحتياجات ماء الشرب</title>
+                <desc id="dslGaugeD">حلقة خارجية تمثل هدف 60% بحلول 2030، وحلقة داخلية تمثل الوضع الحالي عند 25%.</desc>
+                <circle cx="110" cy="110" r="88" fill="none" stroke="#e6efec" stroke-width="14"/>
+                <circle class="dsl-ring-60" cx="110" cy="110" r="88" fill="none"
+                        stroke="#b3862f" stroke-width="14" stroke-linecap="round"
+                        pathLength="100" stroke-dasharray="100" stroke-dashoffset="40"
+                        transform="rotate(-90 110 110)"/>
+                <circle cx="110" cy="110" r="66" fill="none" stroke="#e6efec" stroke-width="14"/>
+                <circle class="dsl-ring-25" cx="110" cy="110" r="66" fill="none"
+                        stroke="#0d6570" stroke-width="14" stroke-linecap="round"
+                        pathLength="100" stroke-dasharray="100" stroke-dashoffset="75"
+                        transform="rotate(-90 110 110)"/>
+                <text x="110" y="102" text-anchor="middle" font-size="34" font-weight="800" fill="#082a33">60%</text>
+                <text x="110" y="138" text-anchor="middle" font-size="14" fill="#557074">بحلول 2030</text>
             </svg>
         </div>
+        <div class="dsl-gauge-facts">
+            <h3>هدف 2030: من 25% إلى 60%</h3>
+            <p>نسبة ماء الشرب المغطّاة بالمياه غير التقليدية (التحلية أساساً)، وفق الأهداف الوطنية المعلنة.</p>
+            <ul>
+                <li><span>الوضع الحالي (تقديري)</span><b>25%</b></li>
+                <li><span>هدف 2030</span><b>60%</b></li>
+                <li><span>الإنتاج المستهدف</span><b>1.7 مليار م³/سنة</b></li>
+                <li><span>عدد المحطات المستهدف</span><b>36 محطة</b></li>
+            </ul>
+        </div>
+    </div>
+    <figcaption class="dsl-cap">الهدف لا يعني أن التحلية ستحلّ محل السدود، بل أن المنظومة ستضمّ رافداً ثالثاً إلى جانب المياه السطحية والجوفية: مياه البحر وإعادة استعمال المياه العادمة المعالجة.</figcaption>
+</figure>
 
-        <div class="dams-map-panel" aria-live="polite" role="region" aria-label="تفاصيل السد المحدد">
-            <div class="dams-map-hintbox" data-dam-system-target="hint">
-                <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-                    <polygon points="24,4 44,40 4,40" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/>
-                    <rect x="20" y="36" width="8" height="6" fill="var(--accent)" opacity="0.4"/>
-                    <path d="M 4,40 Q 24,28 44,40" fill="var(--accent)" opacity="0.25"/>
-                </svg>
-                <p>انقر على أيٍّ من مواقع السدود لعرض تفاصيله</p>
+<h2 id="bitala-al-mashru">ثانياً: بطاقة المشروع — الأرقام والهندسة</h2>
+
+<p>
+    يقع المشروع في جماعة لمهارزة الساحل، على الساحل الأطلسي جنوب غرب الدار البيضاء، على بعد نحو أربعين كيلومتراً من مركز المدينة، في نطاق إقليم الجديدة. لم يكن اختيار الموقع اعتباطياً: فهو يجمع بين القرب من البحر — وهو شرط تقني لسحب المياه وإعادة الأجاج — والانفتاح على محور الدار البيضاء–الجديدة–سطات، وهو شرط لوجستي لنقل الماء، وتوفّر أرض شبه خالية بمساحة خمسين هكتاراً موزّعة على ثلاث مناطق وظيفية.
+</p>
+
+<p>
+    أُسند المشروع في نونبر 2023 إلى تحالف تقوده الشركة الإسبانية «أكسيونا»، إلى جانب «أفريقيا غاز» و«غرين أوف أفريكا»، في إطار عقد بناء–تشغيل–تحويل مدته ثلاثون سنة: ثلاث سنوات للبناء وسبع وعشرون للاستغلال. ويضطلع المكتب الوطني للكهرباء والماء الصالح للشرب بدور صاحب المشروع، أي الجهة المتعاقدة التي تشتري الماء المنتَج وتؤمّن إدماجه في المنظومة الوطنية.
+</p>
+
+<div class="dsl-specs" dir="rtl">
+    <div class="dsl-spec">
+        <p class="dsl-spec-k">الموقع</p>
+        <p class="dsl-spec-v">لمهارزة الساحل، إقليم الجديدة</p>
+    </div>
+    <div class="dsl-spec">
+        <p class="dsl-spec-k">المسافة من الدار البيضاء</p>
+        <p class="dsl-spec-v">نحو 40 كيلومتراً</p>
+    </div>
+    <div class="dsl-spec">
+        <p class="dsl-spec-k">مساحة الموقع</p>
+        <p class="dsl-spec-v">50 هكتاراً — ثلاث مناطق</p>
+    </div>
+    <div class="dsl-spec">
+        <p class="dsl-spec-k">التقنية</p>
+        <p class="dsl-spec-v">التناضح العكسي لمياه البحر</p>
+    </div>
+    <div class="dsl-spec">
+        <p class="dsl-spec-k">المرحلة الأولى</p>
+        <p class="dsl-spec-v">548,000 م³/يوم — فبراير 2027</p>
+    </div>
+    <div class="dsl-spec">
+        <p class="dsl-spec-k">المرحلة الثانية</p>
+        <p class="dsl-spec-v">822,000 م³/يوم — منتصف 2028</p>
+    </div>
+    <div class="dsl-spec">
+        <p class="dsl-spec-k">الإنتاج السنوي</p>
+        <p class="dsl-spec-v">300 مليون م³ — 250 للشرب و50 للري</p>
+    </div>
+    <div class="dsl-spec">
+        <p class="dsl-spec-k">نمط التدبير</p>
+        <p class="dsl-spec-v">شراكة بين القطاعين العام والخاص — 30 سنة</p>
+    </div>
+</div>
+
+<p>
+    يتيح هذا الترتيب المؤسسي للدولة أن تحتفظ بملكية البنية التحتية وبسلطة تحديد الأولويات، بينما يتحمّل القطاع الخاص مخاطر التصميم والبناء والاستغلال. وهو نموذج انتقل من هامش التجربة إلى صلب السياسة المائية: فبعد محطة أكادير-شتوكة، أصبحت الشراكة مع القطاع الخاص القاعدة لا الاستثناء في المشاريع الكبرى.
+</p>
+
+<figure class="dsl-chart" dir="rtl">
+    <h3 class="dsl-chart-h">خط زمني: من الإسناد إلى آخر قطرة</h3>
+    <p class="dsl-chart-sub">محطات مفصلية في مسار المشروع</p>
+    <div class="dsl-timeline">
+        <div class="dsl-tl">
+            <span class="dsl-tl-date">2022</span>
+            <p class="dsl-tl-title">مرحلة التأهيل والدراسات</p>
+            <p class="dsl-tl-text">إعداد دفتر التحملات التقني، ودراسة البيئة البحرية، وتحديد القدرة على مرحلتين.</p>
+        </div>
+        <div class="dsl-tl is-key">
+            <span class="dsl-tl-date">نونبر 2023</span>
+            <p class="dsl-tl-title">إسناد العقد</p>
+            <p class="dsl-tl-text">فوز التحالف الذي تقوده «أكسيونا» بعقد بناء وتشغيل المحطة لمدة ثلاثين سنة.</p>
+        </div>
+        <div class="dsl-tl">
+            <span class="dsl-tl-date">2024</span>
+            <p class="dsl-tl-title">انطلاق الأشغال</p>
+            <p class="dsl-tl-text">تجهيز الموقع، وأشغال السحب البحري، والأساسات، وتجميع الوحدات.</p>
+        </div>
+        <div class="dsl-tl">
+            <span class="dsl-tl-date">يوليوز 2026</span>
+            <p class="dsl-tl-title">الربط بالشبكة الكهربائية</p>
+            <p class="dsl-tl-text">إنجاز خط 400 كيلوفولط الذي سينقل الكهرباء المتجددة إلى المحطة.</p>
+        </div>
+        <div class="dsl-tl">
+            <span class="dsl-tl-date">نونبر 2026</span>
+            <p class="dsl-tl-title">تجاوز 80% من الأشغال</p>
+            <p class="dsl-tl-text">دخول مرحلة التركيب الميكانيكي والكهربائي واختبارات الضغط.</p>
+        </div>
+        <div class="dsl-tl is-key">
+            <span class="dsl-tl-date">فبراير 2027</span>
+            <p class="dsl-tl-title">دخول المرحلة الأولى الخدمة</p>
+            <p class="dsl-tl-text">548 ألف م³/يوم، أي 200 مليون م³ سنوياً، موجهة أساساً لماء الشرب.</p>
+        </div>
+        <div class="dsl-tl is-key">
+            <span class="dsl-tl-date">منتصف 2028</span>
+            <p class="dsl-tl-title">اكتمال المرحلة الثانية</p>
+            <p class="dsl-tl-text">الرفع إلى 822 ألف م³/يوم و300 مليون م³ سنوياً، مع 50 مليوناً للري.</p>
+        </div>
+    </div>
+    <figcaption class="dsl-cap">كانت المرحلة الثانية مبرمجة أولاً في أفق 2030، ثم تقرّر تقديمها إلى منتصف 2028 استجابةً لتفاقم العجز المائي. <b>التقديم الزمني</b> نفسه مؤشر على أن التحلية انتقلت من مشروع «احتياطي» إلى أولوية تنفيذية.</figcaption>
+</figure>
+
+<figure class="dsl-chart" dir="rtl">
+    <h3 class="dsl-chart-h">سعة المحطة: مرحلتان، منشأة واحدة</h3>
+    <p class="dsl-chart-sub">بالمتر المكعب في اليوم — المياه المعالَجة</p>
+    <div class="dsl-bars" role="img" aria-label="المرحلة الأولى 548 ألف متر مكعب يوميا، والمرحلة الثانية 822 ألف متر مكعب يوميا.">
+        <div class="dsl-bar">
+            <div class="dsl-bar-top">
+                <span class="dsl-bar-name">المرحلة الأولى — 2027</span>
+                <span class="dsl-bar-val">548,000 م³</span>
             </div>
-
-            <div class="dams-map-detail hidden" data-dam-system-target="detailPanel">
-                <div class="dams-map-name">
-                    <p class="dams-map-name-t" data-dam-system-target="detailName">—</p>
-                    <p class="dams-map-name-b">
-                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                        <span data-dam-system-target="detailBasin">—</span>
-                    </p>
-                </div>
-
-                <div>
-                    <p class="dams-map-gauge-k">مستوى الملء الراهن (مارس 2026)</p>
-                    <div class="ds-gauge">
-                        <div class="ds-gauge-ticks" aria-hidden="true">
-                            <span>100٪</span><span>75٪</span><span>50٪</span><span>25٪</span><span>0٪</span>
-                        </div>
-                        <div class="ds-gauge-body" data-dam-system-target="waterBody" style="height:0%">
-                            <div class="ds-gauge-wave" aria-hidden="true">
-                                <svg viewBox="0 0 200 12" preserveAspectRatio="none">
-                                    <path d="M0,6 q12,-5 25,0 t25,0 t25,0 t25,0 t25,0 t25,0 t25,0 t25,0 L200,12 L0,12Z" fill="currentColor"/>
-                                </svg>
-                                <svg viewBox="0 0 200 12" preserveAspectRatio="none">
-                                    <path d="M0,6 q12,-5 25,0 t25,0 t25,0 t25,0 t25,0 t25,0 t25,0 t25,0 L200,12 L0,12Z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <div class="ds-gauge-water"></div>
-                        </div>
-                        <div class="ds-gauge-pct"><span data-dam-system-target="fillPct">—</span></div>
-                    </div>
-                </div>
-
-                <div class="dams-map-facts">
-                    <div class="dams-map-fact">
-                        <p class="dams-map-fact-k">الطاقة الاستيعابية</p>
-                        <p class="dams-map-fact-v" data-dam-system-target="detailCap">—</p>
-                    </div>
-                    <div class="dams-map-fact">
-                        <p class="dams-map-fact-k">سنة البناء</p>
-                        <p class="dams-map-fact-v" data-dam-system-target="detailEra">—</p>
-                    </div>
-                </div>
+            <div class="dsl-track"><span class="dsl-fill" style="--w:66.7%;--d:0s"></span></div>
+        </div>
+        <div class="dsl-bar">
+            <div class="dsl-bar-top">
+                <span class="dsl-bar-name">المرحلة الثانية — 2028</span>
+                <span class="dsl-bar-val">822,000 م³</span>
             </div>
+            <div class="dsl-track"><span class="dsl-fill is-deep" style="--w:100%;--d:.15s"></span></div>
         </div>
+    </div>
+    <figcaption class="dsl-cap">المرحلة الثانية لا تبني محطة جديدة، بل تضيف وحدات معالجة إلى المنشأة نفسها. ولهذا صُمّمت <b>أنظمة السحب والمخرج</b> منذ البداية على أساس القدرة النهائية، حتى لا تُكرَّر الأعمال البحرية المكلفة.</figcaption>
+</figure>
+
+<figure class="dsl-split-fig" dir="rtl">
+    <h3 class="dsl-chart-h">لمن سيذهب الماء؟</h3>
+    <p class="dsl-chart-sub">توزيع الإنتاج السنوي بين ماء الشرب والري</p>
+    <div class="dsl-stack" role="img" aria-label="83.3 بالمئة من الإنتاج لماء الشرب، و16.7 بالمئة للري.">
+        <span class="dsl-stack-drink"></span>
+        <span class="dsl-stack-irr"></span>
+    </div>
+    <div class="dsl-split-labels">
+        <span>ماء الشرب — <b>250 مليون م³/سنة</b></span>
+        <span>الري — <b>50 مليون م³/سنة</b></span>
+    </div>
+    <figcaption class="dsl-cap">الحصة الكبرى لماء الشرب، لأن أولوية المحطة هي تأمين مدينة بملايين السكان. أما حصة الري فتُوجَّه إلى المناطق المجاورة، في إطار مقاربة تربط الأمن المائي الحضري بالأمن الغذائي الجهوي.</figcaption>
+</figure>
+
+<h2 id="kayfa-taalum">ثالثاً: كيف تُحوَّل مياه البحر إلى ماء شروب؟</h2>
+
+<p>
+    قد يُختصر التحلية في صورة واحدة: ماء مالح يدخل، وماء عذب يخرج. لكن الواقع سلسلة من سبع مراحل، كل واحدة منها قادرة على إفشال ما بعدها. فمياه المحيط ليست محلولاً نظيفاً من الملح فقط؛ إنها مزيج من الأملاح المعدنية والمواد العضوية والطحالب والجسيمات الدقيقة والكائنات المجهرية. ومن هنا كان الشعار التقني: <strong>التحلية تبدأ قبل الغشاء، في المعالجة الأولية</strong>.
+</p>
+
+<div class="dsl-flow" dir="rtl">
+    <div class="dsl-step">
+        <h4>السحب البحري</h4>
+        <p>أنابيب سحب بسرعات منخفضة وشبكات حماية، لتقليل احتجاز الكائنات البحرية والجسيمات الكبيرة.</p>
+    </div>
+    <div class="dsl-step">
+        <h4>الغربلة وإزالة الرمل</h4>
+        <p>فصل الشوائب الصلبة والرمال قبل دخول الماء إلى منظومة المعالجة الدقيقة.</p>
+    </div>
+    <div class="dsl-step">
+        <h4>المعالجة الأولية</h4>
+        <p>تعويم بالهواء المذاب وترشيح، ثم مرشحات خرطوشية دقيقة تحمي الأغشية من الانسداد.</p>
+    </div>
+    <div class="dsl-step">
+        <h4>الضغط العالي</h4>
+        <p>مضخات ترفع ضغط الماء إلى نحو 60–70 باراً، وهي القوة التي تتغلب على الضغط الأسموزي.</p>
+    </div>
+    <div class="dsl-step">
+        <h4>الأغشية</h4>
+        <p>تمرّ جزيئات الماء عبر غشاء شبه نافذ، بينما تُحتجز الأملاح والمعادن الثقيلة في الجانب الآخر.</p>
+    </div>
+    <div class="dsl-step">
+        <h4>استرجاع الطاقة</h4>
+        <p>أجهزة تستعيد جزءاً من ضغط الأجاج الخارج، فتعيده إلى المضخات وتخفض استهلاك الكهرباء.</p>
+    </div>
+    <div class="dsl-step">
+        <h4>المعالجة النهائية</h4>
+        <p>إعادة تمعدن الماء، وضبط الحموضة، والتعقيم، قبل ضخّه في شبكة الشرب.</p>
+    </div>
+    <div class="dsl-step is-brine">
+        <h4>الأجاج</h4>
+        <p>ماء مركّز الملوحة يُعاد إلى البحر عبر مخرج مزوّد بناشرات، على عمق ومسافة يحددهما النموذج البيئي.</p>
     </div>
 </div>
 
-<style>
-/* ---------- بطاقات الأحواض ---------- */
-.ed-body .dams-basins {
-    display: grid;
-    gap: 0.85rem;
-    margin: 1.8rem 0 2.2rem;
-}
-
-.ed-body .dams-basin {
-    padding: 1rem 1.1rem;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--surface);
-}
-
-.ed-body .dams-basin-head {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.45rem;
-}
-
-.ed-body .dams-basin-tag {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 3.2rem;
-    padding: 0.12rem 0.5rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent-ink);
-    font-family: var(--font-display);
-    font-size: 0.66rem;
-    font-weight: 700;
-}
-
-.ed-body .dams-basin .dams-basin-name {
-    flex: 1 1 12rem;
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 700;
-    line-height: 1.7;
-    color: var(--ink);
-}
-
-.ed-body .dams-basin .dams-basin-pct {
-    margin-inline-start: auto;
-    font-family: var(--font-latin-display);
-    font-size: 0.78rem;
-    font-weight: 800;
-    color: var(--accent-ink);
-}
-
-.ed-body .dams-basin .dams-basin-text {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.95;
-    color: var(--ink-soft);
-}
-
-/* ---------- خريطة السدود ---------- */
-.ed-body .dams-map {
-    margin: 2.6rem 0;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    overflow: hidden;
-    background: var(--surface);
-}
-
-.ed-body .dams-map-head {
-    padding: 1.1rem 1.2rem;
-    background: var(--dams-deep);
-    text-align: center;
-}
-
-.ed-body .dams-map-head h3 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.7;
-    color: #f7f1e2;
-}
-
-.ed-body .dams-map-head p {
-    margin: 0.25rem 0 0;
-    font-size: 0.76rem;
-    line-height: 1.8;
-    color: rgba(247, 241, 226, 0.72);
-}
-
-.ed-body .dams-map-eras {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.4rem;
-    padding: 0.7rem 0.8rem;
-    background: #132019;
-}
-
-.ed-body .dams-era {
-    padding: 0.32rem 0.75rem;
-    border: 0;
-    border-radius: 3px;
-    background: rgba(247, 241, 226, 0.13);
-    /* حلقة ring-* التي يضيفها المتحكّم لا تنتمي إلى لوحة «الخطّ والمستوى» */
-    box-shadow: none;
-    color: #dfe3da;
-    font-family: var(--font-latin-display);
-    font-size: 0.78rem;
-    font-weight: 700;
-    line-height: 1.6;
-    cursor: pointer;
-    transition: background-color 0.18s ease, color 0.18s ease;
-}
-
-.ed-body .dams-era:hover {
-    background: rgba(247, 241, 226, 0.24);
-}
-
-/* الحالة المختارة: تيل داكن بنص أبيض (تباين 5.9:1) */
-.ed-body .dams-era[aria-pressed="true"] {
-    background: var(--accent);
-    color: #fff;
-}
-
-.ed-body .dams-era:focus-visible {
-    outline: 2px solid var(--dams-brass);
-    outline-offset: 2px;
-}
-
-.ed-body .dams-map-stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.35rem 1.5rem;
-    padding: 0.5rem 0.9rem;
-    background: var(--accent);
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-}
-
-.ed-body .dams-map-stat {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.ed-body .dams-map-stat b {
-    font-family: var(--font-latin-display);
-    font-size: 0.9rem;
-    color: #f7f1e2;
-}
-
-.ed-body .dams-map-body {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    background: var(--dams-wash);
-}
-
-@media (min-width: 900px) {
-    .ed-body .dams-map-body {
-        grid-template-columns: minmax(0, 1fr) 262px;
-    }
-}
-
-.ed-body .dams-map-canvas {
-    padding: 0.8rem 0.8rem 1rem;
-}
-
-.ed-body .dams-map-hint {
-    margin: 0 0 0.5rem;
-    font-size: 0.72rem;
-    line-height: 1.8;
-    color: var(--muted);
-    text-align: center;
-}
-
-.ed-body .dams-map-svg {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    margin: 0 auto;
-    user-select: none;
-}
-
-.ed-body .ds-dam-node:focus {
-    outline: none;
-}
-
-.ed-body .ds-dam-node:focus-visible .ds-ring {
-    stroke: var(--dams-brass);
-    stroke-width: 3.5;
-}
-
-@keyframes ds-flow {
-    from { stroke-dashoffset: 30; }
-    to   { stroke-dashoffset: 0; }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .ed-body .ds-river-flow {
-        animation: ds-flow 1.8s linear infinite;
-    }
-}
-
-.ed-body .dams-map-panel {
-    padding: 1rem;
-    background: var(--surface);
-    border-top: 1px solid var(--line);
-}
-
-@media (min-width: 900px) {
-    .ed-body .dams-map-panel {
-        border-top: 0;
-        border-inline-start: 1px solid var(--line);
-    }
-}
-
-.ed-body .dams-map-hintbox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    min-height: 220px;
-    text-align: center;
-    color: var(--muted);
-}
-
-/* .hidden (Tailwind) أقل تخصيصاً من القاعدة أعلاه، فنعيد فرض الإخفاء */
-.ed-body .dams-map-hintbox.hidden {
-    display: none;
-}
-
-.ed-body .dams-map-hintbox p {
-    margin: 0;
-    font-size: 0.78rem;
-    line-height: 1.9;
-}
-
-.ed-body .dams-map-detail:not(.hidden) {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.ed-body .dams-map-name {
-    padding: 0.7rem 0.8rem;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--accent-soft);
-}
-
-.ed-body .dams-map-name p {
-    margin: 0;
-}
-
-.ed-body .dams-map-name-t {
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 800;
-    line-height: 1.6;
-    color: var(--accent-ink);
-}
-
-.ed-body .dams-map-name-b {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    margin-top: 0.15rem;
-    font-size: 0.72rem;
-    color: var(--dams-muted-deep);
-}
-
-.ed-body .dams-map-gauge-k {
-    margin: 0 0 0.3rem;
-    font-size: 0.74rem;
-    font-weight: 700;
-    color: var(--dams-muted-deep);
-}
-
-/* مقياس الماء */
-.ed-body .ds-gauge {
-    position: relative;
-    height: 150px;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: #f1f0e6;
-}
-
-.ed-body .ds-gauge-ticks {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0.35rem;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-block: 0.3rem;
-}
-
-.ed-body .ds-gauge-ticks span {
-    font-family: var(--font-latin-display);
-    font-size: 0.66rem;
-    line-height: 1;
-    color: var(--dams-muted-deep);
-}
-
-.ed-body .ds-gauge-body {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: height 1.2s ease-out;
-}
-
-.ed-body .ds-gauge-wave {
-    position: absolute;
-    top: -6px;
-    left: 0;
-    display: flex;
-    width: 200%;
-    height: 12px;
-    color: var(--accent);
-    overflow: hidden;
-}
-
-.ed-body .ds-gauge-wave svg {
-    flex: 0 0 50%;
-    width: 50%;
-    height: 12px;
-}
-
-.ed-body .ds-gauge-water {
-    position: absolute;
-    top: 5px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: color-mix(in srgb, var(--accent) 62%, transparent);
-}
-
-.ed-body .ds-gauge-pct {
-    position: absolute;
-    inset: 0;
-    z-index: 4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ed-body .ds-gauge-pct span {
-    font-family: var(--font-latin-display);
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--ink);
-    /* شريحة ورقية أسفل الرقم: تضمن التباين مهما ارتفع منسوب الماء */
-    padding: 0.06em 0.4em;
-    border-radius: 2px;
-    background: var(--surface);
-    box-shadow: 0 1px 2px rgba(11, 28, 23, 0.14);
-}
-
-@keyframes dams-wave-x {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .ed-body .ds-gauge-wave {
-        animation: dams-wave-x 2.6s linear infinite;
-    }
-}
-
-.ed-body .dams-map-facts {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.4rem;
-}
-
-.ed-body .dams-map-fact {
-    padding: 0.5rem 0.4rem;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: #f7f5ec;
-    text-align: center;
-}
-
-.ed-body .dams-map-fact p {
-    margin: 0;
-}
-
-.ed-body .dams-map-fact-k {
-    margin-bottom: 0.15rem !important;
-    font-size: 0.7rem;
-    color: var(--dams-muted-deep);
-}
-
-.ed-body .dams-map-fact-v {
-    font-family: var(--font-latin-display);
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--accent-ink);
-}
-
-/* ---------- أشرطة نسب الملء ---------- */
-.ed-body .dams-fills {
-    margin: 2.4rem 0;
-    padding: 1.3rem 1.2rem;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--surface);
-}
-
-.ed-body .dams-fills-h {
-    margin: 0 0 0.25rem;
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.7;
-    color: var(--ink);
-    text-align: center;
-}
-
-.ed-body .dams-fills-lede {
-    margin: 0 0 1.1rem;
-    font-size: 0.74rem;
-    line-height: 1.8;
-    color: var(--muted);
-    text-align: center;
-}
-
-.ed-body .dams-fill {
-    margin-bottom: 0.95rem;
-}
-
-.ed-body .dams-fill:last-of-type {
-    margin-bottom: 0;
-}
-
-.ed-body .dams-fill-top {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.6rem;
-    margin-bottom: 0.35rem;
-}
-
-.ed-body .dams-fill-name {
-    font-family: var(--font-display);
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--ink);
-}
-
-.ed-body .dams-fill-pct {
-    font-family: var(--font-latin-display);
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--accent-ink);
-}
-
-.ed-body .dams-fill-track {
-    height: 1.1rem;
-    overflow: hidden;
-    border-radius: 999px;
-    background: #e6e3d6;
-}
-
-.ed-body .dams-fill-bar {
-    height: 100%;
-    border-radius: 999px;
-    background: var(--accent);
-}
-
-.ed-body .dams-fill-bar.is-brass {
-    background: var(--dams-brass);
-}
-
-.ed-body .dams-fill-bar.is-mist {
-    background: var(--dams-mist);
-}
-
-.ed-body .dams-fill-note {
-    margin: 0.3rem 0 0;
-    font-size: 0.71rem;
-    line-height: 1.8;
-    color: var(--muted);
-}
-
-.ed-body .dams-fill-total {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    margin-top: 1.1rem;
-    padding: 0.85rem 1rem;
-    border-radius: 3px;
-    background: var(--dams-deep);
-    color: #f7f1e2;
-}
-
-.ed-body .dams-fill-total p {
-    margin: 0;
-}
-
-.ed-body .dams-fill-total-t {
-    font-family: var(--font-display);
-    font-size: 0.88rem;
-    font-weight: 700;
-}
-
-.ed-body .dams-fill-total-s {
-    font-size: 0.72rem;
-    line-height: 1.8;
-    color: rgba(247, 241, 226, 0.75);
-}
-
-.ed-body .dams-fill-total-v {
-    font-family: var(--font-latin-display);
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #e9d9b4;
-}
-
-/* ---------- قراءة الرسوم على الهاتف ----------
-   نصوص SVG تُقاس بوحدات viewBox، فتُكبَّر لتعويض تصغير الرسم
-   إلى عرض الشاشة (نحو 0.42× في الرسم الافتتاحي و0.6× في المخططين).
-   القيم أدناه لأصغر الشاشات، وتُخفَّض تدريجياً في الاستعلامين التاليين. */
-@media (max-width: 640px) {
-    .ed-body .dams-hero svg text {
-        font-size: 24px;
-    }
-
-    .ed-body .dams-chart .dams-axis-text {
-        font-size: 20px;
-    }
-
-    .ed-body .dams-chart .dams-value-text {
-        font-size: 19px;
-    }
-
-    .ed-body .dams-chart .dams-axis-note {
-        font-size: 18px;
-    }
-
-    .ed-body .dams-basin-label {
-        font-size: 11px;
-    }
-
-    /* تسميات العقد والمفتاح غير قابلة للقراءة في هذا العرض،
-       والتفاصيل متاحة في لوحة السدّ وفي aria-label */
-    .ed-body .ds-dam-node text,
-    .ed-body .dams-map-legend {
-        display: none;
-    }
-
-    /* نصوص كانت تحت 12px */
-    .ed-body .dams-map-hint,
-    .ed-body .dams-map-hintbox p,
-    .ed-body .dams-fills-lede,
-    .ed-body .dams-fill-note,
-    .ed-body .dams-chart-sub,
-    .ed-body .dams-hero-cap,
-    .ed-body .dams-chart-cap,
-    .ed-body .essay-timeline-date {
-        font-size: 0.8rem;
-    }
-
-    .ed-body .dams-map-stats {
-        font-size: 0.8rem;
-    }
-}
-
-/* عرض متوسط (هاتف عريض): الرسم أكبر، فالتكبير أقل */
-@media (min-width: 480px) and (max-width: 560px) {
-    .ed-body .dams-hero svg text {
-        font-size: 18px;
-    }
-
-    .ed-body .dams-chart .dams-axis-text {
-        font-size: 16px;
-    }
-
-    .ed-body .dams-chart .dams-value-text {
-        font-size: 15px;
-    }
-
-    .ed-body .dams-chart .dams-axis-note {
-        font-size: 14px;
-    }
-}
-
-/* جهاز صغير/لوحي عمودي: الرسم يقارب حجمه الأصلي */
-@media (min-width: 561px) and (max-width: 640px) {
-    .ed-body .dams-hero svg text {
-        font-size: 15px;
-    }
-
-    .ed-body .dams-chart .dams-axis-text {
-        font-size: 12px;
-    }
-
-    .ed-body .dams-chart .dams-value-text {
-        font-size: 12px;
-    }
-
-    .ed-body .dams-chart .dams-axis-note {
-        font-size: 11px;
-    }
-}
-
-/* لوحي عمودي: الرسم يُعرض بين 0.72× و0.86× من حجمه الأصلي */
-@media (min-width: 641px) and (max-width: 767px) {
-    .ed-body .dams-hero svg text {
-        font-size: 15px;
-    }
-
-    .ed-body .dams-chart .dams-axis-text {
-        font-size: 12px;
-    }
-
-    .ed-body .dams-chart .dams-value-text {
-        font-size: 14px;
-    }
-
-    .ed-body .dams-chart .dams-axis-note {
-        font-size: 11px;
-    }
-}
-
-/* ───────────────────────── تنسيق النص ─────────────────────────
-   نسخ عربي للنص والتسميات النثرية، وكوفي للعناوين البنيوية فقط.
-   ضبط المقاس والتباعد لقراءة طويلة بلا إجهاد: سطر 1.95، فقرة 1.3em،
-   وتوازن العناوين مع تقليل حجمها قليلاً عن تدرّج القالب العام. */
-.ed-body {
-    font-size: clamp(1.13rem, 1.08rem + 0.18vw, 1.2rem);
-    line-height: 1.95;
-    font-kerning: normal;
-    word-spacing: 0.02em;
-    hyphens: manual;
-}
-
-.ed-body p {
-    margin-bottom: 1.3em;
-    line-height: 1.95;
-    text-wrap: pretty;
-}
-
-/* الفقرة الافتتاحية لكل قسم: أكبر قليلاً وأثقل، بإيقاع سطري متّسق مع المتن */
-.design-a .ed-body h2 + p {
-    font-size: 1.06em;
-    font-weight: 500;
-    line-height: 1.9;
-    color: var(--ink);
-}
-
-.design-a .ed-body h2 {
-    margin: 2.9rem 0 1.1rem;
-    padding-top: 1.2rem;
-    font-size: clamp(1.42rem, 1.15rem + 1vw, 1.78rem);
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: 0;
-}
-
-.design-a .ed-body h3 {
-    margin: 2.1rem 0 0.7rem;
-    font-size: clamp(1.14rem, 1.03rem + 0.5vw, 1.32rem);
-    font-weight: 700;
-    line-height: 1.65;
-    letter-spacing: 0;
-}
-
-.ed-body strong {
-    font-weight: 700;
-}
-
-.ed-body a {
-    text-underline-offset: 0.28em;
-    text-decoration-thickness: 1px;
-}
-
-.ed-body ul,
-.ed-body ol {
-    padding-inline-start: 1.4em;
-}
-
-.ed-body li {
-    margin-bottom: 0.55em;
-    line-height: 1.9;
-}
-
-/* الشروح والاقتباسات نثرٌ يُقرأ، فتُعرض بالنسخ لا بالكوفي،
-   وبدرجة أغمق من --muted لتبقى فوق خلفية المقال بتباين ≥ 5:1 */
-.ed-body .dams-hero-cap,
-.ed-body .dams-chart-cap,
-.ed-body .dams-cite,
-.ed-body .essay-figure figcaption,
-.ed-body .dams-map-hint {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    line-height: 1.9;
-    color: var(--dams-muted-deep);
-}
-</style>
-
-<!-- ═══════════════ أشرطة نسب الملء ═══════════════ -->
-<div class="dams-fills" dir="rtl" data-controller="dam-fill">
-    <h3 class="dams-fills-h">نسب الملء الراهنة للأحواض الكبرى (مارس 2026)</h3>
-    <p class="dams-fills-lede">تتحرك المؤشرات تلقائياً عند الوصول إلى هذا القسم</p>
-
-    <div class="dams-fill">
-        <div class="dams-fill-top">
-            <span class="dams-fill-name">حوض اللوكوس</span>
-            <span class="dams-fill-pct" data-dam-fill-target="pct" data-target="100">100٪</span>
-        </div>
-        <div class="dams-fill-track">
-            <div class="dams-fill-bar is-brass" data-dam-fill-target="bar" data-fill="100" style="width:100%"></div>
-        </div>
-        <p class="dams-fill-note">ابن بطوطة · وادي المخازن · النخلة — أعلى نسبة ملء في التاريخ المرصود</p>
-    </div>
-
-    <div class="dams-fill">
-        <div class="dams-fill-top">
-            <span class="dams-fill-name">حوض أبي رقراق</span>
-            <span class="dams-fill-pct" data-dam-fill-target="pct" data-target="99">99٪</span>
-        </div>
-        <div class="dams-fill-track">
-            <div class="dams-fill-bar is-brass" data-dam-fill-target="bar" data-fill="99" style="width:99%"></div>
-        </div>
-        <p class="dams-fill-note">سد سيدي محمد بن عبد الله — يضمن الأمن المائي للمحور الرباط-الدار البيضاء</p>
-    </div>
-
-    <div class="dams-fill">
-        <div class="dams-fill-top">
-            <span class="dams-fill-name">حوض سبو</span>
-            <span class="dams-fill-pct" data-dam-fill-target="pct" data-target="66">66٪</span>
-        </div>
-        <div class="dams-fill-track">
-            <div class="dams-fill-bar" data-dam-fill-target="bar" data-fill="66" style="width:66%"></div>
-        </div>
-        <p class="dams-fill-note">سد الوحدة (3.8 مليار م³) — ثاني أكبر سدود أفريقيا</p>
-    </div>
-
-    <div class="dams-fill">
-        <div class="dams-fill-top">
-            <span class="dams-fill-name">حوض ملوية</span>
-            <span class="dams-fill-pct" data-dam-fill-target="pct" data-target="32">32٪</span>
-        </div>
-        <div class="dams-fill-track">
-            <div class="dams-fill-bar is-mist" data-dam-fill-target="bar" data-fill="32" style="width:32%"></div>
-        </div>
-        <p class="dams-fill-note">محمد الخامس والحسن الثاني — الشرق المغربي يستدعي توجيهاً استراتيجياً خاصاً</p>
-    </div>
-
-    <div class="dams-fill-total">
-        <div>
-            <p class="dams-fill-total-t">المعدل الوطني الإجمالي</p>
-            <p class="dams-fill-total-s">12.4 مليار م³ مخزّنة — مستوى لم يُسجَّل منذ سنوات</p>
-        </div>
-        <p class="dams-fill-total-v">71.6٪</p>
-    </div>
-</div>
-
-<h2 id="al-wazaif-al-istratijiya" class="text-2xl font-bold text-amber-900 mb-6 border-b-2 border-amber-500/50 pb-3">سادساً: الوظائف الاستراتيجية للسدود — ما وراء تخزين الماء</h2>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    ينظر غيرُ المتخصص إلى السد على أنه خزانُ ماء لا أكثر؛ بيد أن الاستراتيجية المغربية للسدود وعت مبكراً أن الفائدة المُثلى تكمن في تضافر الوظائف لا في أُحاديّتها. فالسدُّ في المنظومة المغربية هو في الوقت ذاته:
-</p>
-
-<div class="essay-cards" data-cols="2" dir="rtl">
-    <div>
-        <h3><i class="fas fa-leaf" aria-hidden="true"></i> مورد زراعي</h3>
-        <p>تروي السدود مساحات مسقية تناهز مليون هكتار، إنتاجُها يُشكّل ركيزة الأمن الغذائي الوطني ومصدر الصادرات الزراعية.</p>
-    </div>
-    <div>
-        <h3><i class="fas fa-city" aria-hidden="true"></i> مصدر ماء الشرب</h3>
-        <p>أكثر من 80% من احتياجات الماء الصالح للشرب في المدن المغربية تُستقى من خزانات السدود عبر محطات التصفية.</p>
-    </div>
-    <div>
-        <h3><i class="fas fa-bolt" aria-hidden="true"></i> محطة كهرومائية</h3>
-        <p>يُوفّر الإنتاج الكهرومائي في السنوات الرطبة ما يصل إلى 8% من إنتاج الكهرباء الوطني، بانبعاثات كربونية منعدمة.</p>
-    </div>
-    <div>
-        <h3><i class="fas fa-shield-alt" aria-hidden="true"></i> حاجز الفيضانات</h3>
-        <p>تُقلّص السدود خطر الفيضانات بامتصاص ذروات التدفق وتنظيم تصريف الأودية، مُنقذةً مساكنَ وأرواحاً وبنى تحتية.</p>
-    </div>
-</div>
-
-<h2 id="afaq-2050" class="text-2xl font-bold text-amber-900 mb-6 border-b-2 border-amber-500/50 pb-3">سابعاً: الجيل الجديد من السدود وآفاق 2050</h2>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    لا يُعلن <strong>البرنامج الوطني للتزود بالماء الصالح للشرب والري 2020-2027</strong> عن نفسه باعتباره امتداداً تقنياً بحتاً لسياسة الحسن الثاني، بل يُقدّم نفسه برؤية تكاملية ثلاثية الأبعاد: الاستمرارُ في بناء السدود بمعدل 20 سداً على الأقل خلال هذه المرحلة، واستحداثُ شبكة وطنية للتحويل بين الأحواض، وإطلاقُ منظومة من محطات التحلية تُنتج 350 مليون م³ سنوياً في أفق 2025.
-</p>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    وفي إطار هذا البرنامج، انطلقت أشغال إنجاز <strong>أربعة سدود متوسطة</strong> بطاقة إجمالية تصل إلى 50 مليون م³، إلى جانب <strong>سبعة سدود صغيرة</strong> ضمن برنامج «الشساعة» بطاقة تفوق 7.5 ملايين م³، فضلاً عن ستة سدود إضافية في طور طلب العروض. كما تتواصل الدراساتُ المتعلقة بالشطر الثاني من المشروع الرابط بين أحواض سبو وأبي رقراق وأم الربيع، على أساس إطلاق أشغاله خلال 2026.
-</p>
-
-<p class="text-stone-700 leading-relaxed mb-4">
-    وبالنظر إلى المشهد الراهن في مارس 2026، يُسجّل المغرب <strong>71.6% كنسبة ملء إجمالية</strong> لمنظومة سدوده الكبرى، مع مخزون حقيقي يقترب من 12.4 مليار متر مكعب — وهو مستوى لم يُسجَّل منذ سنوات. ويُؤكد هذا الانتعاشُ أن سياسة السدود أثبتت متانتها وجدواها، إذ تمكّنت المنظومةُ من استيعاب موجات الأمطار الغزيرة لشتاء 2025-2026 واختزانها، بدلاً من أن تجرفها الأودية إلى البحر ضياعاً.
-</p>
-
-<div class="dams-gauge-wrap" dir="rtl">
-    <div class="dams-gauge">
-        <svg viewBox="0 0 180 180" aria-hidden="true" focusable="false">
-            <circle cx="90" cy="90" r="70" fill="none" stroke="var(--line)" stroke-width="11"/>
-            <circle class="dams-ring" cx="90" cy="90" r="70" fill="none"
-                    stroke="var(--accent)" stroke-width="11" stroke-linecap="round"
-                    pathLength="1" transform="rotate(-90 90 90)"/>
-        </svg>
-        <div class="dams-gauge-num">
-            <b>71.6٪</b>
-            <small>نسبة الملء</small>
-        </div>
-    </div>
-    <ul class="dams-gauge-facts">
-        <li><span>المخزون الحالي (مارس 2026)</span> <b>12.4 مليار م³</b></li>
-        <li><span>الطاقة الاستيعابية الإجمالية</span> <b>20.8 مليار م³</b></li>
-        <li><span>عدد السدود الكبرى</span> <b>+150 سد</b></li>
-        <li><span>حصة السدود من ماء الشرب الحضري</span> <b>+80٪</b></li>
+<figure class="dsl-mem" dir="rtl">
+    <svg viewBox="0 0 800 360" role="img" aria-labelledby="dslMemT dslMemD">
+        <title id="dslMemT">مبدأ عمل غشاء التناضح العكسي</title>
+        <desc id="dslMemD">مياه البحر تدخل من اليمين، فتُحتجز أيونات الملح عند الغشاء وتُطرد نحو مخرج الأجاج، بينما تمرّ جزيئات الماء إلى اليسار نحو شبكة الشرب.</desc>
+        <defs>
+            <linearGradient id="dslMemSea" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#8ec9c5"/>
+                <stop offset="1" stop-color="#bfe3df"/>
+            </linearGradient>
+            <linearGradient id="dslMemFresh" x1="1" y1="0" x2="0" y2="0">
+                <stop offset="0" stop-color="#d9f0ec"/>
+                <stop offset="1" stop-color="#eef7f5"/>
+            </linearGradient>
+            <pattern id="dslMemPores" width="8" height="8" patternUnits="userSpaceOnUse">
+                <circle cx="4" cy="4" r="1.4" fill="#7fd0c9" opacity="0.55"/>
+            </pattern>
+        </defs>
+
+        <rect width="800" height="360" fill="#fbfdfc"/>
+
+        <!-- خزان مياه البحر -->
+        <rect x="612" y="86" width="168" height="120" rx="6" fill="url(#dslMemSea)"/>
+        <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.55">
+            <path d="M628 112 q 14 -6 28 0 t 28 0 t 28 0 t 28 0"/>
+            <path d="M628 190 q 14 -6 28 0 t 28 0 t 28 0 t 28 0"/>
+        </g>
+
+        <!-- أنبوب السحب -->
+        <rect x="534" y="126" width="80" height="42" fill="#a8d8d3"/>
+        <path d="M556 126 v 42 M578 126 v 42 M600 126 v 42" stroke="#e8f6f4" stroke-width="2" opacity="0.6"/>
+
+        <!-- الغشاء -->
+        <rect x="500" y="48" width="30" height="268" rx="3" fill="#0d6570"/>
+        <rect x="504" y="52" width="22" height="260" fill="url(#dslMemPores)"/>
+
+        <!-- أنبوب الماء العذب -->
+        <rect x="140" y="128" width="362" height="40" fill="url(#dslMemFresh)"/>
+        <polygon points="140,148 112,136 112,160" fill="#2f9e9a"/>
+
+        <!-- أنبوب الأجاج -->
+        <rect x="500" y="316" width="272" height="28" fill="#d8b25f"/>
+        <polygon points="772,330 750,318 750,342" fill="#b3862f"/>
+
+        <!-- أيونات الملح -->
+        <g fill="#b3862f">
+            <circle class="dsl-ion" cx="650" cy="150" r="5" style="--d:0s"/>
+            <circle class="dsl-ion" cx="686" cy="172" r="4.4" style="--d:.7s"/>
+            <circle class="dsl-ion" cx="716" cy="138" r="5.2" style="--d:1.4s"/>
+            <circle class="dsl-ion" cx="746" cy="164" r="4.2" style="--d:2.1s"/>
+            <circle class="dsl-ion" cx="604" cy="158" r="4.6" style="--d:2.8s"/>
+        </g>
+
+        <!-- جزيئات الماء العابرة -->
+        <g fill="#0d6570" opacity="0.85">
+            <circle class="dsl-molecule" cx="472" cy="142" r="4" style="--d:0s"/>
+            <circle class="dsl-molecule" cx="466" cy="156" r="3.6" style="--d:1.1s"/>
+            <circle class="dsl-molecule" cx="478" cy="150" r="3.2" style="--d:2.2s"/>
+        </g>
+
+        <!-- أيونات الأجاج -->
+        <g fill="#8a5a2b">
+            <circle class="dsl-brine-ion" cx="548" cy="330" r="4.6" style="--d:0s"/>
+            <circle class="dsl-brine-ion" cx="590" cy="333" r="4.2" style="--d:.9s"/>
+            <circle class="dsl-brine-ion" cx="632" cy="328" r="4.8" style="--d:1.8s"/>
+            <circle class="dsl-brine-ion" cx="674" cy="334" r="4" style="--d:2.7s"/>
+        </g>
+
+        <!-- شارة الضغط -->
+        <g class="dsl-mem-badge">
+            <rect x="84" y="240" width="160" height="36" rx="18" fill="#082a33"/>
+            <text x="164" y="264" text-anchor="middle" font-size="16" font-weight="700" fill="#f4e3b8">الضغط: 60–70 بار</text>
+        </g>
+
+        <!-- التسميات -->
+        <text class="dsl-mem-sea" x="696" y="72" text-anchor="middle" font-size="19" font-weight="700" fill="#0a4d56">مياه البحر</text>
+        <text class="dsl-mem-label" x="515" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#082a33">الغشاء</text>
+        <line x1="515" y1="38" x2="515" y2="48" stroke="#082a33" stroke-width="1.5"/>
+        <text class="dsl-mem-label" x="250" y="118" text-anchor="middle" font-size="17" font-weight="700" fill="#0d6570">ماء عذب إلى الشبكة</text>
+        <text class="dsl-mem-small" x="636" y="308" text-anchor="middle" font-size="16" font-weight="700" fill="#8a5a2b">أجاج إلى مخرج بعيد</text>
+    </svg>
+    <ul class="dsl-legend">
+        <li style="--c:#2f9e9a">ماء عذب</li>
+        <li style="--c:#b3862f">أيونات الملح</li>
+        <li style="--c:#0d6570">غشاء التناضح العكسي</li>
     </ul>
+    <figcaption class="dsl-cap">رسم توضيحي مبسّط: الغشاء لا «يقتل» الملح ولا يزيله كيميائياً، بل يفصل الماء عنه بفعل الضغط. وكل ما يبقى في جانب الأجاج يجب أن يُدار بيئياً، لا أن يُنسى.</figcaption>
+</figure>
+
+<p>
+    أكثر ما تغيّر في العقود الأخيرة ليس مبدأ التناضح العكسي، بل <strong>كفاءته الطاقية</strong>. فالمحطات الأولى كانت تستهلك ما بين 6 و8 كيلوفولط·ساعة لكل متر مكعب؛ أما المحطات الحديثة المزوّدة بأجهزة استرجاع الطاقة وأغشية أعلى نفاذية، فقد هبطت إلى نحو 2.5–3.5 كيلوفولط·ساعة. هذا الانخفاض هو ما جعل التحلية قابلة للتوسّع على نطاق مدينة كاملة.
+</p>
+
+<figure class="dsl-chart" dir="rtl">
+    <h3 class="dsl-chart-h">الطاقة: الثمن الخفي لكل متر مكعب</h3>
+    <p class="dsl-chart-sub">كيلوفولط·ساعة لكل متر مكعب من الماء المحلّى — تقديرات قطاعية</p>
+    <div class="dsl-bars" role="img" aria-label="انخفاض استهلاك الطاقة من 8 كيلوفولط ساعة للمتر المكعب في المحطات الأولى إلى 5 ثم إلى 2.75 في المحطات الحديثة.">
+        <div class="dsl-bar">
+            <div class="dsl-bar-top">
+                <span class="dsl-bar-name">محطات الثمانينيات</span>
+                <span class="dsl-bar-val">8 kWh/m³</span>
+            </div>
+            <div class="dsl-track"><span class="dsl-fill is-low" style="--w:100%;--d:0s"></span></div>
+        </div>
+        <div class="dsl-bar">
+            <div class="dsl-bar-top">
+                <span class="dsl-bar-name">محطات التسعينيات</span>
+                <span class="dsl-bar-val">5 kWh/m³</span>
+            </div>
+            <div class="dsl-track"><span class="dsl-fill" style="--w:62.5%;--d:.12s"></span></div>
+        </div>
+        <div class="dsl-bar">
+            <div class="dsl-bar-top">
+                <span class="dsl-bar-name">المحطات الحديثة</span>
+                <span class="dsl-bar-val">2.75 kWh/m³</span>
+            </div>
+            <div class="dsl-track"><span class="dsl-fill is-deep" style="--w:34.4%;--d:.24s"></span></div>
+        </div>
+    </div>
+    <figcaption class="dsl-cap">الهبوط ليس هامشياً: إنه <b>انخفاض بنحو الثلثين</b> في أربعة عقود، بفضل استرجاع الضغط وتحسين الأغشية. ولهذا أصبحت الطاقة، لا الماء، هي المتغيّر الحاسم في جدوى أي محطة.</figcaption>
+</figure>
+
+<div class="dsl-method" dir="rtl">
+    <b>تقدير حسابي:</b>
+    822,000 م³/يوم × 2.75 kWh/m³ ≈ 2.26 جيغاواط·ساعة يومياً ≈ 825 جيغاواط·ساعة سنوياً. وهذا يعادل تقريباً الإنتاج السنوي لمزرعة ريحية بقدرة 250–300 ميغاواط. الأرقام تقديرية وتخدم المقارنة، وليست معطى تعاقدياً.
 </div>
 
-<div class="essay-note essay-note--accent" dir="rtl">
-    <h3>
-        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-        الدرس التاريخي: ثلاثةُ وستونَ عاماً من رؤية ثابتة
-    </h3>
-    <ol class="dams-lesson">
-        <li>
-            <strong>الاستمرارية بين الملوك:</strong>
-            ما يُميّز التجربة المغربية حقاً هو أن الرؤية الهيدروليكية انتقلت بلا انقطاع من الحسن الثاني إلى محمد السادس، مُبرهِنةً على أن السياسة المائية الناجحة لا تبنيها حكومة بل تُشيّدها أجيال.
-        </li>
-        <li>
-            <strong>الوقاية خير من العلاج:</strong>
-            استثماراتُ السدود المُبكّرة جنّبت المغربَ كوارث هيدرولوجية كان ثمنُها الاجتماعي والاقتصادي أضعافاً مضاعفة مما كلّفه البناء.
-        </li>
-        <li>
-            <strong>السيادة الغذائية شرطٌ للسيادة السياسية:</strong>
-            أدرك الحسن الثاني مبكراً ما باتت تُقرّه اليوم كلُّ مدارس العلوم السياسية والاقتصادية: أن الدولة التي لا تُغذّي مواطنيها تُرهن استقلالها وسيادتها.
-        </li>
-    </ol>
+<p>
+    ولهذا كان قرار تزويد المحطة بالكهرباء المتجددة قراراً بنيوياً لا تجميلياً. فمحطة بهذا الحجم تستهلك كهرباء مدينة متوسطة، وأي اعتماد على مزيج كهربائي كثيف الكربون سيحوّل «الحل المائي» إلى «مشكلة مناخية». الربط بخط 400 كيلوفولط، المنجَز في يوليوز 2026، هو الشرط المادي لهذا التوجه.
+</p>
+
+<p>
+    أما الماء نفسه، فإن المحطة لا تنتجه من العدم: لكل متر مكعب عذب، يُسحب من البحر نحو ضعفيه، ويُعاد الباقي أجاجاً. وبتعبير تقني، معدل الاسترجاع في محطات التناضح العكسي الحديثة يقارب 45%، أي أن أكثر من نصف الماء المسحوب يعود إلى البحر أكثر ملوحة مما كان.
+</p>
+
+<figure class="dsl-split-fig" dir="rtl">
+    <h3 class="dsl-chart-h">45% ماء عذب… و55% أجاج</h3>
+    <p class="dsl-chart-sub">تقدير توازن الكتلة عند القدرة النهائية</p>
+    <div class="dsl-split">
+        <span class="dsl-split-fresh"></span>
+        <span class="dsl-split-brine"></span>
+    </div>
+    <div class="dsl-split-labels">
+        <span>ماء عذب — <b>نحو 370 ألف م³/يوم</b></span>
+        <span>أجاج — <b>نحو 452 ألف م³/يوم</b></span>
+    </div>
+    <figcaption class="dsl-cap">بهذا المعدل، تقترب كمية المياه المسحوبة من <b>1.8 مليون م³ يومياً</b>. وهذا الرقم هو مفتاح كل النقاش البيئي: المحطة لا تنتج ماءً فقط، بل تعيد تشكيل علاقة الساحل بالبحر.</figcaption>
+</figure>
+
+<h2 id="barnamaj-watani">رابعاً: من محطة إلى منظومة وطنية</h2>
+
+<p>
+    لو كانت الدار البيضاء-سطات مشروعاً منفرداً، لكانت إنجازاً هندسياً يُضاف إلى سجل المغرب. لكنها في الواقع <strong>رأس منظومة</strong> يجري بناؤها على مستوى الوطن. فإلى جانبها تعمل محطة أكادير-شتوكة بقدرة 275 ألف م³/يوم (مرشحة للرفع إلى 400 ألف)، ومحطة الداخلة بقدرة 112 ألف م³/يوم تعمل بالطاقة الريحية، إضافة إلى محطات أصغر في الصويرة وسيدي إفني وكلميم والعيون وبوجدور والناظور والحسيمة.
+</p>
+
+<figure class="dsl-chart" dir="rtl">
+    <h3 class="dsl-chart-h">خريطة السعة: ثلاث محطات كبرى</h3>
+    <p class="dsl-chart-sub">القدرة اليومية بالمتر المكعب — المحطات المرجعية</p>
+    <div class="dsl-hbars" role="img" aria-label="الدار البيضاء-سطات 822 ألف متر مكعب يوميا، أكادير-شتوكة 275 ألفا، الداخلة 112 ألفا.">
+        <div class="dsl-hbar">
+            <div class="dsl-hbar-top">
+                <span class="dsl-hbar-name">الدار البيضاء-سطات <span>من المتوقع: منتصف 2028</span></span>
+                <span class="dsl-hbar-val">822,000 م³/يوم</span>
+            </div>
+            <div class="dsl-track"><span class="dsl-fill is-deep" style="--w:100%;--d:0s"></span></div>
+        </div>
+        <div class="dsl-hbar">
+            <div class="dsl-hbar-top">
+                <span class="dsl-hbar-name">أكادير-شتوكة <span>في الخدمة منذ 2022 — توسعة نحو 400,000</span></span>
+                <span class="dsl-hbar-val">275,000 م³/يوم</span>
+            </div>
+            <div class="dsl-track"><span class="dsl-fill" style="--w:33.5%;--d:.12s"></span></div>
+        </div>
+        <div class="dsl-hbar">
+            <div class="dsl-hbar-top">
+                <span class="dsl-hbar-name">الداخلة <span>طاقة ريحية 100% — 37 مليون م³ سنوياً</span></span>
+                <span class="dsl-hbar-val">112,000 م³/يوم</span>
+            </div>
+            <div class="dsl-track"><span class="dsl-fill" style="--w:13.6%;--d:.24s"></span></div>
+        </div>
+    </div>
+    <figcaption class="dsl-cap">محطة الدار البيضاء وحدها تعادل نحو <b>ثلاثة أضعاف</b> أكبر محطة قائمة. لكن المقارنة الأهم ليست بين المحطات، بل بين نموذجين: محطة تخدم مدينة، ومنظومة تخدم بلداً.</figcaption>
+</figure>
+
+<figure class="dsl-chart" dir="rtl">
+    <h3 class="dsl-chart-h">من 17 محطة إلى 36 محطة</h3>
+    <p class="dsl-chart-sub">عدد محطات التحلية في المغرب — الوضع الحالي والهدف</p>
+    <div class="dsl-dots" role="img" aria-label="17 محطة قائمة من أصل هدف 36 محطة، أي 19 محطة إضافية.">
+        <span class="dsl-dot is-on" style="--d:0s"></span>
+        <span class="dsl-dot is-on" style="--d:.03s"></span>
+        <span class="dsl-dot is-on" style="--d:.06s"></span>
+        <span class="dsl-dot is-on" style="--d:.09s"></span>
+        <span class="dsl-dot is-on" style="--d:.12s"></span>
+        <span class="dsl-dot is-on" style="--d:.15s"></span>
+        <span class="dsl-dot is-on" style="--d:.18s"></span>
+        <span class="dsl-dot is-on" style="--d:.21s"></span>
+        <span class="dsl-dot is-on" style="--d:.24s"></span>
+        <span class="dsl-dot is-on" style="--d:.27s"></span>
+        <span class="dsl-dot is-on" style="--d:.3s"></span>
+        <span class="dsl-dot is-on" style="--d:.33s"></span>
+        <span class="dsl-dot is-on" style="--d:.36s"></span>
+        <span class="dsl-dot is-on" style="--d:.39s"></span>
+        <span class="dsl-dot is-on" style="--d:.42s"></span>
+        <span class="dsl-dot is-on" style="--d:.45s"></span>
+        <span class="dsl-dot is-on" style="--d:.48s"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+        <span class="dsl-dot is-target"></span>
+    </div>
+    <ul class="dsl-legend" style="justify-content:center">
+        <li style="--c:#0d6570">17 محطة قائمة</li>
+        <li style="--c:#e6c98d">19 محطة مبرمجة</li>
+    </ul>
+    <figcaption class="dsl-cap">الهدف ليس تراكم أرقام، بل <b>تحويل التحلية من حلٍّ محلي إلى شبكة وطنية</b> قادرة على نقل الماء بين الأحواض، وتعويض محطة بأخرى عند الأعطاب أو الجفاف.</figcaption>
+</figure>
+
+<p>
+    البنية التحتية للماء لا تُقاس بعدد المنشآت فقط، بل بقدرتها على الربط: قنوات، وأنابيب، وخزانات، ونقاط تحكم. المحطة نقطة في شبكة، لا جزيرة.
+</p>
+
+<p>
+    في هذا الإطار تأتي أهمية «الطريق السريع للماء» الذي يربط الأحواض الكبرى، ويسمح بتحويل الفائض من حوض إلى آخر عند الحاجة. فالمحطة الساحلية لا تُغني عن السدود، والسدود لا تُغني عن التحلية؛ ما يتغيّر هو <strong>منطق المنظومة</strong>: من موارد متجاورة يُدبَّر كلٌّ منها على حدة، إلى شبكة واحدة تُوزَّع فيها المخاطر والفوائض.
+</p>
+
+<p>
+    وهنا يظهر الفرق بين مشروع بنية تحتية ومشروع دولة: المحطة ستنتج الماء، لكن قيمتها الحقيقية تتحدّد بقدرة شبكة النقل والتخزين على استيعابه، وبقدرة المؤسسات على تدبير الطلب في السنوات الرطبة كما في الجافة. وبدون ذلك، قد يتحوّل فائض الإنتاج إلى كلفة راكدة بدل أن يكون أماناً مائياً.
+</p>
+
+<h2 id="rahanat-biiya">خامساً: الرهانات البيئية والحوكمة</h2>
+
+<p>
+    من السهل أن يُقدَّم مشروع بهذا الحجم كحلٍّ نهائي. لكن كل متر مكعب من الماء المحلّى يحمل معه ثلاث مقايضات: مقايضة طاقية، ومقايضة بحرية، ومقايضة مؤسسية. والنجاح لا يقاس بعدد الأمتار المكعبة المنتَجة، بل بقدرة المشروع على إدارة هذه المقايضات على مدى ثلاثين سنة.
+</p>
+
+<div class="dsl-risks" dir="rtl">
+    <div class="dsl-risk">
+        <h4>الأجاج والوسط البحري</h4>
+        <p>ماء بملوحة تقارب ضعف ملوحة البحر، ودرجة حرارة أعلى قليلاً، تُعاد عبر ناشرات على عمق محسوب. الخطر ليس في الحجم وحده، بل في تراكم الأثر المحلي وضعف المراقبة المستقلة.</p>
+    </div>
+    <div class="dsl-risk is-sea">
+        <h4>السحب وحياة الساحل</h4>
+        <p>كل أنبوب سحب يقتل ما يعلق فيه من يرقات وأسماك صغيرة إن لم تُصمَّم السرعات والشبكات بعناية. الحلول قائمة، لكنها تحتاج التزاماً تشغيلياً يومياً لا تصميماً على الورق فقط.</p>
+    </div>
+    <div class="dsl-risk is-energy">
+        <h4>الطاقة والحياد الكربوني</h4>
+        <p>مزرعة ريحية مخصّصة تعني أن المحطة «خضراء» ورقياً؛ أما ضمان ذلك فعلياً فيتطلّب عقود تزويد، وتخزيناً أو مرونة في الشبكة، وشفافية في حساب البصمة الكربونية.</p>
+    </div>
+    <div class="dsl-risk is-gov">
+        <h4>العقد والثقة</h4>
+        <p>عقد ثلاثين سنة يعني جيلاً كاملاً من الالتزامات. شفافية البنود، وآليات فضّ النزاعات، والمراقبة المستقلة، وحماية الفئات الهشة، هي ما يحوّل الشراكة من صفقة إلى مؤسسة.</p>
+    </div>
 </div>
+
+<p>
+    لنبدأ بالأجاج. ففي محطة بقدرة 822 ألف م³/يوم، تعني نسبة استرجاع 45% أن نحو 452 ألف م³ من الماء شديد الملوحة يعود إلى البحر يومياً. هذا ليس رقماً هامشياً؛ إنه تدفق دائم يحتاج تصميم ناشرين، ودراسة لتيارات المحيط، ونموذجاً لانتشار الكثافة والملوحة، ثم شبكة مراقبة تقيس الأثر فعلياً لا نظرياً. التجارب الدولية تُظهر أن الأثر يبقى محلياً إذا أُحسن التصميم، لكنه قد يتراكم إذا اكتُفي بالحد الأدنى من المراقبة.
+</p>
+
+<p>
+    أما الطاقة، فهي الوجه الآخر للمعادلة. المحطة صُمّمت لتُغذّى من مصادر متجددة، وهذا طموح مشروع. لكن «100% متجددة» ليست صفة تُمنح مرة واحدة، بل نتيجة تُبنى كل يوم: عبر مزرعة ريحية، وعقد تزويد، وقدرة على التعامل مع تقلّب الريح. وكل انقطاع في هذا الترتيب يعيد المحطة إلى الشبكة الوطنية بمزيجها الكربوني. ومن هنا فإن الشفافية في مصدر الكهرباء ليست تفصيلاً تقنياً، بل جزء من المصداقية البيئية للمشروع.
+</p>
+
+<blockquote class="dsl-quote">
+    التحلية ليست حلاً سحرياً لأزمة الماء، بل مقايضة واعية: ماءٌ إضافي مقابل طاقةٍ وأثرٍ ساحليٍّ والتزامٍ مؤسسي طويل الأمد.
+    <cite>فكرة مركزية في أدبيات التحلية المعاصرة — انظر المراجع</cite>
+</blockquote>
+
+<p>
+    ثم تأتي الحوكمة. فعقد من ثلاثين سنة يربط الدولة بمستثمر خاص، ويحدّد من يتحمّل مخاطر الطلب والتقنية والتنظيم. والتجربة المغربية في محطة أكادير-شتوكة تُظهر أن النجاح ممكن حين تُفصل الأدوار بوضوح: الدولة تحدّد الخدمة وتحمي المصلحة العامة، والخاص يبني ويشغّل، والمراقبة تُمارَس بمعايير قابلة للقياس. لكن التحدي الأكبر يبقى في <strong>عدالة الولوج</strong>: ماءٌ مضمون بجودة عالية يجب ألّا يعني ماءً غير متاح للجميع.
+</p>
+
+<div class="dsl-key" dir="rtl">
+    <p class="dsl-key-k">شرط النجاح</p>
+    <p class="dsl-key-t">ثلاثة اختبارات تحدد مصير المشروع</p>
+    <p class="dsl-key-s">
+        <b>الاختبار البيئي:</b> هل تُراقَب الملوحة والأثر البحري ببيانات مستقلة ومنشورة؟<br>
+        <b>الاختبار الطاقي:</b> هل يُثبت مصدر الكهرباء المتجددة بالعقود والأرقام لا بالتصريحات؟<br>
+        <b>الاختبار الاجتماعي:</b> هل يُدمج الماء الجديد في سياسة طلب، أم يُستخدم لتأجيل إصلاحات الاستهلاك؟
+    </p>
+</div>
+
+<h2 id="dalala-tarikhiya">سادساً: الدلالة التاريخية — نموذج ثالث</h2>
+
+<p>
+    لا يبدأ تاريخ الماء في المغرب مع السدود الحديثة. فقد عرف المغرب الوسيط منظومات جرّ مائية دقيقة، من الخطارات في الجنوب إلى السواقي في الواحات والمدن، كانت تُبنى بمعرفة محلية وتُدار بجماعة. ثم جاء القرن العشرون ليضيف نموذجاً ثانياً: السد الكبير، الذي يحوّل النهر إلى خزان وطني. واليوم يُضاف نموذج ثالث: المحطة الساحلية، التي تحوّل البحر إلى خزان.
+</p>
+
+<div class="dsl-paradigms" dir="rtl">
+    <div class="dsl-paradigm is-dam">
+        <p class="dsl-paradigm-k">النموذج الأول</p>
+        <h4>حضارة الجاذبية</h4>
+        <p class="dsl-paradigm-s">خطارات وسواقي وآبار جماعية. تُدار محلياً، وتُقاس قيمتها بقدرتها على الصمود لا على التوسّع.</p>
+    </div>
+    <div class="dsl-paradigm">
+        <p class="dsl-paradigm-k">النموذج الثاني</p>
+        <h4>دولة السدود</h4>
+        <p class="dsl-paradigm-s">من 1967 إلى الألفية: تحويل الأنهار إلى خزانات كبرى، وربط الماء بالكهرباء والفلاحة والتنمية.</p>
+    </div>
+    <div class="dsl-paradigm is-sea">
+        <p class="dsl-paradigm-k">النموذج الثالث</p>
+        <h4>صناعة الماء</h4>
+        <p class="dsl-paradigm-s">من 2020: تحلية وإعادة استعمال ونقل بين الأحواض. الماء يصبح منتَجاً صناعياً، لا معطى طبيعياً.</p>
+    </div>
+</div>
+
+<p>
+    ما يجمع النماذج الثلاثة ليس التقنية، بل <strong>الاستجابة لندرة مختلفة</strong>. فحضارة الجاذبية كانت تستجيب لندرة الوسائل؛ ودولة السدود استجابت لندرة التخزين؛ أما نموذج صناعة الماء فيستجيب لندرة الموارد نفسها. وكلما تغيّر نوع الندرة، تغيّرت المؤسسة التي تُديرها: الجماعة، ثم الدولة المركزية، ثم شراكة بين الدولة والقطاع الخاص.
+</p>
+
+<p>
+    ولهذا فإن محطة الدار البيضاء-سطات ليست قطيعة مع تاريخ المغرب المائي، بل امتداد له بوسائل جديدة. المغرب لم يتخلَّ عن فكرة «تدبير الماء»، بل غيّر مصدره: من المطر والنهر والفرشة، إلى البحر. والسؤال التاريخي الذي يطرحه المشروع ليس «هل سنملك ماءً أكثر؟»، بل «أي دولة ومجتمع سيديران هذا الماء الجديد؟».
+</p>
+
+<div class="dsl-key" dir="rtl">
+    <p class="dsl-key-k">الدرس الثالث</p>
+    <p class="dsl-key-t">من الندرة إلى الوفرة المُدارة</p>
+    <p class="dsl-key-s">
+        الوفرة التي ينتجها البحر ليست وفرة مطلقة؛ إنها وفرة مشروطة بالطاقة، وبالبيئة، وبالانضباط في الطلب. ومن هنا فإن أخطر ما قد يحدث ليس فشل المحطة، بل الاعتقاد بأنها تُلغي الحاجة إلى إصلاح علاقة المغرب بالماء.
+    </p>
+</div>
+
+<h2 id="khulasa">خاتمة: من الندرة إلى الوفرة المُدارة</h2>
+
+<p>
+    عند منتصف 2028، سيدخل إلى شبكة الدار البيضاء-سطات نحو 300 مليون متر مكعب من الماء سنوياً. هذا رقم كفيل بتغيير معادلة مدينة كانت تعتمد على أم الربيع وأبي رقراق، وعلى فرشات باطنية تستنزف. لكن قيمته الحقيقية لن تُقاس بالرقم، بل بثلاثة شروط: أن تبقى الكهرباء متجددة فعلاً، وأن يبقى الأثر البحري مراقَباً فعلاً، وأن يبقى الطلب مُداراً فعلاً.
+</p>
+
+<p>
+    إن أكبر محطة تحلية في أفريقيا ليست نهاية قصة الماء في المغرب، بل بداية فصل جديد منها. فصل ينتقل فيه الماء من هبةٍ تُنتظر إلى صناعةٍ تُدار؛ ومن ندرةٍ تُقاس بالنقص إلى وفرةٍ تُقاس بالمسؤولية. وبين الاثنين، تبقى السياسة — لا الهندسة وحدها — هي الفاصل.
+</p>
 
 <section class="essay-sources" dir="rtl">
     <h2>المصادر والمراجع</h2>
 
     <div class="essay-sources-grid">
         <div class="essay-source-group">
-            <h3>أولاً: المصادر التاريخية والخطابات الملكية</h3>
+            <h4>أولاً: التقارير المؤسسية الدولية</h4>
             <ul>
-                <li>الحسن الثاني. <em>خطاب طنجة حول سياسة السدود</em>. 18 شتنبر 1967.</li>
-                <li>الناصري، أحمد بن خالد. <em>الاستقصا لأخبار دول المغرب الأقصى</em>. تحقيق جعفر الناصري ومحمد الناصري. الدار البيضاء: دار الكتاب، 1954.</li>
-                <li>الوزان، الحسن (ليون الأفريقي). <em>وصف أفريقيا</em>. ترجمة محمد حجي ومحمد الأخضر. الرباط: دار الغرب الإسلامي، 1983.</li>
+                <li><bdi dir="ltr">World Bank. <em>The Role of Desalination in an Increasingly Water-Scarce World</em>. Washington, D.C.: World Bank Publications, 2019.</bdi></li>
+                <li><bdi dir="ltr">World Bank. <em>Morocco Country Climate and Development Report</em>. Washington, D.C.: World Bank Group, 2023.</bdi></li>
+                <li><bdi dir="ltr">UNESCO. <em>The United Nations World Water Development Report 2024: Water for Prosperity and Peace</em>. Paris: UNESCO, 2024.</bdi></li>
+                <li><bdi dir="ltr">FAO. <em>AQUASTAT Country Profile: Morocco</em>. Rome: Food and Agriculture Organization, 2024.</bdi></li>
+                <li><bdi dir="ltr">IPCC. <em>Climate Change 2022: Impacts, Adaptation and Vulnerability</em>. Working Group II Contribution to the Sixth Assessment Report. Cambridge: Cambridge University Press, 2022.</bdi></li>
             </ul>
         </div>
 
         <div class="essay-source-group">
-            <h3>ثانياً: المراجع الغربية</h3>
+            <h4>ثانياً: المراجع التقنية والعلمية</h4>
             <ul>
-                <li><bdi dir="ltr">Swearingen, Will D. <em>Moroccan Mirages: Agrarian Dreams and Deceptions, 1912-1986</em>. Princeton: Princeton University Press, 1987.</bdi></li>
-                <li><bdi dir="ltr">Popp, Herbert. <em>L'agriculture irriguée dans la vallée du Souss</em>. Passau: Passavia Universitätsverlag, 1984.</bdi></li>
-                <li><bdi dir="ltr">Jolly, Gene. "Dam Politics in Morocco: The Case of the Moulay Hassan Dam." <em>Middle Eastern Studies</em> 28, no. 2 (1992): 279-296.</bdi></li>
+                <li><bdi dir="ltr">Elimelech, Menachem, and William A. Phillip. "The Future of Seawater Desalination: Energy, Technology, and the Environment." <em>Science</em> 333, no. 6043 (2011): 712–717.</bdi></li>
+                <li><bdi dir="ltr">Lattemann, Sabine, and Thomas Höpner. "Environmental Impact and Impact Assessment of Seawater Desalination." <em>Desalination</em> 220, no. 1–3 (2008): 1–15.</bdi></li>
+                <li><bdi dir="ltr">World Health Organization. <em>Guidelines for Drinking-water Quality</em>. 4th ed. incorporating the first and second addenda. Geneva: WHO, 2022.</bdi></li>
+                <li><bdi dir="ltr">International Desalination Association. <em>Desalination Yearbook 2024–2025</em>. Topsfield, MA: IDA, 2025.</bdi></li>
             </ul>
         </div>
 
         <div class="essay-source-group">
-            <h3>ثالثاً: التقارير الرسمية والوثائق المؤسسية</h3>
+            <h4>ثالثاً: وثائق المشروع والمعطيات التقنية</h4>
             <ul>
-                <li>وزارة التجهيز والماء. <em>الاستراتيجية الوطنية للماء 2020-2050</em>. الرباط، 2020.</li>
-                <li>المكتب الوطني للكهرباء والماء الصالح للشرب (ONEE). <em>تقرير النشاط السنوي 2024</em>. الرباط، 2025.</li>
-                <li><bdi dir="ltr">World Bank. <em>Morocco: Water Sector Review</em>. Washington, D.C.: World Bank Publications, 2017.</bdi></li>
+                <li>المكتب الوطني للكهرباء والماء الصالح للشرب. <em>محطة تحلية مياه البحر للدار البيضاء-سطات: المعطيات التقنية والمراحل</em>. الرباط، 2026.</li>
+                <li><bdi dir="ltr">IMWO. "Casablanca First Phase Includes Shared Intake, Outfall and Tunnel Systems." <em>International Marine Work Organization Brief</em>, 13 July 2026.</bdi></li>
+                <li><bdi dir="ltr">ACCIONA. "Casablanca Desalination Plant." Project sheet, Madrid, 2026.</bdi></li>
+                <li><bdi dir="ltr">Global Water Intelligence. <em>Desalination Market Profile</em>. Oxford: GWI, 2025.</bdi></li>
             </ul>
         </div>
     </div>
 </section>
-
