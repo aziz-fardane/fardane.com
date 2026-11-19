@@ -28,7 +28,7 @@
         <!-- Arabic fonts — the four families of the identity -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Reem+Kufi:wght@400..700&family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
         <!-- Font Awesome icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -165,7 +165,7 @@
         
 
         <!-- Styles -->
-        <link rel="stylesheet" href="/dist/main.75ea5cc4.css"/>
+        <link rel="stylesheet" href="/dist/main.925a216f.css"/>
 
         <!-- RTL support for Tailwind CSS -->
         <style>
@@ -246,53 +246,28 @@
     /* ============================================================
        HOME · DOSSIER COVER
        ============================================================ */
+    /* Aliases for the canonical identity tokens (--id-*). One palette on the
+       homepage and everywhere else; no competing body-level colours. */
     body.home-page{
-        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#2c3833;
-        --muted:#6f6a5c; --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f;
-        --water:#2e6f68; --night:#0b1c17; --line:#ded7c5; --line-strong:#cfc6b0;
-        --naskh:'Noto Naskh Arabic',serif; --kufi:'Noto Kufi Arabic',sans-serif; --mono:'IBM Plex Mono',monospace;
+        --paper:var(--id-plaster); --paper-2:var(--id-paper); --ink:var(--id-ink);
+        --graphite:var(--id-graphite); --muted:var(--id-muted); --brass:var(--id-brass);
+        --brass-text:var(--id-brass-text); --brass-2:var(--id-brass-2);
+        --water:var(--id-water); --night:var(--id-night); --line:var(--id-line);
+        --line-strong:var(--id-line-strong);
+        --naskh:var(--font-reading); --kufi:var(--font-heading); --mono:var(--font-code);
         background:var(--paper);
     }
     body.home-page main{background:var(--paper)}
     body.home-page #preloader{background:var(--paper)}
-    body.home-page #preloader .border-amber-600{border-color:var(--brass)}
-    body.home-page header > div.absolute{background:var(--paper)!important;box-shadow:none!important;border-bottom:1px solid var(--line-strong)}
-    body.home-page header .bg-white{background:var(--paper)!important}
-    body.home-page header .text-stone-900{color:var(--ink)!important}
-    body.home-page header .text-stone-800{color:var(--ink)!important}
-    body.home-page header .text-stone-700{color:#3b463f!important}
-    body.home-page header .text-stone-600{color:var(--muted)!important}
-    body.home-page header .text-amber-600{color:var(--brass-text)!important}
-    body.home-page header .text-amber-700{color:var(--water)!important}
-    body.home-page header .bg-amber-600{background:var(--brass-text)!important}
-    body.home-page header .bg-stone-800{background:var(--ink)!important}
-    body.home-page header .bg-amber-100{background:#e4ede9!important}
-    body.home-page header .hover\:text-stone-800:hover{color:var(--ink)!important}
-    body.home-page header .from-amber-600{--tw-gradient-from:var(--brass-text)!important}
-    body.home-page header .to-amber-400{--tw-gradient-to:var(--brass-2)!important}
-    body.home-page header .hover\:text-amber-700:hover{color:var(--water)!important}
-    body.home-page header .hover\:bg-stone-100:hover{background:#e9e3d4!important}
-    body.home-page footer.bg-stone-900{background:var(--night)!important;border-top:1px solid rgba(201,163,95,.28)}
-    body.home-page footer .text-amber-400{color:var(--brass-2)!important}
-    body.home-page footer .text-amber-500{color:var(--brass)!important}
-    body.home-page footer .text-amber-600{color:var(--brass)!important}
-    body.home-page footer .text-amber-300{color:#e6dcc6!important}
-    body.home-page footer .hover\:text-amber-300:hover{color:#f2ead8!important}
-    body.home-page footer .bg-amber-700{background:var(--water)!important}
-    body.home-page footer .hover\:bg-amber-700:hover{background:var(--water)!important}
-    body.home-page footer .bg-amber-500{background:var(--brass)!important}
-    body.home-page footer .bg-stone-800{background:#132a23!important}
-    body.home-page footer .border-stone-700{border-color:rgba(201,163,95,.22)!important}
-    body.home-page footer .text-stone-300{color:#c9bea6!important}
-    body.home-page footer .text-stone-400{color:#a8a08d!important}
-    body.home-page footer .text-stone-500{color:#918a79!important}
-    body.home-page footer .hover\:text-amber-400:hover{color:var(--brass-2)!important}
-    body.home-page footer .from-amber-600{--tw-gradient-from:var(--brass)!important}
-    body.home-page footer .to-amber-400{--tw-gradient-to:var(--brass-2)!important}
-    body.home-page #back-to-top{background:var(--water)!important}
 
     /* ---------- COVER ---------- */
     .hc{position:relative;min-height:calc(100vh - 76px);display:flex;align-items:center;overflow:hidden;background:var(--paper);padding:clamp(2rem,5vw,3.5rem) 0 clamp(3.5rem,6vw,5rem)}
+    /* Slow water-and-brass wash behind the cover — CSS gradients only. */
+    .hc::before{content:"";position:absolute;inset:-8%;pointer-events:none;z-index:0;opacity:.7;
+        background:radial-gradient(38% 42% at 78% 30%,rgba(46,111,104,.10),transparent 70%),
+                   radial-gradient(34% 38% at 16% 78%,rgba(166,122,46,.09),transparent 72%);
+        animation:hcWash 42s ease-in-out infinite alternate}
+    @keyframes hcWash{from{transform:translate3d(-1%,-1%,0) scale(1)}to{transform:translate3d(1%,1%,0) scale(1.04)}}
     .hc-grid{
         position:absolute;inset:0;pointer-events:none;
         background-image:linear-gradient(to left,rgba(19,31,27,.055) 1px,transparent 1px),linear-gradient(to bottom,rgba(19,31,27,.055) 1px,transparent 1px);
@@ -1348,8 +1323,10 @@
         <button id="back-to-top"
                 aria-label="العودة إلى أعلى الصفحة"
                 title="العودة إلى أعلى الصفحة"
-                class="fixed bottom-8 left-8 bg-brass-text text-plaster w-12 h-12 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-cobalt">
-            <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                class="fixed bottom-8 left-8 bg-brass-text text-plaster w-12 h-12 flex items-center justify-center opacity-0 transition-all duration-300 hover:bg-water-ink hover:-translate-y-1">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 19V5M5 12l7-7 7 7"/>
+            </svg>
         </button>
 
         <!-- Facebook SDK for Comments is loaded on demand from the article layout -->
