@@ -3,7 +3,7 @@ layout: scientist
 name: ابن بصال الطليطلي
 dates: القرن 11 الميلادي (القرن 5 الهجري)
 location: طليطلة - إشبيلية، الأندلس
-image: image: /dist/images/scientists/ibn-bassal.jpg
+image: image: fardane/fardane.com/edit/main/_scientists/ibn-bassal.md
 category: agriculture
 region: andalus
 order: 2
