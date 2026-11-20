@@ -16,7 +16,14 @@
         <meta name="referrer" content="strict-origin-when-cross-origin">
         <title>{% if page.title %}{{ page.title }} | {% endif %}{% if page.lang == 'en' %}Aziz Fardane{% else %}{{ site.title }}{% endif %}</title>
         <meta name="description" content="{{ page.description | default: site.description }}">
-        <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
+        {% assign _tags_csv = page.tags | join: ', ' | replace: '-', ' ' %}
+{% assign _kw = page.keywords %}
+{% unless _kw %}
+  {% if page.layout == 'post' or page.layout == 'post-feature' %}
+    {% assign _kw = page.title | append: ', ' | append: _tags_csv | append: ', تاريخ الماء في المغرب' %}
+  {% endif %}
+{% endunless %}
+<meta name="keywords" content="{{ _kw | default: site.keywords | escape }}">
         <meta name="author" content="{{ site.author }}">
 
         {% if page.layout == 'post' or page.layout == 'post-feature' or page.layout == 'news' or page.layout == 'news-article' or page.layout == 'publication' or page.layout == 'research' %}
@@ -29,6 +36,11 @@
         <meta name="citation_fulltext_html_url" content="{{ page.url | absolute_url }}">
         {% if page.doi %}<meta name="citation_doi" content="{{ page.doi | escape }}">{% endif %}
         {% if page.pdf %}{% assign _cit_pdf_key = page.pdf | remove_first: '/' %}<meta name="citation_pdf_url" content="{{ site.data.manifest[_cit_pdf_key] | default: page.pdf | absolute_url }}">{% endif %}
+        <meta name="citation_author_orcid" content="https://orcid.org/0009-0007-1033-7415">
+        {% if page.tags.size > 0 %}<meta name="citation_keywords" content="{{ page.tags | join: ', ' | replace: '-', ' ' | escape }}">{% endif %}
+        {% if page.description %}<meta name="citation_abstract" content="{{ page.description | strip_html | truncate: 350 | escape }}">{% endif %}
+        {% if page.title_en %}<meta name="DC.title" content="{{ page.title_en | escape }}">{% endif %}
+        {% if page.abstract_en %}<meta name="DC.language" content="en">{% endif %}
         {% endif %}
 
         {% if page.noindex %}
