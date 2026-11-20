@@ -162,6 +162,25 @@ layout: default
                         {{ content }}
                     </article>
 
+{% if page.abstract_en or page.abstract_fr %}
+<section class="ed-abstracts" aria-label="ملخصات بلغات أخرى">
+    {% if page.abstract_en %}
+    <div class="ed-abstract" lang="en" dir="ltr">
+        <h2>Abstract</h2>
+        {% if page.title_en %}<h3>{{ page.title_en | escape }}</h3>{% endif %}
+        <p>{{ page.abstract_en | escape }}</p>
+    </div>
+    {% endif %}
+    {% if page.abstract_fr %}
+    <div class="ed-abstract" lang="fr" dir="ltr">
+        <h2>Résumé</h2>
+        {% if page.title_fr %}<h3>{{ page.title_fr | escape }}</h3>{% endif %}
+        <p>{{ page.abstract_fr | escape }}</p>
+    </div>
+    {% endif %}
+</section>
+{% endif %}
+
                     <div class="ed-after">
                         <div class="ed-share">
                             <span class="ed-share-label">
