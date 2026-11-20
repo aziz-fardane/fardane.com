@@ -1,5 +1,5 @@
 ---
-layout: scientist
+layout: scientist 
 name: ابن بصال الطليطلي
 dates: القرن 11 الميلادي (القرن 5 الهجري)
 location: طليطلة - إشبيلية، الأندلس
