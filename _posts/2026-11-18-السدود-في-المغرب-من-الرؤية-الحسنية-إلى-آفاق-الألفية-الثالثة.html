@@ -1889,6 +1889,43 @@ toc:
     line-height: 1.9;
     color: var(--dams-muted-deep);
 }
+
+    /* توحيد تنسيق فقرة كيفية الاستشهاد بهذا المقال */
+    .ed-body .article-citation {
+        background: #eef1ea !important;
+        border: 1px solid #d8d2c2 !important;
+        border-top: 3px solid #8ea39b !important;
+        border-radius: 8px !important;
+        padding: 18px 22px !important;
+        margin: 2.5rem 0 !important;
+    }
+    .ed-body .article-citation h2 {
+        font-family: "Noto Naskh Arabic", Spectral, Georgia, "Times New Roman", serif !important;
+        font-size: 1.14rem !important;
+        line-height: 1.6 !important;
+        font-weight: 700 !important;
+        color: #1f534e !important;
+        margin: 0 0 12px !important;
+        padding: 0 !important;
+        border: 0 !important;
+    }
+    .ed-body .article-citation p {
+        font-family: "Noto Naskh Arabic", Spectral, Georgia, "Times New Roman", serif !important;
+        font-size: 0.94rem !important;
+        line-height: 1.8 !important;
+        color: #3f3830 !important;
+        margin: 0 0 8px !important;
+        padding: 0 !important;
+    }
+    .ed-body .article-citation p.ltr {
+        font-family: Spectral, Georgia, "Times New Roman", serif !important;
+        font-size: 0.9rem !important;
+        line-height: 1.7 !important;
+        text-align: left !important;
+        direction: ltr !important;
+    }
+    .ed-body .article-citation p:last-child { margin-bottom: 0 !important; }
+
 </style>
 
 <!-- ═══════════════ أشرطة نسب الملء ═══════════════ -->
@@ -2030,15 +2067,11 @@ toc:
     </ol>
 </div>
 
-<section class="essay-sources" dir="rtl">
+<section class="article-citation" dir="rtl">
     <h2>كيفية الاستشهاد بهذا المقال</h2>
-    <div class="essay-sources-grid">
-        <div class="essay-source-group">
-            <p>فردان، عزيز. «السدود في المغرب: من الرؤية الحسنية إلى آفاق الألفية الثالثة». <em>fardane.com</em>، 18 نونبر 2026. <a href="https://fardane.com/articles/%D8%A7%D9%84%D8%B3%D8%AF%D9%88%D8%AF-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8-%D9%85%D9%86-%D8%A7%D9%84%D8%B1%D8%A4%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D8%B3%D9%86%D9%8A%D8%A9-%D8%A5%D9%84%D9%89-%D8%A2%D9%81%D8%A7%D9%82-%D8%A7%D9%84%D8%A3%D9%84%D9%81%D9%8A%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/" target="_blank" rel="noopener">الرابط</a>.</p>
-            <p lang="en" dir="ltr">Fardane, A. “Dams in Morocco: From the Hassan II Vision to the Prospects of the Third Millennium.” <em>fardane.com</em>, 18 November 2026. &lt;https://fardane.com/articles/%D8%A7%D9%84%D8%B3%D8%AF%D9%88%D8%AF-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8-%D9%85%D9%86-%D8%A7%D9%84%D8%B1%D8%A4%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D8%B3%D9%86%D9%8A%D8%A9-%D8%A5%D9%84%D9%89-%D8%A2%D9%81%D8%A7%D9%82-%D8%A7%D9%84%D8%A3%D9%84%D9%81%D9%8A%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/&gt;.</p>
-            <p lang="fr" dir="ltr">Fardane, A. « Les barrages au Maroc : de la vision hassanienne aux perspectives du troisième millénaire ». <em>fardane.com</em>, 18 novembre 2026. &lt;https://fardane.com/articles/%D8%A7%D9%84%D8%B3%D8%AF%D9%88%D8%AF-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8-%D9%85%D9%86-%D8%A7%D9%84%D8%B1%D8%A4%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D8%B3%D9%86%D9%8A%D8%A9-%D8%A5%D9%84%D9%89-%D8%A2%D9%81%D8%A7%D9%82-%D8%A7%D9%84%D8%A3%D9%84%D9%81%D9%8A%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/&gt;.</p>
-        </div>
-    </div>
+    <p>فردان، عزيز. «السدود في المغرب: من الرؤية الحسنية إلى آفاق الألفية الثالثة». <em>fardane.com</em>، 18 نونبر 2026. <a href="https://fardane.com/articles/%D8%A7%D9%84%D8%B3%D8%AF%D9%88%D8%AF-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8-%D9%85%D9%86-%D8%A7%D9%84%D8%B1%D8%A4%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D8%B3%D9%86%D9%8A%D8%A9-%D8%A5%D9%84%D9%89-%D8%A2%D9%81%D8%A7%D9%82-%D8%A7%D9%84%D8%A3%D9%84%D9%81%D9%8A%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/" target="_blank" rel="noopener">الرابط</a>.</p>
+    <p class="ltr" lang="en" dir="ltr">Fardane, A. “Dams in Morocco: From the Hassan II Vision to the Prospects of the Third Millennium.” <em>fardane.com</em>, 18 November 2026. &lt;https://fardane.com/articles/%D8%A7%D9%84%D8%B3%D8%AF%D9%88%D8%AF-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8-%D9%85%D9%86-%D8%A7%D9%84%D8%B1%D8%A4%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D8%B3%D9%86%D9%8A%D8%A9-%D8%A5%D9%84%D9%89-%D8%A2%D9%81%D8%A7%D9%82-%D8%A7%D9%84%D8%A3%D9%84%D9%81%D9%8A%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/&gt;.</p>
+    <p class="ltr" lang="fr" dir="ltr">Fardane, A. « Les barrages au Maroc : de la vision hassanienne aux perspectives du troisième millénaire ». <em>fardane.com</em>, 18 novembre 2026. &lt;https://fardane.com/articles/%D8%A7%D9%84%D8%B3%D8%AF%D9%88%D8%AF-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8-%D9%85%D9%86-%D8%A7%D9%84%D8%B1%D8%A4%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D8%B3%D9%86%D9%8A%D8%A9-%D8%A5%D9%84%D9%89-%D8%A2%D9%81%D8%A7%D9%82-%D8%A7%D9%84%D8%A3%D9%84%D9%81%D9%8A%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/&gt;.</p>
 </section>
 <section class="essay-sources" dir="rtl">
     <h2>المصادر والمراجع</h2>
