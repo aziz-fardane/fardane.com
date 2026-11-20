@@ -260,7 +260,7 @@ permalink: /about/
                     <p class="cv-year mb-2">العضوية المهنية</p>
                     <p class="cv-kufi text-sm font-semibold mb-1" style="color:var(--ink)">الاتحاد الدولي للغة العربية</p>
                     <p class="text-xs" style="color:#6f6a5c">رقم العضوية 28-26/01107</p>
-                    <a href="{{ site.data.manifest['dist/pdf/membership-certificate-01107.pdf'] | default: '/dist/pdf/membership-certificate-01107.pdf' }}" target="_blank" class="cv-link text-xs inline-flex items-center gap-1 mt-2">
+                    <a href="{{ site.data.manifest['dist/pdf/membership-certificate-01107.pdf'] | default: '/dist/pdf/membership-certificate-01107.pdf' }}" target="_blank" rel="noopener noreferrer" class="cv-link text-xs inline-flex items-center gap-1 mt-2">
                         <i class="fas fa-file-pdf"></i>
                         عرض الشهادة
                     </a>
@@ -470,7 +470,7 @@ permalink: /about/
                         <p class="text-sm" style="color:#6b6558">مقال مشترك: عزيز فردان وأمجهادي عبد الله</p>
                     </div>
                     <div class="flex md:flex-col items-start gap-3 md:pt-7">
-                        <a href="http://catalog.fondation.org.ma:81/cgi-bin/koha/opac-detail.pl?biblionumber=774260&query_desc=an%3A179219" target="_blank" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-external-link-alt"></i> رابط المنشور</a>
+                        <a href="http://catalog.fondation.org.ma:81/cgi-bin/koha/opac-detail.pl?biblionumber=774260&query_desc=an%3A179219" target="_blank" rel="noopener noreferrer" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-external-link-alt"></i> رابط المنشور</a>
                         {% assign _pdf = site.data.manifest['dist/pdf/water-resources-oases-summary.pdf'] %}{% if _pdf %}<a href="{{ _pdf }}" class="cv-link text-sm flex items-center gap-2"><i class="fas fa-file-pdf"></i> تحميل ملخص البحث</a>{% endif %}
                     </div>
                 </article>
