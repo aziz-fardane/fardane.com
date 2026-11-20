@@ -19,6 +19,18 @@
         <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
         <meta name="author" content="{{ site.author }}">
 
+        {% if page.layout == 'post' or page.layout == 'post-feature' or page.layout == 'news' or page.layout == 'news-article' or page.layout == 'publication' or page.layout == 'research' %}
+        <!-- Highwire citation metadata for scholarly indexing -->
+        <meta name="citation_title" content="{{ page.title | escape }}">
+        <meta name="citation_author" content="عزيز فردان">
+        <meta name="citation_author_institution" content="Cadi Ayyad University, Marrakech, Morocco">
+        <meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}">
+        <meta name="citation_language" content="{{ page.lang | default: 'ar' }}">
+        <meta name="citation_fulltext_html_url" content="{{ page.url | absolute_url }}">
+        {% if page.doi %}<meta name="citation_doi" content="{{ page.doi | escape }}">{% endif %}
+        {% if page.pdf %}{% assign _cit_pdf_key = page.pdf | remove_first: '/' %}<meta name="citation_pdf_url" content="{{ site.data.manifest[_cit_pdf_key] | default: page.pdf | absolute_url }}">{% endif %}
+        {% endif %}
+
         {% if page.noindex %}
         <meta name="robots" content="noindex, nofollow">
         {% endif %}
