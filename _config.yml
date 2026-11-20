@@ -28,7 +28,7 @@ logo: /dist/images/university-logo.png # Logo du site (utilisé par Google)
 social:
   name: "د. عزيز فردان"
   links:
-    - https://www.linkedin.com/in/aziz-fardane-gis1948/
+    - https://www.linkedin.com/in/aziz-fardane/
     # Ajoute ici d'autres liens de réseaux sociaux si tu le souhaites
 twitter:
   username: azizfardane # Remplace par le vrai nom d'utilisateur Twitter s'il existe
