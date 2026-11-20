@@ -23,6 +23,8 @@
     {% assign _kw = page.title | append: ', ' | append: _tags_csv | append: ', تاريخ الماء في المغرب' %}
   {% endif %}
 {% endunless %}
+{% if page.keywords_en %}{% assign _kw = _kw | append: ', ' | append: page.keywords_en %}{% endif %}
+{% if page.keywords_fr %}{% assign _kw = _kw | append: ', ' | append: page.keywords_fr %}{% endif %}
 <meta name="keywords" content="{{ _kw | default: site.keywords | escape }}">
         <meta name="author" content="{{ site.author }}">
 
@@ -30,7 +32,7 @@
         <!-- Highwire citation metadata for scholarly indexing -->
         <meta name="citation_title" content="{{ page.title | escape }}">
         <meta name="citation_author" content="عزيز فردان">
-        <meta name="citation_author_institution" content="Cadi Ayyad University, Marrakech, Morocco">
+        <meta name="citation_author_institution" content="{% if page.citation_institution %}{{ page.citation_institution | escape }}{% else %}Cadi Ayyad University, Marrakech, Morocco{% endif %}">
         <meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}">
         <meta name="citation_language" content="{{ page.lang | default: 'ar' }}">
         <meta name="citation_fulltext_html_url" content="{{ page.url | absolute_url }}">
@@ -38,9 +40,16 @@
         {% if page.pdf %}{% assign _cit_pdf_key = page.pdf | remove_first: '/' %}<meta name="citation_pdf_url" content="{{ site.data.manifest[_cit_pdf_key] | default: page.pdf | absolute_url }}">{% endif %}
         <meta name="citation_author_orcid" content="https://orcid.org/0009-0007-1033-7415">
         {% if page.tags.size > 0 %}<meta name="citation_keywords" content="{{ page.tags | join: ', ' | replace: '-', ' ' | escape }}">{% endif %}
+        {% if page.keywords_en %}<meta name="citation_keywords" lang="en" content="{{ page.keywords_en | escape }}">{% endif %}
+        {% if page.keywords_fr %}<meta name="citation_keywords" lang="fr" content="{{ page.keywords_fr | escape }}">{% endif %}
         {% if page.description %}<meta name="citation_abstract" content="{{ page.description | strip_html | truncate: 350 | escape }}">{% endif %}
-        {% if page.title_en %}<meta name="DC.title" content="{{ page.title_en | escape }}">{% endif %}
+        {% if page.abstract_en %}<meta name="DC.description" lang="en" content="{{ page.abstract_en | escape }}">{% endif %}
+        {% if page.abstract_fr %}<meta name="DC.description" lang="fr" content="{{ page.abstract_fr | escape }}">{% endif %}
+        <meta name="DC.language" content="ar">
+        {% if page.title_en %}<meta name="DC.title" lang="en" content="{{ page.title_en | escape }}">{% endif %}
+        {% if page.title_fr %}<meta name="DC.title" lang="fr" content="{{ page.title_fr | escape }}">{% endif %}
         {% if page.abstract_en %}<meta name="DC.language" content="en">{% endif %}
+        {% if page.abstract_fr %}<meta name="DC.language" content="fr">{% endif %}
         {% endif %}
 
         {% if page.noindex %}
