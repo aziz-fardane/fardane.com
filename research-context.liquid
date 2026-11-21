@@ -1,0 +1,22 @@
+{% comment %}
+  سياق بحثي مُنسَّق من حقل related في front matter.
+  مستقل عن related.liquid الآلي، ويُعرض قبل «اقرأ أيضاً».
+{% endcomment %}
+{% if page.related and page.related.size > 0 %}
+<section class="ed-related ed-research-context" aria-labelledby="ed-research-context-title">
+  <h2 class="ed-related-title" id="ed-research-context-title">سياق بحثي</h2>
+  <ul class="ed-related-grid ed-context-grid">
+    {% for item in page.related %}
+    <li class="ed-related-card ed-context-card">
+      <span class="ed-related-kicker">{{ item.relation | default: 'ذات صلة' }}</span>
+      <a class="ed-related-name" href="{{ item.url | relative_url }}">{{ item.title | default: item.url }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+<style>
+  .ed-context-grid { list-style: none; margin: 0; padding: 0; }
+  .ed-context-card { display: block; }
+  .ed-context-card .ed-related-name { text-decoration: none; }
+</style>
+{% endif %}
