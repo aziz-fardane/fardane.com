@@ -1,0 +1,18 @@
+{% comment %}
+  Structured data for pages that do not already emit JSON-LD.
+  Activated only with page_schema: true in front matter.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{% if page.url == '/articles/' or page.url == '/research/' or page.url == '/scientists/' or page.url == '/water-library/' %}CollectionPage{% else %}WebPage{% endif %}",
+  "@id": "{{ page.url | absolute_url }}#webpage",
+  "url": "{{ page.url | absolute_url }}",
+  "name": "{{ page.title | escape }}",
+  "description": "{{ page.description | escape }}",
+  "inLanguage": "ar",
+  "isPartOf": { "@id": "{{ site.url }}/#website" },
+  "about": { "@id": "{{ site.url }}/#person" }{% if page.last_modified_at %},
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}"{% endif %}
+}
+</script>
