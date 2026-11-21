@@ -72,6 +72,36 @@ permalink: /publications/
     </div>
 </section>
 
+<!-- ملخصات EN/FR داخل الصفحة العربية فقط: لا صفحات منفصلة ولا hreflang -->
+<section id="lang-summaries" class="py-8 bg-white dir-rtl border-b border-stone-200">
+    <style>
+        #lang-summaries summary::-webkit-details-marker{display:none}
+        #lang-summaries summary{list-style:none}
+        #lang-summaries .lang-chev{transition:transform .2s;display:inline-block}
+        #lang-summaries details[open] .lang-chev{transform:rotate(180deg)}
+    </style>
+    <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+            <details class="group bg-stone-50 rounded-xl border border-stone-200 overflow-hidden">
+                <summary class="cursor-pointer p-5 text-amber-800 font-semibold">
+                    ملخص بالإنجليزية والفرنسية — Abstract / Résumé
+                    <i class="fas fa-chevron-down lang-chev mr-2"></i>
+                </summary>
+                <div class="px-5 pb-6 pt-2 border-t border-stone-200 space-y-4">
+                    <div lang="en" dir="ltr" class="text-sm text-stone-600 leading-relaxed">
+                        <p class="font-semibold text-amber-800 mb-1">Abstract</p>
+                        <p>This research examines the history of water in medieval Morocco through its relationship with the mountain, the environment, and the spatial field. It explores the systems and techniques developed by local societies to manage, exploit, and distribute water resources — from springs and sources to khettaras, irrigation channels, dams, cisterns, and water clocks — together with water toponymy and the meanings of place-names associated with water. The geographical scope covers the Southeast, Bilad al-Qibla, Tafilalt, Wadi Draa, Wadi Ziz, and Wadi Rheris, within the Almoravid, Almohad, Marinid, and Wattasid periods.</p>
+                    </div>
+                    <div lang="fr" dir="ltr" class="text-sm text-stone-600 leading-relaxed">
+                        <p class="font-semibold text-amber-800 mb-1">Résumé</p>
+                        <p>Cette recherche étudie l'histoire de l'eau au Maroc médiéval à travers sa relation avec la montagne, l'environnement et l'espace. Elle examine les systèmes et les techniques élaborés par les populations pour gérer, exploiter et répartir les ressources hydrauliques — des sources et puits aux khettaras, canaux d'irrigation, barrages, citernes et horloges à eau — ainsi que la toponymie hydraulique et la signification des noms de lieux liés à l'eau. Le cadre géographique couvre le Sud-Est, le Bilad al-Qibla, le Tafilalt, les oueds Draa, Ziz et Rheris, dans le cadre des périodes almoravide, almohade, mérinide et wattasside.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
 <!-- شريط المستجدات: يُعرض أعلى صفحة المنشورات دون خلطه بقوائم الأبحاث -->
 {% assign latest_news = site.news | sort: 'date' | reverse | limit: 3 %}
 {% if latest_news.size > 0 %}
@@ -95,7 +125,7 @@ permalink: /publications/
                         {% if item.thumbnail %}
                         <div class="h-40 -mt-5 mx-5 mb-5 overflow-hidden rounded-t-xl">
                             {% assign _nk = item.thumbnail | remove_first: '/' %}
-                            <img src="{% if item.thumbnail contains '://' %}{{ item.thumbnail }}{% else %}{{ site.data.manifest[_nk] | default: item.thumbnail }}{% endif %}" alt="{{ item.title | escape }}" class="w-full h-full object-cover" loading="lazy">
+                            <img src="{% if item.thumbnail contains '://' %}{{ item.thumbnail }}{% else %}{{ site.data.manifest[_nk] | default: item.thumbnail }}{% endif %}" alt="صورة {{ item.type | default: 'مستجد' }}: {{ item.title | escape }}" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         {% endif %}
                         <span class="text-xs font-semibold text-amber-700">{{ item.type | default: 'مستجد' }}</span>
@@ -223,7 +253,7 @@ permalink: /publications/
 
             <div class="publication-card flex flex-col bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-lg hover:-translate-y-1 border border-stone-100" data-category="article">
                 <div class="relative h-64">
-                    <img src="{{ site.data.manifest['dist/images/publications/kan-journal-cover.jpg'] | default: '/dist/images/publications/kan-journal-cover.jpg' }}" alt="غلاف دورية كان التاريخية" class="w-full h-full object-cover object-top">
+                    <img src="{{ site.data.manifest['dist/images/publications/kan-journal-cover.jpg'] | default: '/dist/images/publications/kan-journal-cover.jpg' }}" alt="غلاف مقال «اسهام الطوبونيميا في التعريف بأعلام المقاومة المغربية» في دورية كان التاريخية، المجلد 19 العدد 80" class="w-full h-full object-cover object-top">
                     <div class="absolute top-3 right-3 bg-teal-600/90 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm">مقال</div>
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
@@ -254,7 +284,7 @@ permalink: /publications/
 
             <div class="publication-card flex flex-col bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-lg hover:-translate-y-1 border border-stone-100" data-category="book">
                 <div class="relative h-64">
-                    <img src="{{ site.data.manifest['dist/images/publications/book-cover-1.jpg'] | default: '/dist/images/publications/book-cover-1.jpg' }}" alt="غلاف أطروحة الماء والتعمير بالمغرب الوسيط" class="w-full h-full object-cover">
+                    <img src="{{ site.data.manifest['dist/images/publications/book-cover-1.jpg'] | default: '/dist/images/publications/book-cover-1.jpg' }}" alt="غلاف أطروحة «الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة»" class="w-full h-full object-cover">
                     <div class="absolute top-3 right-3 bg-amber-600/90 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm">أطروحة</div>
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
@@ -271,7 +301,7 @@ permalink: /publications/
 
             <div class="publication-card flex flex-col bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-lg hover:-translate-y-1 border border-stone-100" data-category="book">
                 <div class="relative h-64">
-                    <img src="{{ site.data.manifest['dist/images/publications/journal-cover-1.jpg'] | default: '/dist/images/publications/journal-cover-1.jpg' }}" alt="غلاف البحث" class="w-full h-full object-cover">
+                    <img src="{{ site.data.manifest['dist/images/publications/journal-cover-1.jpg'] | default: '/dist/images/publications/journal-cover-1.jpg' }}" alt="غلاف أطروحة ماستر «الساعات المائية بالمغرب الوسيط»" class="w-full h-full object-cover">
                     <div class="absolute top-3 right-3 bg-amber-600/90 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm">أطروحة ماستر</div>
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
@@ -288,7 +318,7 @@ permalink: /publications/
 
             <div class="publication-card flex flex-col bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-lg hover:-translate-y-1 border border-stone-100" data-category="conference">
                 <div class="relative h-64">
-                    <img src="{{ site.data.manifest['dist/images/publications/mohamed-v-university-book-cover.webp'] | default: '/dist/images/publications/mohamed-v-university-book-cover.webp' }}" alt="غلاف منشورات مؤتمر" class="w-full h-full object-cover">
+                    <img src="{{ site.data.manifest['dist/images/publications/mohamed-v-university-book-cover.webp'] | default: '/dist/images/publications/mohamed-v-university-book-cover.webp' }}" alt="غلاف منشورات جامعة محمد الخامس لمقال «أغرب الأطعمة في الواحات المغاربية خلال القرنين الثاني والثالث الهجري»" class="w-full h-full object-cover">
                     <div class="absolute top-3 right-3 bg-sky-600/90 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm">مؤتمر</div>
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
