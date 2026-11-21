@@ -3,7 +3,7 @@ layout: default
 title: المنشورات العلمية
 description: مقالات وأبحاث علمية محكمة في تاريخ النظم المائية والعمران في الحضارة الإسلامية للدكتور عزيز فردان.
 keywords: "منشورات علمية, مقالات تاريخية, أبحاث مائية, دكتور عزيز فردان, تاريخ المغرب الوسيط, تاريخ الماء في المغرب, حضارة إسلامية"
-image: /dist/images/publications-og-brown-1200x630.jpg
+image: /dist/images/publications-og-water-1200x630.jpg
 last_modified_at: 2026-11-21
 permalink: /publications/
 ---
@@ -51,6 +51,18 @@ permalink: /publications/
         </svg>
     </div>
 </header>
+
+<!-- تعريف موجز يستهدف المقتطف المميز لمحرك البحث حول العبارة الرئيسية -->
+<section class="py-12 bg-white dir-rtl border-b border-stone-200">
+    <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-amber-900 font-maghrebi mb-4">ما الذي يقصد بتاريخ الماء في المغرب الوسيط؟</h2>
+            <p class="text-lg text-stone-700 leading-relaxed">
+                هو دراسة النظم المائية التي شيّدها سكان المغرب الوسيط لإدارة الماء وتوزيعه: الخطارة والسواقي والسدود والخزائن والساعات المائية، وارتباطها بالعمران واستقرار القبائل. يقرأ البحث هذه التقنيات كبنية اجتماعية واقتصادية، مستئنساً بمصادر الإدريسي وابن حوقل، ويربطها بالجنوب الشرقي وبلاد القبلة وتافيلالت ووادي رهريس (Rheris).
+            </p>
+        </div>
+    </div>
+</section>
 
 <!-- شريط المستجدات: يُعرض أعلى صفحة المنشورات دون خلطه بقوائم الأبحاث -->
 {% assign latest_news = site.news | sort: 'date' | reverse | limit: 3 %}
@@ -110,6 +122,50 @@ permalink: /publications/
 
             <p class="text-lg text-stone-700 leading-relaxed mb-6">
                 تشكل المقالات والبحوث العلمية حصيلة التجربة البحثية في مجال تاريخ النظم المائية والعمران بالمغرب الوسيط. أسعى من خلالها إلى تقديم قراءة جديدة للمصادر التاريخية، وإعادة تركيب المعرفة حول العلاقة بين الإنسان والماء.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- محاور البحث: بنية موضوعية مرئية وقابلة للفهرسة داخل الصفحة نفسها -->
+<section id="research-topics" class="py-14 bg-stone-50 dir-rtl border-y border-stone-200">
+    <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center mb-8">
+                <div class="h-10 w-1.5 bg-amber-600 ml-4"></div>
+                <h2 class="text-2xl md:text-3xl font-bold text-amber-900 font-maghrebi">محاور البحث في تاريخ الماء بالمغرب الوسيط</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div id="axis-khattara" class="bg-white rounded-xl p-6 border border-stone-200">
+                    <h3 class="text-xl font-bold text-amber-800 mb-2">الخطارة وتقنيات رفع الماء</h3>
+                    <p class="text-stone-600 leading-relaxed">تتبّع أدوات رفع الماء وتوزيعه، وعلى رأسها الخطارة، بوصفها تقنيةً محليةً ارتبطت بالحقول والدور والطرقات.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-stone-200">
+                    <h3 class="text-xl font-bold text-amber-800 mb-2">السدود التاريخية والخزائن</h3>
+                    <p class="text-stone-600 leading-relaxed">دراسة مواقع السدود والخزائن القديمة وأدوارها في تخزين الماء وتنظيم الري ومواسم الزراعة.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-stone-200">
+                    <h3 class="text-xl font-bold text-amber-800 mb-2">الري والعمران في المغرب الوسيط</h3>
+                    <p class="text-stone-600 leading-relaxed">تحليل أثر الماء في نشوء التجمعات واستقرار القبائل، مع التركيز على الجنوب الشرقي وبلاد القبلة.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-stone-200">
+                    <h3 class="text-xl font-bold text-amber-800 mb-2">المصادر الجغرافية: الإدريسي وابن حوقل</h3>
+                    <p class="text-stone-600 leading-relaxed">قراءة نصوص الجغرافيين المسلمين بوصفها شاهداً على شبكات الماء والمسالك والمدن في المغرب الوسيط.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-stone-200 md:col-span-2">
+                    <h3 class="text-xl font-bold text-amber-800 mb-2">وادي رهريس (Rheris) وتافيلالت</h3>
+                    <p class="text-stone-600 leading-relaxed">ربط المعطيات النصية بمجرى وادي رهريس (Rheris) وتافيلالت لفهم العلاقة بين الماء والاستقرار البشري.</p>
+                </div>
+
+            </div>
+            <p class="mt-8 text-stone-600">
+                من المستجدات ذات الصلة:
+                <a href="/news/%D9%82%D8%B1%D8%A7%D8%A1%D8%A9-%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A%D8%A9-%D9%81%D9%8A-%D8%B2%D9%85%D9%86-%D8%A7%D9%84%D9%82%D8%B1%D9%86-%D8%A7%D9%84%D8%B9%D8%B4%D8%B1%D9%8A%D9%86/" class="text-amber-700 hover:text-amber-600 font-medium underline">قراءة تاريخية في زمن القرن العشرين — حالة آيت دادس</a>
             </p>
         </div>
     </div>
