@@ -2,6 +2,7 @@
   Structured data for pages that do not already emit JSON-LD.
   Activated only with page_schema: true in front matter.
 {% endcomment %}
+{% if page.page_schema %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -16,3 +17,4 @@
   "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}"{% endif %}
 }
 </script>
+{% endif %}
