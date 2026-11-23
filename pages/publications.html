@@ -23,6 +23,7 @@ last_modified_at: 2026-11-23
     <li><a href="#research-topics">٢ · محاور البحث والمنهج</a></li>
     <li><a href="#publications">٣ · المنشورات</a></li>
     <li><a href="#water-library">٤ · مكتبة الماء</a></li>
+    <li><a href="#water-taxonomy">٥ · المعجم والمناطق والمصادر</a></li>
   </ul>
 </nav>
 <div id="top"></div>
@@ -913,6 +914,113 @@ last_modified_at: 2026-11-23
             <p class="mt-6 text-center text-sm"><a href="#top" class="text-amber-700 hover:text-amber-600 font-medium">↑ العودة إلى دليل الصفحة</a></p>
 
             <p class="ob-foot">بيانات ببليوغرافية فقط، دون صور للكتب أو نسخ رقمية.</p>
+        </div>
+    </div>
+</section>
+<!-- قسم معرفي داخل الصفحة نفسها: لا permalink جديد، ولا صفحات منفصلة، ولا مصادر من المجلد المخفي -->
+<section id="water-taxonomy" class="py-16 dir-rtl bg-stone-50 border-t border-stone-200">
+    <div class="container mx-auto px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center mb-6">
+                <div class="h-10 w-1.5 bg-amber-600 ml-4"></div>
+                <h2 class="text-2xl md:text-3xl font-bold text-amber-900 font-maghrebi">المعجم التاريخي للماء بالمغرب: المصطلحات والمناطق والمصادر</h2>
+            </div>
+            <p class="text-stone-600 leading-relaxed mb-4 max-w-3xl">
+                مدخل معرفي واحد يجمع المصطلحات العربية ومقابلاتها الفرنسية والإنجليزية، والمناطق التي ارتبطت بها، وبطاقات المصادر والوثائق. يُستمد هذا القسم من ملفات البيانات نفسها التي يستخدمها البحث الداخلي، فتبقى التسمية موحّدة في كل مكان.
+            </p>
+            <nav aria-label="أقسام المعجم" class="flex flex-wrap gap-4 mb-12 text-sm">
+                <a href="#water-terms" class="text-amber-700 hover:text-amber-600 font-medium underline">المصطلحات</a>
+                <a href="#water-regions" class="text-amber-700 hover:text-amber-600 font-medium underline">المناطق</a>
+                <a href="#water-sources" class="text-amber-700 hover:text-amber-600 font-medium underline">المصادر والوثائق</a>
+            </nav>
+
+            <div id="water-terms" class="mb-14">
+                <h3 class="text-xl font-bold text-amber-800 mb-5">١ · المصطلحات</h3>
+                <div class="space-y-3">
+                    {% for domain in site.data.water_taxonomy.domains %}
+                    <details class="bg-white rounded-xl border border-stone-200 p-5">
+                        <summary class="cursor-pointer font-bold text-stone-800">
+                            {{ domain.label_ar | escape }}
+                            <span class="text-sm font-normal text-stone-500">· {{ domain.term_ids | size }} مصطلحاً</span>
+                        </summary>
+                        <p class="mt-2 text-xs text-stone-500" lang="fr" dir="ltr">{{ domain.label_fr | escape }} · <span lang="en" dir="ltr">{{ domain.label_en | escape }}</span></p>
+                        <ul class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                            {% for _tid in domain.term_ids %}
+                            {% assign _term = site.data.water_taxonomy.terms[_tid] %}
+                            {% if _term.ar %}
+                            <li class="text-sm leading-relaxed">
+                                <b class="text-stone-800">{{ _term.ar | escape }}</b>
+                                {% if _term.aliases_ar and _term.aliases_ar.size > 0 %}
+                                <span class="text-stone-500">/ {{ _term.aliases_ar | join: ' · ' | escape }}</span>
+                                {% endif %}
+                                <span class="block text-stone-600" lang="en" dir="ltr">{{ _term.en | escape }}</span>
+                                <span class="block text-stone-600" lang="fr" dir="ltr">{{ _term.fr | escape }}</span>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </details>
+                    {% endfor %}
+                </div>
+                <p class="mt-4 text-sm text-stone-600">
+                    تُستخدم هذه التسميات أيضاً في البحث الداخلي، حتى يُعرض المحتوى المرتبط بمصطلح أو بمرادفه العربي أو الفرنسي أو الإنجليزي.
+                </p>
+            </div>
+
+            <div id="water-regions" class="mb-14">
+                <h3 class="text-xl font-bold text-amber-800 mb-5">٢ · المناطق</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {% for region in site.data.water_regions.regions %}
+                    <article class="bg-white rounded-xl p-5 border border-stone-200">
+                        <h4 class="text-lg font-bold text-amber-800 mb-1">{{ region.ar | escape }}</h4>
+                        <p class="text-xs text-stone-500 mb-2" lang="en" dir="ltr">{{ region.en | escape }} · <span lang="fr" dir="ltr">{{ region.fr | escape }}</span></p>
+                        <p class="text-stone-600 leading-relaxed text-sm">{{ region.summary | escape }}</p>
+                        {% if region.taxonomy %}
+                        {% assign _rlabels = "" | split: "" %}
+                        {% for _tid in region.taxonomy %}
+                        {% assign _t = site.data.water_taxonomy.terms[_tid] %}
+                        {% if _t.ar %}{% assign _rlabels = _rlabels | push: _t.ar %}{% endif %}
+                        {% endfor %}
+                        <p class="mt-3 text-xs text-stone-500">المصطلحات المرتبطة: {{ _rlabels | join: ' · ' | escape }}</p>
+                        {% endif %}
+                        {% if region.related %}
+                        <ul class="mt-3 space-y-1 text-sm">
+                            {% for link in region.related %}
+                            <li><a href="{{ link.url | relative_url }}" class="text-amber-700 hover:text-amber-600 underline">{{ link.title | escape }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div id="water-sources">
+                <h3 class="text-xl font-bold text-amber-800 mb-5">٣ · المصادر والوثائق</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {% for source in site.data.water_sources.sources %}
+                    <article class="bg-white rounded-xl p-5 border border-stone-200">
+                        <p class="text-xs text-amber-700 mb-1">{{ source.type | escape }}</p>
+                        <h4 class="text-lg font-bold text-stone-800 mb-2">{{ source.title | escape }}</h4>
+                        <p class="text-stone-600 leading-relaxed text-sm">{{ source.summary | escape }}</p>
+                        {% if source.taxonomy %}
+                        {% assign _slabels = "" | split: "" %}
+                        {% for _tid in source.taxonomy %}
+                        {% assign _t = site.data.water_taxonomy.terms[_tid] %}
+                        {% if _t.ar %}{% assign _slabels = _slabels | push: _t.ar %}{% endif %}
+                        {% endfor %}
+                        <p class="mt-3 text-xs text-stone-500">المصطلحات المرتبطة: {{ _slabels | join: ' · ' | escape }}</p>
+                        {% endif %}
+                        <p class="mt-3 text-sm"><a href="{{ source.url | relative_url }}" class="text-amber-700 hover:text-amber-600 font-medium underline">اطّلع على السياق ذي الصلة</a></p>
+                    </article>
+                    {% endfor %}
+                </div>
+                <p class="mt-6 text-sm text-stone-600">
+                    بطاقات وصفية للاهتداء إلى المصادر، لا نسخ محققة ولا نصوص كاملة. أمّا عارض المخطوطات فيعرض لوحات توضيحية مُعدّة للعرض البصري، لا صوراً لمخطوطات أصلية.
+                </p>
+            </div>
+
+            <p class="mt-12 text-center text-sm"><a href="#top" class="text-amber-700 hover:text-amber-600 font-medium">↑ العودة إلى دليل الصفحة</a></p>
         </div>
     </div>
 </section>

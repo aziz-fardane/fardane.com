@@ -1,0 +1,66 @@
+# سجل وثائقي خفيف: بطاقات مصادر مرتبطة بالمصطلحات، بلا صفحات أو مسارات جديدة.
+# قاعدة حازمة: لا يُدرج أي عنصر من مجلد _hidden/ ولا أي عنصر published: false.
+sources:
+  - id: fiqh-water-nawazil
+    title: "النوازل الفقهية المتعلقة بالمياه"
+    type: "نوازل فقهية"
+    summary: "مدخل إلى الأحكام والفتاوى المرتبطة بقسمة المياه وحقوق السقي والنزاعات، مع إحالة إلى عارض المخطوطات والوثائق."
+    url: "/manuscripts/"
+    taxonomy: [fiqh-nawazil, fiqh-water-rulings, water-disputes, irrigation-rights]
+    language: "ar"
+
+  - id: notarial-water-deeds
+    title: "الرسوم العدلية وعقود المياه"
+    type: "وثائق عدلية"
+    summary: "بطاقات وصفية للرسوم العدلية وعقود اقتسام المياه وبيع حقوق الانتفاع، تُربط بالمصطلح والمنطقة."
+    url: "/manuscripts/"
+    taxonomy: [notarial-deeds, water-sharing-contracts, sale-of-use-rights, water-use-rights]
+    language: "ar"
+
+  - id: irrigation-turn-registers
+    title: "سجلات نوبات السقي"
+    type: "سجلات"
+    summary: "نماذج لسجلات النوبات وتوزيع الحصص الزمنية، تتيح تتبّع التنظيم اليومي للماء داخل الجماعات المائية."
+    url: "/manuscripts/"
+    taxonomy: [irrigation-turn-registers, irrigation-turns, water-share-distribution, water-communities]
+    language: "ar"
+
+  - id: water-waqf-documents
+    title: "وثائق الأوقاف المائية"
+    type: "وثائق أوقاف"
+    summary: "وثائق الوقف المائي وما تتضمنه من التزامات الصيانة وتحديد المستفيدين من العيون والسواقي."
+    url: "/manuscripts/"
+    taxonomy: [waqf-documents, water-waqf, canal-maintenance, springs]
+    language: "ar"
+
+  - id: well-spring-contracts
+    title: "عقود الآبار والعيون"
+    type: "عقود"
+    summary: "عقود تملّك أو انتفاع بالآبار والعيون، ومؤشرات على الملكية الزراعية وعلاقتها بالماء."
+    url: "/manuscripts/"
+    taxonomy: [well-spring-contracts, wells, springs, land-ownership-water]
+    language: "ar"
+
+  - id: idrissi-geography
+    title: "نزهة المشتاق في اختراق الآفاق"
+    type: "مصدر جغرافي تاريخي"
+    summary: "نصّ الإدريسي بوصفه شاهداً على مسارات الماء والعمران، ومستنداً لقراءة الأسماء والمنشآت في المغرب الوسيط."
+    url: "/articles/الإدريسي-الماء-والعمران/"
+    taxonomy: [water-springs-headwaters, springs, khettara, valley-waters]
+    language: "ar"
+
+  - id: thesis-water-urbanism
+    title: "الماء والتعمير بالمغرب الوسيط: الجنوب الشرقي وبلاد القبلة"
+    type: "أطروحة"
+    summary: "أطروحة غير منشورة تربط تحكّم الماء بانتشار القبائل واستقرارها في الجنوب الشرقي وبلاد القبلة."
+    url: "/publications/#publications"
+    taxonomy: [water-communities, tribal-water-sharing, khettara, agricultural-terraces]
+    language: "ar"
+
+  - id: thesis-water-clocks
+    title: "الساعات المائية بالمغرب الوسيط"
+    type: "أطروحة ماستر"
+    summary: "دراسة تقنيات الساعات المائية وأساليب صناعتها واستخداماتها في الحياة اليومية والعبادات."
+    url: "/publications/#publications"
+    taxonomy: [water-resource-management, water-customs, cisterns]
+    language: "ar"

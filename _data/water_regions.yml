@@ -1,0 +1,98 @@
+# ملفات جغرافية مرتبطة بالمصطلحات. لا يُدرج أي عنصر من مجلد _hidden/ ولا أي عنصر published: false.
+# التوسعة: أضف منطقة هنا، واربطها بمعرّفات من _data/water_taxonomy.yml.
+regions:
+  - id: marrakech
+    ar: "مراكش"
+    en: "Marrakesh"
+    fr: "Marrakech"
+    summary: "منطقة ربط بين العمران والسواقي والمرافق المائية، ومحلّ لدراسة الحرف المرتبطة بالماء وتنظيمها المهني."
+    taxonomy: [suqaya, water-mills, water-customs, canal-maintenance]
+    related:
+      - title: "الحرف المائية في المغرب الوسيط"
+        url: "/articles/الحرف-المائية-في-المغرب-الوسيط/"
+      - title: "الدباغون ومهنة الدباغة في مراكش"
+        url: "/articles/الدباغون-ومهنة-الدباغة-في-مراكش/"
+
+  - id: sijilmassa-tafilalt
+    ar: "سجلماسة وتافيلالت"
+    en: "Sijilmassa and the Tafilalt"
+    fr: "Sijilmassa et le Tafilalet"
+    summary: "حوض زيز ووادي غريس (Rheris)؛ نقطة محورية لبحث أصل الخطارة وتأريخها وتوزيع الماء بين القصور والدواوير."
+    taxonomy: [khettara, groundwater, foggara, irrigation-turns, water-division, valley-waters]
+    related:
+      - title: "الخطارة ضمن حضارة الماء: متى ظهر الري الجوفي بتافيلالت؟"
+        url: "/articles/سجلماسة-والخطارة/"
+      - title: "محاور البحث في تاريخ الماء"
+        url: "/publications/#research-topics"
+
+  - id: sus
+    ar: "سوس"
+    en: "Souss"
+    fr: "Souss"
+    summary: "مجال وادي سوس وما جاوره؛ يربط بين المياه الجوفية والري والمدرجات والتنظيم القبلي للماء."
+    taxonomy: [groundwater, valley-waters, slope-irrigation, tribal-water-sharing, agricultural-terraces]
+    related:
+      - title: "محاور البحث في تاريخ الماء"
+        url: "/publications/#research-topics"
+
+  - id: high-atlas
+    ar: "الأطلس الكبير"
+    en: "High Atlas"
+    fr: "Haut Atlas"
+    summary: "منابع جبلية وتدرّج في الانحدار؛ مناسب لدراسة العيون الجبلية ومياه الأودية والري بالانحدار."
+    taxonomy: [mountain-water, water-springs-headwaters, mountain-springs, slope-irrigation]
+    related:
+      - title: "محاور البحث في تاريخ الماء"
+        url: "/publications/#research-topics"
+
+  - id: middle-atlas
+    ar: "الأطلس المتوسط"
+    en: "Middle Atlas"
+    fr: "Moyen Atlas"
+    summary: "منابع وتجمعات جبلية؛ يُربط ببحث العيون والينابيع وعلاقتها بالاستقرار والمراعي."
+    taxonomy: [water-springs-headwaters, mountain-springs, surface-water, water-communities]
+    related:
+      - title: "محاور البحث في تاريخ الماء"
+        url: "/publications/#research-topics"
+
+  - id: draa
+    ar: "درعة"
+    en: "Draa"
+    fr: "Draâ"
+    summary: "وادي درعة وأحواضه؛ مجال مفضل لقراءة الأحواض المائية والسدود التاريخية والوثائق المرتبطة بالماء."
+    taxonomy: [basins, valley-waters, dams, cisterns, water-sharing-contracts]
+    related:
+      - title: "محاور البحث في تاريخ الماء"
+        url: "/publications/#research-topics"
+
+  - id: tadla
+    ar: "تادلة"
+    en: "Tadla"
+    fr: "Tadla"
+    summary: "مجال زراعي ونهري؛ يصل بين السواقي وحقوق السقي وتدبير الموارد المائية."
+    taxonomy: [suqaya, irrigation-rights, water-resource-management, irrigation-canals]
+    related:
+      - title: "محاور البحث في تاريخ الماء"
+        url: "/publications/#research-topics"
+
+  - id: fez
+    ar: "فاس"
+    en: "Fez"
+    fr: "Fès"
+    summary: "مدينة ونهر؛ مدخل لدراسة العيون والسواقي والحرف المائية والصهاريج في السياق الحضري."
+    taxonomy: [springs, suqaya, cisterns, water-customs, water-mills]
+    related:
+      - title: "محاور البحث في تاريخ الماء"
+        url: "/publications/#research-topics"
+
+  - id: oases
+    ar: "واحات المغرب"
+    en: "Moroccan oases"
+    fr: "Oasis marocaines"
+    summary: "الجنوب الشرقي والواحات؛ مختبر لدراسة الخطارات والفقارات ونوبات السقي والجماعات المائية."
+    taxonomy: [khettara, foggara, irrigation-turns, water-communities, water-waqf, drought]
+    related:
+      - title: "الخطارة ضمن حضارة الماء: متى ظهر الري الجوفي بتافيلالت؟"
+        url: "/articles/سجلماسة-والخطارة/"
+      - title: "محاور البحث في تاريخ الماء"
+        url: "/publications/#research-topics"
