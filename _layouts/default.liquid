@@ -127,21 +127,16 @@
             {
               "@type": "Person",
               "@id": "{{ site.url }}/#person",
-              "name": "د. عزيز فردان",
-              "alternateName": ["Aziz Fardane", "عزيز فردان"],
+              "name": "عزيز فردان",
+              "alternateName": ["Aziz Fardane", "Fardane Aziz", "عزيز فردان"],
               "jobTitle": "باحث مستقل في تاريخ النظم المائية والعمران",
-              "alumniOf": {
-                "@type": "CollegeOrUniversity",
-                "name": "جامعة القاضي عياض",
-                "url": "https://www.uca.ma"
-              },
               "url": "{{ site.url }}",
               "image": "{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}",
               "sameAs": [
                 "https://orcid.org/0009-0007-1033-7415",
                 "https://scholar.google.com/citations?user=yDZ8H28AAAAJ",
                 "https://zenodo.org/records/24394004",
-                "https://www.wikidata.org/wiki/Q142216864",
+                "https://zenodo.org/records/24430535",
                 "https://independent.academia.edu/azizfardane",
                 "https://www.linkedin.com/in/aziz-fardane/"
               ],
@@ -169,26 +164,10 @@
               ]
             },
             {
-              "@type": "Organization",
-              "name": "جامعة القاضي عياض",
-              "url": "https://www.uca.ma",
-              "logo": "{{ site.url }}{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}",
-              "description": "جامعة القاضي عياض هي جامعة مغربية تقع في مدينة مراكش",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "مراكش",
-                "postalCode": "40000",
-                "addressCountry": "MA"
-              },
-              "sameAs": [
-                "https://www.uca.ma"
-              ]
-            },
-            {
               "@type": "WebSite",
               "@id": "{{ site.url }}/#website",
               "url": "{{ site.url }}/",
-              "name": "تاريخ الماء في المغرب — الدكتور عزيز فردان",
+              "name": "تاريخ الماء في المغرب — عزيز فردان",
               "alternateName": [
                 "Water History in Morocco — Aziz Fardane",
                 "Histoire de l'eau au Maroc — Aziz Fardane"
@@ -217,15 +196,10 @@
               "@type": "Person",
               "@id": "{{ site.url }}/en/#person",
               "name": "Aziz Fardane",
-              "alternateName": "د. عزيز فردان",
+              "alternateName": ["عزيز فردان", "Fardane Aziz"],
               "jobTitle": "Researcher in the history of the medieval Maghrib — Arabic manuscript sources",
               "url": "{{ site.url }}/en/",
               "image": "{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}",
-              "alumniOf": {
-                "@type": "CollegeOrUniversity",
-                "name": "Cadi Ayyad University",
-                "url": "https://www.uca.ma"
-              },
               "knowsLanguage": [
                 "ar",
                 "fr",
@@ -243,7 +217,7 @@
                 "https://orcid.org/0009-0007-1033-7415",
                 "https://scholar.google.com/citations?user=yDZ8H28AAAAJ",
                 "https://zenodo.org/records/24394004",
-                "https://www.wikidata.org/wiki/Q142216864",
+                "https://zenodo.org/records/24430535",
                 "https://independent.academia.edu/azizfardane",
                 "https://www.linkedin.com/in/aziz-fardane/"
               ],
@@ -286,16 +260,16 @@
           "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
           "author": {
             "@type": "Person",
-            "name": "د. عزيز فردان",
+            "name": "عزيز فردان",
             "url": "{{ site.url }}"
           },
           "publisher": {
             "@type": "Organization",
-            "name": "{{ site.title }}",
+            "name": "عزيز فردان",
             "url": "{{ site.url }}",
             "logo": {
               "@type": "ImageObject",
-              "url": "{{ site.url }}{{ site.data.manifest['dist/images/university-logo.png'] | default: '/dist/images/university-logo.png' }}"
+              "url": "{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}"
             }
           },
           "mainEntityOfPage": {

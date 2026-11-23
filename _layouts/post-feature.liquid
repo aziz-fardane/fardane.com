@@ -166,13 +166,13 @@ layout: default
       {% if page.doi %}"doi": "{{ page.doi | escape }}",{% endif %}
       "author": {
         "@type": "Person",
-        "name": "د. عزيز فردان",
+        "name": "عزيز فردان",
         "url": "{{ site.url }}/about/",
         "sameAs": [
           "https://orcid.org/0009-0007-1033-7415",
           "https://scholar.google.com/citations?user=yDZ8H28AAAAJ",
           "https://zenodo.org/records/24394004",
-          "https://www.wikidata.org/wiki/Q142216864",
+          "https://zenodo.org/records/24430535",
           "https://www.linkedin.com/in/aziz-fardane/"
         ],
         "identifier": {
@@ -183,7 +183,7 @@ layout: default
       },
       "publisher": {
         "@type": "Organization",
-        "name": "{{ site.title }}",
+        "name": "عزيز فردان",
         "url": "{{ site.url }}"
       },
       "image": "{{ pf_cover | absolute_url }}",
@@ -191,7 +191,6 @@ layout: default
       "inLanguage": "ar",
       "genre": "{{ pf_category_label }}",
       "keywords": "{{ page.tags | join: ', ' | replace: '-', ' ' | escape }}",
-      "license": "https://creativecommons.org/licenses/by/4.0/",
       "isAccessibleForFree": true
     }
     </script>
