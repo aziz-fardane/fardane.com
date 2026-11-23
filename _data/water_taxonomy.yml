@@ -1,0 +1,412 @@
+# التصنيف المعرفي لتاريخ الماء بالمغرب الوسيط.
+# مصدر واحد للمصطلحات: أضف مصطلحاً جديداً هنا فقط، ثم أشر إليه عبر `taxonomy:` في بيانات المحتوى.
+# قاعدة حازمة: لا يُدرج أي عنصر من مجلد _hidden/ ولا أي عنصر يحمل published: false.
+# المعرّف (id) ثابت ولا يتغيّر؛ الأسماء والمرادفات قابلة للتوسّع.
+
+domains:
+  - id: institutions-law
+    label_ar: "التشريع والتنظيم المائي"
+    label_en: "Water law and regulation"
+    label_fr: "Droit et régulation de l'eau"
+    term_ids:
+      - water-law
+      - water-customs
+      - water-use-rights
+      - irrigation-turns
+      - water-division
+      - water-share-distribution
+      - water-disputes
+      - water-arbitration
+      - fiqh-water-rulings
+
+  - id: structures-techniques
+    label_ar: "المنشآت والتقنيات المائية"
+    label_en: "Hydraulic structures and techniques"
+    label_fr: "Structures et techniques hydrauliques"
+    term_ids:
+      - suqaya
+      - khettara
+      - foggara
+      - noria
+      - wells
+      - springs
+      - water-sources
+      - dams
+      - cisterns
+      - muwajal
+      - matfiyat
+      - irrigation-canals
+      - water-mills
+
+  - id: mountain-water
+    label_ar: "المياه والمجالات الجبلية"
+    label_en: "Water and mountain landscapes"
+    label_fr: "Eau et espaces montagnards"
+    term_ids:
+      - mountain-water
+      - water-springs-headwaters
+      - mountain-springs
+      - valley-waters
+      - slope-irrigation
+      - agricultural-terraces
+      - tribal-water-sharing
+
+  - id: society-economy
+    label_ar: "المجتمع والاقتصاد المائي"
+    label_en: "Water society and economy"
+    label_fr: "Société et économie de l'eau"
+    term_ids:
+      - water-communities
+      - irrigation-rights
+      - water-leasing
+      - sale-of-use-rights
+      - water-waqf
+      - canal-maintenance
+      - water-carriers
+      - land-ownership-water
+
+  - id: environment-resources
+    label_ar: "البيئة والموارد المائية"
+    label_en: "Environment and water resources"
+    label_fr: "Environnement et ressources en eau"
+    term_ids:
+      - basins
+      - groundwater
+      - surface-water
+      - rainwater
+      - drought
+      - floods
+      - water-resource-management
+      - land-reclamation
+
+  - id: sources-documents
+    label_ar: "المصادر والوثائق التاريخية"
+    label_en: "Historical sources and documents"
+    label_fr: "Sources et documents historiques"
+    term_ids:
+      - fiqh-nawazil
+      - notarial-deeds
+      - water-sharing-contracts
+      - waqf-documents
+      - irrigation-turn-registers
+      - well-spring-contracts
+      - water-dispute-documents
+
+terms:
+  water-law:
+    ar: "القانون المائي"
+    aliases_ar: ["الأحكام المائية", "القانون المتعلق بالماء"]
+    en: "water law"
+    fr: "droit de l'eau"
+    aliases_latin: ["water legislation", "droit hydraulique"]
+  water-customs:
+    ar: "الأعراف المائية"
+    aliases_ar: ["العرف المائي", "الأعراف المحلية للماء"]
+    en: "water customs"
+    fr: "coutumes hydrauliques"
+    aliases_latin: ["customary water rules", "usages de l'eau"]
+  water-use-rights:
+    ar: "حقوق الانتفاع بالمياه"
+    aliases_ar: ["حق الانتفاع بالماء", "حقوق الانتفاع"]
+    en: "water use rights"
+    fr: "droits d'usage de l'eau"
+    aliases_latin: ["rights of water use", "droits d'usage hydraulique"]
+  irrigation-turns:
+    ar: "نوبات السقي"
+    aliases_ar: ["النوبات", "نوبة السقي", "دور السقي", "نوبات الماء"]
+    en: "irrigation turns"
+    fr: "tours d'irrigation"
+    aliases_latin: ["water rotation", "tour d'eau", "irrigation schedule"]
+  water-division:
+    ar: "قسمة المياه"
+    aliases_ar: ["قسمة الماء", "تقسيم المياه"]
+    en: "water division"
+    fr: "partage de l'eau"
+    aliases_latin: ["water allocation", "répartition des eaux"]
+  water-share-distribution:
+    ar: "توزيع حصص المياه"
+    aliases_ar: ["حصص المياه", "توزيع الحصص", "الحصّة المائية"]
+    en: "distribution of water shares"
+    fr: "distribution des parts d'eau"
+    aliases_latin: ["water quotas", "parts d'eau"]
+  water-disputes:
+    ar: "النزاعات المائية"
+    aliases_ar: ["النزاع على الماء", "الخصومات المائية"]
+    en: "water disputes"
+    fr: "conflits liés à l'eau"
+    aliases_latin: ["water conflicts", "litiges hydrauliques"]
+  water-arbitration:
+    ar: "التحكيم المائي"
+    aliases_ar: ["التحكيم في المياه", "تحكيم الماء"]
+    en: "water arbitration"
+    fr: "arbitrage hydraulique"
+    aliases_latin: ["arbitration over water", "arbitrage de l'eau"]
+  fiqh-water-rulings:
+    ar: "الأحكام الفقهية المتعلقة بالمياه"
+    aliases_ar: ["أحكام المياه", "الفقه المائي", "أحكام الماء في الفقه"]
+    en: "juridical rulings on water"
+    fr: "jugements juridiques sur l'eau"
+    aliases_latin: ["fiqh rulings on water", "jurisprudence hydraulique"]
+
+  suqaya:
+    ar: "السواقي"
+    aliases_ar: ["الساقية", "ساقية", "السواقي"]
+    en: "irrigation channels"
+    fr: "canaux d'irrigation"
+    aliases_latin: ["seguias", "suqaya", "canaux de ségouia"]
+  khettara:
+    ar: "الخطارة"
+    aliases_ar: ["الخطّارة", "الخطارات", "أنجقة"]
+    en: "khettara"
+    fr: "khettara"
+    aliases_latin: ["khettaras", "qanat", "qanāt", "khettara system"]
+  foggara:
+    ar: "الفقارات"
+    aliases_ar: ["الفقارة", "الفلج"]
+    en: "foggara"
+    fr: "foggara"
+    aliases_latin: ["foggaret", "foggars", "qanat"]
+  noria:
+    ar: "النوعير"
+    aliases_ar: ["الناعورة", "ناعورة", "نوعير"]
+    en: "noria"
+    fr: "noria"
+    aliases_latin: ["norias", "waterwheel"]
+  wells:
+    ar: "الآبار"
+    aliases_ar: ["البئر", "بئر", "آبار"]
+    en: "wells"
+    fr: "puits"
+    aliases_latin: ["well", "puits", "bir"]
+  springs:
+    ar: "العيون"
+    aliases_ar: ["العين", "عيون الماء"]
+    en: "springs"
+    fr: "sources"
+    aliases_latin: ["spring", "source", "ayn"]
+  water-sources:
+    ar: "الينابيع"
+    aliases_ar: ["الينبوع", "ينابيع الماء"]
+    en: "water springs"
+    fr: "sources d'eau"
+    aliases_latin: ["natural springs", "sources naturelles"]
+  dams:
+    ar: "السدود"
+    aliases_ar: ["السد", "الخزائن", "الخزان المائي"]
+    en: "dams"
+    fr: "barrages"
+    aliases_latin: ["dam", "barrage", "reservoir"]
+  cisterns:
+    ar: "الصهاريج"
+    aliases_ar: ["الصهريج", "خزان الماء"]
+    en: "cisterns"
+    fr: "citernes"
+    aliases_latin: ["cistern", "citerne"]
+  muwajal:
+    ar: "المواجل"
+    aliases_ar: ["الموجل", "مواجل الماء"]
+    en: "water basins"
+    fr: "bassins de rétention"
+    aliases_latin: ["muwajal", "réservoirs"]
+  matfiyat:
+    ar: "المطفيات"
+    aliases_ar: ["المطفية", "مطفيات الماء"]
+    en: "water extinguishing basins"
+    fr: "bassins d'extinction"
+    aliases_latin: ["matfiyat", "bassins d'extinction"]
+  irrigation-canals:
+    ar: "قنوات الري"
+    aliases_ar: ["قناة الري", "قنوات السقي", "القنوات المائية"]
+    en: "irrigation canals"
+    fr: "canaux d'irrigation"
+    aliases_latin: ["irrigation channel", "canal d'irrigation"]
+  water-mills:
+    ar: "الطواحين المائية"
+    aliases_ar: ["الطاحونة المائية", "المطاحن المائية"]
+    en: "watermills"
+    fr: "moulins à eau"
+    aliases_latin: ["water mill", "moulin hydraulique"]
+
+  mountain-water:
+    ar: "المياه الجبلية"
+    aliases_ar: ["مياه الجبال", "الماء الجبلي"]
+    en: "mountain water"
+    fr: "eau de montagne"
+    aliases_latin: ["mountain waters", "eaux montagnardes"]
+  water-springs-headwaters:
+    ar: "منابع المياه"
+    aliases_ar: ["المنبع", "منابع الماء", "مصدر الماء"]
+    en: "water headwaters"
+    fr: "sources et têtes de bassin"
+    aliases_latin: ["headwaters", "sources de rivière"]
+  mountain-springs:
+    ar: "العيون الجبلية"
+    aliases_ar: ["عين جبلية", "عيون الجبال"]
+    en: "mountain springs"
+    fr: "sources de montagne"
+    aliases_latin: ["mountain spring", "source montagnarde"]
+  valley-waters:
+    ar: "مياه الأودية"
+    aliases_ar: ["مياه الوادي", "ماء الوادي"]
+    en: "valley waters"
+    fr: "eaux des vallées"
+    aliases_latin: ["wadi waters", "eaux d'oued"]
+  slope-irrigation:
+    ar: "الري بالانحدار"
+    aliases_ar: ["ري الانحدار", "الري بالجاذبية"]
+    en: "gravity irrigation"
+    fr: "irrigation par gravité"
+    aliases_latin: ["slope irrigation", "gravity-fed irrigation"]
+  agricultural-terraces:
+    ar: "المدرجات الزراعية"
+    aliases_ar: ["المدرجات", "المصاطب الزراعية"]
+    en: "agricultural terraces"
+    fr: "terrasses agricoles"
+    aliases_latin: ["terraced fields", "terrasses de culture"]
+  tribal-water-sharing:
+    ar: "اقتسام المياه بين القبائل والدواوير"
+    aliases_ar: ["اقتسام الماء بين القبائل", "تقاسم المياه القبلية"]
+    en: "water sharing between tribes and villages"
+    fr: "partage de l'eau entre tribus et douars"
+    aliases_latin: ["tribal water sharing", "partage tribal de l'eau"]
+
+  water-communities:
+    ar: "الجماعات المائية"
+    aliases_ar: ["الجماعة المائية", "جماعة الماء"]
+    en: "water communities"
+    fr: "communautés hydrauliques"
+    aliases_latin: ["water user communities", "communautés d'usagers de l'eau"]
+  irrigation-rights:
+    ar: "حقوق السقي"
+    aliases_ar: ["حق السقي", "حقوق الري"]
+    en: "irrigation rights"
+    fr: "droits d'irrigation"
+    aliases_latin: ["right to irrigate", "droits de sakia"]
+  water-leasing:
+    ar: "كراء المياه"
+    aliases_ar: ["إكراء المياه", "كراء الماء", "إيجار الماء"]
+    en: "water leasing"
+    fr: "location de l'eau"
+    aliases_latin: ["lease of water", "location d'eau"]
+  sale-of-use-rights:
+    ar: "بيع حقوق الانتفاع"
+    aliases_ar: ["بيع حق الانتفاع", "بيع حقوق الماء"]
+    en: "sale of use rights"
+    fr: "vente de droits d'usage"
+    aliases_latin: ["sale of water rights", "vente de droits hydrauliques"]
+  water-waqf:
+    ar: "الأوقاف المائية"
+    aliases_ar: ["الوقف المائي", "أوقاف الماء"]
+    en: "water waqfs"
+    fr: "habous hydrauliques"
+    aliases_latin: ["water endowments", "waqf hydraulique"]
+  canal-maintenance:
+    ar: "صيانة قنوات الري"
+    aliases_ar: ["صيانة السواقي", "صيانة القنوات المائية"]
+    en: "irrigation canal maintenance"
+    fr: "entretien des canaux d'irrigation"
+    aliases_latin: ["canal maintenance", "entretien hydraulique"]
+  water-carriers:
+    ar: "السقاؤون"
+    aliases_ar: ["السقاء", "السقاة", "ناقل الماء"]
+    en: "water carriers"
+    fr: "porteurs d'eau"
+    aliases_latin: ["water carrier", "saqqa"]
+  land-ownership-water:
+    ar: "الملكية الزراعية وعلاقتها بالمياه"
+    aliases_ar: ["الملكية الزراعية", "الماء والملكية الزراعية"]
+    en: "land ownership and its relation to water"
+    fr: "propriété foncière et eau"
+    aliases_latin: ["land and water rights", "propriété et hydraulique"]
+
+  basins:
+    ar: "الأحواض المائية"
+    aliases_ar: ["الحوض المائي", "الأحواض"]
+    en: "water basins"
+    fr: "bassins hydrauliques"
+    aliases_latin: ["river basin", "bassin versant"]
+  groundwater:
+    ar: "المياه الجوفية"
+    aliases_ar: ["الماء الجوفي", "المياه الباطنية", "الفرشة المائية"]
+    en: "groundwater"
+    fr: "eaux souterraines"
+    aliases_latin: ["ground water", "nappe phréatique", "eaux batiales"]
+  surface-water:
+    ar: "المياه السطحية"
+    aliases_ar: ["الماء السطحي", "المياه الظاهرة"]
+    en: "surface water"
+    fr: "eaux de surface"
+    aliases_latin: ["surface waters", "eaux superficielles"]
+  rainwater:
+    ar: "مياه الأمطار"
+    aliases_ar: ["ماء المطر", "الأمطار"]
+    en: "rainwater"
+    fr: "eaux de pluie"
+    aliases_latin: ["rain water", "pluies"]
+  drought:
+    ar: "الجفاف"
+    aliases_ar: ["الجفاف المائي", "القحط"]
+    en: "drought"
+    fr: "sécheresse"
+    aliases_latin: ["droughts", "aridité"]
+  floods:
+    ar: "الفيضانات"
+    aliases_ar: ["الفيضان", "السيول", "الفيضانات المائية"]
+    en: "floods"
+    fr: "inondations"
+    aliases_latin: ["flood", "crues", "débordements"]
+  water-resource-management:
+    ar: "تدبير الموارد المائية"
+    aliases_ar: ["إدارة الموارد المائية", "تدبير الماء", "تدبير المياه"]
+    en: "water resource management"
+    fr: "gestion des ressources en eau"
+    aliases_latin: ["water management", "gestion de l'eau"]
+  land-reclamation:
+    ar: "استصلاح الأراضي"
+    aliases_ar: ["استصلاح الأرض", "تصلح الأراضي"]
+    en: "land reclamation"
+    fr: "mise en valeur des terres"
+    aliases_latin: ["land reclamation", "aménagement foncier"]
+
+  fiqh-nawazil:
+    ar: "النوازل الفقهية"
+    aliases_ar: ["النوازل", "نوازل", "النوازل الشرعية"]
+    en: "juridical responsa"
+    fr: "novelles juridiques"
+    aliases_latin: ["nawazil", "fiqh responsa", "novelles fiqhiques"]
+  notarial-deeds:
+    ar: "الرسوم العدلية"
+    aliases_ar: ["الرسم العدلي", "الرسوم الشرعية", "الوثائق العدلية"]
+    en: "notarial deeds"
+    fr: "actes notariés"
+    aliases_latin: ["notarial records", "actes de justice"]
+  water-sharing-contracts:
+    ar: "عقود اقتسام المياه"
+    aliases_ar: ["عقد اقتسام الماء", "عقود قسمة المياه"]
+    en: "water sharing contracts"
+    fr: "contrats de partage de l'eau"
+    aliases_latin: ["water allocation contracts", "contrats hydrauliques"]
+  waqf-documents:
+    ar: "وثائق الأوقاف"
+    aliases_ar: ["وثائق الوقف", "وثائق الحبوس", "وثائق الأوقاف المائية"]
+    en: "waqf documents"
+    fr: "documents de habous"
+    aliases_latin: ["endowment deeds", "actes de waqf"]
+  irrigation-turn-registers:
+    ar: "سجلات نوبات السقي"
+    aliases_ar: ["سجلات النوبات", "سجل النوبات", "دفاتر النوبات"]
+    en: "irrigation turn registers"
+    fr: "registres des tours d'irrigation"
+    aliases_latin: ["turn registers", "registres de rotation"]
+  well-spring-contracts:
+    ar: "عقود الآبار والعيون"
+    aliases_ar: ["عقود الآبار", "عقود العيون", "عقود البئر"]
+    en: "well and spring contracts"
+    fr: "contrats de puits et de sources"
+    aliases_latin: ["well deeds", "actes de puits"]
+  water-dispute-documents:
+    ar: "وثائق النزاعات المائية"
+    aliases_ar: ["وثائق النزاع على الماء", "وثائق الخصومات المائية"]
+    en: "water dispute documents"
+    fr: "documents de conflits hydrauliques"
+    aliases_latin: ["water litigation records", "actes de litige hydraulique"]

@@ -70,6 +70,18 @@ permalink: /articles/
                         <div class="ar-filterbar-chips">
                             <a class="ar-chip is-active" href="{{ '/articles/' | relative_url }}" aria-controls="arList">الكل</a>
                             {% assign filter_cats = site.categories | sort %}
+                            {% assign _seen_cats = "" | split: "" %}
+                            {% for _pair in filter_cats %}{% assign _seen_cats = _seen_cats | push: _pair[0] %}{% endfor %}
+                            {% comment %}Most posts use the singular `category` key; include them in the same filter.{% endcomment %}
+                            {% for _p in site.posts %}
+                            {% if _p.category %}
+                            {% unless _seen_cats contains _p.category %}
+                            {% assign _new_pair = _p.category | split: '|' %}
+                            {% assign filter_cats = filter_cats | push: _new_pair %}
+                            {% assign _seen_cats = _seen_cats | push: _p.category %}
+                            {% endunless %}
+                            {% endif %}
+                            {% endfor %}
                             {% for category in filter_cats %}
                             <a class="ar-chip" href="{{ '/articles/' | relative_url }}?cat={{ category[0] | uri_escape }}" aria-controls="arList">{{ category[0] | replace: "-", " " }}</a>
                             {% endfor %}
@@ -95,7 +107,9 @@ permalink: /articles/
                         {% assign _n = paginator.page | default: 1 | minus: 1 | times: paginator.per_page | plus: forloop.index %}
                         {% assign _key = post.thumbnail | remove_first: '/' %}
 
-                        <article class="ar-item" data-tags="{{ post.tags | join: '|' | escape }}" data-cats="{{ post.categories | join: '|' | escape }}">
+                        {% assign _cats = post.categories %}
+                        {% unless _cats.size > 0 %}{% if post.category %}{% assign _cats = post.category | split: '|' %}{% endif %}{% endunless %}
+                        <article class="ar-item" data-tags="{{ post.tags | join: '|' | escape }}" data-cats="{{ _cats | join: '|' | escape }}" data-terms="{{ post.taxonomy | join: '|' | escape }}">
                             <div class="ar-num" aria-hidden="true">{% if _n < 10 %}0{% endif %}{{ _n }}</div>
 
                             <a class="ar-thumb{% unless post.thumbnail %} is-plain{% endunless %}" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
@@ -201,10 +215,15 @@ permalink: /articles/
                         <ul class="ar-cats">
                             {% assign categories = site.categories | sort %}
                             {% for category in categories %}
+                            {% if category[1] %}
+                            {% assign _cat_count = category[1].size %}
+                            {% else %}
+                            {% assign _cat_count = site.posts | where: 'category', category[0] | size %}
+                            {% endif %}
                             <li>
                                 <a href="{{ '/articles/' | relative_url }}?cat={{ category[0] | uri_escape }}">
                                     <span>{{ category[0] | replace: "-", " " }}</span>
-                                    <b>{{ category[1].size }}</b>
+                                    <b>{{ _cat_count }}</b>
                                 </a>
                             </li>
                             {% endfor %}
@@ -302,8 +321,9 @@ permalink: /articles/
         var shown = 0;
 
         items.forEach(function (item) {
-            var key = state.tag ? 'data-tags' : 'data-cats';
-            var values = (item.getAttribute(key) || '').split('|');
+            var values = state.tag
+                ? (item.getAttribute('data-tags') || '').split('|').concat((item.getAttribute('data-terms') || '').split('|'))
+                : (item.getAttribute('data-cats') || '').split('|');
             var match = !active || values.indexOf(active) !== -1;
 
             item.hidden = !match;

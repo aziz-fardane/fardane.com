@@ -1,0 +1,28 @@
+{% comment %}
+مخرجات هذا الملف مصفوفة JSON من المرادفات المرتبطة بعنصر ما.
+يُستخدم داخل فهرس البحث فقط؛ لا يُعرض في متن المقال ولا في meta keywords.
+لا يقرأ أي مصدر من مجلد _hidden/ ولا من عناصر published: false.
+{% endcomment %}
+{%- assign _syn = "" | split: "" -%}
+{%- for _tid in include.item.taxonomy -%}
+  {%- assign _term = site.data.water_taxonomy.terms[_tid] -%}
+  {%- if _term -%}
+    {%- assign _syn = _syn | push: _term.ar -%}
+    {%- for _alias in _term.aliases_ar -%}{%- assign _syn = _syn | push: _alias -%}{%- endfor -%}
+    {%- assign _syn = _syn | push: _term.en -%}
+    {%- assign _syn = _syn | push: _term.fr -%}
+    {%- for _alias in _term.aliases_latin -%}{%- assign _syn = _syn | push: _alias -%}{%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- for _domain in site.data.water_taxonomy.domains -%}
+  {%- assign _hit = false -%}
+  {%- for _tid in include.item.taxonomy -%}
+    {%- if _domain.term_ids contains _tid -%}{%- assign _hit = true -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if _hit -%}
+    {%- assign _syn = _syn | push: _domain.label_ar -%}
+    {%- assign _syn = _syn | push: _domain.label_en -%}
+    {%- assign _syn = _syn | push: _domain.label_fr -%}
+  {%- endif -%}
+{%- endfor -%}
+{{ _syn | jsonify }}

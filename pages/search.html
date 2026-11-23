@@ -134,22 +134,65 @@ permalink: /search/
   </article>
 </template>
 
-<!-- Post data for search -->
+<!-- Search data: published posts/news + curated sources. Hidden content is never included. -->
 <script type="application/json" id="postsData">
 [
-  {% for post in site.posts %}
-    {
-      "title": {{ post.title | jsonify }},
-      "url": {{ post.url | relative_url | jsonify }},
-      "date": "{% include arabic-date.html date=post.date %}",
-      "description": {{ post.description | jsonify }},
-      "content": {{ post.content | strip_html | strip_newlines | jsonify }},
-      {% assign _sq_key = post.thumbnail | remove_first: '/' %}
-      "thumbnail": {{ site.data.manifest[_sq_key] | default: post.thumbnail | default: "" | jsonify }},
-      "tags": {{ post.tags | jsonify }},
-      "categories": {{ post.categories | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
+  {% assign _first = true %}
+  {% for item in site.posts %}
+    {% unless item.published == false %}
+      {% if _first %}{% else %},{% endif %}{% assign _first = false %}
+      {
+        "title": {{ item.title | jsonify }},
+        "url": {{ item.url | relative_url | jsonify }},
+        "date": "{% include arabic-date.html date=item.date %}",
+        "description": {{ item.description | jsonify }},
+        "content": {{ item.content | strip_html | strip_newlines | jsonify }},
+        {% assign _sq_key = item.thumbnail | remove_first: '/' %}
+        "thumbnail": {{ site.data.manifest[_sq_key] | default: item.thumbnail | default: "" | jsonify }},
+        "tags": {{ item.tags | jsonify }},
+        "categories": {% if item.category and item.categories.size == 0 %}{{ item.category | split: '|' | jsonify }}{% else %}{{ item.categories | jsonify }}{% endif %},
+        "synonyms": {% include taxonomy-synonyms.html item=item %}
+      }
+    {% endunless %}
   {% endfor %}
+  {% for item in site.news %}
+    {% unless item.published == false %}
+      {% if _first %}{% else %},{% endif %}{% assign _first = false %}
+      {
+        "title": {{ item.title | jsonify }},
+        "url": {{ item.url | relative_url | jsonify }},
+        "date": "{% include arabic-date.html date=item.date %}",
+        "description": {{ item.description | jsonify }},
+        "content": {{ item.content | strip_html | strip_newlines | jsonify }},
+        {% assign _nq_key = item.thumbnail | remove_first: '/' %}
+        "thumbnail": {{ site.data.manifest[_nq_key] | default: item.thumbnail | default: "" | jsonify }},
+        "tags": {{ item.tags | jsonify }},
+        "categories": {{ item.categories | jsonify }},
+        "synonyms": {% include taxonomy-synonyms.html item=item %}
+      }
+    {% endunless %}
+  {% endfor %}
+  {% comment %}Curated registry for documents/manuscripts/books. Never populated from _hidden/ or published:false.{% endcomment %}
+  {% assign _sources = site.data.water_sources | default: "" %}
+  {% if _sources.size > 0 %}
+    {% for item in _sources %}
+      {% unless item.published == false %}
+        {% if _first %}{% else %},{% endif %}{% assign _first = false %}
+        {
+          "title": {{ item.title | jsonify }},
+          "url": {% if item.url contains '://' %}{{ item.url | jsonify }}{% else %}{{ item.url | relative_url | jsonify }}{% endif %},
+          "date": "{% if item.date %}{% include arabic-date.html date=item.date %}{% endif %}",
+          "description": {{ item.description | default: item.summary | default: "" | jsonify }},
+          "content": {{ item.summary | default: item.content | default: "" | strip_html | strip_newlines | jsonify }},
+          {% assign _dq_key = item.thumbnail | remove_first: '/' %}
+          "thumbnail": {{ site.data.manifest[_dq_key] | default: item.thumbnail | default: "" | jsonify }},
+          "tags": {{ item.tags | jsonify }},
+          "categories": {% if item.type %}{{ item.type | split: '|' | jsonify }}{% else %}{{ item.categories | jsonify }}{% endif %},
+          "synonyms": {% include taxonomy-synonyms.html item=item %}
+        }
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
 ]
 </script>
 
@@ -169,35 +212,55 @@ permalink: /search/
       document.getElementById('noResults').classList.remove('hidden');
     }
 
+    // Normalize Arabic orthography and Latin case so variants match the same term.
+    function normalizeTerm(value) {
+      return String(value || '')
+        .toLowerCase()
+        .replace(/[\u064B-\u065F\u0670]/g, '')
+        .replace(/[أإآٱ]/g, 'ا')
+        .replace(/ى/g, 'ي')
+        .replace(/ة/g, 'ه')
+        .replace(/ؤ/g, 'و')
+        .replace(/ئ/g, 'ي')
+        .replace(/ـ/g, '')
+        .replace(/[٠-٩]/g, function (d) { return '0123456789'['٠١٢٣٤٥٦٧٨٩'.indexOf(d)]; })
+        .trim();
+    }
+
     // Function to perform the search
     function performSearch(query) {
-      // Convert query to lowercase for case-insensitive search
-      const searchTerm = query.toLowerCase();
+      const displayTerm = query.trim();
+      const tokens = normalizeTerm(query).split(/\s+/).filter(Boolean);
 
-      // Get all posts data from the embedded JSON
+      if (!tokens.length) {
+        document.getElementById('searchStats').textContent = 'يرجى إدخال كلمات البحث';
+        document.getElementById('noResults').classList.remove('hidden');
+        return;
+      }
+
+      // Get all search data from the embedded JSON
       const postsData = document.getElementById('postsData');
       let posts = [];
 
       try {
         posts = JSON.parse(postsData.textContent);
       } catch (error) {
-        console.error('Error parsing posts data:', error);
+        console.error('Error parsing search data:', error);
         document.getElementById('searchStats').textContent = 'حدث خطأ أثناء البحث';
         document.getElementById('noResults').classList.remove('hidden');
         return;
       }
 
-      // Filter posts that match the search term
+      // Match every token against title, description, content, tags, categories and taxonomy synonyms.
       const results = posts.filter(post => {
-        return post.title.toLowerCase().includes(searchTerm) || 
-               post.content.toLowerCase().includes(searchTerm) || 
-               post.description.toLowerCase().includes(searchTerm) || 
-               (post.tags && post.tags.some(tag => tag.toLowerCase().includes(searchTerm))) || 
-               (post.categories && post.categories.some(category => category.toLowerCase().includes(searchTerm)));
+        const fields = [post.title, post.description, post.content]
+          .concat(post.tags || [], post.categories || [], post.synonyms || [])
+          .map(normalizeTerm);
+        return tokens.every(token => fields.some(field => field.includes(token)));
       });
 
       // Display the results
-      displayResults(results, searchTerm);
+      displayResults(results, displayTerm);
     }
 
     // Function to display search results
