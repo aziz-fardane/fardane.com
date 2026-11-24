@@ -26,7 +26,7 @@
 {% if page.keywords_en %}{% assign _kw = _kw | append: ', ' | append: page.keywords_en %}{% endif %}
 {% if page.keywords_fr %}{% assign _kw = _kw | append: ', ' | append: page.keywords_fr %}{% endif %}
 <meta name="keywords" content="{{ _kw | default: site.keywords | escape }}">
-        <meta name="author" content="{{ site.author }}">
+        <meta name="author" content="{{ page.author | default: site.author }}">
 
         {% if page.layout == 'post' or page.layout == 'post-feature' or page.layout == 'news' or page.layout == 'news-article' or page.layout == 'publication' or page.layout == 'research' %}
         <!-- Highwire citation metadata for scholarly indexing -->
@@ -197,7 +197,7 @@
               "@id": "{{ site.url }}/en/#person",
               "name": "Aziz Fardane",
               "alternateName": ["عزيز فردان", "Fardane Aziz"],
-              "jobTitle": "Researcher in the history of the medieval Maghrib — Arabic manuscript sources",
+              "jobTitle": "Independent researcher in the history of water systems and urbanism in the medieval Maghrib",
               "url": "{{ site.url }}/en/",
               "image": "{{ site.url }}{{ site.data.manifest['dist/images/profile.jpg'] | default: '/dist/images/profile.jpg' }}",
               "knowsLanguage": [
