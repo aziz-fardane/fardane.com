@@ -29,6 +29,8 @@ jobs:
         run: |
           bundle install --jobs 4
           bundle exec jekyll build --config _config.yml,_config.staging.yml --destination _site
+          # المعاينة لا تُنشر ولا تُفهرَس: لا خريطة ولا خلاصة ولا ورقة تحقق.
+          rm -f _site/sitemap.xml _site/sitemap.xsl _site/feed.xml _site/google*.html
 
       - name: Prepare self-contained previews
         run: |
@@ -58,8 +60,9 @@ jobs:
               return sum(1 for p in out.rglob('*.html') if needle in p.read_text(encoding='utf-8', errors='ignore'))
           lines = [
               f'html_files={count}',
-              f'sitemap_generated={"yes" if pathlib.Path("_site/sitemap.xml").exists() else "no"}',
-              f'noindex_meta={total("noindex, nofollow")}',
+              f'sitemap_in_output={"yes" if pathlib.Path("_site/sitemap.xml").exists() else "no"}',
+              f'feed_in_output={"yes" if pathlib.Path("_site/feed.xml").exists() else "no"}',
+              f'noindex_pages={total("noindex")}',
               f'ga_tag_present={total("G-1H5F625Z31")}',
               f'staging_banner={total("STAGING")}',
           ]
