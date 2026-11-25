@@ -1,0 +1,45 @@
+{% comment %}
+    Shared end-of-article block for post.liquid and post-feature.liquid.
+    Copied verbatim from both layouts; all variables come from the calling layout.
+{% endcomment %}
+<div class="ed-after">
+    <div class="ed-share">
+        <span class="ed-share-label">
+            <i class="fas fa-share-alt" aria-hidden="true"></i>
+            شارك المقال
+        </span>
+        <a href="https://twitter.com/intent/tweet?url={{ pf_share_url }}&amp;text={{ pf_share_title }}" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر إكس"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ pf_share_url }}" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر فيسبوك"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ pf_share_url }}" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر لينكدإن"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+        <a href="https://wa.me/?text={{ pf_share_title }}%20{{ pf_share_url }}" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر واتساب"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        <a href="mailto:?subject={{ pf_share_title }}&amp;body={{ pf_share_url }}" aria-label="مشاركة عبر البريد"><i class="far fa-envelope" aria-hidden="true"></i></a>
+    </div>
+
+    {% if page.tags.size > 0 %}
+    <ul class="ed-tags">
+        {% for tag in page.tags %}
+        <li><a href="{{ '/articles/' | relative_url }}?tag={{ tag | uri_escape }}">{{ tag | replace: '-', ' ' }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% include research-context.liquid %}
+
+    {% include related.liquid %}
+
+    <div class="ed-author">
+        <img src="{{ pf_author_img }}" alt="{{ site.social.name }}" loading="lazy">
+        <div>
+            <div class="ed-author-name">{{ site.social.name }}</div>
+            <div class="ed-author-role">حاصل على شهادة الدكتوراه تخصص التاريخ الوسيط</div>
+            <a class="ed-author-link" href="{{ '/about/' | relative_url }}">
+                عن المؤلف
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+
+    {% include article-cta.liquid %}
+
+    {% include comments.liquid %}
+</div>

@@ -1,0 +1,43 @@
+{% comment %}
+    One source for the page palettes. Inlined in <head> so staging previews
+    (which reuse committed dist/main.css) render identically without an npm build.
+    Values are copied verbatim from the inline blocks they replace.
+{% endcomment %}
+<style>
+    .id-palette-a{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#2c3833;
+        --muted:#6f6a5c; --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f;
+        --water:#2e6f68; --night:#0b1c17; --line:#ded7c5; --line-strong:#cfc6b0;
+        --naskh:'Noto Naskh Arabic',serif; --kufi:'Noto Kufi Arabic',sans-serif; --mono:'IBM Plex Mono',monospace;
+    }
+    .id-palette-b{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#3b463f;
+        --muted:#6f6a5c; --line:#d9d2c1; --line-strong:#c3baa5; --brass:#a67a2e;
+        --brass-text:#8f6524; --brass-2:#c9a35f; --water:#2e6f68; --water-2:#4f938b;
+        --water-soft:#e4ede9; --night:#0b1c17; --night-2:#081411;
+        --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+        --kufi:"Noto Kufi Arabic",system-ui,sans-serif;
+        --naskh:"Noto Naskh Arabic",Georgia,serif;
+    }
+    .id-palette-c{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#2c3833;
+        --muted:#6f6a5c; --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f;
+        --water:#2e6f68; --night:#0b1c17; --line:#ded7c5; --line-strong:#cfc6b0;
+        --serif:Georgia,'Iowan Old Style','Palatino Linotype','Book Antiqua',serif;
+        --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
+    }
+    .id-palette-d{
+        --paper:#f3f0e7; --paper-2:#faf8f2; --ink:#131f1b; --graphite:#3b463f;
+        --muted:#6a6557; --line:#d9d2c1; --line-strong:#c3baa5; --brass:#a67a2e;
+        --brass-text:#8a6122; --mat:#eae3d1;
+        --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+        --display:"Reem Kufi",system-ui,sans-serif;
+        --naskh:"Noto Naskh Arabic",Georgia,serif;
+    }
+    .id-palette-e{
+        --paper:#f6f2e8; --paper-2:#fbf8f1; --ink:#152720;
+        --forest:#1d3b31; --forest-2:#12281f;
+        --brass:#a67a2e; --brass-text:#8f6524; --brass-2:#c9a35f; --brass-soft:#e9dcc2;
+        --line:#e2d8c4; --body:#38352e;
+    }
+</style>
