@@ -1759,6 +1759,59 @@ body.rd-off .rd-term{text-decoration:none;cursor:auto;background:transparent;col
 })();
 </script>
 
+        <style>
+.wl-ui{--wl-p:var(--id-plaster,#f3f0e7);--wl-i:var(--id-ink,#131f1b);--wl-m:var(--id-muted,#6f6a5c);--wl-b:var(--id-brass,#a67a2e);--wl-w:var(--id-water,#2e6f68);--wl-l:var(--id-line,#ded7c5);font-family:'IBM Plex Mono',monospace}
+.wl-gauge{position:fixed;z-index:70;right:clamp(.5rem,1.5vw,1.1rem);top:50%;transform:translateY(-50%);width:16px;height:min(42vh,320px);border:1px solid var(--wl-l);background:var(--wl-p);box-shadow:0 8px 28px rgba(19,31,27,.10)}
+.wl-fill{position:absolute;right:0;bottom:0;left:0;height:0;background:linear-gradient(to top,var(--wl-w),rgba(46,111,104,.55));transition:height .16s linear}
+.wl-wave{position:absolute;top:-5px;right:-30%;left:-30%;height:10px;border-radius:45% 45% 42% 42%;background:rgba(46,111,104,.55);animation:wlWave 4.5s ease-in-out infinite alternate}
+@keyframes wlWave{from{transform:translateX(-12%) scaleY(.9)}to{transform:translateX(12%) scaleY(1.1)}}
+@media (prefers-reduced-motion:reduce){.wl-wave{animation:none}.wl-fill{transition:none}}
+.wl-num{position:absolute;top:-1.35rem;right:50%;transform:translateX(50%);font-size:9px;letter-spacing:.06em;color:var(--wl-b);white-space:nowrap}
+.wl-label{position:absolute;bottom:-1.5rem;right:50%;transform:translateX(50%);font-family:'Noto Kufi Arabic',sans-serif;font-size:9px;color:var(--wl-m);white-space:nowrap;opacity:0;transition:opacity .2s}
+.wl-gauge:hover .wl-label,.wl-gauge:focus-within .wl-label{opacity:1}
+@media (max-width:720px){.wl-gauge{width:10px;height:26vh}.wl-label{display:none}}
+@media print{.wl-gauge{display:none!important}}
+</style>
+
+<div class="wl-ui">
+  <div class="wl-gauge" id="wl-gauge" role="progressbar" aria-label="منسوب القراءة" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+    <span class="wl-num" id="wl-num">0%</span>
+    <div class="wl-fill" id="wl-fill"><span class="wl-wave" aria-hidden="true"></span></div>
+    <span class="wl-label">منسوب القراءة</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var body = document.getElementById('article-body') || document.querySelector('article.ed-body');
+  if(!body){ return; }
+  var gauge = document.getElementById('wl-gauge');
+  var fill = document.getElementById('wl-fill');
+  var num = document.getElementById('wl-num');
+  if(!gauge || !fill || !num){ return; }
+  var ticking = false;
+  function update(){
+    var r = body.getBoundingClientRect();
+    var top = r.top + window.pageYOffset;
+    var end = top + body.offsetHeight - window.innerHeight;
+    var p = end > top ? (window.pageYOffset - top) / (end - top) : 1;
+    p = Math.max(0, Math.min(1, p));
+    var v = Math.round(p * 100);
+    fill.style.height = v + '%';
+    num.textContent = v + '%';
+    gauge.setAttribute('aria-valuenow', String(v));
+    ticking = false;
+  }
+  function onScroll(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+
         
     </body>
 </html>
