@@ -1,5 +1,6 @@
-html_files=61
-sitemap_generated=yes
-noindex_meta=47
+html_files=121
+sitemap_in_output=no
+feed_in_output=no
+noindex_pages=118
 ga_tag_present=0
-staging_banner=47
+staging_banner=94
