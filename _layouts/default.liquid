@@ -370,6 +370,7 @@
         {% capture _rd_title %}{{ page.title | jsonify }}{% endcapture %}
         {% capture _rd_url %}{{ page.url | relative_url | jsonify }}{% endcapture %}
         {% include reader-mode.html domains=_rd_domains terms=_rd_terms regions=_rd_regions sources=_rd_sources article_title=_rd_title article_url=_rd_url %}
+        {% include water-level.html %}
         {% endif %}
     </body>
 </html>
