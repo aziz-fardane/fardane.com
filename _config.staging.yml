@@ -2,7 +2,9 @@
 # الاستعمال:
 #   bundle exec jekyll build --config _config.yml,_config.staging.yml
 
-url: "https://staging.invalid"
+# يجب أن يشير إلى مضيف المعاينة الفعلي حتى تعمل صفحات التحويل
+# (redirect_from) داخل الرابط الخاص بدل النطاق الوهمي staging.invalid.
+url: "https://fardane-staging-preview.aziz-fardane.workers.dev"
 baseurl: ""
 
 # تُقرأ هذه العلامة في _layouts/default.liquid فتوقف GA،

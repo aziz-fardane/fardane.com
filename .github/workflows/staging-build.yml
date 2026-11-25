@@ -49,6 +49,8 @@ jobs:
               html = re.sub(r'<link rel="stylesheet"[^>]*dist/main[^>]*>', '<style>' + css + '</style>', html)
               html = html.replace('src="/dist/', 'src="https://fardane.com/dist/')
               html = html.replace('href="/dist/', 'href="https://fardane.com/dist/')
+              # بيانات og/twitter/JSON-LD تستخدم site.url؛ وجّه صورها إلى الموقع الحي.
+              html = html.replace('https://fardane-staging-preview.aziz-fardane.workers.dev/dist/', 'https://fardane.com/dist/')
               dest = out / rel
               dest.parent.mkdir(parents=True, exist_ok=True)
               dest.write_text(html, encoding='utf-8')
@@ -66,6 +68,8 @@ jobs:
               f'ga_tag_present={total("G-1H5F625Z31")}',
               f'staging_banner={total("STAGING")}',
               f'nested_preview={"yes" if any("staging-preview" in str(p.relative_to(out)) for p in out.rglob("*.html")) else "no"}',
+              f'empty_pages={sum(1 for p in out.rglob("*.html") if not p.read_text(encoding="utf-8", errors="ignore").strip())}',
+              f'fake_url_pages={total("staging.invalid")}',
           ]
           (out / 'verify.txt').write_text('\n'.join(lines) + '\n', encoding='utf-8')
           print('\n'.join(lines))
