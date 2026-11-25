@@ -1,0 +1,136 @@
+<!-- TIMELINE:DATA:START -->
+<script>
+window.TIMELINE_DATA = {{ include.items }};
+</script>
+<!-- TIMELINE:DATA:END -->
+
+<style>
+.tl{--tl-p:var(--id-plaster,#f3f0e7);--tl-p2:var(--id-plaster-light,#faf8f2);--tl-i:var(--id-ink,#131f1b);--tl-m:var(--id-muted,#6f6a5c);--tl-b:var(--id-brass,#a67a2e);--tl-w:var(--id-water,#2e6f68);--tl-l:var(--id-line,#ded7c5);font-family:'Noto Naskh Arabic',serif;max-width:1120px;margin:0 auto;padding:clamp(1rem,3vw,2.2rem)}
+.tl *{box-sizing:border-box}
+.tl-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--tl-l);padding-bottom:1rem}
+.tl-kicker{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--tl-b);margin:0 0 .4rem}
+.tl-head h1{font-family:'Noto Kufi Arabic',sans-serif;font-size:clamp(1.3rem,2.6vw,2rem);margin:0;line-height:1.3}
+.tl-sub{font-size:.82rem;color:var(--tl-m);margin:.4rem 0 0}
+.tl-stats{display:flex;gap:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--tl-m)}
+.tl-stats b{display:block;font-size:18px;color:var(--tl-w);font-weight:500;line-height:1.2}
+.tl-nav{position:sticky;top:0;z-index:20;display:flex;gap:.35rem;overflow-x:auto;background:var(--tl-p);padding:.6rem 0;border-bottom:1px solid var(--tl-l);scrollbar-width:thin}
+.tl-yearbtn{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:.35rem .7rem;border:1px solid var(--tl-l);background:var(--tl-p2);color:var(--tl-m);cursor:pointer;white-space:nowrap;transition:.2s}
+.tl-yearbtn:hover{border-color:var(--tl-b);color:var(--tl-b)}
+.tl-bar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:1rem 0}
+.tl-search{flex:1 1 240px;display:flex;align-items:center;gap:.5rem;border:1px solid var(--tl-l);background:var(--tl-p2);padding:.55rem .75rem}
+.tl-search input{border:0;background:transparent;outline:0;width:100%;font-family:'Noto Naskh Arabic',serif;font-size:.85rem;color:var(--tl-i)}
+.tl-search span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--tl-b)}
+.tl-count{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--tl-m)}
+.tl-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.2rem}
+.tl-chip{font-family:'Noto Kufi Arabic',sans-serif;font-size:.68rem;padding:.32rem .6rem;border:1px solid var(--tl-l);background:transparent;color:var(--tl-m);cursor:pointer;transition:.2s}
+.tl-chip[aria-pressed="true"]{border-color:var(--tl-w);color:var(--tl-w);background:rgba(46,111,104,.08)}
+.tl-groups{position:relative;padding-right:2rem;border-right:1px solid var(--tl-l)}
+.tl-group{position:relative;margin:0 0 1.7rem;scroll-margin-top:4rem;animation:tlIn .45s ease both}
+.tl-group:before{content:"";position:absolute;right:-2.28rem;top:.65rem;width:9px;height:9px;border-radius:50%;background:var(--tl-p2);border:2px solid var(--tl-b)}
+.tl-year{font-family:'IBM Plex Mono',monospace;font-size:1.1rem;letter-spacing:.12em;color:var(--tl-b);margin:0 0 .8rem}
+.tl-items{display:grid;gap:.7rem}
+.tl-card{border:1px solid var(--tl-l);background:var(--tl-p2);padding:.9rem 1rem;transition:.2s}
+.tl-card:hover{border-color:var(--tl-w);transform:translateX(-3px)}
+.tl-date{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--tl-m);letter-spacing:.06em}
+.tl-cat{font-size:.66rem;color:var(--tl-w);border:1px solid var(--tl-l);padding:.1rem .4rem;margin-right:.5rem}
+.tl-card h3{font-family:'Noto Kufi Arabic',sans-serif;font-size:.95rem;line-height:1.6;margin:.45rem 0 .35rem}
+.tl-card h3 a{color:var(--tl-i);text-decoration:none;border-bottom:1px solid transparent}
+.tl-card h3 a:hover{color:var(--tl-w);border-color:var(--tl-w)}
+.tl-card p{font-size:.78rem;line-height:1.8;color:var(--tl-m);margin:0}
+.tl-empty{border:1px dashed var(--tl-l);padding:2rem;text-align:center;color:var(--tl-m);font-size:.85rem}
+@keyframes tlIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.tl-group{animation:none}.tl-card{transition:none}}
+@media (max-width:640px){.tl-groups{padding-right:1.2rem}.tl-group:before{right:-1.48rem}}
+</style>
+
+<div class="tl">
+  <div class="tl-head">
+    <div>
+      <p class="tl-kicker">TIMELINE · PUBLISHED RESEARCH</p>
+      <h1>خط الزمن</h1>
+      <p class="tl-sub">تواريخ المقالات المنشورة في الموقع، من الأقدم إلى الأحدث.</p>
+    </div>
+    <div class="tl-stats" id="tl-stats"></div>
+  </div>
+
+  <nav class="tl-nav" id="tl-nav" aria-label="السنوات"></nav>
+
+  <div class="tl-bar">
+    <label class="tl-search"><span>⌕</span><input id="tl-q" type="search" autocomplete="off" aria-label="ابحث في خط الزمن" placeholder="ابحث في العناوين والملخصات"></label>
+    <span class="tl-count" id="tl-count"></span>
+  </div>
+  <div class="tl-chips" id="tl-chips"></div>
+  <div class="tl-groups" id="tl-groups"></div>
+</div>
+
+<script>
+(function(){
+  var items = window.TIMELINE_DATA || [];
+  var nav=document.getElementById('tl-nav'), chips=document.getElementById('tl-chips');
+  var groups=document.getElementById('tl-groups'), count=document.getElementById('tl-count');
+  var stats=document.getElementById('tl-stats'), q=document.getElementById('tl-q');
+  var activeCat='all', query='';
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){
+    return String(s||'').toLowerCase().replace(/[\u064B-\u065F\u0670]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/\u0640/g,'').trim();
+  }
+  var years=[], cats={};
+  items.forEach(function(it){
+    var y=String(it.date||'').slice(0,4);
+    if(years.indexOf(y)===-1){ years.push(y); }
+    var c=it.category||'غير مصنّف';
+    cats[c]=(cats[c]||0)+1;
+  });
+  years.sort();
+  if(stats){
+    stats.innerHTML='<span><b>'+items.length+'</b> مقالاً</span><span><b>'+years.length+'</b> سنة</span><span><b>'+(years[0]||'—')+'–'+(years[years.length-1]||'—')+'</b> مدى</span>';
+  }
+  function buildNav(){
+    nav.innerHTML='';
+    years.forEach(function(y){
+      var b=document.createElement('button');b.className='tl-yearbtn';b.type='button';b.textContent=y;
+      b.addEventListener('click',function(){
+        var target=document.getElementById('tl-'+y);
+        if(target){ target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); }
+      });
+      nav.appendChild(b);
+    });
+  }
+  function buildChips(){
+    chips.innerHTML='';
+    var names=['all'].concat(Object.keys(cats).sort());
+    names.forEach(function(name){
+      var b=document.createElement('button');b.className='tl-chip';b.type='button';
+      b.textContent=name==='all'?'جميع التصنيفات':name;
+      b.setAttribute('aria-pressed',String(activeCat===name));
+      b.addEventListener('click',function(){ activeCat=name;buildChips();render(); });
+      chips.appendChild(b);
+    });
+  }
+  function render(){
+    var list=items.filter(function(it){
+      if(activeCat!=='all' && (it.category||'غير مصنّف')!==activeCat){ return false; }
+      if(query){ return norm([it.title,it.description,it.dateAr,it.category].join(' ')).indexOf(norm(query))>-1; }
+      return true;
+    });
+    count.textContent=list.length+' من '+items.length;
+    if(!list.length){ groups.innerHTML='<div class="tl-empty">لا نتائج مطابقة.</div>'; return; }
+    var byYear={};
+    list.forEach(function(it){ var y=String(it.date||'').slice(0,4); (byYear[y]=byYear[y]||[]).push(it); });
+    var html='';
+    years.forEach(function(y){
+      if(!byYear[y]){ return; }
+      html+='<section class="tl-group" id="tl-'+y+'"><p class="tl-year">'+esc(y)+'</p><div class="tl-items">';
+      byYear[y].forEach(function(it){
+        html+='<article class="tl-card"><div class="tl-date"><span class="tl-cat">'+esc(it.category||'غير مصنّف')+'</span>'+esc(it.dateAr||it.date)+'</div>'+
+          '<h3><a href="'+esc(it.url)+'">'+esc(it.title)+'</a></h3>'+
+          (it.description?'<p>'+esc(it.description)+'</p>':'')+'</article>';
+      });
+      html+='</div></section>';
+    });
+    groups.innerHTML=html;
+  }
+  q.addEventListener('input',function(){ query=q.value;render(); });
+  buildNav();buildChips();render();
+})();
+</script>

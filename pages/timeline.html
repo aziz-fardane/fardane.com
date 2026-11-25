@@ -1,0 +1,11 @@
+---
+layout: default
+title: خط الزمن
+description: "خط زمني تفاعلي لأبحاث ومقالات تاريخ الماء بالمغرب، مبني على تواريخ المقالات المنشورة في الموقع."
+permalink: /timeline/
+---
+
+{% assign _tl_posts = site.posts | where_exp: "p", "p.published != false" | sort: "date" %}
+{% capture _tl_items %}[{% for p in _tl_posts %}{% capture _tl_date_ar %}{% include arabic-date.html date=p.date %}{% endcapture %}{% assign _tl_cat = p.category | default: p.categories.first %}{"title":{{ p.title | jsonify }},"url":{{ p.url | relative_url | jsonify }},"date":{{ p.date | date: "%Y-%m-%d" | jsonify }},"dateAr":{{ _tl_date_ar | strip | jsonify }},"category":{{ _tl_cat | replace: '-', ' ' | jsonify }},"description":{{ p.description | default: "" | strip_html | truncate: 180 | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
+
+{% include timeline-body.html items=_tl_items %}
