@@ -1,0 +1,76 @@
+name: Staging Preview Build
+
+# بناء النسخة التجريبية فقط. لا يمسّ main ولا النشر الحي.
+# الناتج يُحفظ في staging-preview/ داخل هذا الفرع لعرضه محلياً.
+on:
+  push:
+    branches:
+      - staging
+    paths-ignore:
+      - 'staging-preview/**'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Build staging site
+        run: |
+          bundle install --jobs 4
+          bundle exec jekyll build --config _config.yml,_config.staging.yml --destination _site
+
+      - name: Prepare self-contained previews
+        run: |
+          python3 - <<'PY'
+          import glob, pathlib, re, shutil
+          out = pathlib.Path('staging-preview')
+          if out.exists():
+              shutil.rmtree(out)
+          out.mkdir()
+          css_files = sorted(glob.glob('_site/dist/main*.css'))
+          css = pathlib.Path(css_files[0]).read_text(encoding='utf-8') if css_files else ''
+          count = 0
+          for p in pathlib.Path('_site').rglob('*.html'):
+              rel = p.relative_to('_site')
+              html = p.read_text(encoding='utf-8', errors='ignore')
+              html = re.sub(r'<link rel="stylesheet"[^>]*dist/main[^>]*>', '<style>' + css + '</style>', html)
+              html = html.replace('src="/dist/', 'src="https://fardane.com/dist/')
+              html = html.replace('href="/dist/', 'href="https://fardane.com/dist/')
+              dest = out / rel
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              dest.write_text(html, encoding='utf-8')
+              count += 1
+          robots = pathlib.Path('_site/robots.txt')
+          if robots.exists():
+              (out / 'robots.txt').write_text(robots.read_text(encoding='utf-8'), encoding='utf-8')
+          def total(needle):
+              return sum(1 for p in out.rglob('*.html') if needle in p.read_text(encoding='utf-8', errors='ignore'))
+          lines = [
+              f'html_files={count}',
+              f'sitemap_generated={"yes" if pathlib.Path("_site/sitemap.xml").exists() else "no"}',
+              f'noindex_meta={total("noindex, nofollow")}',
+              f'ga_tag_present={total("G-1H5F625Z31")}',
+              f'staging_banner={total("STAGING")}',
+          ]
+          (out / 'verify.txt').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          print('\n'.join(lines))
+          PY
+
+      - name: Commit preview
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f staging-preview
+          git commit -m "chore: staging preview build [skip ci]" || echo "no changes"
+          git push

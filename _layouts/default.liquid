@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: 'ar' }}" dir="{% if page.lang == 'en' %}ltr{% else %}rtl{% endif %}" class="scroll-smooth">
     <head>
+        {% unless site.staging %}
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H5F625Z31"></script>
         <script>
@@ -10,6 +11,7 @@
 
           gtag('config', 'G-1H5F625Z31');
         </script>
+        {% endunless %}
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +54,7 @@
         {% if page.abstract_fr %}<meta name="DC.language" content="fr">{% endif %}
         {% endif %}
 
-        {% if page.noindex %}
+        {% if site.staging or page.noindex %}
         <meta name="robots" content="noindex, nofollow">
         {% endif %}
 
@@ -322,6 +324,9 @@
         <script defer src="{{ site.data.manifest['dist/main.js'] }}"></script>
     </head>
     <body class="bg-plaster text-ink min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}{% if page.layout == 'post' or page.layout == 'post-feature' %} post-page{% endif %}{% if page.layout == 'post' %} post-edition{% endif %}{% if page.url == '/' %} home-page{% endif %}{% if page.url == '/articles/' %} articles-page{% endif %}">
+        {% if site.staging %}
+        <div class="staging-banner" style="position:relative;z-index:60;background:#7c2d12;color:#fff;text-align:center;font-size:12px;padding:6px 12px;font-family:monospace;letter-spacing:.05em">STAGING · نسخة تجريبية للمعاينة فقط — غير منشورة وغير مفهرسة</div>
+        {% endif %}
         <!-- Simple preloader -->
         <div id="preloader" class="fixed inset-0 bg-plaster z-50 flex items-center justify-center">
             <div class="animate-spin w-10 h-10 border-2 border-brass-text border-b-transparent"></div>

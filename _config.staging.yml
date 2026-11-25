@@ -1,0 +1,14 @@
+# تهيئة النسخة التجريبية فقط — لا تُدمج في main أبداً
+# الاستعمال:
+#   bundle exec jekyll build --config _config.yml,_config.staging.yml
+
+url: "https://staging.invalid"
+baseurl: ""
+
+# تُقرأ هذه العلامة في _layouts/default.liquid فتوقف GA،
+# وتضيف noindex، وتُظهر شريط المعاينة في أعلى الصفحة.
+staging: true
+
+# تعطيل مولّدات sitemap.xml وfeed.xml في المعاينة،
+# حتى لا تُنشأ خريطة ولا خلاصة للنسخة التجريبية.
+plugins: []
