@@ -58,6 +58,10 @@ jobs:
           robots = pathlib.Path('_site/robots.txt')
           if robots.exists():
               (out / 'robots.txt').write_text(robots.read_text(encoding='utf-8'), encoding='utf-8')
+          # روابط الملفات مثل English profile (PDF) يجب أن تعمل داخل المعاينة أيضاً.
+          files_dir = pathlib.Path('files')
+          if files_dir.exists():
+              shutil.copytree(files_dir, out / 'files')
           def total(needle):
               return sum(1 for p in out.rglob('*.html') if needle in p.read_text(encoding='utf-8', errors='ignore'))
           lines = [
@@ -70,6 +74,7 @@ jobs:
               f'nested_preview={"yes" if any("staging-preview" in str(p.relative_to(out)) for p in out.rglob("*.html")) else "no"}',
               f'empty_pages={sum(1 for p in out.rglob("*.html") if not p.read_text(encoding="utf-8", errors="ignore").strip())}',
               f'fake_url_pages={total("staging.invalid")}',
+              f'local_pdfs={sum(1 for p in out.rglob("*.pdf"))}',
           ]
           (out / 'verify.txt').write_text('\n'.join(lines) + '\n', encoding='utf-8')
           print('\n'.join(lines))
