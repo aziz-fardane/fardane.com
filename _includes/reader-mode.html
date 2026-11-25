@@ -1,0 +1,244 @@
+<!-- READER:DATA:START -->
+<script>
+window.RD_DATA = {
+  domains: {{ include.domains }},
+  terms: {{ include.terms }},
+  regions: {{ include.regions }},
+  sources: {{ include.sources }},
+  article: { title: {{ include.article_title }}, url: {{ include.article_url }} }
+};
+</script>
+<!-- READER:DATA:END -->
+
+<style>
+.rd-ui{--rdp:var(--id-plaster,#f3f0e7);--rdp2:var(--id-plaster-light,#faf8f2);--rdi:var(--id-ink,#131f1b);--rdm:var(--id-muted,#6f6a5c);--rdb:var(--id-brass,#a67a2e);--rdw:var(--id-water,#2e6f68);--rdl:var(--id-line,#ded7c5);font-family:'Noto Naskh Arabic',serif}
+.rd-ui *{box-sizing:border-box}
+.rd-term{display:inline;border:0;background:transparent;padding:0;margin:0;font:inherit;color:inherit;cursor:help;text-decoration:underline dotted var(--rdb);text-underline-offset:3px;text-decoration-thickness:1px;transition:background .2s,color .2s}
+.rd-term:hover,.rd-term:focus{background:rgba(166,122,46,.12);color:var(--rdb);outline:0}
+body.rd-off .rd-term{text-decoration:none;cursor:auto;background:transparent;color:inherit}
+.rd-tools{position:fixed;bottom:1.1rem;right:1.1rem;z-index:80;display:flex;flex-direction:column;gap:.45rem;align-items:flex-end}
+.rd-tool{font-family:'Noto Kufi Arabic',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.02em;padding:.5rem .75rem;border:1px solid var(--rdl);background:var(--rdp2);color:var(--rdi);cursor:pointer;box-shadow:0 6px 22px rgba(19,31,27,.10);transition:.2s;display:flex;align-items:center;gap:.45rem}
+.rd-tool:hover{border-color:var(--rdb);color:var(--rdb)}
+.rd-tool[aria-expanded="true"],.rd-tool[aria-pressed="false"]{background:var(--rdi);color:var(--rdp2);border-color:var(--rdi)}
+.rd-tool .rd-n{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--rdb)}
+.rd-tool[aria-pressed="false"] .rd-n{color:var(--rdb)}
+.rd-pop{position:fixed;z-index:90;width:min(360px,calc(100vw - 2rem));max-height:min(70vh,560px);overflow:auto;background:var(--rdp2);border:1px solid var(--rdl);box-shadow:0 18px 50px rgba(19,31,27,.18);padding:1rem;color:var(--rdi);font-size:.82rem;line-height:1.85}
+.rd-pop[hidden],.rd-drawer[hidden]{display:none!important}
+.rd-pop .rd-x{position:absolute;top:.45rem;left:.5rem;border:0;background:transparent;color:var(--rdm);font-size:1rem;cursor:pointer}
+.rd-pop .rd-kind{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--rdb);margin:0 0 .35rem}
+.rd-pop h3{font-family:'Noto Kufi Arabic',sans-serif;font-size:1.05rem;line-height:1.5;margin:0 0 .45rem}
+.rd-pop .rd-domain{font-size:.74rem;color:var(--rdw);margin:0 0 .65rem}
+.rd-pop .rd-row{border-top:1px solid var(--rdl);padding:.4rem 0}
+.rd-pop .rd-row b{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--rdm);font-weight:500;display:block;margin-bottom:.15rem}
+.rd-pop .rd-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.rd-pop .rd-tags span{font-size:.7rem;border:1px solid var(--rdl);padding:.12rem .4rem;color:var(--rdm)}
+.rd-pop a{color:var(--rdw);text-decoration:none;border-bottom:1px solid transparent}
+.rd-pop a:hover{border-color:var(--rdw)}
+.rd-drawer{position:fixed;z-index:85;bottom:0;right:0;height:min(82vh,720px);width:min(420px,100vw);overflow:auto;background:var(--rdp);border-right:1px solid var(--rdl);box-shadow:-18px 0 50px rgba(19,31,27,.18);padding:1.1rem 1.2rem;color:var(--rdi)}
+.rd-drawer h2{font-family:'Noto Kufi Arabic',sans-serif;font-size:1.05rem;margin:0 0 .2rem}
+.rd-drawer .rd-sub{font-size:.75rem;color:var(--rdm);margin:0 0 .9rem}
+.rd-drawer .rd-card{border-top:1px solid var(--rdl);padding:.75rem 0}
+.rd-drawer .rd-card h3{font-size:.88rem;margin:0 0 .2rem;line-height:1.6}
+.rd-drawer .rd-card .rd-type{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--rdb)}
+.rd-drawer .rd-card p{font-size:.76rem;line-height:1.8;color:var(--rdm);margin:.35rem 0}
+.rd-drawer .rd-card a{font-size:.76rem;color:var(--rdw);text-decoration:none;border-bottom:1px solid var(--rdl)}
+@media (prefers-reduced-motion:reduce){.rd-term,.rd-tool{transition:none}}
+@media print{.rd-tools,.rd-pop,.rd-drawer{display:none!important}.rd-term{text-decoration:none}}
+</style>
+
+<div class="rd-ui">
+  <div class="rd-tools">
+    <button class="rd-tool" id="rd-source-btn" type="button" aria-expanded="false" aria-controls="rd-drawer">المصادر <span class="rd-n" id="rd-source-count">0</span></button>
+    <button class="rd-tool" id="rd-mode-btn" type="button" aria-pressed="true">وضع القارئ</button>
+  </div>
+  <div class="rd-pop" id="rd-pop" role="dialog" aria-label="تفاصيل المصطلح" hidden></div>
+  <aside class="rd-drawer" id="rd-drawer" aria-label="سجل المصادر" hidden></aside>
+</div>
+
+<script>
+(function(){
+  var D = window.RD_DATA || {};
+  var body = document.getElementById('article-body') || document.querySelector('article.ed-body');
+  if(!body){ return; }
+  var terms = D.terms || {}, domains = D.domains || [], regions = D.regions || [], sources = D.sources || [];
+  var art = D.article || {};
+  var pop = document.getElementById('rd-pop');
+  var drawer = document.getElementById('rd-drawer');
+  var srcBtn = document.getElementById('rd-source-btn');
+  var modeBtn = document.getElementById('rd-mode-btn');
+  var countEl = document.getElementById('rd-source-count');
+  var counts = {}, found = {}, activeTerm = null;
+
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function normStr(s){
+    var out='';
+    s=String(s||'');
+    for(var i=0;i<s.length;i++){
+      var c=s.charAt(i), code=c.charCodeAt(0);
+      if((code>=0x064B&&code<=0x065F)||code===0x0670||code===0x0640){ continue; }
+      if(/[أإآٱ]/.test(c)) c='ا'; else if(c==='ى') c='ي'; else if(c==='ة') c='ه';
+      else if(c==='ؤ') c='و'; else if(c==='ئ') c='ي';
+      out+=c;
+    }
+    return out.toLowerCase();
+  }
+  function normMap(s){
+    var out='', map=[];
+    s=String(s||'');
+    for(var i=0;i<s.length;i++){
+      var c=s.charAt(i), code=c.charCodeAt(0);
+      if((code>=0x064B&&code<=0x065F)||code===0x0670||code===0x0640){ continue; }
+      var n=c;
+      if(/[أإآٱ]/.test(n)) n='ا'; else if(n==='ى') n='ي'; else if(n==='ة') n='ه';
+      else if(n==='ؤ') n='و'; else if(n==='ئ') n='ي';
+      out+=n; map.push(i);
+    }
+    return {s:out.toLowerCase(), map:map};
+  }
+  function domainOf(id){
+    for(var i=0;i<domains.length;i++){ if((domains[i].term_ids||[]).indexOf(id)>-1){ return domains[i]; } }
+    return null;
+  }
+  function label(id){ return (terms[id]&&terms[id].ar) || id; }
+
+  var aliases=[];
+  Object.keys(terms).forEach(function(id){
+    var t=terms[id]||{}, seen={};
+    [t.ar].concat(t.aliases_ar||[]).forEach(function(a){
+      var n=normStr(a);
+      if(n.length<3||seen[n]) return;
+      seen[n]=1; aliases.push({n:n,id:id});
+    });
+  });
+  aliases.sort(function(a,b){ return b.n.length-a.n.length; });
+
+  function matches(text){
+    var o=normMap(text), raw=[];
+    if(!o.s){ return []; }
+    aliases.forEach(function(e){
+      var from=0, idx;
+      while((idx=o.s.indexOf(e.n,from))!==-1){
+        raw.push({s:idx,e:idx+e.n.length,id:e.id});
+        from=idx+e.n.length;
+        if(raw.length>400) break;
+      }
+    });
+    raw.sort(function(a,b){ return (b.e-b.s)-(a.e-a.s) || a.s-b.s; });
+    var taken=[], out=[];
+    raw.forEach(function(iv){
+      for(var i=0;i<taken.length;i++){ if(iv.s<taken[i].e && iv.e>taken[i].s){ return; } }
+      if((counts[iv.id]||0)>=3 || !o.map[iv.s] || o.map[iv.e-1]==null){ return; }
+      taken.push(iv);
+      out.push({s:o.map[iv.s], e:o.map[iv.e-1]+1, id:iv.id});
+    });
+    out.sort(function(a,b){ return a.s-b.s; });
+    return out;
+  }
+
+  function wrap(node){
+    var ms=matches(node.nodeValue);
+    if(!ms.length){ return null; }
+    var frag=document.createDocumentFragment(), pos=0;
+    ms.forEach(function(m){
+      if(m.s<pos){ return; }
+      if(m.s>pos){ frag.appendChild(document.createTextNode(node.nodeValue.slice(pos,m.s))); }
+      var b=document.createElement('button');
+      b.type='button'; b.className='rd-term'; b.setAttribute('data-term',m.id);
+      b.setAttribute('aria-label','مصطلح: '+label(m.id));
+      b.textContent=node.nodeValue.slice(m.s,m.e);
+      frag.appendChild(b);
+      counts[m.id]=(counts[m.id]||0)+1; found[m.id]=true;
+      pos=m.e;
+    });
+    if(pos<node.nodeValue.length){ frag.appendChild(document.createTextNode(node.nodeValue.slice(pos))); }
+    return frag;
+  }
+
+  try{
+    var walker=document.createTreeWalker(body, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(n){
+        var p=n.parentElement;
+        if(!p){ return NodeFilter.FILTER_REJECT; }
+        if(/^(SCRIPT|STYLE|A|BUTTON|CODE|PRE|SVG|NOSCRIPT)$/.test(p.tagName)){ return NodeFilter.FILTER_REJECT; }
+        if(p.closest && p.closest('.rd-ui')){ return NodeFilter.FILTER_REJECT; }
+        if(n.nodeValue.trim().length<4){ return NodeFilter.FILTER_REJECT; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes=[], n;
+    while((n=walker.nextNode())){ nodes.push(n); }
+    nodes.forEach(function(node){
+      var f=wrap(node);
+      if(f){ node.parentNode.replaceChild(f,node); }
+    });
+  }catch(err){ /* Reader mode stays passive if DOM walking is unavailable. */ }
+
+  function related(id){
+    var out=[];
+    regions.forEach(function(r){ if((r.taxonomy||[]).indexOf(id)>-1){
+      (r.related||[]).forEach(function(l){ if(l.url){ out.push({label:r.ar+' · '+l.title,url:l.url}); } });
+    }});
+    sources.forEach(function(s){ if((s.taxonomy||[]).indexOf(id)>-1){ out.push({label:s.title,url:s.url}); } });
+    return out;
+  }
+  function openPop(id,anchor){
+    activeTerm=id;
+    var t=terms[id]||{}, d=domainOf(id), rows='';
+    if(t.aliases_ar&&t.aliases_ar.length){
+      rows+='<div class="rd-row"><b>مرادفات</b><div class="rd-tags">'+t.aliases_ar.map(function(a){return '<span>'+esc(a)+'</span>';}).join('')+'</div></div>';
+    }
+    var langs='';
+    if(t.en){ langs+='<span>'+esc(t.en)+'</span>'; }
+    if(t.fr){ langs+='<span>'+esc(t.fr)+'</span>'; }
+    if(langs){ rows+='<div class="rd-row"><b>مقابلات</b><div class="rd-tags">'+langs+'</div></div>'; }
+    var rel=related(id);
+    if(rel.length){
+      rows+='<div class="rd-row"><b>روابط من بيانات الموقع</b>'+rel.map(function(l){return '<div><a href="'+esc(l.url)+'">'+esc(l.label)+'</a></div>';}).join('')+'</div>';
+    }
+    pop.innerHTML='<button class="rd-x" type="button" aria-label="إغلاق">×</button><p class="rd-kind">TERM · DETAIL</p><h3>'+esc(label(id))+'</h3>'+(d?'<p class="rd-domain">'+esc(d.label_ar||d.label_en)+'</p>':'')+rows;
+    pop.hidden=false;
+    var r=anchor.getBoundingClientRect(), w=pop.offsetWidth, h=pop.offsetHeight;
+    var left=Math.min(Math.max(8,r.left),Math.max(8,window.innerWidth-w-8));
+    var top=r.bottom+10;
+    if(top+h>window.innerHeight-8){ top=Math.max(8,r.top-h-10); }
+    pop.style.left=left+'px'; pop.style.top=top+'px';
+  }
+  function closePop(){ pop.hidden=true; activeTerm=null; }
+
+  body.addEventListener('click',function(e){
+    var t=e.target.closest && e.target.closest('.rd-term');
+    if(t){ e.preventDefault(); openPop(t.getAttribute('data-term'),t); }
+  });
+  document.addEventListener('click',function(e){
+    if(!pop.hidden && !pop.contains(e.target) && !(e.target.closest&&e.target.closest('.rd-term'))){ closePop(); }
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closePop(); closeDrawer(); } });
+  pop.addEventListener('click',function(e){ if(e.target.classList&&e.target.classList.contains('rd-x')){ closePop(); } });
+
+  function rankedSources(){
+    var ids=Object.keys(found);
+    return sources.map(function(s){
+      var score=(s.taxonomy||[]).filter(function(x){ return ids.indexOf(x)>-1; }).length;
+      return {s:s,score:score};
+    }).sort(function(a,b){ return b.score-a.score; });
+  }
+  function renderDrawer(){
+    var list=rankedSources();
+    countEl.textContent=String(list.filter(function(x){return x.score>0;}).length);
+    drawer.innerHTML='<h2>سجل المصادر</h2><p class="rd-sub">'+esc(art.title||'')+'</p>'+list.map(function(x){
+      var s=x.s;
+      return '<div class="rd-card"><span class="rd-type">'+esc(s.type||'')+'</span><h3>'+esc(s.title||'')+'</h3><p>'+esc(s.summary||'')+'</p><a href="'+esc(s.url||'#')+'">افتح المصدر</a></div>';
+    }).join('');
+  }
+  function closeDrawer(){ drawer.hidden=true; srcBtn.setAttribute('aria-expanded','false'); }
+  srcBtn.addEventListener('click',function(){
+    if(drawer.hidden){ renderDrawer(); drawer.hidden=false; srcBtn.setAttribute('aria-expanded','true'); }
+    else{ closeDrawer(); }
+  });
+  modeBtn.addEventListener('click',function(){
+    var on=modeBtn.getAttribute('aria-pressed')==='true';
+    modeBtn.setAttribute('aria-pressed',String(!on));
+    document.body.classList.toggle('rd-off',on);
+  });
+})();
+</script>
