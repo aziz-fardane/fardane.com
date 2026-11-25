@@ -1,0 +1,295 @@
+<!-- ATLAS:DATA:START -->
+<script>
+window.ATLAS_DATA = {
+  domains: {{ include.domains }},
+  terms: {{ include.terms }},
+  regions: {{ include.regions }},
+  sources: {{ include.sources }},
+  posts: {{ include.posts }},
+  scientists: {{ include.scientists }}
+};
+</script>
+<!-- ATLAS:DATA:END -->
+
+<style>
+.atlas{
+  --ap:#f3f0e7;--ap2:#faf8f2;--ai:#131f1b;--am:#6f6a5c;--ab:#a67a2e;
+  --aw:#2e6f68;--al:#ded7c5;--als:#cfc6b0;--anight:#0b1c17;
+  background:var(--ap);color:var(--ai);font-family:'Noto Naskh Arabic',serif;
+  max-width:1440px;margin:0 auto;padding:clamp(1rem,3vw,2.4rem);
+}
+.atlas *{box-sizing:border-box}
+.atlas-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--als);padding-bottom:1rem}
+.atlas-head h1{font-family:'Noto Kufi Arabic',sans-serif;font-size:clamp(1.3rem,2.5vw,2rem);margin:0;line-height:1.3}
+.atlas-head .kicker{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--ab);margin:0 0 .4rem}
+.atlas-head .sub{font-size:.82rem;color:var(--am);margin:.4rem 0 0}
+.atlas-stats{display:flex;gap:1.2rem;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--am)}
+.atlas-stats b{color:var(--aw);font-weight:500;font-size:13px}
+.atlas-bar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:1.1rem 0}
+.atlas-search{flex:1 1 260px;display:flex;align-items:center;gap:.55rem;border:1px solid var(--als);background:var(--ap2);padding:.55rem .75rem}
+.atlas-search input{border:0;background:transparent;outline:0;width:100%;font-family:'Noto Naskh Arabic',serif;font-size:.85rem;color:var(--ai)}
+.atlas-search span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ab)}
+.atlas-btn{font-family:'Noto Kufi Arabic',sans-serif;font-size:.74rem;font-weight:600;padding:.52rem .85rem;border:1px solid var(--als);background:var(--ap2);color:var(--ai);cursor:pointer;transition:.2s}
+.atlas-btn:hover{border-color:var(--ab);color:var(--ab)}
+.atlas-btn[aria-pressed="true"]{background:var(--ai);color:var(--ap2);border-color:var(--ai)}
+.atlas-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1rem}
+.atlas-chip{font-family:'Noto Kufi Arabic',sans-serif;font-size:.68rem;padding:.32rem .6rem;border:1px solid var(--al);background:transparent;color:var(--am);cursor:pointer}
+.atlas-chip[aria-pressed="true"]{border-color:var(--aw);color:var(--aw);background:rgba(46,111,104,.08)}
+.atlas-grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:1rem;align-items:start}
+@media (max-width:980px){.atlas-grid{grid-template-columns:1fr}}
+.atlas-stage{position:relative;border:1px solid var(--als);background:var(--ap2);overflow:hidden}
+.atlas-stage svg{display:block;width:100%;height:auto;min-height:460px}
+.atlas-flow{fill:none;stroke:var(--aw);stroke-width:1;opacity:.42;stroke-dasharray:3 7;animation:atlasFlow 9s linear infinite}
+.atlas-flow.strong{stroke-width:1.6;opacity:.7}
+@keyframes atlasFlow{to{stroke-dashoffset:-80}}
+@media (prefers-reduced-motion:reduce){.atlas-flow{animation:none}}
+.atlas-node{cursor:pointer}
+.atlas-node circle,.atlas-node rect{transition:opacity .2s,stroke-width .2s,r .2s}
+.atlas-node text{font-family:'Noto Naskh Arabic',serif;font-size:11px;fill:var(--ai);pointer-events:none}
+.atlas-node .mono{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;fill:var(--ab)}
+.atlas-node:hover circle,.atlas-node:focus circle{stroke-width:2.4}
+.atlas-dim{opacity:.12}
+.atlas-sel circle{stroke:var(--ab);stroke-width:3}
+.atlas-hint{position:absolute;bottom:.55rem;right:.7rem;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.1em;color:var(--am);pointer-events:none}
+.atlas-panel{border:1px solid var(--als);background:var(--ap2);padding:1rem;min-height:460px;position:sticky;top:1rem}
+.atlas-panel .ptype{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--ab);margin:0 0 .5rem}
+.atlas-panel h2{font-family:'Noto Kufi Arabic',sans-serif;font-size:1.05rem;line-height:1.5;margin:0 0 .6rem}
+.atlas-panel p{font-size:.8rem;line-height:1.9;color:var(--am);margin:.4rem 0}
+.atlas-panel .tags{display:flex;flex-wrap:wrap;gap:.3rem;margin:.7rem 0}
+.atlas-panel .tags span{font-size:.68rem;border:1px solid var(--al);padding:.18rem .45rem;color:var(--am)}
+.atlas-panel ul{list-style:none;padding:0;margin:.6rem 0 0}
+.atlas-panel li{border-top:1px solid var(--al);padding:.45rem 0;font-size:.78rem;line-height:1.7}
+.atlas-panel li a{color:var(--aw);text-decoration:none;border-bottom:1px solid transparent}
+.atlas-panel li a:hover{border-color:var(--aw)}
+.atlas-panel .empty{color:var(--am);font-size:.8rem;line-height:1.9}
+.atlas-list{border:1px solid var(--als);background:var(--ap2);padding:1rem;max-height:620px;overflow:auto}
+.atlas-list h3{font-family:'Noto Kufi Arabic',sans-serif;font-size:.95rem;margin:1.1rem 0 .4rem;color:var(--ab)}
+.atlas-list h3:first-child{margin-top:0}
+.atlas-list button{display:inline-block;font-family:'Noto Naskh Arabic',serif;font-size:.76rem;background:transparent;border:1px solid var(--al);color:var(--ai);padding:.28rem .5rem;margin:.2rem;cursor:pointer}
+.atlas-list button:hover{border-color:var(--aw);color:var(--aw)}
+.atlas-list a{font-size:.76rem;color:var(--aw);text-decoration:none;display:block;padding:.25rem 0}
+[hidden]{display:none!important}
+</style>
+
+<div class="atlas">
+  <div class="atlas-head">
+    <div>
+      <p class="kicker">ATLAS · KNOWLEDGE GRAPH</p>
+      <h1>أطلس الماء</h1>
+      <p class="sub">المصطلحات والمناطق والمصادر والمقالات في شبكة واحدة، من بيانات الموقع نفسها.</p>
+    </div>
+    <div class="atlas-stats" id="atlas-stats"></div>
+  </div>
+
+  <div class="atlas-bar">
+    <label class="atlas-search"><span>⌕</span><input id="atlas-q" type="search" autocomplete="off" aria-label="ابحث في المصطلحات والمرادفات" placeholder="ابحث في المصطلحات والمرادفات"></label>
+    <button class="atlas-btn" id="atlas-view-graph" aria-pressed="true">الشبكة</button>
+    <button class="atlas-btn" id="atlas-view-list" aria-pressed="false">القائمة</button>
+  </div>
+  <div class="atlas-chips" id="atlas-chips"></div>
+
+  <div class="atlas-grid">
+    <div>
+      <div class="atlas-stage" id="atlas-stage">
+        <svg id="atlas-svg" viewBox="0 0 1000 700" role="img" aria-label="شبكة مصطلحات الماء"></svg>
+        <div class="atlas-hint">اضغط على أي عقدة لعرض تفاصيلها</div>
+      </div>
+      <div class="atlas-list" id="atlas-list" hidden></div>
+    </div>
+    <aside class="atlas-panel" id="atlas-panel" aria-live="polite"></aside>
+  </div>
+</div>
+
+<script>
+(function(){
+  var D = window.ATLAS_DATA || {};
+  var SVG_NS='http://www.w3.org/2000/svg';
+  var svg=document.getElementById('atlas-svg');
+  var stage=document.getElementById('atlas-stage');
+  var panel=document.getElementById('atlas-panel');
+  var q=document.getElementById('atlas-q');
+  var chips=document.getElementById('atlas-chips');
+  var list=document.getElementById('atlas-list');
+  var gv=document.getElementById('atlas-view-graph');
+  var lv=document.getElementById('atlas-view-list');
+  var domains=D.domains||[], terms=D.terms||{}, regions=D.regions||[], sources=D.sources||[], posts=D.posts||[], scientists=D.scientists||[];
+  var nodes=[], edges=[], selected=null, activeDomain='all', query='';
+
+  function norm(s){
+    return String(s||'').toLowerCase().replace(/[\u064B-\u065F\u0670]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/\u0640/g,'').trim();
+  }
+  function el(name,attrs){
+    var e=document.createElementNS(SVG_NS,name);
+    for(var k in attrs){e.setAttribute(k,attrs[k]);}
+    return e;
+  }
+  function domainOf(termId){
+    for(var i=0;i<domains.length;i++){if((domains[i].term_ids||[]).indexOf(termId)>-1){return domains[i];}}
+    return null;
+  }
+  function termLabel(id){return (terms[id]&&terms[id].ar)||id;}
+  function linksForTerm(id){
+    var out=[];
+    regions.forEach(function(r){if((r.taxonomy||[]).indexOf(id)>-1){out.push({label:r.ar,url:''});}});
+    sources.forEach(function(s){if((s.taxonomy||[]).indexOf(id)>-1){out.push({label:s.title,url:s.url});}});
+    posts.forEach(function(p){if((p.taxonomy||[]).indexOf(id)>-1){out.push({label:p.title,url:p.url});}});
+    return out;
+  }
+
+  function build(){
+    nodes=[];edges=[];
+    var cx=500,cy=350,n=domains.length||1;
+    domains.forEach(function(d,i){
+      var a=-Math.PI/2+i*2*Math.PI/n;
+      var node={id:'d:'+d.id,type:'domain',label:d.label_ar||d.label_en,x:cx+Math.cos(a)*190,y:cy+Math.sin(a)*190,r:15,color:'#a67a2e',ref:d,angle:a};
+      nodes.push(node);
+      edges.push({a:'c',b:node.id,strong:true});
+      var ids=d.term_ids||[];
+      ids.forEach(function(tid,j){
+        var spread=Math.min(1.15,Math.PI/n*1.5);
+        var ta=a+(ids.length===1?0:(j/(ids.length-1)-.5)*spread);
+        var rr=(j%2===0?78:108);
+        var tn={id:'t:'+tid,type:'term',label:termLabel(tid),x:node.x+Math.cos(ta)*rr,y:node.y+Math.sin(ta)*rr,r:4.5,color:'#2e6f68',ref:terms[tid]||{},domain:d.id};
+        nodes.push(tn);
+        edges.push({a:node.id,b:tn.id,strong:false});
+      });
+    });
+    regions.forEach(function(r,i){
+      var tid=(r.taxonomy||[])[0];
+      var anchor=nodes.filter(function(x){return x.id==='t:'+tid;})[0];
+      var a=anchor?Math.atan2(anchor.y-cy,anchor.x-cx):i*2*Math.PI/(regions.length||1);
+      var node={id:'r:'+r.id,type:'region',label:r.ar,x:cx+Math.cos(a)*310,y:cy+Math.sin(a)*310,r:6,color:'#131f1b',ref:r};
+      nodes.push(node);
+      if(anchor){edges.push({a:anchor.id,b:node.id,strong:false});}
+    });
+    sources.forEach(function(s,i){
+      var tid=(s.taxonomy||[])[0];
+      var anchor=nodes.filter(function(x){return x.id==='t:'+tid;})[0];
+      var a=(anchor?Math.atan2(anchor.y-cy,anchor.x-cx):i*2*Math.PI/(sources.length||1))+.08;
+      var node={id:'s:'+s.id,type:'source',label:s.title,x:cx+Math.cos(a)*345,y:cy+Math.sin(a)*345,r:4,color:'#8f6524',ref:s};
+      nodes.push(node);
+      if(anchor){edges.push({a:anchor.id,b:node.id,strong:false});}
+    });
+    var center={id:'c',type:'center',label:'الماء',x:cx,y:cy,r:22,color:'#0b1c17'};
+    nodes.unshift(center);
+  }
+
+  function visible(node){
+    if(activeDomain!=='all'){
+      if(node.type==='term'&&node.domain!==activeDomain){return false;}
+      if(node.type==='domain'&&node.id!=='d:'+activeDomain){return false;}
+    }
+    if(query){
+      var hay=[node.label,node.ref&&node.ref.aliases_ar&&node.ref.aliases_ar.join(' '),node.ref&&node.ref.en,node.ref&&node.ref.fr].join(' ');
+      if(norm(hay).indexOf(norm(query))===-1&&node.type!=='center'){return false;}
+    }
+    return true;
+  }
+
+  function render(){
+    while(svg.firstChild){svg.removeChild(svg.firstChild);}
+    var byId={};nodes.forEach(function(n){byId[n.id]=n;});
+    edges.forEach(function(e){
+      var a=byId[e.a],b=byId[e.b];if(!a||!b){return;}
+      var line=el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,'class':'atlas-flow'+(e.strong?' strong':'')});
+      if(!visible(a)||!visible(b)){line.setAttribute('opacity','.05');}
+      svg.appendChild(line);
+    });
+    nodes.forEach(function(n){
+      if(!visible(n)){return;}
+      var g=el('g',{'class':'atlas-node'+(selected===n.id?' atlas-sel':''),tabindex:'0',role:'button','aria-label':n.label});
+      var shape=n.type==='source'?el('rect',{x:n.x-n.r,y:n.y-n.r,width:n.r*2,height:n.r*2}):el('circle',{cx:n.x,cy:n.y,r:n.r});
+      shape.setAttribute('fill',n.type==='center'?n.color:'#faf8f2');
+      shape.setAttribute('stroke',n.color);
+      shape.setAttribute('stroke-width',n.type==='center'?2:1.4);
+      g.appendChild(shape);
+      if(n.type==='center'||n.type==='domain'||n.type==='region'){
+        var t=el('text',{x:n.x+(n.type==='center'?32:12),y:n.y+4});
+        t.textContent=n.label;g.appendChild(t);
+      }else if(query||selected===n.id){
+        var t2=el('text',{x:n.x+8,y:n.y-7});t2.textContent=n.label;g.appendChild(t2);
+      }
+      g.addEventListener('click',function(){select(n.id);});
+      g.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();select(n.id);}});
+      svg.appendChild(g);
+    });
+  }
+
+  function li(label,url){
+    if(!url){return '';}
+    return '<li><a href="'+url+'">'+label+'</a></li>';
+  }
+  function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function select(id){
+    selected=id;
+    var n=nodes.filter(function(x){return x.id===id;})[0];
+    if(!n){return;}
+    var html='<p class="ptype">'+esc(n.type)+'</p><h2>'+esc(n.label)+'</h2>';
+    if(n.type==='domain'){
+      var ds=n.ref;
+      html+='<p>'+esc(ds.label_en||'')+'</p><h3>المصطلحات</h3><ul>';
+      (ds.term_ids||[]).forEach(function(t){html+='<li>'+esc(termLabel(t))+'</li>';});
+      html+='</ul>';
+    }else if(n.type==='term'){
+      var d=domainOf(n.id.slice(2));
+      html+='<p>'+(d?esc(d.label_ar):'')+'</p>';
+      if(n.ref.aliases_ar&&n.ref.aliases_ar.length){html+='<div class="tags">'+n.ref.aliases_ar.map(function(a){return '<span>'+esc(a)+'</span>';}).join('')+'</div>';}
+      html+='<ul>';linksForTerm(n.id.slice(2)).forEach(function(l){html+=li(esc(l.label),l.url);});html+='</ul>';
+    }else if(n.type==='region'){
+      html+='<p>'+esc(n.ref.summary||'')+'</p><div class="tags">';
+      (n.ref.taxonomy||[]).forEach(function(t){html+='<span>'+esc(termLabel(t))+'</span>';});html+='</div><ul>';
+      (n.ref.related||[]).forEach(function(l){html+=li(esc(l.title),l.url);});html+='</ul>';
+    }else if(n.type==='source'){
+      html+='<p>'+esc(n.ref.type||'')+'</p><p>'+esc(n.ref.summary||'')+'</p><div class="tags">';
+      (n.ref.taxonomy||[]).forEach(function(t){html+='<span>'+esc(termLabel(t))+'</span>';});html+='</div>';
+      html+=li('افتح المصدر',n.ref.url);
+    }else if(n.type==='center'){
+      html+='<p class="empty">اختر مجالاً أو مصطلحاً من الشبكة لعرض ارتباطاته.</p>';
+    }else if(n.type==='scientist'){
+      html+='<p>'+esc(n.ref.dates||'')+'</p><div class="tags">'+(n.ref.tags||[]).map(function(t){return '<span>'+esc(t)+'</span>';}).join('')+'</div>'+li('الملف الشخصي',n.ref.url);
+    }
+    panel.innerHTML=html;
+    render();
+  }
+
+  function renderChips(){
+    chips.innerHTML='';
+    var all=document.createElement('button');all.className='atlas-chip';all.textContent='جميع المجالات';all.setAttribute('aria-pressed',String(activeDomain==='all'));
+    all.addEventListener('click',function(){activeDomain='all';renderChips();render();});
+    chips.appendChild(all);
+    domains.forEach(function(d){
+      var b=document.createElement('button');b.className='atlas-chip';b.textContent=d.label_ar||d.label_en;b.setAttribute('aria-pressed',String(activeDomain===d.id));
+      b.addEventListener('click',function(){activeDomain=(activeDomain===d.id?'all':d.id);renderChips();render();});
+      chips.appendChild(b);
+    });
+  }
+  function renderList(){
+    list.innerHTML='';
+    function group(title,items){
+      var h=document.createElement('h3');h.textContent=title;list.appendChild(h);
+      items.forEach(function(it){
+        if(it.url){var a=document.createElement('a');a.href=it.url;a.textContent=it.label;list.appendChild(a);}
+        else{var b=document.createElement('button');b.textContent=it.label;b.addEventListener('click',function(){select(it.id);showView('graph');});list.appendChild(b);}
+      });
+    }
+    group('المصطلحات',Object.keys(terms).map(function(id){return{label:termLabel(id),id:'t:'+id};}));
+    group('المناطق',regions.map(function(r){return{label:r.ar,id:'r:'+r.id};}));
+    group('المصادر',sources.map(function(s){return{label:s.title,id:'s:'+s.id};}));
+    group('المقالات',posts.map(function(p){return{label:p.title,url:p.url};}));
+    group('الأعلام',scientists.map(function(s){return{label:s.name,url:s.url};}));
+  }
+  function showView(v){
+    var graph=v==='graph';
+    stage.hidden=!graph;list.hidden=graph;
+    gv.setAttribute('aria-pressed',String(graph));lv.setAttribute('aria-pressed',String(!graph));
+  }
+  gv.addEventListener('click',function(){showView('graph');});
+  lv.addEventListener('click',function(){showView('list');renderList();});
+  q.addEventListener('input',function(){query=q.value;render();});
+
+  var sc=document.getElementById('atlas-stats');
+  if(sc){sc.innerHTML='<span><b>'+Object.keys(terms).length+'</b> مصطلح</span><span><b>'+regions.length+'</b> منطقة</span><span><b>'+sources.length+'</b> مصدر</span>';}
+
+  build();renderChips();render();select('c');
+})();
+</script>

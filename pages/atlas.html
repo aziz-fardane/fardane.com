@@ -1,0 +1,19 @@
+---
+layout: default
+title: أطلس الماء
+description: "خريطة تفاعلية تربط مصطلحات تاريخ الماء بالمغرب بالمناطق والمصادر والمقالات، من بيانات الموقع نفسها."
+permalink: /atlas/
+---
+
+{% capture _atlas_domains %}{{ site.data.water_taxonomy.domains | jsonify }}{% endcapture %}
+{% capture _atlas_terms %}{{ site.data.water_taxonomy.terms | jsonify }}{% endcapture %}
+{% capture _atlas_regions %}{{ site.data.water_regions.regions | jsonify }}{% endcapture %}
+{% capture _atlas_sources %}{{ site.data.water_sources.sources | jsonify }}{% endcapture %}
+
+{% assign _atlas_posts = site.posts | where_exp: "p", "p.published != false" %}
+{% capture _atlas_posts_json %}[{% for p in _atlas_posts %}{"title":{{ p.title | jsonify }},"url":{{ p.url | relative_url | jsonify }},"taxonomy":{{ p.taxonomy | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
+
+{% assign _atlas_scientists = site.scientists | where_exp: "s", "s.published != false" %}
+{% capture _atlas_scientists_json %}[{% for s in _atlas_scientists %}{"name":{{ s.name | jsonify }},"url":{{ s.url | relative_url | jsonify }},"dates":{{ s.dates | jsonify }},"tags":{{ s.tags | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
+
+{% include atlas-body.html domains=_atlas_domains terms=_atlas_terms regions=_atlas_regions sources=_atlas_sources posts=_atlas_posts_json scientists=_atlas_scientists_json %}
