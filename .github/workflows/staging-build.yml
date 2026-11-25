@@ -65,6 +65,7 @@ jobs:
               f'noindex_pages={total("noindex")}',
               f'ga_tag_present={total("G-1H5F625Z31")}',
               f'staging_banner={total("STAGING")}',
+              f'nested_preview={"yes" if any("staging-preview" in str(p.relative_to(out)) for p in out.rglob("*.html")) else "no"}',
           ]
           (out / 'verify.txt').write_text('\n'.join(lines) + '\n', encoding='utf-8')
           print('\n'.join(lines))
