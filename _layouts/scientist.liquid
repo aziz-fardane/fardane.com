@@ -472,7 +472,17 @@ layout: default
                         <p class="code"><b>CROSS</b> · REFERENCE</p>
                         <h2>علماء آخرون</h2>
                         <div class="sci-rel">
-                            {% assign other_scientists = site.scientists | where_exp: "s", "s.name != page.name" | sample: 3 %}
+                            {%- comment -%} Deterministic neighbours by the curated order: stable builds, no random sample. {%- endcomment -%}
+                            {% assign _sci_ordered = site.scientists | sort: "order" %}
+                            {% assign _sci_pos = 0 %}
+                            {% for _s in _sci_ordered %}{% if _s.name == page.name %}{% assign _sci_pos = forloop.index0 %}{% endif %}{% endfor %}
+                            {% assign _sci_start = _sci_pos | plus: 1 %}
+                            {% assign other_scientists = _sci_ordered | slice: _sci_start, 3 %}
+                            {% if other_scientists.size < 3 %}
+                            {% assign _sci_left = 3 | minus: other_scientists.size %}
+                            {% assign _sci_head = _sci_ordered | slice: 0, _sci_left %}
+                            {% assign other_scientists = other_scientists | concat: _sci_head %}
+                            {% endif %}
                             {% for scientist in other_scientists %}
                             {% assign _rs_key = scientist.image | remove_first: '/' %}
                             <a href="{{ scientist.url }}">
