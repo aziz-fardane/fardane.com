@@ -146,6 +146,11 @@ permalink: /articles/
                                         <i class="far fa-clock" aria-hidden="true"></i>
                                         {{ _rt }} دقيقة
                                     </span>
+                                    {% if post.alt_url %}
+                                    <span class="ar-lang">
+                                        <a href="{{ post.alt_url | relative_url }}" hreflang="en" lang="en" aria-label="English version">EN</a>
+                                    </span>
+                                    {% endif %}
                                 </div>
 
                                 <p class="ar-excerpt">{{ post.description | strip_html | truncate: 180 }}</p>
