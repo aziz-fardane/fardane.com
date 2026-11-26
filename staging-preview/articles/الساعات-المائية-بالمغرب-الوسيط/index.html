@@ -1279,15 +1279,8 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
         
 <style data-staging-panorama>
   @media screen {
-    body[data-gemini="home"]{--pano:url('/staging-assets/01-home.jpg')}
-    body[data-gemini="research"]{--pano:url('/staging-assets/02-research.jpg')}
-    body[data-gemini="updates"]{--pano:url('/staging-assets/03-updates.jpg')}
-    body[data-gemini="figures"]{--pano:url('/staging-assets/04-figures.jpg')}
-    body[data-gemini="services"]{--pano:url('/staging-assets/05-services.jpg')}
-    body[data-gemini="biography"]{--pano:url('/staging-assets/06-biography.jpg')}
-    body[data-gemini="method"]{--pano:url('/staging-assets/07-method.jpg')}
-    body[data-gemini="publications"]{--pano:url('/staging-assets/08-publications.jpg')}
-    body[data-gemini="water-library"]{--pano:url('/staging-assets/09-water-library.jpg')}
+    /* One identity panorama — the home image — across every staged page. */
+    body[data-gemini]{--pano:url('/staging-assets/01-home.jpg')}
 
     body[data-gemini]{isolation:isolate}
     @keyframes fardane-panorama-slide{
