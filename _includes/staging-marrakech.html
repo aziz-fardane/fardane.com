@@ -56,7 +56,7 @@ __ROOTSEL__ .atlas,__ROOTSEL__ .tl,__ROOTSEL__ .rd-ui,__ROOTSEL__ .wl-ui{backgro
 {% assign _m_hn_auto = _m_hard_night | replace: '__ROOTSEL__', 'html:not([data-night="off"])' %}
 {% assign _m_hl_print = _m_hard_light | replace: '__ROOTSEL__', 'html' %}
 
-<style>
+<style data-pstyle="marrakech">
 @media screen {
   html[data-night="off"]{ {{ _m_light }} }
   {{ _m_hl_off }}

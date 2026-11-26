@@ -333,6 +333,7 @@
     <body class="bg-plaster text-ink min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}{% if page.layout == 'post' or page.layout == 'post-feature' %} post-page{% endif %}{% if page.layout == 'post' %} post-edition{% endif %}{% if page.url == '/' %} home-page{% endif %}{% if page.url == '/articles/' %} articles-page{% endif %}">
         {% if site.staging %}
         <div class="staging-banner" style="position:relative;z-index:60;background:#7c2d12;color:#fff;text-align:center;font-size:12px;padding:6px 12px;font-family:monospace;letter-spacing:.05em">STAGING · نسخة تجريبية للمعاينة فقط — غير منشورة وغير مفهرسة</div>
+        {% include staging-palette-switcher.html %}
         {% endif %}
         <!-- Simple preloader -->
         <div id="preloader" class="fixed inset-0 bg-plaster z-50 flex items-center justify-center">

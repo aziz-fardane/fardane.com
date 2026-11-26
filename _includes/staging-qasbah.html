@@ -56,7 +56,7 @@ __ROOTSEL__ .atlas,__ROOTSEL__ .tl,__ROOTSEL__ .rd-ui,__ROOTSEL__ .wl-ui{backgro
 {% assign _q_hn_auto = _q_hard_night | replace: '__ROOTSEL__', 'html:not([data-night="off"])' %}
 {% assign _q_hl_print = _q_hard_light | replace: '__ROOTSEL__', 'html' %}
 
-<style>
+<style data-pstyle="qasbah">
 @media screen {
   html[data-night="off"]{ {{ _q_light }} }
   {{ _q_hl_off }}

@@ -1,0 +1,52 @@
+{% comment %}
+    staging-only identity palette picker. Shows the four studies side by side on
+    the real staging pages so they can be compared before any final choice.
+    No external fonts, images, APIs, hidden articles or Arabic edits.
+{% endcomment %}
+<div class="sp-root" dir="rtl" role="group" aria-label="معاينة لوحات الهوية">
+  <span class="sp-label">لوحة الهوية</span>
+  <div class="sp-btns">
+    <button type="button" class="sp-btn" data-pick="qasbah" aria-pressed="false">القصبة</button>
+    <button type="button" class="sp-btn" data-pick="marrakech" aria-pressed="false">مراكش</button>
+    <button type="button" class="sp-btn" data-pick="fes" aria-pressed="false">فاس</button>
+    <button type="button" class="sp-btn" data-pick="andalus" aria-pressed="false">الأندلس</button>
+  </div>
+</div>
+<style>
+  .sp-root{position:fixed;left:12px;bottom:12px;z-index:80;display:flex;align-items:center;gap:8px;direction:rtl;font-family:system-ui,sans-serif;font-size:12px;line-height:1.4;padding:7px 9px;border:1px solid #B9A788;border-radius:6px;background:#1E241C;color:#F9F1E1;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+  .sp-label{color:#B9A788;white-space:nowrap}
+  .sp-btns{display:flex;gap:4px}
+  .sp-btn{font:inherit;cursor:pointer;padding:3px 8px;border:1px solid #B9A788;border-radius:4px;background:transparent;color:#F9F1E1}
+  .sp-btn:hover{border-color:#F9F1E1}
+  .sp-btn[aria-pressed="true"]{background:#B9A788;color:#1E241C;border-color:#B9A788}
+  .sp-btn:focus-visible{outline:2px solid #C49A5C;outline-offset:2px}
+  @media print{.sp-root{display:none!important}}
+</style>
+<script>
+(function(){
+  var KEY='fardane-palette', DEF='andalus';
+  var styles=[].slice.call(document.querySelectorAll('style[data-pstyle]'));
+  var names=styles.map(function(s){return s.getAttribute('data-pstyle');});
+  var btns=[].slice.call(document.querySelectorAll('.sp-btn[data-pick]'));
+  function read(){
+    try{var v=localStorage.getItem(KEY);return names.indexOf(v)>-1?v:DEF;}
+    catch(e){return DEF;}
+  }
+  function apply(name){
+    if(names.indexOf(name)<0){name=DEF;}
+    styles.forEach(function(s){s.disabled=(s.getAttribute('data-pstyle')!==name);});
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-pick')===name?'true':'false');});
+    try{localStorage.setItem(KEY,name);}catch(e){}
+  }
+  var root=document.querySelector('.sp-root');
+  if(root){
+    root.addEventListener('click',function(e){
+      var b=e.target&&e.target.closest?e.target.closest('.sp-btn[data-pick]'):null;
+      if(!b){return;}
+      var name=b.getAttribute('data-pick');
+      if(names.indexOf(name)>-1){apply(name);}
+    });
+  }
+  apply(read());
+})();
+</script>
