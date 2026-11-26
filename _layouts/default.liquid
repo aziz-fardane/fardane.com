@@ -15,7 +15,22 @@
             window.__fardaneSelf = localStorage.getItem('fardane-self') === '1';
           } catch (e) { window.__fardaneSelf = false; }
 
-          gtag('config', 'G-QJ3JS479R0', { send_page_view: !window.__fardaneSelf });
+          /* لا نرسل page_view تلقائياً أبداً؛ نرسله يدوياً لغير المالك فقط */
+          gtag('config', 'G-QJ3JS479R0', { send_page_view: false });
+          if (!window.__fardaneSelf) {
+            var _fardanePageView = function () {
+              gtag('event', 'page_view', {
+                page_path: window.location.pathname,
+                page_location: window.location.href,
+                page_title: document.title
+              });
+            };
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', _fardanePageView, { once: true });
+            } else {
+              _fardanePageView();
+            }
+          }
         </script>
 
         <meta charset="UTF-8">
