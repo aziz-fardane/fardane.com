@@ -315,6 +315,7 @@
         {% if site.staging %}{% include staging-marrakech.html %}{% endif %}
         {% if site.staging %}{% include staging-fes.html %}{% endif %}
         {% if site.staging %}{% include staging-andalus.html %}{% endif %}
+        {% if site.staging %}{% include staging-gemini.html %}{% endif %}
         {% if site.staging %}{% include staging-creative.html %}{% endif %}
 
         <!-- RTL support for Tailwind CSS -->
@@ -331,7 +332,20 @@
         <!-- Scripts -->
         <script defer src="{{ site.data.manifest['dist/main.js'] }}"></script>
     </head>
-    <body class="bg-plaster text-ink min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}{% if page.layout == 'post' or page.layout == 'post-feature' %} post-page{% endif %}{% if page.layout == 'post' %} post-edition{% endif %}{% if page.url == '/' %} home-page{% endif %}{% if page.url == '/articles/' %} articles-page{% endif %}">
+    {% assign _gemini = '' %}
+    {% if site.staging %}
+      {% if page.url == '/' %}{% assign _gemini = 'home' %}
+      {% elsif page.url == '/articles/' or page.url contains '/news/' %}{% assign _gemini = 'research' %}
+      {% elsif page.url == '/events/' %}{% assign _gemini = 'updates' %}
+      {% elsif page.url contains '/scientists/' %}{% assign _gemini = 'figures' %}
+      {% elsif page.url == '/services/' %}{% assign _gemini = 'services' %}
+      {% elsif page.url == '/about/' %}{% assign _gemini = 'biography' %}
+      {% elsif page.url == '/atlas/' %}{% assign _gemini = 'method' %}
+      {% elsif page.url == '/publications/' %}{% assign _gemini = 'publications' %}
+      {% elsif page.url == '/timeline/' %}{% assign _gemini = 'water-library' %}
+      {% endif %}
+    {% endif %}
+    <body class="bg-plaster text-ink min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}{% if page.layout == 'post' or page.layout == 'post-feature' %} post-page{% endif %}{% if page.layout == 'post' %} post-edition{% endif %}{% if page.url == '/' %} home-page{% endif %}{% if page.url == '/articles/' %} articles-page{% endif %}"{% if site.staging %} data-gemini="{{ _gemini }}"{% endif %}>
         {% if site.staging %}
         <div class="staging-banner" style="position:relative;z-index:60;background:#7c2d12;color:#fff;text-align:center;font-size:12px;padding:6px 12px;font-family:monospace;letter-spacing:.05em">STAGING · نسخة تجريبية للمعاينة فقط — غير منشورة وغير مفهرسة</div>
         {% include staging-palette-switcher.html %}

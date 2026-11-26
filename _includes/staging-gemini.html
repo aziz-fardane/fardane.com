@@ -1,0 +1,45 @@
+{% comment %}
+    staging-only photorealistic zellige backgrounds. Loaded only when site.staging
+    is true. Images are local files in /staging-assets/. No external fonts, APIs,
+    hidden articles or edits to the original Arabic text. Print stays clean.
+{% endcomment %}
+<style data-gemini-bg>
+  @media screen {
+    body[data-gemini="home"] {
+      background-image: linear-gradient(rgba(20,25,22,.16),rgba(20,25,22,.16)), url('/staging-assets/01-home.jpg') !important;
+    }
+    body[data-gemini="research"] {
+      background-image: linear-gradient(rgba(20,25,22,.18),rgba(20,25,22,.18)), url('/staging-assets/02-research.jpg') !important;
+    }
+    body[data-gemini="updates"] {
+      background-image: linear-gradient(rgba(20,25,22,.14),rgba(20,25,22,.14)), url('/staging-assets/03-updates.jpg') !important;
+    }
+    body[data-gemini="figures"] {
+      background-image: linear-gradient(rgba(20,25,22,.18),rgba(20,25,22,.18)), url('/staging-assets/04-figures.jpg') !important;
+    }
+    body[data-gemini="services"] {
+      background-image: linear-gradient(rgba(20,25,22,.14),rgba(20,25,22,.14)), url('/staging-assets/05-services.jpg') !important;
+    }
+    body[data-gemini="biography"] {
+      background-image: linear-gradient(rgba(20,25,22,.14),rgba(20,25,22,.14)), url('/staging-assets/06-biography.jpg') !important;
+    }
+    body[data-gemini="method"] {
+      background-image: linear-gradient(rgba(20,25,22,.20),rgba(20,25,22,.20)), url('/staging-assets/07-method.jpg') !important;
+    }
+    body[data-gemini="publications"] {
+      background-image: linear-gradient(rgba(20,25,22,.14),rgba(20,25,22,.14)), url('/staging-assets/08-publications.jpg') !important;
+    }
+    body[data-gemini="water-library"] {
+      background-image: linear-gradient(rgba(20,25,22,.18),rgba(20,25,22,.18)), url('/staging-assets/09-water-library.jpg') !important;
+    }
+    body[data-gemini] {
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      background-attachment: fixed !important;
+    }
+  }
+  @media print {
+    body[data-gemini] { background-image: none !important; }
+  }
+</style>

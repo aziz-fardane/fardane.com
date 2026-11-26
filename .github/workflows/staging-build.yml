@@ -62,6 +62,14 @@ jobs:
           files_dir = pathlib.Path('files')
           if files_dir.exists():
               shutil.copytree(files_dir, out / 'files')
+          # خلفيات Gemini المحلية: Worker يخدم فقط من staging-preview/.
+          assets_dir = pathlib.Path('staging-assets')
+          if assets_dir.exists():
+              shutil.copytree(assets_dir, out / 'staging-assets')
+          local_jpgs = 0
+          assets_out = out / 'staging-assets'
+          if assets_out.exists():
+              local_jpgs = sum(1 for p in assets_out.rglob('*.jpg'))
           def total(needle):
               return sum(1 for p in out.rglob('*.html') if needle in p.read_text(encoding='utf-8', errors='ignore'))
           lines = [
@@ -75,6 +83,7 @@ jobs:
               f'empty_pages={sum(1 for p in out.rglob("*.html") if not p.read_text(encoding="utf-8", errors="ignore").strip())}',
               f'fake_url_pages={total("staging.invalid")}',
               f'local_pdfs={sum(1 for p in out.rglob("*.pdf"))}',
+              f'local_jpgs={local_jpgs}',
           ]
           (out / 'verify.txt').write_text('\n'.join(lines) + '\n', encoding='utf-8')
           print('\n'.join(lines))
