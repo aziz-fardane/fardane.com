@@ -1146,6 +1146,48 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
 </style>
 
         
+<style data-gemini-bg>
+  @media screen {
+    body[data-gemini="home"] {
+      background-image: linear-gradient(rgba(20,25,22,.16),rgba(20,25,22,.16)), url('/staging-assets/01-home.jpg') !important;
+    }
+    body[data-gemini="research"] {
+      background-image: linear-gradient(rgba(20,25,22,.18),rgba(20,25,22,.18)), url('/staging-assets/02-research.jpg') !important;
+    }
+    body[data-gemini="updates"] {
+      background-image: linear-gradient(rgba(20,25,22,.14),rgba(20,25,22,.14)), url('/staging-assets/03-updates.jpg') !important;
+    }
+    body[data-gemini="figures"] {
+      background-image: linear-gradient(rgba(20,25,22,.18),rgba(20,25,22,.18)), url('/staging-assets/04-figures.jpg') !important;
+    }
+    body[data-gemini="services"] {
+      background-image: linear-gradient(rgba(20,25,22,.14),rgba(20,25,22,.14)), url('/staging-assets/05-services.jpg') !important;
+    }
+    body[data-gemini="biography"] {
+      background-image: linear-gradient(rgba(20,25,22,.14),rgba(20,25,22,.14)), url('/staging-assets/06-biography.jpg') !important;
+    }
+    body[data-gemini="method"] {
+      background-image: linear-gradient(rgba(20,25,22,.20),rgba(20,25,22,.20)), url('/staging-assets/07-method.jpg') !important;
+    }
+    body[data-gemini="publications"] {
+      background-image: linear-gradient(rgba(20,25,22,.14),rgba(20,25,22,.14)), url('/staging-assets/08-publications.jpg') !important;
+    }
+    body[data-gemini="water-library"] {
+      background-image: linear-gradient(rgba(20,25,22,.18),rgba(20,25,22,.18)), url('/staging-assets/09-water-library.jpg') !important;
+    }
+    body[data-gemini] {
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      background-attachment: fixed !important;
+    }
+  }
+  @media print {
+    body[data-gemini] { background-image: none !important; }
+  }
+</style>
+
+        
 <style data-creative="courtyard">
   /* 1) الرئيسية كفناء: أروقة علوية وسفلية وحوض ماء مركزي، خفيف جداً خلف المحتوى. */
   @media screen {
@@ -1208,7 +1250,9 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
         <!-- Scripts -->
         <script defer src="https://fardane.com/dist/main.b2808df4.js"></script>
     </head>
-    <body class="bg-plaster text-ink min-h-screen flex flex-col">
+    
+    
+    <body class="bg-plaster text-ink min-h-screen flex flex-col" data-gemini="publications">
         
         <div class="staging-banner" style="position:relative;z-index:60;background:#7c2d12;color:#fff;text-align:center;font-size:12px;padding:6px 12px;font-family:monospace;letter-spacing:.05em">STAGING · نسخة تجريبية للمعاينة فقط — غير منشورة وغير مفهرسة</div>
         
