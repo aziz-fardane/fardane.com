@@ -117,3 +117,7 @@ defaults:
             path: "dist/pdf/*"
         values:
             sitemap: false
+    -   scope:
+            path: "google7ebe28c3c91d498b.html"
+        values:
+            sitemap: false
