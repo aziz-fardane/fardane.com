@@ -37,6 +37,9 @@
     html:not([data-night="off"]) .nm-toggle{background:#0b1c17;border-color:#436052;color:#e2c98f}
   }
   @media (max-width:520px){.nm-toggle{width:40px;height:40px}}
+  /* Hidden in this staging preview at the author's request; the live identity
+     and the prefers-color-scheme behaviour are untouched. */
+  .nm-toggle{display:none!important}
 
   /* 3. EN marker — one quiet chip in both the list and the article body */
   .ar-lang a[hreflang="en"],a[hreflang="en"].font-mono{

@@ -3,7 +3,8 @@
     a thin watercourse near the lower edge, and faint ripples/reflections.
     It sits behind the content; no layout, colour token, Arabic text, font,
     image or API is changed. Transform-only motion, no per-frame JavaScript,
-    hidden in print, calmed for reduced motion and lighter on small screens.
+    hidden in print, lighter on small screens, and kept visible in this staging
+    preview for visual review.
 {% endcomment %}
 <div class="fardane-water-field" aria-hidden="true"><i class="wf-rain-a"></i><i class="wf-rain-b"></i><i class="wf-rill"></i><i class="wf-ripples"></i></div>
 <style data-staging-water>
@@ -105,12 +106,12 @@
       .wf-rill{left:5%;right:5%;opacity:.6}
       .wf-ripples{left:12%;right:12%;height:40px;opacity:.4}
     }
-    @media (prefers-reduced-motion:reduce){
-      .wf-rain-a::before,.wf-rain-b::before,.wf-rill::after,.wf-ripples{animation:none}
-      .wf-rain-a::before,.wf-rain-b::before{opacity:.34}
-      .wf-rill::after{opacity:.4}
-      .wf-ripples{opacity:.32;transform:none}
-    }
+    /* Staging review keeps the water in motion under reduced-motion; the
+       !important declarations restore the quiet original timings and opacity. */
+    .wf-rain-a::before{animation-name:wf-rain-fine!important;animation-duration:24s!important;animation-iteration-count:infinite!important;opacity:.74!important}
+    .wf-rain-b::before{animation-name:wf-rain-deep!important;animation-duration:46s!important;animation-iteration-count:infinite!important;opacity:.58!important}
+    .wf-rill::after{animation-name:wf-rill-glints!important;animation-duration:26s!important;animation-iteration-count:infinite!important}
+    .wf-ripples{animation-name:wf-ripple-breathe!important;animation-duration:16s!important;animation-timing-function:ease-in-out!important;animation-iteration-count:infinite!important;animation-direction:alternate!important;opacity:.5!important}
   }
   @media print{.fardane-water-field{display:none!important}}
 </style>

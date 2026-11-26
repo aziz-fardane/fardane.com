@@ -2,7 +2,8 @@
     Staging-only slow panoramic drift of the existing local Gemini backgrounds.
     Uses a fixed pseudo-element animated with transform only: no new images,
     fonts, APIs or hidden articles, no edits to Arabic source text, no repaint
-    of the page background. Honours prefers-reduced-motion; off in print.
+    of the page background. Kept in motion in this staging preview for visual
+    review; off in print.
 {% endcomment %}
 <style data-staging-panorama>
   @media screen {
@@ -34,8 +35,14 @@
       animation:fardane-panorama-slide 54s ease-in-out infinite alternate;
       will-change:transform;
     }
-    @media (prefers-reduced-motion:reduce){
-      body[data-gemini]::before{animation:none;transform:none}
+    /* Staging review keeps the drift visible even under reduced-motion. The
+       !important declarations restore motion after the site-wide reset. */
+    body[data-gemini]::before{
+      animation-name:fardane-panorama-slide!important;
+      animation-duration:54s!important;
+      animation-timing-function:ease-in-out!important;
+      animation-iteration-count:infinite!important;
+      animation-direction:alternate!important;
     }
   }
   @media print{
