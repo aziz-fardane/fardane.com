@@ -80,5 +80,21 @@ __ROOTSEL__ .atlas,__ROOTSEL__ .tl,__ROOTSEL__ .rd-ui,__ROOTSEL__ .wl-ui{backgro
   html[data-night],html:not([data-night="off"]){ {{ _a_light }} }
   {{ _a_hl_print }}
   .staging-banner{display:none!important}
+  .ar-list.sw-accordion .ar-item{border-top:2px solid #A2643D}
+}
+/* الأندلس: قوس حدوة الفرس وقناة ماء، ثم ظل زيتوني ليلي */
+@media screen {
+  .ar-list.sw-accordion .ar-thumb::before{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    border-top:2px solid rgba(185,167,136,.50);
+    border-radius:50% 50% 0 0 / 18% 18% 0 0;
+    background:repeating-linear-gradient(180deg,transparent 0 11px,rgba(46,111,104,.10) 11px 12px);
+  }
+  .staging-banner{box-shadow:inset 0 -2px 0 rgba(162,100,61,.55)}
+  body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:transparent}
+  html[data-night="on"] body::after{background:radial-gradient(60% 45% at 50% 100%,rgba(110,143,108,.10),transparent 70%)}
+}
+@media screen and (prefers-color-scheme:dark){
+  html:not([data-night]) body::after{background:radial-gradient(60% 45% at 50% 100%,rgba(110,143,108,.10),transparent 70%)}
 }
 </style>

@@ -80,5 +80,21 @@ __ROOTSEL__ .atlas,__ROOTSEL__ .tl,__ROOTSEL__ .rd-ui,__ROOTSEL__ .wl-ui{backgro
   html[data-night],html:not([data-night="off"]){ {{ _m_light }} }
   {{ _m_hl_print }}
   .staging-banner{display:none!important}
+  .ar-list.sw-accordion .ar-item{border-top:2px solid #B9A788}
+}
+/* مراكش: زليج نقطي وظل نخيل، ثم ساحة مقمرة ليلاً */
+@media screen {
+  .ar-list.sw-accordion .ar-thumb::before{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(circle at 50% 50%,rgba(185,167,136,.22) 0 22%,transparent 24%),
+               repeating-linear-gradient(45deg,rgba(94,69,47,.10) 0 1px,transparent 1px 12px);
+    background-size:18px 18px,auto;
+  }
+  .staging-banner{box-shadow:inset 0 -2px 0 rgba(94,69,47,.55)}
+  body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:transparent}
+  html[data-night="on"] body::after{background:radial-gradient(70% 50% at 85% 0%,rgba(230,214,194,.10),transparent 72%)}
+}
+@media screen and (prefers-color-scheme:dark){
+  html:not([data-night]) body::after{background:radial-gradient(70% 50% at 85% 0%,rgba(230,214,194,.10),transparent 72%)}
 }
 </style>
