@@ -1,0 +1,128 @@
+---
+layout: default
+title: الرياض والبيت الأندلسي — دراسة مقارنة
+description: "دراسة تجريبية للمقارنة بين الرياض المغربي والبيت الأندلسي كمرجع لتصميم موقع فندقي أو سياحي مغربي: الألوان، الأقواس، الأفنية، وتأطير العمارة التراثية."
+permalink: /riad-andalus/
+---
+
+{% comment %}
+    staging-only comparative study. No external fonts, images, APIs, hidden
+    articles or edits to original Arabic article text. All drawings are CSS.
+{% endcomment %}
+
+{% if site.staging %}
+<div class="rc-study">
+  <header class="rc-head">
+    <p class="rc-kicker">معاينة تجريبية · دراسة مقارنة</p>
+    <h1>الرياض المغربي والبيت الأندلسي</h1>
+    <p class="rc-lead">محاولة استلهام موقع فندقي أو سياحي مغربي من خلال أربعة عناصر: الألوان، أنماط الأقواس، توزيع الأفنية، وطريقة تأطير العمارة التراثية. كل الرسوم أدناه مرسومة بـCSS فقط، بلا صور أو خطوط خارجية.</p>
+  </header>
+
+  <section class="rc-block">
+    <h2>١) الألوان</h2>
+    <div class="rc-two">
+      <article class="rc-card rc-riad">
+        <h3>الرياض المغربي</h3>
+        <div class="rc-swatches">
+          <i style="background:#F3E8D6"></i><i style="background:#B08A5E"></i><i style="background:#C9A87C"></i><i style="background:#2E6F68"></i>
+        </div>
+        <p>كلس دافئ، طين مدكوك، نحاس مطفأ، وماء أخضر هادئ. الألوان أقرب إلى الأرض والظل منها إلى اللمعان.</p>
+      </article>
+      <article class="rc-card rc-and">
+        <h3>البيت الأندلسي</h3>
+        <div class="rc-swatches">
+          <i style="background:#EFE6D5"></i><i style="background:#B9A788"></i><i style="background:#A2643D"></i><i style="background:#4F6B52"></i>
+        </div>
+        <p>جير قديم، حجر فاتح، طين محمّص، وزيتون. التباين أخفض، والخطوط أوضح من الملمس.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="rc-block">
+    <h2>٢) أنماط الأقواس</h2>
+    <div class="rc-two">
+      <article class="rc-card">
+        <h3>قوس مدبّب متعدد</h3>
+        <div class="rc-arch-row"><div class="rc-arch-riad"></div><div class="rc-arch-riad rc-small"></div></div>
+        <p>صفّ من الأقواس الصغيرة المتكرّرة يوحي بإيقاع الأفنية الداخلية والظل المتدرّج.</p>
+      </article>
+      <article class="rc-card">
+        <h3>قوس حدوة الفرس</h3>
+        <div class="rc-arch-row"><div class="rc-arch-and"></div></div>
+        <p>قوس واحد واسع بفتحة سفلية ضيقة؛ يركّز النظر على مدخل واحد بدل تكرار الإيقاع.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="rc-block">
+    <h2>٣) توزيع الأفنية</h2>
+    <div class="rc-two">
+      <article class="rc-card">
+        <h3>فناء مربع مركزي</h3>
+        <div class="rc-plan rc-plan-riad"><span></span><span></span><span></span><span></span></div>
+        <p>أربعة مجالس حول نافورة مركزية؛ التماثل هو المبدأ، والدوران حول الماء هو التجربة.</p>
+      </article>
+      <article class="rc-card">
+        <h3>باحة مستطيلة بأروقة</h3>
+        <div class="rc-plan rc-plan-and"><span></span><span></span><span></span></div>
+        <p>محور طويل تقسمه أعمدة خفيفة؛ الحركة خطّية من المدخل إلى أقصى الباحة.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="rc-block">
+    <h2>٤) تأطير العمارة التراثية</h2>
+    <div class="rc-two">
+      <article class="rc-card">
+        <h3>إطار الرياض: ملمس وظل</h3>
+        <div class="rc-photo rc-photo-riad"></div>
+        <p>إطار كلسي عريض، حبيبات خفيفة، وتعتيم أطراف لقراءة الملمس لا قراءة الشكل فقط.</p>
+      </article>
+      <article class="rc-card">
+        <h3>إطار الأندلس: خط وفراغ</h3>
+        <div class="rc-photo rc-photo-and"></div>
+        <p>صورة بلا حاشية تقريباً، مع خط رفيع واحد؛ التركيز على تقاسيم القوس والفراغ حوله.</p>
+      </article>
+    </div>
+  </section>
+
+  <p class="rc-foot">الدراسة تعرض المقارنة داخل الموقع التجريبي فقط، ويمكن معاينتها مع اللوحات الأربع من شريط اختيار الهوية أسفل الصفحة.</p>
+</div>
+<style>
+  .rc-study{--rc-plaster:#F6EFE2;--rc-ink:#241A12;--rc-clay:#B08A5E;--rc-brass:#C9A87C;--rc-water:#2E6F68;--rc-olive:#4F6B52;--rc-terra:#A2643D;--rc-lime:#EFE6D5;--rc-line:#D9CDB6;max-width:1080px;margin:0 auto;padding:clamp(24px,5vw,64px) clamp(16px,4vw,40px) 120px;color:var(--rc-ink);font-family:inherit}
+  .rc-head{margin-bottom:38px}
+  .rc-kicker{margin:0 0 8px;font-size:.72rem;letter-spacing:.08em;color:var(--rc-clay)}
+  .rc-study h1{font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.4;margin:0 0 12px;color:var(--rc-ink)}
+  .rc-lead{max-width:70ch;line-height:1.9;margin:0;color:var(--rc-ink);opacity:.82}
+  .rc-block{margin:0 0 36px;padding-top:24px;border-top:1px solid var(--rc-line)}
+  .rc-block h2{font-size:1.1rem;margin:0 0 18px;color:var(--rc-clay)}
+  .rc-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .rc-card{padding:20px;border:1px solid var(--rc-line);border-radius:6px;background:#FAF4E9}
+  .rc-card h3{margin:0 0 14px;font-size:.95rem;color:var(--rc-ink)}
+  .rc-card p{margin:14px 0 0;line-height:1.8;font-size:.86rem;opacity:.82}
+  .rc-swatches{display:flex;gap:6px}
+  .rc-swatches i{display:block;width:38px;height:38px;border-radius:4px;border:1px solid var(--rc-line)}
+  .rc-arch-row{display:flex;align-items:flex-end;gap:8px;height:100px}
+  .rc-arch-riad{position:relative;width:110px;height:88px;border:6px solid var(--rc-clay);border-bottom:0;border-radius:55px 55px 0 0 / 72px 72px 0 0}
+  .rc-arch-riad::after{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:32px;height:50px;border:4px solid var(--rc-brass);border-bottom:0;border-radius:16px 16px 0 0 / 26px 26px 0 0}
+  .rc-arch-riad.rc-small{width:70px;height:60px;border-width:4px;border-radius:35px 35px 0 0 / 48px 48px 0 0}
+  .rc-arch-riad.rc-small::after{border-width:3px;width:20px;height:32px;border-radius:10px 10px 0 0 / 16px 16px 0 0}
+  .rc-arch-and{width:150px;height:92px;border:6px solid var(--rc-olive);border-bottom:0;border-radius:75px 75px 0 0 / 34px 34px 0 0}
+  .rc-plan{height:150px;position:relative;box-sizing:border-box}
+  .rc-plan-riad{border:2px solid var(--rc-clay);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:5px;padding:8px}
+  .rc-plan-riad span{border:1px solid var(--rc-line);background:repeating-linear-gradient(90deg,transparent 0 8px,rgba(176,138,94,.08) 8px 9px)}
+  .rc-plan-riad::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:28px;height:28px;border:2px solid var(--rc-water);border-radius:50%;background:var(--rc-plaster)}
+  .rc-plan-and{border:2px solid var(--rc-olive);display:flex;gap:6px;padding:8px;background:repeating-linear-gradient(0deg,transparent 0 22px,rgba(79,107,82,.07) 22px 23px)}
+  .rc-plan-and span{flex:1;border:1px solid var(--rc-line)}
+  .rc-plan-and::after{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed var(--rc-brass)}
+  .rc-photo{height:130px;position:relative;overflow:hidden}
+  .rc-photo-riad{border:9px solid var(--rc-lime);box-shadow:inset 0 0 26px rgba(36,26,18,.28);background:radial-gradient(circle at 50% 40%,rgba(201,168,124,.55) 0 18%,transparent 19%),repeating-linear-gradient(0deg,rgba(176,138,94,.18) 0 2px,transparent 2px 9px),#F3E8D6}
+  .rc-photo-and{border:1px solid var(--rc-brass);background:radial-gradient(circle at 50% 100%,transparent 0 42%,rgba(79,107,82,.28) 43% 45%,transparent 46%),linear-gradient(180deg,#EFE6D5,#D9CDB6)}
+  .rc-foot{margin-top:30px;font-size:.8rem;opacity:.7;line-height:1.8}
+  html[data-night="on"] .rc-study{--rc-plaster:#17251E;--rc-ink:#EFE6D5;--rc-clay:#C49A5C;--rc-brass:#B9A788;--rc-water:#4F938B;--rc-olive:#6E8F6C;--rc-terra:#A2643D;--rc-lime:#22352B;--rc-line:#2F4A3F}
+  html[data-night="on"] .rc-card{background:#17251E}
+  @media print{.rc-card{background:none}.rc-study{padding-bottom:0}}
+</style>
+{% else %}
+<div class="rc-study"><p>هذه الدراسة متاحة في المعاينة التجريبية فقط.</p></div>
+{% endif %}
