@@ -12,6 +12,7 @@
 {% endcomment %}
 <script>
 (function () {
+    if (window.__fardaneSelf) return;
     if (typeof window.gtag !== 'function') return;
 
     var pagePath = {{ page.url | jsonify }};
@@ -121,6 +122,7 @@
 
     /* ---------- عدّادات مرئية: زيارات صفحة السيرة + تحميلات المقال ---------- */
     (function () {
+        if (window.__fardaneSelf) return;
         var BASE = 'https://countapi.mileshilliard.com/api/v1';
         var visitsKey = 'fardane-about-visits';
         var articleKey = 'fardane-ait-skoukou-article';
