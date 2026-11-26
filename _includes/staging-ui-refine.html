@@ -1,0 +1,92 @@
+{% comment %}
+    Staging-only UI refinement. No external fonts, images, APIs, hidden articles
+    or edits to the original Arabic text. Reuses only the identity's existing
+    palette values (plaster / forest / brass / water / night).
+{% endcomment %}
+<style>
+  /* 1. Identity palette picker — calmer surfaces, clearer active state */
+  .sp-root{left:clamp(8px,1vw,14px);bottom:clamp(8px,1vw,14px);gap:6px;padding:6px 8px;border-color:#B9A788;border-radius:8px;background:#1E241C;color:#F9F1E1;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+  .sp-label{color:#D8C7A6;letter-spacing:.02em}
+  .sp-btn{min-height:28px;padding:4px 9px;border-color:#6F735F;border-radius:6px;background:#2A2F27;color:#F9F1E1}
+  .sp-btn::before{width:10px;height:10px;border-radius:2px}
+  .sp-btn:hover{border-color:#D8C7A6;background:#343A30;color:#F9F1E1}
+  .sp-btn[aria-pressed="true"]{background:#B9A788;border-color:#D8C7A6;color:#1E241C;font-weight:600}
+  html[data-night="on"] .sp-root{background:#0b1c17;border-color:#436052;color:#f3f0e7}
+  html[data-night="on"] .sp-label{color:#e2c98f}
+  html[data-night="on"] .sp-btn{background:#12281f;border-color:#436052;color:#f3f0e7}
+  html[data-night="on"] .sp-btn:hover{border-color:#c9a35f;background:#1d3b31;color:#f3f0e7}
+  html[data-night="on"] .sp-btn[aria-pressed="true"]{background:#c9a35f;border-color:#e2c98f;color:#0b1c17}
+  @media (prefers-color-scheme:dark){
+    html:not([data-night="off"]) .sp-root{background:#0b1c17;border-color:#436052;color:#f3f0e7}
+    html:not([data-night="off"]) .sp-label{color:#e2c98f}
+    html:not([data-night="off"]) .sp-btn{background:#12281f;border-color:#436052;color:#f3f0e7}
+    html:not([data-night="off"]) .sp-btn:hover{border-color:#c9a35f;background:#1d3b31;color:#f3f0e7}
+    html:not([data-night="off"]) .sp-btn[aria-pressed="true"]{background:#c9a35f;border-color:#e2c98f;color:#0b1c17}
+  }
+  @media (max-width:520px){
+    .sp-label{display:none}
+    .sp-btn{min-height:26px;padding:3px 6px;font-size:11px}
+    .sp-btn::before{width:8px;height:8px;margin-inline-end:3px}
+  }
+
+  /* 2. "ليل الماء" toggle — steadier target, night-aware, larger on touch */
+  .nm-toggle{width:36px;height:36px;border-color:#B9A788;border-radius:8px;background:#1E241C;color:#E2C98F;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+  .nm-toggle:hover{border-color:#E2C98F;color:#F0DCae}
+  html[data-night="on"] .nm-toggle{background:#0b1c17;border-color:#436052;color:#e2c98f}
+  @media (prefers-color-scheme:dark){
+    html:not([data-night="off"]) .nm-toggle{background:#0b1c17;border-color:#436052;color:#e2c98f}
+  }
+  @media (max-width:520px){.nm-toggle{width:40px;height:40px}}
+
+  /* 3. EN marker — one quiet chip in both the list and the article body */
+  .ar-lang a[hreflang="en"],a[hreflang="en"].font-mono{
+    display:inline-flex;align-items:center;gap:.35em;box-sizing:border-box;
+    padding:.15em .6em;border:1px solid #a67a2e;border-radius:999px;
+    background:#fbf7ee;color:#8f6524;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.72rem;line-height:1.7;letter-spacing:.08em;text-decoration:none;
+    transition:background-color .15s ease,border-color .15s ease,color .15s ease;
+  }
+  .ar-lang a[hreflang="en"]:hover,a[hreflang="en"].font-mono:hover{background:#f4e9d5;border-color:#8f6524;color:#6f4520}
+  .ar-lang a[hreflang="en"]:focus-visible,a[hreflang="en"].font-mono:focus-visible{outline:2px solid #2e6f68;outline-offset:2px}
+  html[data-night="on"] .ar-lang a[hreflang="en"],html[data-night="on"] a[hreflang="en"].font-mono{background:#12281f;border-color:#c9a35f;color:#e2c98f}
+  html[data-night="on"] .ar-lang a[hreflang="en"]:hover,html[data-night="on"] a[hreflang="en"].font-mono:hover{background:#1d3b31;border-color:#e2c98f;color:#f0dcae}
+  @media (prefers-color-scheme:dark){
+    html:not([data-night="off"]) .ar-lang a[hreflang="en"],html:not([data-night="off"]) a[hreflang="en"].font-mono{background:#12281f;border-color:#c9a35f;color:#e2c98f}
+    html:not([data-night="off"]) .ar-lang a[hreflang="en"]:hover,html:not([data-night="off"]) a[hreflang="en"].font-mono:hover{background:#1d3b31;border-color:#e2c98f;color:#f0dcae}
+  }
+
+  /* 4. Navigation — visible current page, keyboard focus without text edits */
+  .site-nav-link:focus-visible,.site-mobile-link:focus-visible{outline:2px solid #2e6f68;outline-offset:4px}
+  .site-nav-link[aria-current="page"] span{color:var(--color-brass-text,#8f6524)}
+  .site-nav-link[aria-current="page"] .site-nav-rule{width:100%}
+
+  /* 5. Disclosure / motion — respect reduced-motion, keep print quiet */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto!important}
+    .animate-spin,#preloader .animate-spin{animation:none!important}
+  }
+</style>
+<script>
+(function(){
+  function ready(fn){ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fn);}else{fn();} }
+  ready(function(){
+    var path=location.pathname.replace(/\/index\.html$/, '/');
+    var links=document.querySelectorAll('.site-nav-link,.site-mobile-link');
+    Array.prototype.forEach.call(links,function(a){
+      try{
+        var u=new URL(a.href,location.href);
+        var hit=(u.origin===location.origin && u.pathname.replace(/\/index\.html$/, '/')===path);
+        if(hit){ a.setAttribute('aria-current','page'); }
+      }catch(e){}
+    });
+    // Staging-only disclosure note; visible text and aria-label stay untouched.
+    Array.prototype.forEach.call(document.querySelectorAll('.ar-lang a[hreflang="en"]'),function(a){
+      if(!a.hasAttribute('title')){ a.setAttribute('title','English version — غير مُحرَّرة أكاديمياً'); }
+    });
+    // Outbound links opened in a new tab must not expose window.opener.
+    Array.prototype.forEach.call(document.querySelectorAll('a[target="_blank"]'),function(a){
+      a.setAttribute('rel','noopener noreferrer');
+    });
+  });
+})();
+</script>

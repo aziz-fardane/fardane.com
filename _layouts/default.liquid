@@ -317,6 +317,7 @@
         {% if site.staging %}{% include staging-andalus.html %}{% endif %}
         {% if site.staging %}{% include staging-gemini.html %}{% endif %}
         {% if site.staging %}{% include staging-creative.html %}{% endif %}
+        {% if site.staging %}{% include staging-panorama.html %}{% endif %}
 
         <!-- RTL support for Tailwind CSS -->
         <style>
@@ -349,6 +350,8 @@
         {% if site.staging %}
         <div class="staging-banner" style="position:relative;z-index:60;background:#7c2d12;color:#fff;text-align:center;font-size:12px;padding:6px 12px;font-family:monospace;letter-spacing:.05em">STAGING · نسخة تجريبية للمعاينة فقط — غير منشورة وغير مفهرسة</div>
         {% include staging-palette-switcher.html %}
+        {% include staging-ui-refine.html %}
+        {% include staging-water-effects.html %}
         {% endif %}
         <!-- Simple preloader -->
         <div id="preloader" class="fixed inset-0 bg-plaster z-50 flex items-center justify-center">
