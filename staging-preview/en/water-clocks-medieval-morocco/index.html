@@ -1293,6 +1293,46 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
   }
 </style>
 
+        
+<style data-staging-panorama>
+  @media screen {
+    body[data-gemini="home"]{--pano:url('/staging-assets/01-home.jpg')}
+    body[data-gemini="research"]{--pano:url('/staging-assets/02-research.jpg')}
+    body[data-gemini="updates"]{--pano:url('/staging-assets/03-updates.jpg')}
+    body[data-gemini="figures"]{--pano:url('/staging-assets/04-figures.jpg')}
+    body[data-gemini="services"]{--pano:url('/staging-assets/05-services.jpg')}
+    body[data-gemini="biography"]{--pano:url('/staging-assets/06-biography.jpg')}
+    body[data-gemini="method"]{--pano:url('/staging-assets/07-method.jpg')}
+    body[data-gemini="publications"]{--pano:url('/staging-assets/08-publications.jpg')}
+    body[data-gemini="water-library"]{--pano:url('/staging-assets/09-water-library.jpg')}
+
+    body[data-gemini]{isolation:isolate}
+    @keyframes fardane-panorama-slide{
+      from{transform:translate3d(-2%,0,0) scale(1.06)}
+      to{transform:translate3d(2%,0,0) scale(1.06)}
+    }
+    body[data-gemini]::before{
+      content:"";
+      position:fixed;
+      inset:-6% -8%;
+      z-index:-1;
+      pointer-events:none;
+      background-image:linear-gradient(rgba(20,25,22,.16),rgba(20,25,22,.16)),var(--pano);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      animation:fardane-panorama-slide 54s ease-in-out infinite alternate;
+      will-change:transform;
+    }
+    @media (prefers-reduced-motion:reduce){
+      body[data-gemini]::before{animation:none;transform:none}
+    }
+  }
+  @media print{
+    body[data-gemini]::before{display:none!important}
+  }
+</style>
+
 
         <!-- RTL support for Tailwind CSS -->
         <style>
@@ -1374,6 +1414,198 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
   apply(read());
 })();
 </script>
+
+        
+<style>
+  /* 1. Identity palette picker — calmer surfaces, clearer active state */
+  .sp-root{left:clamp(8px,1vw,14px);bottom:clamp(8px,1vw,14px);gap:6px;padding:6px 8px;border-color:#B9A788;border-radius:8px;background:#1E241C;color:#F9F1E1;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+  .sp-label{color:#D8C7A6;letter-spacing:.02em}
+  .sp-btn{min-height:28px;padding:4px 9px;border-color:#6F735F;border-radius:6px;background:#2A2F27;color:#F9F1E1}
+  .sp-btn::before{width:10px;height:10px;border-radius:2px}
+  .sp-btn:hover{border-color:#D8C7A6;background:#343A30;color:#F9F1E1}
+  .sp-btn[aria-pressed="true"]{background:#B9A788;border-color:#D8C7A6;color:#1E241C;font-weight:600}
+  html[data-night="on"] .sp-root{background:#0b1c17;border-color:#436052;color:#f3f0e7}
+  html[data-night="on"] .sp-label{color:#e2c98f}
+  html[data-night="on"] .sp-btn{background:#12281f;border-color:#436052;color:#f3f0e7}
+  html[data-night="on"] .sp-btn:hover{border-color:#c9a35f;background:#1d3b31;color:#f3f0e7}
+  html[data-night="on"] .sp-btn[aria-pressed="true"]{background:#c9a35f;border-color:#e2c98f;color:#0b1c17}
+  @media (prefers-color-scheme:dark){
+    html:not([data-night="off"]) .sp-root{background:#0b1c17;border-color:#436052;color:#f3f0e7}
+    html:not([data-night="off"]) .sp-label{color:#e2c98f}
+    html:not([data-night="off"]) .sp-btn{background:#12281f;border-color:#436052;color:#f3f0e7}
+    html:not([data-night="off"]) .sp-btn:hover{border-color:#c9a35f;background:#1d3b31;color:#f3f0e7}
+    html:not([data-night="off"]) .sp-btn[aria-pressed="true"]{background:#c9a35f;border-color:#e2c98f;color:#0b1c17}
+  }
+  @media (max-width:520px){
+    .sp-label{display:none}
+    .sp-btn{min-height:26px;padding:3px 6px;font-size:11px}
+    .sp-btn::before{width:8px;height:8px;margin-inline-end:3px}
+  }
+
+  /* 2. "ليل الماء" toggle — steadier target, night-aware, larger on touch */
+  .nm-toggle{width:36px;height:36px;border-color:#B9A788;border-radius:8px;background:#1E241C;color:#E2C98F;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+  .nm-toggle:hover{border-color:#E2C98F;color:#F0DCae}
+  html[data-night="on"] .nm-toggle{background:#0b1c17;border-color:#436052;color:#e2c98f}
+  @media (prefers-color-scheme:dark){
+    html:not([data-night="off"]) .nm-toggle{background:#0b1c17;border-color:#436052;color:#e2c98f}
+  }
+  @media (max-width:520px){.nm-toggle{width:40px;height:40px}}
+
+  /* 3. EN marker — one quiet chip in both the list and the article body */
+  .ar-lang a[hreflang="en"],a[hreflang="en"].font-mono{
+    display:inline-flex;align-items:center;gap:.35em;box-sizing:border-box;
+    padding:.15em .6em;border:1px solid #a67a2e;border-radius:999px;
+    background:#fbf7ee;color:#8f6524;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.72rem;line-height:1.7;letter-spacing:.08em;text-decoration:none;
+    transition:background-color .15s ease,border-color .15s ease,color .15s ease;
+  }
+  .ar-lang a[hreflang="en"]:hover,a[hreflang="en"].font-mono:hover{background:#f4e9d5;border-color:#8f6524;color:#6f4520}
+  .ar-lang a[hreflang="en"]:focus-visible,a[hreflang="en"].font-mono:focus-visible{outline:2px solid #2e6f68;outline-offset:2px}
+  html[data-night="on"] .ar-lang a[hreflang="en"],html[data-night="on"] a[hreflang="en"].font-mono{background:#12281f;border-color:#c9a35f;color:#e2c98f}
+  html[data-night="on"] .ar-lang a[hreflang="en"]:hover,html[data-night="on"] a[hreflang="en"].font-mono:hover{background:#1d3b31;border-color:#e2c98f;color:#f0dcae}
+  @media (prefers-color-scheme:dark){
+    html:not([data-night="off"]) .ar-lang a[hreflang="en"],html:not([data-night="off"]) a[hreflang="en"].font-mono{background:#12281f;border-color:#c9a35f;color:#e2c98f}
+    html:not([data-night="off"]) .ar-lang a[hreflang="en"]:hover,html:not([data-night="off"]) a[hreflang="en"].font-mono:hover{background:#1d3b31;border-color:#e2c98f;color:#f0dcae}
+  }
+
+  /* 4. Navigation — visible current page, keyboard focus without text edits */
+  .site-nav-link:focus-visible,.site-mobile-link:focus-visible{outline:2px solid #2e6f68;outline-offset:4px}
+  .site-nav-link[aria-current="page"] span{color:var(--color-brass-text,#8f6524)}
+  .site-nav-link[aria-current="page"] .site-nav-rule{width:100%}
+
+  /* 5. Disclosure / motion — respect reduced-motion, keep print quiet */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto!important}
+    .animate-spin,#preloader .animate-spin{animation:none!important}
+  }
+</style>
+<script>
+(function(){
+  function ready(fn){ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fn);}else{fn();} }
+  ready(function(){
+    var path=location.pathname.replace(/\/index\.html$/, '/');
+    var links=document.querySelectorAll('.site-nav-link,.site-mobile-link');
+    Array.prototype.forEach.call(links,function(a){
+      try{
+        var u=new URL(a.href,location.href);
+        var hit=(u.origin===location.origin && u.pathname.replace(/\/index\.html$/, '/')===path);
+        if(hit){ a.setAttribute('aria-current','page'); }
+      }catch(e){}
+    });
+    // Staging-only disclosure note; visible text and aria-label stay untouched.
+    Array.prototype.forEach.call(document.querySelectorAll('.ar-lang a[hreflang="en"]'),function(a){
+      if(!a.hasAttribute('title')){ a.setAttribute('title','English version — غير مُحرَّرة أكاديمياً'); }
+    });
+    // Outbound links opened in a new tab must not expose window.opener.
+    Array.prototype.forEach.call(document.querySelectorAll('a[target="_blank"]'),function(a){
+      a.setAttribute('rel','noopener noreferrer');
+    });
+  });
+})();
+</script>
+
+        
+<div class="fardane-water-field" aria-hidden="true"><i class="wf-rill"></i></div>
+<style data-staging-water>
+  @media screen {
+    .fardane-water-field{
+      position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
+      contain:strict;
+    }
+    .fardane-water-field::before,.fardane-water-field::after{
+      content:"";position:absolute;inset:-12% -8%;display:block;
+      background-repeat:repeat;
+      -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%);
+      mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%);
+      will-change:transform;
+    }
+    /* Fine rain: long, softened streaks rather than hard graphic drops. */
+    .fardane-water-field::before{
+      background-image:
+        repeating-linear-gradient(100deg,transparent 0 46px,rgba(46,111,104,.12) 46px 47px,transparent 47px 92px),
+        radial-gradient(ellipse 1px 8px at 24% 18%,rgba(46,111,104,.16),transparent 72%),
+        radial-gradient(ellipse 1px 6px at 68% 64%,rgba(46,111,104,.12),transparent 72%);
+      background-size:100% 100%,128px 184px,128px 184px;
+      opacity:.62;
+      filter:blur(.4px);
+      animation:wf-rain-drift 17s linear infinite;
+    }
+    /* Slower, deeper droplets for parallax; almost imperceptible on purpose. */
+    .fardane-water-field::after{
+      background-image:
+        radial-gradient(ellipse 1px 10px at 18% 32%,rgba(166,122,46,.10),transparent 74%),
+        radial-gradient(ellipse 1px 9px at 76% 74%,rgba(46,111,104,.13),transparent 74%);
+      background-size:212px 268px,212px 268px;
+      opacity:.5;
+      filter:blur(.8px);
+      animation:wf-rain-slow 29s linear infinite;
+    }
+    @keyframes wf-rain-drift{
+      from{transform:translate3d(0,0,0)}
+      to{transform:translate3d(-1.4%,92px,0)}
+    }
+    @keyframes wf-rain-slow{
+      from{transform:translate3d(0,0,0)}
+      to{transform:translate3d(.9%,268px,0)}
+    }
+    /* Shallow flow glow near the lower edge: depth, not a new layout band. */
+    .wf-rill{
+      position:absolute;left:-12%;right:-12%;bottom:-8%;height:22vh;display:block;
+      background:
+        radial-gradient(ellipse 46% 70% at 32% 100%,rgba(46,111,104,.16),transparent 68%),
+        radial-gradient(ellipse 40% 62% at 74% 100%,rgba(46,111,104,.12),transparent 70%),
+        linear-gradient(to top,rgba(226,201,143,.07),transparent 58%);
+      filter:blur(14px);
+      opacity:.7;
+      will-change:transform;
+      animation:wf-flow-glow 38s ease-in-out infinite alternate;
+    }
+    @keyframes wf-flow-glow{
+      from{transform:translate3d(-2.5%,0,0)}
+      to{transform:translate3d(2.5%,0,0)}
+    }
+    html[data-night="on"] .fardane-water-field::before{
+      background-image:
+        repeating-linear-gradient(100deg,transparent 0 46px,rgba(166,217,208,.14) 46px 47px,transparent 47px 92px),
+        radial-gradient(ellipse 1px 8px at 24% 18%,rgba(166,217,208,.18),transparent 72%),
+        radial-gradient(ellipse 1px 6px at 68% 64%,rgba(166,217,208,.13),transparent 72%);
+    }
+    html[data-night="on"] .fardane-water-field::after{
+      background-image:
+        radial-gradient(ellipse 1px 10px at 18% 32%,rgba(226,201,143,.12),transparent 74%),
+        radial-gradient(ellipse 1px 9px at 76% 74%,rgba(166,217,208,.15),transparent 74%);
+    }
+    html[data-night="on"] .wf-rill{
+      background:
+        radial-gradient(ellipse 46% 70% at 32% 100%,rgba(79,147,139,.22),transparent 68%),
+        radial-gradient(ellipse 40% 62% at 74% 100%,rgba(79,147,139,.16),transparent 70%),
+        linear-gradient(to top,rgba(226,201,143,.09),transparent 58%);
+    }
+    @media (prefers-color-scheme:dark){
+      html:not([data-night="off"]) .fardane-water-field::before{
+        background-image:
+          repeating-linear-gradient(100deg,transparent 0 46px,rgba(166,217,208,.14) 46px 47px,transparent 47px 92px),
+          radial-gradient(ellipse 1px 8px at 24% 18%,rgba(166,217,208,.18),transparent 72%),
+          radial-gradient(ellipse 1px 6px at 68% 64%,rgba(166,217,208,.13),transparent 72%);
+      }
+      html:not([data-night="off"]) .fardane-water-field::after{
+        background-image:
+          radial-gradient(ellipse 1px 10px at 18% 32%,rgba(226,201,143,.12),transparent 74%),
+          radial-gradient(ellipse 1px 9px at 76% 74%,rgba(166,217,208,.15),transparent 74%);
+      }
+      html:not([data-night="off"]) .wf-rill{
+        background:
+          radial-gradient(ellipse 46% 70% at 32% 100%,rgba(79,147,139,.22),transparent 68%),
+          radial-gradient(ellipse 40% 62% at 74% 100%,rgba(79,147,139,.16),transparent 70%),
+          linear-gradient(to top,rgba(226,201,143,.09),transparent 58%);
+      }
+    }
+    @media (prefers-reduced-motion:reduce){
+      .fardane-water-field::before,.fardane-water-field::after,.wf-rill{animation:none;opacity:.28}
+    }
+  }
+  @media print{.fardane-water-field{display:none!important}}
+</style>
 
         
         <!-- Simple preloader -->
