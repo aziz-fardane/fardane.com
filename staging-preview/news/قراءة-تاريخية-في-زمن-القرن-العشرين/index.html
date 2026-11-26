@@ -1477,19 +1477,21 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
   /* 4b. Typography — the chosen "الكوفي المعاصر" treatment: one Reem Kufi voice
      for the identity mark, page names and the page title. The family is already
      loaded by the identity; only weight, size and spacing are refined. */
-  .site-mark-name,.site-nav-link,.hc-topic{
+  body[data-gemini] .site-mark-name,
+  body[data-gemini] .site-nav-link,
+  body[data-gemini] .hc-topic{
     font-family:"Reem Kufi","Segoe UI",Tahoma,sans-serif;
     font-weight:500;
     letter-spacing:0;
     text-rendering:optimizeLegibility;
   }
-  .site-mark-name{font-size:clamp(1rem,1.8vw,1.16rem);line-height:1.5;word-spacing:.06em}
-  .site-nav-link{font-size:.9rem;line-height:1.6;word-spacing:.1em}
-  .hc-topic{font-size:clamp(2.1rem,4.8vw,3.7rem);line-height:1.35;word-spacing:.06em}
+  body[data-gemini] .site-mark-name{font-size:clamp(1rem,1.8vw,1.16rem);line-height:1.5;word-spacing:.06em}
+  body[data-gemini] .site-nav-link{font-size:.9rem;line-height:1.6;word-spacing:.1em}
+  body[data-gemini] .hc-topic{font-size:clamp(2.1rem,4.8vw,3.7rem);line-height:1.35;word-spacing:.06em}
   @media (max-width:520px){
-    .site-mark-name{font-size:1rem}
-    .site-nav-link{font-size:.82rem;word-spacing:.08em}
-    .hc-topic{font-size:1.9rem;line-height:1.4;word-spacing:.04em}
+    body[data-gemini] .site-mark-name{font-size:1rem}
+    body[data-gemini] .site-nav-link{font-size:.82rem;word-spacing:.08em}
+    body[data-gemini] .hc-topic{font-size:1.9rem;line-height:1.4;word-spacing:.04em}
   }
 
   /* 5. Disclosure / motion — respect reduced-motion, keep print quiet */
