@@ -52,7 +52,7 @@
         radial-gradient(ellipse 1.5px 8px at 62% 38%,var(--wf-core),var(--wf-edge) 46%,transparent 72%),
         radial-gradient(ellipse 2px 11px at 86% 72%,var(--wf-warm),var(--wf-edge) 50%,transparent 74%);
       background-size:132px 176px;
-      opacity:.66;
+      opacity:.74;
       animation:wf-rain-fine 24s linear infinite;
     }
     /* Slower, deeper drops give quiet parallax. */
@@ -61,7 +61,7 @@
         radial-gradient(ellipse 1.5px 9px at 24% 26%,var(--wf-core),var(--wf-edge) 50%,transparent 76%),
         radial-gradient(ellipse 2px 13px at 74% 68%,var(--wf-warm),var(--wf-edge) 52%,transparent 76%);
       background-size:208px 264px;
-      opacity:.5;
+      opacity:.58;
       animation:wf-rain-deep 46s linear infinite;
     }
     @keyframes wf-rain-fine{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,176px,0)}}
@@ -107,7 +107,7 @@
     }
     @media (prefers-reduced-motion:reduce){
       .wf-rain-a::before,.wf-rain-b::before,.wf-rill::after,.wf-ripples{animation:none}
-      .wf-rain-a::before,.wf-rain-b::before{opacity:.26}
+      .wf-rain-a::before,.wf-rain-b::before{opacity:.34}
       .wf-rill::after{opacity:.4}
       .wf-ripples{opacity:.32;transform:none}
     }
