@@ -1,9 +1,9 @@
-html_files=61
+html_files=62
 sitemap_in_output=no
 feed_in_output=no
-noindex_pages=61
+noindex_pages=62
 ga_tag_present=0
-staging_banner=49
+staging_banner=50
 nested_preview=no
 empty_pages=0
 fake_url_pages=0
