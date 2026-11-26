@@ -1,107 +1,115 @@
 {% comment %}
-    Staging-only, additive water ambience. It sits above the existing local
-    panorama and below the content; no layout, colour token, Arabic text,
-    font, image or API is changed. Three quiet layers only: fine rain,
-    slower droplets and a soft shallow-flow glow. Transform-only motion,
-    no per-frame JavaScript, hidden in print, calmed for reduced motion.
+    Staging-only, additive water ambience: small glossy raindrops falling slowly,
+    a thin watercourse near the lower edge, and faint ripples/reflections.
+    It sits behind the content; no layout, colour token, Arabic text, font,
+    image or API is changed. Transform-only motion, no per-frame JavaScript,
+    hidden in print, calmed for reduced motion and lighter on small screens.
 {% endcomment %}
-<div class="fardane-water-field" aria-hidden="true"><i class="wf-rill"></i></div>
+<div class="fardane-water-field" aria-hidden="true"><i class="wf-rain-a"></i><i class="wf-rain-b"></i><i class="wf-rill"></i><i class="wf-ripples"></i></div>
 <style data-staging-water>
   @media screen {
     .fardane-water-field{
-      position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
-      contain:strict;
+      position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;contain:strict;
+      --wf-core:rgba(250,248,242,.26);
+      --wf-edge:rgba(46,111,104,.15);
+      --wf-warm:rgba(226,201,143,.15);
+      --wf-line:rgba(46,111,104,.20);
+      --wf-line-hi:rgba(166,217,208,.30);
+      --wf-ripple:rgba(166,217,208,.10);
+      --wf-glow:rgba(46,111,104,.13);
     }
-    .fardane-water-field::before,.fardane-water-field::after{
-      content:"";position:absolute;inset:-12% -8%;display:block;
-      background-repeat:repeat;
-      -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%);
-      mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%);
-      will-change:transform;
-    }
-    /* Fine rain: long, softened streaks rather than hard graphic drops. */
-    .fardane-water-field::before{
-      background-image:
-        repeating-linear-gradient(100deg,transparent 0 46px,rgba(46,111,104,.12) 46px 47px,transparent 47px 92px),
-        radial-gradient(ellipse 1px 8px at 24% 18%,rgba(46,111,104,.16),transparent 72%),
-        radial-gradient(ellipse 1px 6px at 68% 64%,rgba(46,111,104,.12),transparent 72%);
-      background-size:100% 100%,128px 184px,128px 184px;
-      opacity:.62;
-      filter:blur(.4px);
-      animation:wf-rain-drift 17s linear infinite;
-    }
-    /* Slower, deeper droplets for parallax; almost imperceptible on purpose. */
-    .fardane-water-field::after{
-      background-image:
-        radial-gradient(ellipse 1px 10px at 18% 32%,rgba(166,122,46,.10),transparent 74%),
-        radial-gradient(ellipse 1px 9px at 76% 74%,rgba(46,111,104,.13),transparent 74%);
-      background-size:212px 268px,212px 268px;
-      opacity:.5;
-      filter:blur(.8px);
-      animation:wf-rain-slow 29s linear infinite;
-    }
-    @keyframes wf-rain-drift{
-      from{transform:translate3d(0,0,0)}
-      to{transform:translate3d(-1.4%,92px,0)}
-    }
-    @keyframes wf-rain-slow{
-      from{transform:translate3d(0,0,0)}
-      to{transform:translate3d(.9%,268px,0)}
-    }
-    /* Shallow flow glow near the lower edge: depth, not a new layout band. */
-    .wf-rill{
-      position:absolute;left:-12%;right:-12%;bottom:-8%;height:22vh;display:block;
-      background:
-        radial-gradient(ellipse 46% 70% at 32% 100%,rgba(46,111,104,.16),transparent 68%),
-        radial-gradient(ellipse 40% 62% at 74% 100%,rgba(46,111,104,.12),transparent 70%),
-        linear-gradient(to top,rgba(226,201,143,.07),transparent 58%);
-      filter:blur(14px);
-      opacity:.7;
-      will-change:transform;
-      animation:wf-flow-glow 38s ease-in-out infinite alternate;
-    }
-    @keyframes wf-flow-glow{
-      from{transform:translate3d(-2.5%,0,0)}
-      to{transform:translate3d(2.5%,0,0)}
-    }
-    html[data-night="on"] .fardane-water-field::before{
-      background-image:
-        repeating-linear-gradient(100deg,transparent 0 46px,rgba(166,217,208,.14) 46px 47px,transparent 47px 92px),
-        radial-gradient(ellipse 1px 8px at 24% 18%,rgba(166,217,208,.18),transparent 72%),
-        radial-gradient(ellipse 1px 6px at 68% 64%,rgba(166,217,208,.13),transparent 72%);
-    }
-    html[data-night="on"] .fardane-water-field::after{
-      background-image:
-        radial-gradient(ellipse 1px 10px at 18% 32%,rgba(226,201,143,.12),transparent 74%),
-        radial-gradient(ellipse 1px 9px at 76% 74%,rgba(166,217,208,.15),transparent 74%);
-    }
-    html[data-night="on"] .wf-rill{
-      background:
-        radial-gradient(ellipse 46% 70% at 32% 100%,rgba(79,147,139,.22),transparent 68%),
-        radial-gradient(ellipse 40% 62% at 74% 100%,rgba(79,147,139,.16),transparent 70%),
-        linear-gradient(to top,rgba(226,201,143,.09),transparent 58%);
+    html[data-night="on"] .fardane-water-field{
+      --wf-core:rgba(243,240,231,.24);
+      --wf-edge:rgba(79,147,139,.20);
+      --wf-warm:rgba(226,201,143,.18);
+      --wf-line:rgba(79,147,139,.24);
+      --wf-line-hi:rgba(166,217,208,.32);
+      --wf-ripple:rgba(166,217,208,.14);
+      --wf-glow:rgba(79,147,139,.18);
     }
     @media (prefers-color-scheme:dark){
-      html:not([data-night="off"]) .fardane-water-field::before{
-        background-image:
-          repeating-linear-gradient(100deg,transparent 0 46px,rgba(166,217,208,.14) 46px 47px,transparent 47px 92px),
-          radial-gradient(ellipse 1px 8px at 24% 18%,rgba(166,217,208,.18),transparent 72%),
-          radial-gradient(ellipse 1px 6px at 68% 64%,rgba(166,217,208,.13),transparent 72%);
-      }
-      html:not([data-night="off"]) .fardane-water-field::after{
-        background-image:
-          radial-gradient(ellipse 1px 10px at 18% 32%,rgba(226,201,143,.12),transparent 74%),
-          radial-gradient(ellipse 1px 9px at 76% 74%,rgba(166,217,208,.15),transparent 74%);
-      }
-      html:not([data-night="off"]) .wf-rill{
-        background:
-          radial-gradient(ellipse 46% 70% at 32% 100%,rgba(79,147,139,.22),transparent 68%),
-          radial-gradient(ellipse 40% 62% at 74% 100%,rgba(79,147,139,.16),transparent 70%),
-          linear-gradient(to top,rgba(226,201,143,.09),transparent 58%);
+      html:not([data-night="off"]) .fardane-water-field{
+        --wf-core:rgba(243,240,231,.24);
+        --wf-edge:rgba(79,147,139,.20);
+        --wf-warm:rgba(226,201,143,.18);
+        --wf-line:rgba(79,147,139,.24);
+        --wf-line-hi:rgba(166,217,208,.32);
+        --wf-ripple:rgba(166,217,208,.14);
+        --wf-glow:rgba(79,147,139,.18);
       }
     }
+    /* Static masked frames; only the inner tiles move, so the fade never jumps. */
+    .wf-rain-a,.wf-rain-b{
+      position:absolute;inset:-26% -8%;display:block;overflow:hidden;
+      -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 18%,#000 82%,transparent 100%);
+      mask-image:linear-gradient(to bottom,transparent 0,#000 18%,#000 82%,transparent 100%);
+    }
+    .wf-rain-a::before,.wf-rain-b::before{content:"";position:absolute;inset:0;display:block;background-repeat:repeat;will-change:transform}
+    /* Three drop sizes in one tile, each with a pale core for a soft glint. */
+    .wf-rain-a::before{
+      background-image:
+        radial-gradient(ellipse 1px 5px at 18% 14%,var(--wf-core),var(--wf-edge) 48%,transparent 74%),
+        radial-gradient(ellipse 1.5px 8px at 62% 38%,var(--wf-core),var(--wf-edge) 46%,transparent 72%),
+        radial-gradient(ellipse 2px 11px at 86% 72%,var(--wf-warm),var(--wf-edge) 50%,transparent 74%);
+      background-size:132px 176px;
+      opacity:.66;
+      animation:wf-rain-fine 24s linear infinite;
+    }
+    /* Slower, deeper drops give quiet parallax. */
+    .wf-rain-b::before{
+      background-image:
+        radial-gradient(ellipse 1.5px 9px at 24% 26%,var(--wf-core),var(--wf-edge) 50%,transparent 76%),
+        radial-gradient(ellipse 2px 13px at 74% 68%,var(--wf-warm),var(--wf-edge) 52%,transparent 76%);
+      background-size:208px 264px;
+      opacity:.5;
+      animation:wf-rain-deep 46s linear infinite;
+    }
+    @keyframes wf-rain-fine{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,176px,0)}}
+    @keyframes wf-rain-deep{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,264px,0)}}
+    /* A narrow watercourse hugging the lower edge: no new band, just a hairline. */
+    .wf-rill{
+      position:absolute;left:8%;right:8%;bottom:clamp(10px,3.5vh,34px);height:2px;display:block;
+      background:linear-gradient(to right,transparent,var(--wf-line) 16%,var(--wf-line-hi) 50%,var(--wf-line) 84%,transparent);
+      -webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);
+      mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);
+      opacity:.72;
+    }
+    .wf-rill::before{content:"";position:absolute;left:0;right:0;bottom:-22px;height:48px;background:linear-gradient(to top,var(--wf-glow),transparent 72%);filter:blur(7px)}
+    .wf-rill::after{
+      content:"";position:absolute;left:-30%;right:-30%;top:-1px;height:4px;
+      background-image:radial-gradient(ellipse 28px 2px at 16% 50%,var(--wf-core),transparent 72%),radial-gradient(ellipse 20px 2px at 64% 50%,var(--wf-warm),transparent 72%);
+      background-size:240px 4px;
+      animation:wf-rill-glints 26s linear infinite;
+      will-change:transform;
+    }
+    @keyframes wf-rill-glints{from{transform:translate3d(0,0,0)}to{transform:translate3d(240px,0,0)}}
+    /* Faint concentric ripples and reflections just above the rill. */
+    .wf-ripples{
+      position:absolute;left:18%;right:18%;bottom:clamp(10px,3.5vh,34px);height:54px;display:block;
+      background:repeating-radial-gradient(ellipse 150px 15px at 50% 100%,transparent 0 20px,var(--wf-ripple) 21px 22px,transparent 23px 38px);
+      -webkit-mask-image:linear-gradient(to top,transparent,#000 34%,transparent 100%);
+      mask-image:linear-gradient(to top,transparent,#000 34%,transparent 100%);
+      transform-origin:50% 100%;opacity:.5;
+      animation:wf-ripple-breathe 16s ease-in-out infinite alternate;
+      will-change:transform,opacity;
+    }
+    .wf-ripples::before{
+      content:"";position:absolute;left:0;right:0;bottom:0;height:26px;
+      background-image:linear-gradient(to right,transparent,var(--wf-warm) 20%,transparent 38%,var(--wf-core) 62%,transparent 78%);
+      opacity:.5;filter:blur(3px);
+    }
+    @keyframes wf-ripple-breathe{from{transform:scale(.98);opacity:.38}to{transform:scale(1.03);opacity:.62}}
+    @media (max-width:520px){
+      .wf-rain-a::before{opacity:.5}
+      .wf-rain-b::before{opacity:.36}
+      .wf-rill{left:5%;right:5%;opacity:.6}
+      .wf-ripples{left:12%;right:12%;height:40px;opacity:.4}
+    }
     @media (prefers-reduced-motion:reduce){
-      .fardane-water-field::before,.fardane-water-field::after,.wf-rill{animation:none;opacity:.28}
+      .wf-rain-a::before,.wf-rain-b::before,.wf-rill::after,.wf-ripples{animation:none}
+      .wf-rain-a::before,.wf-rain-b::before{opacity:.26}
+      .wf-rill::after{opacity:.4}
+      .wf-ripples{opacity:.32;transform:none}
     }
   }
   @media print{.fardane-water-field{display:none!important}}
