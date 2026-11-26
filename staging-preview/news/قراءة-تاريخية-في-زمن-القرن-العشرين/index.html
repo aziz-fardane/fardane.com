@@ -1474,6 +1474,24 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
   .site-nav-link[aria-current="page"] span{color:var(--color-brass-text,#8f6524)}
   .site-nav-link[aria-current="page"] .site-nav-rule{width:100%}
 
+  /* 4b. Typography — the chosen "الكوفي المعاصر" treatment: one Reem Kufi voice
+     for the identity mark, page names and the page title. The family is already
+     loaded by the identity; only weight, size and spacing are refined. */
+  .site-mark-name,.site-nav-link,.hc-topic{
+    font-family:"Reem Kufi","Segoe UI",Tahoma,sans-serif;
+    font-weight:500;
+    letter-spacing:0;
+    text-rendering:optimizeLegibility;
+  }
+  .site-mark-name{font-size:clamp(1rem,1.8vw,1.16rem);line-height:1.5;word-spacing:.06em}
+  .site-nav-link{font-size:.9rem;line-height:1.6;word-spacing:.1em}
+  .hc-topic{font-size:clamp(2.1rem,4.8vw,3.7rem);line-height:1.35;word-spacing:.06em}
+  @media (max-width:520px){
+    .site-mark-name{font-size:1rem}
+    .site-nav-link{font-size:.82rem;word-spacing:.08em}
+    .hc-topic{font-size:1.9rem;line-height:1.4;word-spacing:.04em}
+  }
+
   /* 5. Disclosure / motion — respect reduced-motion, keep print quiet */
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto!important}
@@ -1553,7 +1571,7 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
         radial-gradient(ellipse 1.5px 8px at 62% 38%,var(--wf-core),var(--wf-edge) 46%,transparent 72%),
         radial-gradient(ellipse 2px 11px at 86% 72%,var(--wf-warm),var(--wf-edge) 50%,transparent 74%);
       background-size:132px 176px;
-      opacity:.66;
+      opacity:.74;
       animation:wf-rain-fine 24s linear infinite;
     }
     /* Slower, deeper drops give quiet parallax. */
@@ -1562,7 +1580,7 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
         radial-gradient(ellipse 1.5px 9px at 24% 26%,var(--wf-core),var(--wf-edge) 50%,transparent 76%),
         radial-gradient(ellipse 2px 13px at 74% 68%,var(--wf-warm),var(--wf-edge) 52%,transparent 76%);
       background-size:208px 264px;
-      opacity:.5;
+      opacity:.58;
       animation:wf-rain-deep 46s linear infinite;
     }
     @keyframes wf-rain-fine{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,176px,0)}}
@@ -1608,7 +1626,7 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
     }
     @media (prefers-reduced-motion:reduce){
       .wf-rain-a::before,.wf-rain-b::before,.wf-rill::after,.wf-ripples{animation:none}
-      .wf-rain-a::before,.wf-rain-b::before{opacity:.26}
+      .wf-rain-a::before,.wf-rain-b::before{opacity:.34}
       .wf-rill::after{opacity:.4}
       .wf-ripples{opacity:.32;transform:none}
     }
