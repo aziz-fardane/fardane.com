@@ -310,6 +310,7 @@
         {% include id-palettes.liquid %}
         {% include night-mode.html %}
         <link rel="stylesheet" href="{{ site.data.manifest['dist/main.css'] }}"/>
+        {% if site.staging %}{% include staging-wood.html %}{% endif %}
 
         <!-- RTL support for Tailwind CSS -->
         <style>

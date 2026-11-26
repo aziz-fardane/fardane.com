@@ -29,12 +29,62 @@
 --ink:#131f1b;--muted:#6f6a5c;--brass-text:#8f6524;--water:#2e6f68;
 --id-plaster:#f4f1e9;--id-paper:#faf8f2;--id-ink:#14201c;--id-muted:#6f6a5c;--id-brass-text:#8a6122;
 --id-water:#2e6f68;--id-line:#ded7c5;{% endcapture %}
+{% comment %}The committed dist CSS still contains literal paper colours with !important. These overrides mirror them with deeper selectors so the night palette reaches the real surfaces.{% endcomment %}
+{% capture _nm_hard %}
+__ROOTSEL__ body.post-edition,__ROOTSEL__ body.post-edition #preloader,__ROOTSEL__ body.articles-page,__ROOTSEL__ body.articles-page #preloader{background:#0b1c17!important;color:#f3f0e7!important}
+__ROOTSEL__ body.post-edition header>div.absolute,__ROOTSEL__ body.articles-page header>div.absolute{background:#12281f!important;border-bottom-color:#2f4a3f!important;box-shadow:none!important}
+__ROOTSEL__ body.post-edition header .bg-white,__ROOTSEL__ body.articles-page header .bg-white{background:#12281f!important}
+__ROOTSEL__ body.post-edition header .text-stone-900,__ROOTSEL__ body.post-edition header .text-stone-800,__ROOTSEL__ body.articles-page header .text-stone-900,__ROOTSEL__ body.articles-page header .text-stone-800{color:#f3f0e7!important}
+__ROOTSEL__ body.post-edition header .text-stone-700,__ROOTSEL__ body.articles-page header .text-stone-700{color:#d7ded4!important}
+__ROOTSEL__ body.post-edition header .text-amber-600,__ROOTSEL__ body.articles-page header .text-amber-600{color:#e2c98f!important}
+__ROOTSEL__ body.post-edition header .hover\:text-amber-700:hover,__ROOTSEL__ body.articles-page header .hover\:text-amber-700:hover{color:#79bfb5!important}
+__ROOTSEL__ body.post-edition header .bg-amber-600,__ROOTSEL__ body.articles-page header .bg-amber-600{background:#c9a35f!important;color:#0b1c17!important}
+__ROOTSEL__ body.post-edition header .bg-amber-100,__ROOTSEL__ body.articles-page header .bg-amber-100{background:#1d3b31!important;color:#e2c98f!important}
+__ROOTSEL__ body.post-edition #back-to-top,__ROOTSEL__ body.articles-page #back-to-top{background:#4f938b!important}
+__ROOTSEL__ .ar-root{--paper:#0b1c17!important;--paper-2:#12281f!important;--ink:#f3f0e7!important;--graphite:#d7ded4!important;--muted:#a6b0a4!important;--brass:#c9a35f!important;--brass-text:#e2c98f!important;--brass-2:#e2c98f!important;--water:#4f938b!important;--night:#0b1c17!important;--line:#2f4a3f!important;--line-strong:#436052!important;background:#0b1c17!important;background-image:linear-gradient(270deg,rgba(243,240,231,.05) 1px,transparent 0),linear-gradient(rgba(243,240,231,.05) 1px,transparent 0)!important;color:#f3f0e7!important}
+__ROOTSEL__ .ar-thumb.is-plain{background:repeating-linear-gradient(135deg,#1d3b31 0 2px,#12281f 2px 9px)!important}
+__ROOTSEL__ .ar-tag{color:#a6b0a4!important}
+__ROOTSEL__ .ar-taglist a:hover{background:#1d3b31!important;color:#e2c98f!important}
+__ROOTSEL__ .ar-uni{background:linear-gradient(to bottom,#12281f,#0b1c17)!important}
+__ROOTSEL__ .design-a,__ROOTSEL__ .design-b,__ROOTSEL__ .design-a[data-theme],__ROOTSEL__ .design-b[data-theme]{--paper:#0b1c17!important;--surface:#12281f!important;--ink:#f3f0e7!important;--ink-soft:#d7ded4!important;--muted:#a6b0a4!important;--line:#2f4a3f!important;--line-soft:#1d3b31!important;--accent:#c9a35f!important;--accent-soft:#2a4235!important;--accent-ink:#e2c98f!important;background:#0b1c17!important;color:#f3f0e7!important}
+__ROOTSEL__ .design-b .ed-body tbody tr:nth-child(even){background:#12281f!important}
+__ROOTSEL__ .ed-share-label{color:#a6b0a4!important}
+__ROOTSEL__ .design-a[data-theme] .ed-body [class*="text-amber-1"],__ROOTSEL__ .design-a[data-theme] .ed-body [class*="text-amber-2"],__ROOTSEL__ .design-a[data-theme] .ed-body [class*="text-amber-3"]{color:#e2c98f!important}
+__ROOTSEL__ .atlas,__ROOTSEL__ .tl,__ROOTSEL__ .rd-ui,__ROOTSEL__ .wl-ui{background:#0b1c17!important;color:#f3f0e7!important}
+{% endcapture %}
+{% capture _nm_hard_print %}
+__ROOTSEL__ body.post-edition,__ROOTSEL__ body.post-edition #preloader,__ROOTSEL__ body.articles-page,__ROOTSEL__ body.articles-page #preloader{background:#f3f0e7!important;color:#131f1b!important}
+__ROOTSEL__ body.post-edition header>div.absolute,__ROOTSEL__ body.articles-page header>div.absolute{background:#f3f0e7!important;border-bottom-color:#cfc6b0!important;box-shadow:none!important}
+__ROOTSEL__ body.post-edition header .bg-white,__ROOTSEL__ body.articles-page header .bg-white{background:#f3f0e7!important}
+__ROOTSEL__ body.post-edition header .text-stone-900,__ROOTSEL__ body.post-edition header .text-stone-800,__ROOTSEL__ body.articles-page header .text-stone-900,__ROOTSEL__ body.articles-page header .text-stone-800{color:#131f1b!important}
+__ROOTSEL__ body.post-edition header .text-stone-700,__ROOTSEL__ body.articles-page header .text-stone-700{color:#3b463f!important}
+__ROOTSEL__ body.post-edition header .text-amber-600,__ROOTSEL__ body.articles-page header .text-amber-600{color:#8f6524!important}
+__ROOTSEL__ body.post-edition header .hover\:text-amber-700:hover,__ROOTSEL__ body.articles-page header .hover\:text-amber-700:hover{color:#2e6f68!important}
+__ROOTSEL__ body.post-edition header .bg-amber-600,__ROOTSEL__ body.articles-page header .bg-amber-600{background:#8f6524!important;color:#ffffff!important}
+__ROOTSEL__ body.post-edition header .bg-amber-100,__ROOTSEL__ body.articles-page header .bg-amber-100{background:#e4ede9!important;color:#131f1b!important}
+__ROOTSEL__ body.post-edition #back-to-top,__ROOTSEL__ body.articles-page #back-to-top{background:#2e6f68!important}
+__ROOTSEL__ .ar-root{--paper:#f3f0e7!important;--paper-2:#faf8f2!important;--ink:#131f1b!important;--graphite:#2c3833!important;--muted:#6f6a5c!important;--brass:#a67a2e!important;--brass-text:#8f6524!important;--brass-2:#c9a35f!important;--water:#2e6f68!important;--night:#0b1c17!important;--line:#ded7c5!important;--line-strong:#cfc6b0!important;background:#f3f0e7!important;background-image:linear-gradient(270deg,#131f1b0b 1px,#0000 0),linear-gradient(#131f1b0b 1px,#0000 0)!important;color:#131f1b!important}
+__ROOTSEL__ .ar-thumb.is-plain{background:repeating-linear-gradient(135deg,#e8e2d3 0 2px,#f2ecdf 2px 9px)!important}
+__ROOTSEL__ .ar-tag{color:#5d5748!important}
+__ROOTSEL__ .ar-taglist a:hover{background:#f4efe2!important;color:#8f6524!important}
+__ROOTSEL__ .ar-uni{background:linear-gradient(to bottom,#f6f1e3,#faf8f2)!important}
+__ROOTSEL__ .design-a,__ROOTSEL__ .design-b,__ROOTSEL__ .design-a[data-theme],__ROOTSEL__ .design-b[data-theme]{--paper:#f6f1e6!important;--surface:#fbf8f1!important;--ink:#241f19!important;--ink-soft:#3f3830!important;--muted:#6f6a5c!important;--line:#dcd1bd!important;--line-soft:#e9e1d1!important;--accent:#8a5a2b!important;--accent-soft:#efe4d0!important;--accent-ink:#6f4520!important;background:#f6f1e6!important;color:#241f19!important}
+__ROOTSEL__ .design-b .ed-body tbody tr:nth-child(even){background:#f8faf9!important}
+__ROOTSEL__ .ed-share-label{color:#6a6053!important}
+__ROOTSEL__ .design-a[data-theme] .ed-body [class*="text-amber-1"],__ROOTSEL__ .design-a[data-theme] .ed-body [class*="text-amber-2"],__ROOTSEL__ .design-a[data-theme] .ed-body [class*="text-amber-3"]{color:#f7f1e2!important}
+__ROOTSEL__ .atlas,__ROOTSEL__ .tl,__ROOTSEL__ .rd-ui,__ROOTSEL__ .wl-ui{background:#f3f0e7!important;color:#131f1b!important}
+{% endcapture %}
+{% assign _nm_hard_on = _nm_hard | replace: '__ROOTSEL__', 'html[data-night="on"]' %}
+{% assign _nm_hard_auto = _nm_hard | replace: '__ROOTSEL__', 'html:not([data-night="off"])' %}
+{% assign _nm_hard_print_all = _nm_hard_print | replace: '__ROOTSEL__', 'html' %}
 <style>
 html[data-night="on"]{ {{ _nm_root }} }
 html[data-night="on"] .id-palette-a,html[data-night="on"] .id-palette-b,html[data-night="on"] .id-palette-c,html[data-night="on"] .id-palette-d,html[data-night="on"] .id-palette-e{ {{ _nm_palette }} }
+{{ _nm_hard_on }}
 @media (prefers-color-scheme:dark){
   html:not([data-night="off"]){ {{ _nm_root }} }
   html:not([data-night="off"]) .id-palette-a,html:not([data-night="off"]) .id-palette-b,html:not([data-night="off"]) .id-palette-c,html:not([data-night="off"]) .id-palette-d,html:not([data-night="off"]) .id-palette-e{ {{ _nm_palette }} }
+  {{ _nm_hard_auto }}
 }
 .nm-toggle{position:fixed;z-index:95;right:clamp(.5rem,1.5vw,1.1rem);bottom:clamp(.6rem,1.5vw,1rem);width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid var(--color-line,#ded7c5);background:var(--color-plaster,#f3f0e7);color:var(--color-brass-text,#8f6524);cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.16);transition:background .2s,border-color .2s,color .2s}
 .nm-toggle:hover{border-color:var(--color-brass,#a67a2e);color:var(--color-brass,#a67a2e)}
@@ -47,6 +97,7 @@ html[data-night="on"] .id-palette-a,html[data-night="on"] .id-palette-b,html[dat
 @media print{
   html[data-night],html:not([data-night="off"]){ {{ _nm_print }} }
   html[data-night] .id-palette-a,html[data-night] .id-palette-b,html[data-night] .id-palette-c,html[data-night] .id-palette-d,html[data-night] .id-palette-e,html:not([data-night="off"]) .id-palette-a,html:not([data-night="off"]) .id-palette-b,html:not([data-night="off"]) .id-palette-c,html:not([data-night="off"]) .id-palette-d,html:not([data-night="off"]) .id-palette-e{ {{ _nm_print }} }
+  {{ _nm_hard_print_all }}
   .nm-toggle{display:none!important}
 }
 </style>
