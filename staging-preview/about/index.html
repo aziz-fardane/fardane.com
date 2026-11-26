@@ -1331,8 +1331,14 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
       animation:fardane-panorama-slide 54s ease-in-out infinite alternate;
       will-change:transform;
     }
-    @media (prefers-reduced-motion:reduce){
-      body[data-gemini]::before{animation:none;transform:none}
+    /* Staging review keeps the drift visible even under reduced-motion. The
+       !important declarations restore motion after the site-wide reset. */
+    body[data-gemini]::before{
+      animation-name:fardane-panorama-slide!important;
+      animation-duration:54s!important;
+      animation-timing-function:ease-in-out!important;
+      animation-iteration-count:infinite!important;
+      animation-direction:alternate!important;
     }
   }
   @media print{
@@ -1457,6 +1463,9 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
     html:not([data-night="off"]) .nm-toggle{background:#0b1c17;border-color:#436052;color:#e2c98f}
   }
   @media (max-width:520px){.nm-toggle{width:40px;height:40px}}
+  /* Hidden in this staging preview at the author's request; the live identity
+     and the prefers-color-scheme behaviour are untouched. */
+  .nm-toggle{display:none!important}
 
   /* 3. EN marker — one quiet chip in both the list and the article body */
   .ar-lang a[hreflang="en"],a[hreflang="en"].font-mono{
@@ -1632,12 +1641,12 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
       .wf-rill{left:5%;right:5%;opacity:.6}
       .wf-ripples{left:12%;right:12%;height:40px;opacity:.4}
     }
-    @media (prefers-reduced-motion:reduce){
-      .wf-rain-a::before,.wf-rain-b::before,.wf-rill::after,.wf-ripples{animation:none}
-      .wf-rain-a::before,.wf-rain-b::before{opacity:.34}
-      .wf-rill::after{opacity:.4}
-      .wf-ripples{opacity:.32;transform:none}
-    }
+    /* Staging review keeps the water in motion under reduced-motion; the
+       !important declarations restore the quiet original timings and opacity. */
+    .wf-rain-a::before{animation-name:wf-rain-fine!important;animation-duration:24s!important;animation-iteration-count:infinite!important;opacity:.74!important}
+    .wf-rain-b::before{animation-name:wf-rain-deep!important;animation-duration:46s!important;animation-iteration-count:infinite!important;opacity:.58!important}
+    .wf-rill::after{animation-name:wf-rill-glints!important;animation-duration:26s!important;animation-iteration-count:infinite!important}
+    .wf-ripples{animation-name:wf-ripple-breathe!important;animation-duration:16s!important;animation-timing-function:ease-in-out!important;animation-iteration-count:infinite!important;animation-direction:alternate!important;opacity:.5!important}
   }
   @media print{.fardane-water-field{display:none!important}}
 </style>
