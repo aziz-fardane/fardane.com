@@ -1,0 +1,120 @@
+---
+layout: default
+title: دار الماء — نموذج فندقي مستوحى من الرياض
+description: "نموذج تجريبي لموقع فندقي مغربي مستوحى من المقارنة بين الرياض المغربي والبيت الأندلسي: قاعات على شكل أقواس، فناء مركزي، وتأطير معماري بلا صور خارجية."
+permalink: /riad-stay/
+---
+
+{% comment %}
+    staging-only hotel/tourism concept study. CSS drawings only — no external
+    fonts, images, APIs, hidden articles or edits to original Arabic text.
+{% endcomment %}
+
+{% if site.staging %}
+<div class="stay" id="top">
+  <section class="stay-hero">
+    <div class="stay-hero-inner">
+      <p class="stay-kicker">مفهوم تجريبي · فندق رياض مغربي</p>
+      <h1>دار الماء</h1>
+      <p class="stay-lead">إقامة تُبنى حول الفناء لا حول الواجهة: أربعة أروقة، حوض ماء واحد، وظل يتحرّك مع النهار. اللغة البصرية نفسها المستخدمة في لوحات الهوية، تتغيّر مع اختيارك من أسفل الصفحة.</p>
+      <nav class="stay-cta" aria-label="روابط النموذج">
+        <a href="#rooms">القاعات</a>
+        <a href="#courtyard">الفناء</a>
+        <a href="#frames">العمارة</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="stay-section" id="rooms">
+    <h2>قاعات الإقامة</h2>
+    <div class="stay-rooms">
+      <article class="stay-room stay-room-clay">
+        <div class="stay-arch"><span>١</span></div>
+        <h3>قاعة الطين</h3>
+        <p>جدران مدكوك، نحاس مطفأ، وضوء داخلي خفيف. الأقواس الصغيرة المتكرّرة تعطي إيقاعاً هادئاً.</p>
+        <div class="stay-chips"><i></i><i></i><i></i></div>
+      </article>
+      <article class="stay-room stay-room-marble">
+        <div class="stay-arch"><span>٢</span></div>
+        <h3>قاعة الرخام</h3>
+        <p>عروق رخام دقيقة وزليج أخضر. القوس هنا أوسع قليلاً، والظل بارد بدل دافئ.</p>
+        <div class="stay-chips"><i></i><i></i><i></i></div>
+      </article>
+      <article class="stay-room stay-room-olive">
+        <div class="stay-arch"><span>٣</span></div>
+        <h3>قاعة الزيتون</h3>
+        <p>جير قديم وطين محمّص، مع خط واحد واضح بدل الملمس الكثير.</p>
+        <div class="stay-chips"><i></i><i></i><i></i></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="stay-section" id="courtyard">
+    <h2>الفناء</h2>
+    <div class="stay-plan">
+      <div class="stay-bay">مجلس</div>
+      <div class="stay-bay">مكتبة</div>
+      <div class="stay-bay">مطبخ</div>
+      <div class="stay-bay">مدخل</div>
+      <div class="stay-basin" aria-hidden="true"></div>
+    </div>
+    <p class="stay-note">أربعة مجالس حول الماء؛ التنقّل دائري، والضوء يتغيّر مع زاوية الشمس لا مع تغيير الديكور.</p>
+  </section>
+
+  <section class="stay-section" id="frames">
+    <h2>تأطير العمارة التراثية</h2>
+    <div class="stay-frames">
+      <figure class="stay-frame stay-frame-riad"><figcaption>إطار الرياض — ملمس وظل</figcaption></figure>
+      <figure class="stay-frame stay-frame-and"><figcaption>إطار الأندلس — خط وفراغ</figcaption></figure>
+    </div>
+    <p class="stay-note">لا صور خارجية: ما تراه هو محاكاة CSS لطريقة التقاط الإطار لا لصورة بعينها.</p>
+  </section>
+
+  <p class="stay-foot"><a href="#top">العودة إلى الأعلى</a> · نموذج داخل المعاينة التجريبية فقط، وليس موقع حجز حقيقياً.</p>
+</div>
+<style>
+  .stay{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 120px;color:var(--ink);font-family:inherit}
+  .stay-hero{position:relative;min-height:440px;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+  .stay-hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.16;
+    background:
+      radial-gradient(circle at 50% 58%,var(--water) 0 30px,transparent 31px),
+      radial-gradient(circle at 50% 0%,transparent 0 30px,var(--brass) 31px 33px,transparent 34px) 0 0/118px 100% repeat-x,
+      radial-gradient(circle at 50% 100%,transparent 0 30px,var(--brass) 31px 33px,transparent 34px) 0 0/118px 100% repeat-x}
+  .stay-hero-inner{position:relative;z-index:1;max-width:760px;text-align:center;padding:60px 16px}
+  .stay-kicker{margin:0 0 12px;font-size:.72rem;letter-spacing:.12em;color:var(--brass-text)}
+  .stay h1{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.2;margin:0 0 18px;color:var(--ink)}
+  .stay-lead{line-height:2;max-width:62ch;margin:0 auto;color:var(--muted);font-size:.9rem}
+  .stay-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .stay-cta a{padding:9px 18px;border:1px solid var(--brass);border-radius:999px;color:var(--brass-text);text-decoration:none;font-size:.8rem;font-weight:700}
+  .stay-cta a:hover{border-color:var(--water);color:var(--water)}
+  .stay-section{margin:0;padding-top:44px;border-bottom:1px solid var(--line)}
+  .stay-section h2{font-size:1.1rem;margin:0 0 24px;color:var(--brass-text)}
+  .stay-rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .stay-room{padding:20px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2)}
+  .stay-room h3{margin:16px 0 0;font-size:.94rem;color:var(--ink)}
+  .stay-room p{line-height:1.8;font-size:.84rem;color:var(--muted);margin:8px 0 0}
+  .stay-arch{position:relative;height:86px;border:4px solid var(--brass);border-bottom:0;border-radius:50% 50% 0 0 / 16px 16px 0 0}
+  .stay-room-clay .stay-arch{border-radius:46px 46px 0 0 / 14px 14px 0 0;border-color:#B08A5E}
+  .stay-room-marble .stay-arch{border-radius:46px 46px 0 0 / 13px 13px 0 0;border-color:#A98E73}
+  .stay-room-olive .stay-arch{border-color:#4F6B52}
+  .stay-arch span{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);font-family:monospace;font-size:.72rem;color:var(--brass-text)}
+  .stay-chips{display:flex;gap:5px;margin-top:14px}
+  .stay-chips i{width:26px;height:7px;border-radius:4px;background:var(--line-strong)}
+  .stay-room-clay .stay-chips i:nth-child(2){background:#B08A5E}
+  .stay-room-marble .stay-chips i:nth-child(2){background:#A98E73}
+  .stay-room-olive .stay-chips i:nth-child(2){background:#4F6B52}
+  .stay-plan{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px;max-width:520px;border:2px solid var(--brass);background:repeating-linear-gradient(90deg,transparent 0 18px,rgba(46,111,104,.05) 18px 19px)}
+  .stay-bay{min-height:76px;display:grid;place-items:center;border:1px solid var(--line);color:var(--muted);font-size:.8rem}
+  .stay-basin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border:2px solid var(--water);border-radius:50%;background:var(--paper-2)}
+  .stay-note{font-size:.82rem;line-height:1.9;color:var(--muted);max-width:64ch;margin:18px 0 0}
+  .stay-frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .stay-frame{margin:0}
+  .stay-frame-riad{height:170px;border:10px solid var(--paper-2);box-shadow:inset 0 0 28px rgba(36,26,18,.24);background:radial-gradient(circle at 50% 40%,rgba(201,168,124,.5) 0 18%,transparent 19%),repeating-linear-gradient(0deg,rgba(176,138,94,.16) 0 2px,transparent 2px 9px),#F3E8D6}
+  .stay-frame-and{height:170px;border:1px solid #B9A788;background:radial-gradient(circle at 50% 100%,transparent 0 42%,rgba(79,107,82,.26) 43% 45%,transparent 46%),linear-gradient(180deg,#EFE6D5,#D9CDB6)}
+  .stay-frame figcaption{margin-top:8px;font-size:.74rem;color:var(--brass-text)}
+  .stay-foot{margin-top:30px;font-size:.78rem;color:var(--muted)}
+  .stay-foot a{color:var(--brass-text)}
+</style>
+{% else %}
+<div class="stay"><p>هذا النموذج متاح في المعاينة التجريبية فقط.</p></div>
+{% endif %}
