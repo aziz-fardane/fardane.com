@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: 'ar' }}" dir="{% if page.lang == 'en' %}ltr{% else %}rtl{% endif %}" class="scroll-smooth">
     <head>
-        {% unless site.staging %}
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H5F625Z31"></script>
         <script>
@@ -18,7 +17,6 @@
 
           gtag('config', 'G-1H5F625Z31', { send_page_view: !window.__fardaneSelf });
         </script>
-        {% endunless %}
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,7 +59,7 @@
         {% if page.abstract_fr %}<meta name="DC.language" content="fr">{% endif %}
         {% endif %}
 
-        {% if site.staging or page.noindex %}
+        {% if page.noindex %}
         <meta name="robots" content="noindex, nofollow">
         {% endif %}
 
@@ -314,16 +312,7 @@
         {% endif %}
 
         <!-- Styles -->
-        {% include id-palettes.liquid %}
-        {% include night-mode.html %}
         <link rel="stylesheet" href="{{ site.data.manifest['dist/main.css'] }}"/>
-        {% if site.staging %}{% include staging-wood.html %}{% endif %}
-        {% if site.staging %}{% include staging-qasbah.html %}{% endif %}
-        {% if site.staging %}{% include staging-marrakech.html %}{% endif %}
-        {% if site.staging %}{% include staging-fes.html %}{% endif %}
-        {% if site.staging %}{% include staging-andalus.html %}{% endif %}
-        {% if site.staging %}{% include staging-gemini.html %}{% endif %}
-        {% if site.staging %}{% include staging-creative.html %}{% endif %}
 
         <!-- RTL support for Tailwind CSS -->
         <style>
@@ -339,24 +328,7 @@
         <!-- Scripts -->
         <script defer src="{{ site.data.manifest['dist/main.js'] }}"></script>
     </head>
-    {% assign _gemini = '' %}
-    {% if site.staging %}
-      {% if page.url == '/' %}{% assign _gemini = 'home' %}
-      {% elsif page.url == '/articles/' or page.url contains '/news/' %}{% assign _gemini = 'research' %}
-      {% elsif page.url == '/events/' %}{% assign _gemini = 'updates' %}
-      {% elsif page.url contains '/scientists/' %}{% assign _gemini = 'figures' %}
-      {% elsif page.url == '/services/' %}{% assign _gemini = 'services' %}
-      {% elsif page.url == '/about/' %}{% assign _gemini = 'biography' %}
-      {% elsif page.url == '/atlas/' %}{% assign _gemini = 'method' %}
-      {% elsif page.url == '/publications/' %}{% assign _gemini = 'publications' %}
-      {% elsif page.url == '/timeline/' %}{% assign _gemini = 'water-library' %}
-      {% endif %}
-    {% endif %}
-    <body class="bg-plaster text-ink min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}{% if page.layout == 'post' or page.layout == 'post-feature' %} post-page{% endif %}{% if page.layout == 'post' %} post-edition{% endif %}{% if page.url == '/' %} home-page{% endif %}{% if page.url == '/articles/' %} articles-page{% endif %}"{% if site.staging %} data-gemini="{{ _gemini }}"{% endif %}>
-        {% if site.staging %}
-        <div class="staging-banner" style="position:relative;z-index:60;background:#7c2d12;color:#fff;text-align:center;font-size:12px;padding:6px 12px;font-family:monospace;letter-spacing:.05em">STAGING · نسخة تجريبية للمعاينة فقط — غير منشورة وغير مفهرسة</div>
-        {% include staging-palette-switcher.html %}
-        {% endif %}
+    <body class="bg-plaster text-ink min-h-screen flex flex-col{% if page.layout == 'scientist' %} sci-page{% endif %}{% if page.layout == 'post' or page.layout == 'post-feature' %} post-page{% endif %}{% if page.layout == 'post' %} post-edition{% endif %}{% if page.url == '/' %} home-page{% endif %}{% if page.url == '/articles/' %} articles-page{% endif %}">
         <!-- Simple preloader -->
         <div id="preloader" class="fixed inset-0 bg-plaster z-50 flex items-center justify-center">
             <div class="animate-spin w-10 h-10 border-2 border-brass-text border-b-transparent"></div>
@@ -389,17 +361,5 @@
         <!-- Facebook SDK for Comments is loaded on demand from the article layout -->
 
         {% include analytics-events.liquid %}
-
-        {% comment %}Reader mode: article-only, data-driven, no edits to Arabic source text.{% endcomment %}
-        {% if page.layout == 'post' or page.layout == 'post-feature' %}
-        {% capture _rd_domains %}{{ site.data.water_taxonomy.domains | jsonify }}{% endcapture %}
-        {% capture _rd_terms %}{{ site.data.water_taxonomy.terms | jsonify }}{% endcapture %}
-        {% capture _rd_regions %}{{ site.data.water_regions.regions | jsonify }}{% endcapture %}
-        {% capture _rd_sources %}{{ site.data.water_sources.sources | jsonify }}{% endcapture %}
-        {% capture _rd_title %}{{ page.title | jsonify }}{% endcapture %}
-        {% capture _rd_url %}{{ page.url | relative_url | jsonify }}{% endcapture %}
-        {% include reader-mode.html domains=_rd_domains terms=_rd_terms regions=_rd_regions sources=_rd_sources article_title=_rd_title article_url=_rd_url %}
-        {% include water-level.html %}
-        {% endif %}
     </body>
 </html>
