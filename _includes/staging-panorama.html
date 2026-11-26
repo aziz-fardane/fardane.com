@@ -1,5 +1,6 @@
 {% comment %}
-    Staging-only slow panoramic drift of the existing local Gemini backgrounds.
+    Staging-only slow panoramic drift of the existing local home background,
+    shown on every staged page.
     Uses a fixed pseudo-element animated with transform only: no new images,
     fonts, APIs or hidden articles, no edits to Arabic source text, no repaint
     of the page background. Kept in motion in this staging preview for visual
@@ -7,15 +8,8 @@
 {% endcomment %}
 <style data-staging-panorama>
   @media screen {
-    body[data-gemini="home"]{--pano:url('/staging-assets/01-home.jpg')}
-    body[data-gemini="research"]{--pano:url('/staging-assets/02-research.jpg')}
-    body[data-gemini="updates"]{--pano:url('/staging-assets/03-updates.jpg')}
-    body[data-gemini="figures"]{--pano:url('/staging-assets/04-figures.jpg')}
-    body[data-gemini="services"]{--pano:url('/staging-assets/05-services.jpg')}
-    body[data-gemini="biography"]{--pano:url('/staging-assets/06-biography.jpg')}
-    body[data-gemini="method"]{--pano:url('/staging-assets/07-method.jpg')}
-    body[data-gemini="publications"]{--pano:url('/staging-assets/08-publications.jpg')}
-    body[data-gemini="water-library"]{--pano:url('/staging-assets/09-water-library.jpg')}
+    /* One identity panorama — the home image — across every staged page. */
+    body[data-gemini]{--pano:url('/staging-assets/01-home.jpg')}
 
     body[data-gemini]{isolation:isolate}
     @keyframes fardane-panorama-slide{
