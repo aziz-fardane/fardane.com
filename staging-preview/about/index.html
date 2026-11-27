@@ -1303,14 +1303,13 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
         
 <style data-staging-panorama>
   @media screen {
-    /* One identity panorama — the home image — across every staged page. */
-    body[data-gemini]{--pano:url('/staging-assets/01-home.jpg')}
-
     body[data-gemini]{isolation:isolate}
-    @keyframes fardane-panorama-slide{
-      from{transform:translate3d(-2%,0,0) scale(1.06)}
-      to{transform:translate3d(2%,0,0) scale(1.06)}
+
+    @keyframes fardane-bg-drift{
+      from{transform:translate3d(-1.6%,0,0) scale(1.045)}
+      to{transform:translate3d(1.6%,0,0) scale(1.045)}
     }
+
     body[data-gemini]::before{
       content:"";
       position:fixed;
@@ -1321,17 +1320,43 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      animation:fardane-panorama-slide 54s ease-in-out infinite alternate;
+      animation:fardane-bg-drift 60s ease-in-out infinite alternate!important;
       will-change:transform;
     }
-    /* Staging review keeps the drift visible even under reduced-motion. The
-       !important declarations restore motion after the site-wide reset. */
-    body[data-gemini]::before{
-      animation-name:fardane-panorama-slide!important;
-      animation-duration:54s!important;
-      animation-timing-function:ease-in-out!important;
-      animation-iteration-count:infinite!important;
-      animation-direction:alternate!important;
+
+    /* الرئيسية: زليج الهوية المعتمد، دون تغيير. */
+    body[data-gemini="home"]{--pano:url('/staging-assets/01-home.jpg')}
+
+    /* أ — العلماء والسيرة: رمادي دافئ. */
+    body[data-gemini="figures"],
+    body[data-gemini="biography"]{--pano:url('/staging-assets/10-figures.jfif')}
+    body[data-gemini="figures"]::before{animation-duration:58s!important}
+    body[data-gemini="biography"]::before{
+      animation-duration:66s!important;animation-direction:alternate-reverse!important;
+    }
+
+    /* ب — المنشورات والخدمات: طيني/nحاسي دافئ. */
+    body[data-gemini="publications"],
+    body[data-gemini="services"]{--pano:url('/staging-assets/11-publications.jfif')}
+    body[data-gemini="publications"]::before{animation-duration:62s!important}
+    body[data-gemini="services"]::before{
+      animation-duration:70s!important;animation-direction:alternate-reverse!important;
+    }
+
+    /* ج — المقالات والمكتبة المائية: أزرق/رمادي مائي. */
+    body[data-gemini="research"],
+    body[data-gemini="water-library"]{--pano:url('/staging-assets/12-water-library.jfif')}
+    body[data-gemini="research"]::before{animation-duration:56s!important}
+    body[data-gemini="water-library"]::before{
+      animation-duration:64s!important;animation-direction:alternate-reverse!important;
+    }
+
+    /* د — الأطلس والفعاليات: حجري محايد متزن. */
+    body[data-gemini="method"],
+    body[data-gemini="updates"]{--pano:url('/staging-assets/13-method.jfif')}
+    body[data-gemini="method"]::before{animation-duration:60s!important}
+    body[data-gemini="updates"]::before{
+      animation-duration:68s!important;animation-direction:alternate-reverse!important;
     }
   }
   @media print{
