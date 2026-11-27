@@ -3852,6 +3852,13 @@ document.addEventListener('DOMContentLoaded', function () {
         items.forEach(function (item) { observer.observe(item); });
     }
 });
+
+<!-- Page-scoped: dedicated publications panorama. -->
+<style id="publications-dedicated-background">
+  @media screen {
+    body[data-gemini="publications"]{--pano:url('/staging-assets/08-publications.jpg')!important}
+  }
+</style>
 </div>
         </main>
 
