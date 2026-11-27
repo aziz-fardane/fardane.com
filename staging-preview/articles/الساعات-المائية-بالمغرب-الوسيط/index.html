@@ -1281,6 +1281,10 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
   @media screen {
     body[data-gemini]{isolation:isolate}
 
+    /* Default for pages without a data-gemini category: keep the previously
+       approved identity panorama, so no page loses its background. */
+    body[data-gemini]{--pano:url('/staging-assets/01-home.jpg')}
+
     @keyframes fardane-bg-drift{
       from{transform:translate3d(-1.6%,0,0) scale(1.045)}
       to{transform:translate3d(1.6%,0,0) scale(1.045)}
