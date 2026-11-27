@@ -2210,6 +2210,219 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
     }
 </style>
 
+<style data-staging-home-zellige>
+    /* ============================================================
+       STAGING · HOMEPAGE ZELLIGE COURTYARD
+       Homepage-only. Scoped to data-gemini="home", so main/live is
+       untouched even if this file is later merged. No new font, image,
+       API, Arabic text, link or layout script is introduced: only the
+       approved local zellige photo and existing identity colours.
+       ============================================================ */
+    @media screen {
+        body[data-gemini="home"][data-unified-reference]{
+            --hz-ink:#14201c;
+            --hz-surface:#faf8f2;
+            --hz-muted:rgba(20,32,28,.80);
+            --hz-line:rgba(185,167,136,.55);
+        }
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference]{
+            --hz-ink:#f3f0e7;
+            --hz-surface:#12281f;
+            --hz-muted:rgba(243,240,231,.84);
+            --hz-line:rgba(201,163,95,.45);
+        }
+
+        /* 1. The opaque paper sheets are what hid the zellige. Lift them,
+              without moving or deleting a single element. */
+        body[data-gemini="home"][data-unified-reference] main,
+        body[data-gemini="home"][data-unified-reference] .ref-wrap,
+        body[data-gemini="home"][data-unified-reference] #preloader{
+            background:transparent!important;
+        }
+        body[data-gemini="home"][data-unified-reference] footer,
+        body[data-gemini="home"][data-unified-reference] .newsletter,
+        body[data-gemini="home"][data-unified-reference] .nl-band{
+            background-color:rgba(250,248,242,.88)!important;
+            backdrop-filter:blur(2px);
+        }
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference] footer,
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference] .newsletter,
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference] .nl-band{
+            background-color:rgba(18,40,31,.90)!important;
+        }
+
+        /* 2. Same approved local panorama; a plaster veil and a quiet
+              vignette let the tiles read clearly on every screen size. */
+        body[data-gemini="home"][data-unified-reference]::before{
+            background-image:
+                radial-gradient(120% 90% at 50% 45%,rgba(244,241,233,0) 46%,rgba(20,25,22,.12) 100%),
+                linear-gradient(rgba(244,241,233,.10),rgba(244,241,233,.10)),
+                url('/staging-assets/01-home.jpg')!important;
+            background-size:cover!important;
+            background-position:center!important;
+            background-repeat:no-repeat!important;
+            filter:saturate(1.05) contrast(1.03);
+        }
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference]::before{
+            background-image:
+                radial-gradient(120% 90% at 50% 45%,rgba(11,28,23,0) 42%,rgba(11,28,23,.30) 100%),
+                linear-gradient(rgba(11,28,23,.26),rgba(11,28,23,.26)),
+                url('/staging-assets/01-home.jpg')!important;
+        }
+
+        /* 3. Paper glass: the text sits on translucent plaster, so the
+              zellige stays visible around and gently through the content. */
+        body[data-gemini="home"][data-unified-reference] .site-header{
+            background:linear-gradient(180deg,rgba(250,248,242,.82),rgba(250,248,242,0))!important;
+            border-bottom:1px solid var(--hz-line)!important;
+            box-shadow:none!important;
+        }
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference] .site-header{
+            background:linear-gradient(180deg,rgba(11,28,23,.86),rgba(11,28,23,0))!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc{
+            background:linear-gradient(180deg,rgba(250,248,242,.70),rgba(250,248,242,.86))!important;
+            backdrop-filter:blur(2px);
+        }
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference] .hc{
+            background:linear-gradient(180deg,rgba(18,40,31,.80),rgba(18,40,31,.90))!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hp,
+        body[data-gemini="home"][data-unified-reference] .hp.alt{
+            background-color:rgba(250,248,242,.86)!important;
+            backdrop-filter:blur(1.5px);
+        }
+        body[data-gemini="home"][data-unified-reference] .hp.alt{
+            background-color:rgba(244,241,233,.84)!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hp.night{
+            background-color:rgba(11,28,23,.90)!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-plate{
+            background-color:rgba(250,248,242,.92)!important;
+            box-shadow:0 12px 34px rgba(20,25,22,.10);
+        }
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference] .hc-plate{
+            background-color:rgba(18,40,31,.94)!important;
+        }
+
+        /* 4. Typography: one Reem Kufi voice, weight 500, fluid scale,
+              ink-on-paper contrast, no competition with the tiles. */
+        body[data-gemini="home"][data-unified-reference] .hc-topic,
+        body[data-gemini="home"][data-unified-reference] .hp-title,
+        body[data-gemini="home"][data-unified-reference] .hp-axis h3,
+        body[data-gemini="home"][data-unified-reference] .hp-col h3,
+        body[data-gemini="home"][data-unified-reference] .hp-tick h3,
+        body[data-gemini="home"][data-unified-reference] .hp-pub h3,
+        body[data-gemini="home"][data-unified-reference] .hp-study-body h3{
+            font-family:"Reem Kufi","Segoe UI",Tahoma,sans-serif!important;
+            font-weight:500!important;
+            letter-spacing:0!important;
+            color:var(--hz-ink)!important;
+            text-rendering:optimizeLegibility;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-topic{
+            font-size:clamp(2.05rem,5.2vw,3.35rem)!important;
+            line-height:1.34!important;
+            margin:.5rem 0 .7rem!important;
+            text-shadow:0 1px 0 rgba(250,248,242,.92),0 2px 12px rgba(250,248,242,.72)!important;
+        }
+        html[data-night="on"] body[data-gemini="home"][data-unified-reference] .hc-topic{
+            text-shadow:0 1px 0 rgba(11,28,23,.85),0 2px 12px rgba(11,28,23,.70)!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-topic em{
+            color:var(--color-water)!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hp-title{
+            font-size:clamp(1.3rem,2.4vw,1.7rem)!important;
+            line-height:1.45!important;
+            margin:.65rem 0 .75rem!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hp-axis h3,
+        body[data-gemini="home"][data-unified-reference] .hp-col h3,
+        body[data-gemini="home"][data-unified-reference] .hp-tick h3,
+        body[data-gemini="home"][data-unified-reference] .hp-pub h3,
+        body[data-gemini="home"][data-unified-reference] .hp-study-body h3{
+            font-size:1.05rem!important;
+            line-height:1.5!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-byline{
+            font-size:.9rem!important;
+            font-weight:500!important;
+            color:var(--color-brass-text)!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-code{
+            font-size:.68rem!important;
+            letter-spacing:.12em!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-thesis,
+        body[data-gemini="home"][data-unified-reference] .hc-sub,
+        body[data-gemini="home"][data-unified-reference] .hp-body p,
+        body[data-gemini="home"][data-unified-reference] .hp-axis p,
+        body[data-gemini="home"][data-unified-reference] .hp-col p,
+        body[data-gemini="home"][data-unified-reference] .hp-tick p,
+        body[data-gemini="home"][data-unified-reference] .hp-pub p,
+        body[data-gemini="home"][data-unified-reference] .hp-study-body p{
+            color:var(--hz-muted)!important;
+            line-height:2!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-thesis{font-size:.92rem!important}
+        body[data-gemini="home"][data-unified-reference] .hc-sub{font-size:1rem!important}
+        body[data-gemini="home"][data-unified-reference] .hp-body p{font-size:.96rem!important}
+        body[data-gemini="home"][data-unified-reference] .hp-axis p,
+        body[data-gemini="home"][data-unified-reference] .hp-col p,
+        body[data-gemini="home"][data-unified-reference] .hp-tick p,
+        body[data-gemini="home"][data-unified-reference] .hp-pub p,
+        body[data-gemini="home"][data-unified-reference] .hp-study-body p{font-size:.88rem!important}
+        body[data-gemini="home"][data-unified-reference] .hp-lede{
+            font-size:1.06rem!important;
+            color:var(--hz-ink)!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hp-note{font-size:.8rem!important}
+        body[data-gemini="home"][data-unified-reference] .hc-btn{
+            background:var(--hz-ink)!important;
+            color:var(--hz-surface)!important;
+            border-color:var(--hz-ink)!important;
+            font-family:"Reem Kufi","Segoe UI",Tahoma,sans-serif!important;
+            font-weight:500!important;
+            font-size:.88rem!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-btn.ghost{
+            background:transparent!important;
+            color:var(--hz-ink)!important;
+            border-color:var(--hz-line)!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-btn:hover{
+            background:var(--color-water)!important;
+            color:var(--hz-surface)!important;
+            border-color:var(--color-water)!important;
+        }
+        body[data-gemini="home"][data-unified-reference] .hc-btn.ghost:hover{
+            background:transparent!important;
+            color:var(--color-brass-text)!important;
+            border-color:var(--color-brass)!important;
+        }
+
+        @media (max-width:880px){
+            body[data-gemini="home"][data-unified-reference] .hc{padding-top:2.4rem!important}
+            body[data-gemini="home"][data-unified-reference] .hc-topic{
+                font-size:clamp(2rem,7vw,2.8rem)!important;
+            }
+        }
+        @media (max-width:560px){
+            body[data-gemini="home"][data-unified-reference] .hc-topic{
+                font-size:clamp(1.75rem,8.5vw,2.35rem)!important;
+                line-height:1.32!important;
+            }
+            body[data-gemini="home"][data-unified-reference] .hc-thesis{font-size:.88rem!important}
+            body[data-gemini="home"][data-unified-reference] .hc-sub{font-size:.94rem!important}
+            body[data-gemini="home"][data-unified-reference] .hp-title{font-size:1.35rem!important}
+            body[data-gemini="home"][data-unified-reference] .hp{padding-block:2.4rem!important}
+            body[data-gemini="home"][data-unified-reference] .hp-body p{font-size:.92rem!important}
+        }
+    }
+</style>
+
 <!-- ============================================================
      COVER · PL. 01
      ============================================================ -->
