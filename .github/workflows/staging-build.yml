@@ -49,6 +49,9 @@ jobs:
               html = re.sub(r'<link rel="stylesheet"[^>]*dist/main[^>]*>', '<style>' + css + '</style>', html)
               html = html.replace('src="/dist/', 'src="https://fardane.com/dist/')
               html = html.replace('href="/dist/', 'href="https://fardane.com/dist/')
+              html = html.replace('srcset="/dist/', 'srcset="https://fardane.com/dist/')
+              html = html.replace("url('/dist/", "url('https://fardane.com/dist/")
+              html = html.replace('url("/dist/', 'url("https://fardane.com/dist/')
               # بيانات og/twitter/JSON-LD تستخدم site.url؛ وجّه صورها إلى الموقع الحي.
               html = html.replace('https://fardane-staging-preview.aziz-fardane.workers.dev/dist/', 'https://fardane.com/dist/')
               dest = out / rel

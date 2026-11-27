@@ -856,8 +856,18 @@ permalink: /about/
       --pano: url('/staging-assets/01-home.jpg') !important;
     }
     body[data-gemini="biography"]::before {
+      background-image:
+        radial-gradient(120% 90% at 50% 45%,rgba(244,241,233,0) 46%,rgba(20,25,22,.12) 100%),
+        linear-gradient(rgba(244,241,233,.10),rgba(244,241,233,.10)),
+        url('/staging-assets/01-home.jpg')!important;
       animation-duration: 60s !important;
       animation-direction: alternate !important;
+    }
+    html[data-night="on"] body[data-gemini="biography"]::before {
+      background-image:
+        radial-gradient(120% 90% at 50% 45%,rgba(11,28,23,0) 42%,rgba(11,28,23,.30) 100%),
+        linear-gradient(rgba(11,28,23,.26),rgba(11,28,23,.26)),
+        url('/staging-assets/01-home.jpg')!important;
     }
   }
 </style>
