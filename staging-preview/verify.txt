@@ -8,4 +8,4 @@ nested_preview=no
 empty_pages=0
 fake_url_pages=0
 local_pdfs=1
-local_jpgs=9
+local_jpgs=13
