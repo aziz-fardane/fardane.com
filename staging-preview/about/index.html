@@ -2810,6 +2810,20 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
     </section>
 
 </div>
+
+<!-- Page-scoped: use the same visible background as the homepage. -->
+<style id="about-home-background">
+  @media screen {
+    body[data-gemini="biography"] {
+      background-image: linear-gradient(rgba(20,25,22,.16),rgba(20,25,22,.16)), url('/staging-assets/01-home.jpg') !important;
+      --pano: url('/staging-assets/01-home.jpg') !important;
+    }
+    body[data-gemini="biography"]::before {
+      animation-duration: 60s !important;
+      animation-direction: alternate !important;
+    }
+  }
+</style>
 </div>
         </main>
 
