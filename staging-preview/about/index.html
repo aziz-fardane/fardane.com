@@ -1539,6 +1539,155 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
     html{scroll-behavior:auto!important}
     .animate-spin,#preloader .animate-spin{animation:none!important}
   }
+  /* Staging-only visual refinement.
+     The shared unified-reference include follows this file and declares many
+     !important rules, so these selectors add an html prefix for specificity.
+     No new fonts, images, APIs or Arabic source text are introduced. */
+
+  /* 1. One reading voice for Arabic body copy; headings keep Reem Kufi. */
+  html[lang="ar"] body[data-unified-reference] {
+    font-family: "Noto Naskh Arabic", "Noto Kufi Arabic", serif !important;
+  }
+  html[lang="ar"] body[data-unified-reference] p:not(.hc-code):not(.hp-code):not(.hp-meta):not(.en-running):not(.en-kicker):not(.ar-lang),
+  html[lang="ar"] body[data-unified-reference] li:not([class]),
+  html[lang="ar"] body[data-unified-reference] td,
+  html[lang="ar"] body[data-unified-reference] th {
+    font-family: "Noto Naskh Arabic", "Noto Kufi Arabic", serif !important;
+  }
+
+  /* 2. Comfortable reading size and rhythm without flattening lead paragraphs. */
+  html[lang="ar"] body[data-unified-reference] p:not([class]),
+  html[lang="ar"] body[data-unified-reference] li:not([class]) {
+    font-size: 1rem !important;
+    line-height: 1.82 !important;
+  }
+  html body[data-unified-reference] p,
+  html body[data-unified-reference] li,
+  html body[data-unified-reference] td,
+  html body[data-unified-reference] th {
+    line-height: 1.82 !important;
+  }
+
+  /* 3. Micro-labels stay small in character but stop being unreadable. */
+  html body[data-unified-reference] .hc-code,
+  html body[data-unified-reference] .hp-code,
+  html body[data-unified-reference] .hp-year,
+  html body[data-unified-reference] .hp-meta,
+  html body[data-unified-reference] .hp-axis .n,
+  html body[data-unified-reference] .en-running,
+  html body[data-unified-reference] .en-kicker,
+  html body[data-unified-reference] .site-mobile-num {
+    font-size: max(11px, 0.68rem) !important;
+    line-height: 1.6 !important;
+  }
+  html body[data-unified-reference] .hc-scroll,
+  html body[data-unified-reference] .hp-axis a,
+  html body[data-unified-reference] .en-btn,
+  html body[data-unified-reference] .ar-lang a[hreflang="en"],
+  html body[data-unified-reference] a[hreflang="en"].font-mono {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 28px;
+    font-size: max(12px, 0.72rem) !important;
+  }
+
+  /* 3b. Archive controls, tags and footer links stay legible at a glance. */
+  html body[data-unified-reference] .ar-chip,
+  html body[data-unified-reference] .ar-read,
+  html body[data-unified-reference] .ar-timeline-link,
+  html body[data-unified-reference] .ar-tags a,
+  html body[data-unified-reference] .ar-taglist a,
+  html body[data-unified-reference] .ar-cats a,
+  html body[data-unified-reference] .ar-author-link,
+  html body[data-unified-reference] .ar-card.ar-uni a,
+  html body[data-unified-reference] .site-footer a {
+    font-size: max(12px, 0.72rem) !important;
+    line-height: 1.6 !important;
+  }
+  html body[data-unified-reference] .ar-chip,
+  html body[data-unified-reference] .ar-read,
+  html body[data-unified-reference] .ar-timeline-link,
+  html body[data-unified-reference] .ar-tags a,
+  html body[data-unified-reference] .ar-taglist a {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 26px;
+  }
+
+  /* 3c. A floor for archival micro-copy: dates, roles, plate captions and codes. */
+  html body[data-unified-reference] .ar-meta,
+  html body[data-unified-reference] .ar-meta span,
+  html body[data-unified-reference] .ar-latest-date,
+  html body[data-unified-reference] .nl-code,
+  html body[data-unified-reference] .nl-note,
+  html body[data-unified-reference] .ar-section-code,
+  html body[data-unified-reference] .ar-feature-kicker,
+  html body[data-unified-reference] .ar-filterbar-label,
+  html body[data-unified-reference] .ar-author-role,
+  html body[data-unified-reference] .ar-kicker,
+  html body[data-unified-reference] .en-num,
+  html body[data-unified-reference] .en-tags li,
+  html body[data-unified-reference] .en-plate-cap,
+  html body[data-unified-reference] .en-sign,
+  html body[data-unified-reference] .en-byline,
+  html body[data-unified-reference] .en-title-note {
+    font-size: max(11px, 0.68rem) !important;
+    line-height: 1.6 !important;
+  }
+
+  /* 4. Clearer heading ladder, while the homepage hero stays its own scale. */
+  html body[data-unified-reference] h1:not(.hc-topic),
+  html body[data-unified-reference] .ar-title,
+  html body[data-unified-reference] .ed-title,
+  html body[data-unified-reference] .cv-title,
+  html body[data-unified-reference] .post-title,
+  html body[data-unified-reference] .sci-name,
+  html body[data-unified-reference] .uc-title {
+    font-size: clamp(1.9rem, 3vw, 2.15rem) !important;
+    line-height: 1.36 !important;
+    margin-block: 1.6rem 0.6rem !important;
+  }
+  html body[data-unified-reference] h2 {
+    font-size: 1.45rem !important;
+    line-height: 1.42 !important;
+    margin-block: 1.6rem 0.5rem !important;
+  }
+  html body[data-unified-reference] h3 {
+    font-size: 1.18rem !important;
+    line-height: 1.5 !important;
+    margin-block: 1.2rem 0.4rem !important;
+  }
+
+  /* 5. Balanced vertical rhythm: less dead space before the footer. */
+  html body[data-unified-reference] .ref-wrap {
+    padding: 24px 18px 92px !important;
+  }
+
+  /* 6. Steadier keyboard/pointer targets in the shared navigation. */
+  html body[data-unified-reference] .site-nav-link {
+    min-height: 32px;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  @media (max-width: 520px) {
+    html body[data-unified-reference] h1:not(.hc-topic),
+    html body[data-unified-reference] .ar-title,
+    html body[data-unified-reference] .ed-title,
+    html body[data-unified-reference] .cv-title,
+    html body[data-unified-reference] .post-title,
+    html body[data-unified-reference] .sci-name,
+    html body[data-unified-reference] .uc-title {
+      font-size: 1.75rem !important;
+      line-height: 1.4 !important;
+    }
+    html body[data-unified-reference] h2 { font-size: 1.3rem !important; }
+    html body[data-unified-reference] h3 { font-size: 1.12rem !important; }
+    html body[data-unified-reference] .ref-wrap {
+      padding: 18px 12px 84px !important;
+    }
+  }
+
 </style>
 <script>
 (function(){
