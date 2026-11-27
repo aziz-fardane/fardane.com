@@ -1291,7 +1291,7 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
     </head>
     
     
-    <body class="bg-plaster text-ink min-h-screen flex flex-col sci-page" data-gemini="figures">
+    <body class="bg-plaster text-ink min-h-screen flex flex-col sci-page" data-gemini="figures" data-unified-reference>
         
         <div class="staging-banner" style="position:relative;z-index:60;background:#7c2d12;color:#fff;text-align:center;font-size:12px;padding:6px 12px;font-family:monospace;letter-spacing:.05em">STAGING · نسخة تجريبية للمعاينة فقط — غير منشورة وغير مفهرسة</div>
         
@@ -1580,6 +1580,240 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
 </style>
 
         
+<style data-staging-unified-reference>
+  @media screen {
+    body[data-unified-reference]{
+      --color-plaster:#f4f1e9;
+      --color-paper:#faf8f2;
+      --color-ink:#14201c;
+      --color-brass-text:#8f6524;
+      --color-brass:#a67a2e;
+      --color-water:#2e6f68;
+      --color-line:#ded7c5;
+      --color-muted:#6f6a5c;
+      background-color:var(--color-plaster)!important;
+      color:var(--color-ink)!important;
+      font-family:system-ui,"Segoe UI",Tahoma,sans-serif!important;
+      isolation:isolate;
+    }
+    html[data-night="on"] body[data-unified-reference]{
+      --color-plaster:#0b1c17;
+      --color-paper:#12281f;
+      --color-ink:#f3f0e7;
+      --color-brass-text:#e2c98f;
+      --color-brass:#c9a35f;
+      --color-water:#4f938b;
+      --color-line:#2f4a3f;
+      --color-muted:#a6b0a4;
+      background-color:var(--color-plaster)!important;
+      color:var(--color-ink)!important;
+    }
+
+    /* The approved reference wrap: one narrow reading column everywhere. */
+    body[data-unified-reference] .ref-wrap{
+      width:min(880px,100%);
+      margin-inline:auto;
+      padding:28px 18px 120px;
+    }
+    body[data-unified-reference] .site-shell,
+    body[data-unified-reference] .site-header .site-shell,
+    body[data-unified-reference] footer .site-shell{
+      max-width:880px!important;
+      margin-inline:auto!important;
+    }
+
+    /* Header and navigation: same mark, same rule, same quiet current state. */
+    body[data-unified-reference] .site-header{
+      background:transparent!important;
+      box-shadow:none!important;
+      border-bottom:1px solid var(--color-line)!important;
+    }
+    body[data-unified-reference] .site-mark-initial{display:none!important}
+    body[data-unified-reference] .site-mark-name::after{
+      content:" — باحث مستقل";
+      color:var(--color-brass-text);
+      font-weight:500;
+    }
+    body[data-unified-reference] .site-header-en .site-mark-name::after{content:" — independent researcher"}
+    body[data-unified-reference] .site-nav ul{
+      display:flex;gap:18px;flex-wrap:wrap;list-style:none;margin:0;padding:0;
+    }
+    body[data-unified-reference] .site-nav-link{
+      position:relative;display:inline-block;padding:4px 0;
+      color:var(--color-ink)!important;text-decoration:none;
+      font-size:14px!important;line-height:1.6!important;
+      word-spacing:.1em;
+    }
+    body[data-unified-reference] .site-nav-rule{
+      position:absolute;right:0;bottom:0;width:0;height:2px;
+      background:var(--color-brass)!important;opacity:.9;
+      transition:width .18s ease;
+    }
+    body[data-unified-reference] .site-nav-link:hover .site-nav-rule,
+    body[data-unified-reference] .site-nav-link[aria-current="page"] .site-nav-rule,
+    body[data-unified-reference] .site-nav-link.active-nav .site-nav-rule{width:100%!important}
+    body[data-unified-reference] .site-nav-link[aria-current="page"] span,
+    body[data-unified-reference] .site-nav-link.active-nav span{color:var(--color-brass-text)!important}
+
+    /* One typographic voice for page names and titles. */
+    body[data-unified-reference] .site-mark-name,
+    body[data-unified-reference] .site-nav-link,
+    body[data-unified-reference] .site-mobile-link span:not(.site-mobile-num),
+    body[data-unified-reference] h1,
+    body[data-unified-reference] h2,
+    body[data-unified-reference] h3,
+    body[data-unified-reference] h4,
+    body[data-unified-reference] .hc-topic,
+    body[data-unified-reference] .ar-title,
+    body[data-unified-reference] .ed-title,
+    body[data-unified-reference] .cv-title,
+    body[data-unified-reference] .post-title,
+    body[data-unified-reference] .sci-name,
+    body[data-unified-reference] .uc-title{
+      font-family:"Reem Kufi","Segoe UI",Tahoma,sans-serif!important;
+      font-weight:500!important;
+      letter-spacing:0!important;
+      text-rendering:optimizeLegibility;
+    }
+    body[data-unified-reference] .site-mark-name{font-size:18px!important;line-height:1.5!important;word-spacing:.06em}
+    body[data-unified-reference] h1,
+    body[data-unified-reference] .hc-topic,
+    body[data-unified-reference] .ar-title,
+    body[data-unified-reference] .ed-title,
+    body[data-unified-reference] .cv-title,
+    body[data-unified-reference] .post-title,
+    body[data-unified-reference] .sci-name,
+    body[data-unified-reference] .uc-title{
+      font-size:28px!important;line-height:1.5!important;word-spacing:.06em;
+      margin:26px 0 8px!important;
+    }
+    body[data-unified-reference] h2{font-size:22px!important;line-height:1.5!important}
+    body[data-unified-reference] h3{font-size:18px!important;line-height:1.5!important}
+    body[data-unified-reference] p,
+    body[data-unified-reference] li,
+    body[data-unified-reference] td,
+    body[data-unified-reference] th,
+    body[data-unified-reference] label,
+    body[data-unified-reference] input,
+    body[data-unified-reference] textarea{
+      line-height:1.9!important;
+    }
+    body[data-unified-reference] .lead,
+    body[data-unified-reference] .ar-lede,
+    body[data-unified-reference] .hc-thesis,
+    body[data-unified-reference] .hc-sub,
+    body[data-unified-reference] .cv-lead,
+    body[data-unified-reference] .hint,
+    body[data-unified-reference] .ar-feature-excerpt{
+      color:var(--color-muted)!important;
+    }
+    body[data-unified-reference] .site-mark-name,
+    body[data-unified-reference] .site-nav-link,
+    body[data-unified-reference] h1,
+    body[data-unified-reference] .lead,
+    body[data-unified-reference] .hint{
+      text-shadow:0 1px 0 rgba(250,248,242,.72),0 0 6px rgba(250,248,242,.45);
+    }
+    html[data-night="on"] body[data-unified-reference] .site-mark-name,
+    html[data-night="on"] body[data-unified-reference] .site-nav-link,
+    html[data-night="on"] body[data-unified-reference] h1,
+    html[data-night="on"] body[data-unified-reference] .lead,
+    html[data-night="on"] body[data-unified-reference] .hint{
+      text-shadow:0 1px 0 rgba(11,28,23,.85),0 0 6px rgba(11,28,23,.55);
+    }
+
+    /* Page-specific hero washes step aside; the one approved panorama shows. */
+    body[data-unified-reference] .hc,
+    body[data-unified-reference] .hc-grid,
+    body[data-unified-reference] .ar-hero,
+    body[data-unified-reference] .cv-hero,
+    body[data-unified-reference] .ed-hero,
+    body[data-unified-reference] .post-hero,
+    body[data-unified-reference] .sci-hero,
+    body[data-unified-reference] .news-hero,
+    body[data-unified-reference] .uc-hero,
+    body[data-unified-reference] .sv-hero,
+    body[data-unified-reference] .cs-hero,
+    body[data-unified-reference] .ct-hero,
+    body[data-unified-reference] .msv-hero,
+    body[data-unified-reference] .stay-hero,
+    body[data-unified-reference] .rc-hero{
+      background-color:transparent!important;
+      background-image:none!important;
+      box-shadow:none!important;
+    }
+
+    /* The reference card surface, reused for every content block. */
+    body[data-unified-reference] .ar-feature,
+    body[data-unified-reference] .ar-card,
+    body[data-unified-reference] .cv-card,
+    body[data-unified-reference] .cv-module,
+    body[data-unified-reference] .id-card,
+    body[data-unified-reference] .ed-card,
+    body[data-unified-reference] .sci-card,
+    body[data-unified-reference] .callout,
+    body[data-unified-reference] .comparison-box,
+    body[data-unified-reference] .numbered-card,
+    body[data-unified-reference] .stats-grid,
+    body[data-unified-reference] .timeline-item,
+    body[data-unified-reference] article,
+    body[data-unified-reference] .panel,
+    body[data-unified-reference] .card,
+    body[data-unified-reference] table{
+      background-color:var(--color-paper)!important;
+      color:var(--color-ink)!important;
+      border:1px solid var(--color-line)!important;
+      border-radius:10px!important;
+      box-shadow:none!important;
+    }
+    body[data-unified-reference] input,
+    body[data-unified-reference] textarea,
+    body[data-unified-reference] select{
+      background-color:var(--color-paper)!important;
+      color:var(--color-ink)!important;
+      border:1px solid var(--color-line)!important;
+      border-radius:6px!important;
+    }
+
+    /* Footer and newsletter stay present, but speak with the same voice. */
+    body[data-unified-reference] footer,
+    body[data-unified-reference] .newsletter,
+    body[data-unified-reference] .nl-band{
+      background-color:var(--color-paper)!important;
+      color:var(--color-ink)!important;
+      border-top:1px solid var(--color-line)!important;
+    }
+
+    body[data-unified-reference] .staging-banner{
+      position:relative;z-index:60;
+      background:#7c2d12!important;color:#fff!important;
+      text-align:center;font-size:12px!important;padding:6px 12px!important;
+      font-family:monospace!important;letter-spacing:.05em!important;
+    }
+
+    @media (max-width:520px){
+      body[data-unified-reference] .ref-wrap{padding:20px 12px 110px}
+      body[data-unified-reference] .site-nav ul{gap:12px}
+      body[data-unified-reference] .site-mark-name{font-size:17px!important}
+      body[data-unified-reference] .site-nav-link{font-size:13px!important;word-spacing:.08em}
+      body[data-unified-reference] h1,
+      body[data-unified-reference] .hc-topic,
+      body[data-unified-reference] .ar-title,
+      body[data-unified-reference] .ed-title,
+      body[data-unified-reference] .cv-title,
+      body[data-unified-reference] .post-title,
+      body[data-unified-reference] .sci-name,
+      body[data-unified-reference] .uc-title{font-size:24px!important;line-height:1.45!important}
+    }
+  }
+  @media print{
+    body[data-unified-reference]::before,
+    body[data-unified-reference] .fardane-water-field{display:none!important}
+    body[data-unified-reference]{background:#fff!important;color:#000!important}
+  }
+</style>
+
+        
         <!-- Simple preloader -->
         <div id="preloader" class="fixed inset-0 bg-plaster z-50 flex items-center justify-center">
             <div class="animate-spin w-10 h-10 border-2 border-brass-text border-b-transparent"></div>
@@ -1640,7 +1874,7 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
 
         <!-- Main content -->
         <main class="flex-grow">
-            
+            <div class="ref-wrap">
 
 
 
@@ -2226,7 +2460,7 @@ html .atlas,html .tl,html .rd-ui,html .wl-ui{background:#EFE6D5!important;color:
     "jobTitle": "عالم زراعة"
 }
 </script>
-
+</div>
         </main>
 
         <!-- Newsletter (rendered only when site.newsletter_action is set) -->
